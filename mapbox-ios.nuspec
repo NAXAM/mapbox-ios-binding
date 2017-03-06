@@ -2,45 +2,26 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- Required elements-->
-        <id>Naxam.I18n</id>
-       <version>1.0</version>
-        <description>Xamarin Forms - Localization</description>
+        <id>Naxam.Mapbox.iOS</id>
+       <version>3.4.1.0</version>
+        <description>Xamarin binding library for Mapbox iOS SDK</description>
         <authors>Vu Duc Tuyen</authors>
         <owners>NAXAM CO.,LTD</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
 
         <!-- Optional elements -->
-        <title>Naxam - Xamarin.Forms Localization</title>
+        <title>Naxam - Mapbox iOS</title>
         <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
-        <projectUrl>https://github.com/NAXAM/xam-i18n</projectUrl>
+        <projectUrl>https://github.com/kanvuduc/xam-mapbox-ios</projectUrl>
         <copyright>(c) 2017 NAXAM</copyright>
-        <tags>Xamarin.Forms, Xamarin.Android, Xamarin.iOS, Localization</tags>
+        <tags>Xamarin.iOS, Mapbox, iOS</tags>
         <dependencies>
-            <dependency id="Xamarin.Forms" version="2.3.3.180" />
         </dependencies>
     </metadata>
     <!-- Optional 'files' node -->
     <files>
-        <!--PCL-->
-        <file src="Naxam.I18n/bin/Release/Naxam.I18n.dll" target="lib/portable-net45+wp80+win8+wpa81/Naxam.I18n.dll" />
-        <file src="Naxam.I18n/bin/Release/Naxam.I18n.xml" target="lib/portable-net45+wp80+win8+wpa81/Naxam.I18n.xml" />
-        <file src="Naxam.I18n.Forms/bin/Release/Naxam.I18n.Forms.dll" target="lib/portable-net45+wp80+win8+wpa81/Naxam.I18n.Forms.dll" />
-        <file src="Naxam.I18n.Forms/bin/Release/Naxam.I18n.Forms.xml" target="lib/portable-net45+wp80+win8+wpa81/Naxam.I18n.Forms.xml" />
-
         <!--iOS-->
-        <file src="Naxam.I18n/bin/Release/Naxam.I18n.dll" target="lib/MonoAndroid10/Naxam.I18n.dll" />
-        <file src="Naxam.I18n/bin/Release/Naxam.I18n.xml" target="lib/MonoAndroid10/Naxam.I18n.xml" />
-        <file src="Naxam.I18n.Forms/bin/Release/Naxam.I18n.Forms.dll" target="lib/MonoAndroid10/Naxam.I18n.Forms.dll" />
-        <file src="Naxam.I18n.Forms/bin/Release/Naxam.I18n.Forms.xml" target="lib/MonoAndroid10/Naxam.I18n.Forms.xml" />
-        <file src="Naxam.I18n.Platform.Droid/bin/Release/Naxam.I18n.Platform.Droid.dll" target="lib/MonoAndroid10/Naxam.I18n.Platform.Droid.dll" />
-        <file src="Naxam.I18n.Platform.Droid/bin/Release/Naxam.I18n.Platform.Droid.xml" target="lib/MonoAndroid10/Naxam.I18n.Platform.Droid.xml" />
-
-        <!--iOS-->
-        <file src="Naxam.I18n/bin/Release/Naxam.I18n.dll" target="lib/Xamarin.iOS10/Naxam.I18n.dll" />
-        <file src="Naxam.I18n/bin/Release/Naxam.I18n.xml" target="lib/Xamarin.iOS10/Naxam.I18n.xml" />
-        <file src="Naxam.I18n.Forms/bin/Release/Naxam.I18n.Forms.dll" target="lib/Xamarin.iOS10/Naxam.I18n.Forms.dll" />
-        <file src="Naxam.I18n.Forms/bin/Release/Naxam.I18n.Forms.xml" target="lib/Xamarin.iOS10/Naxam.I18n.Forms.xml" />
-        <file src="Naxam.I18n.Platform.iOS/bin/Release/Naxam.I18n.Platform.iOS.dll" target="lib/Xamarin.iOS10/Naxam.I18n.Platform.iOS.dll" />
-        <file src="Naxam.I18n.Platform.iOS/bin/Release/Naxam.I18n.Platform.iOS.xml" target="lib/Xamarin.iOS10/Naxam.I18n.Platform.iOS.xml" />
+        <file src="Naxam.Mapbox.iOS/bin/Release/Naxam.Mapbox.iOS.dll" target="lib/Xamarin.iOS10/Naxam.Mapbox.iOS.dll" />
+        <file src="Naxam.Mapbox.iOS/bin/Release/Naxam.Mapbox.iOS.xml" target="lib/Xamarin.iOS10/Naxam.Mapbox.iOS.xml" />
     </files>
 </package>

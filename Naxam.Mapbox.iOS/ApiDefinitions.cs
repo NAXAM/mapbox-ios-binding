@@ -448,6 +448,15 @@ namespace Mapbox
 	{
 		//[Field("MGLCoordinateSpanZero", "__Internal")]
 		//MGLCoordinateSpan MGLCoordinateSpanZero { get; set; }
+		///// Project version number for Mapbox.
+		//FOUNDATION_EXPORT double MapboxVersionNumber;
+		[Field("MapboxVersionNumber", "__Internal")]
+		nfloat MapboxVersionNumber { get; }
+
+		///// Project version string for Mapbox.
+		//FOUNDATION_EXPORT const unsigned char MapboxVersionString[];
+		//[Field("MapboxVersionString", "__Internal")]
+		//NSString MapboxVersionString { get; }
 	}
 	//### Example
 	//@interface MGLLineStyleLayer : MGLVectorStyleLayer

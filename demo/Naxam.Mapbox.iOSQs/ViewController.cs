@@ -35,6 +35,8 @@ namespace Naxam.Mapbox.iOSQs
 				Title = "Sample Marker",
 				Subtitle = "This is the subtitle"
 			});
+
+			//System.Diagnostics.Debug.WriteLine($"Mapbox-Version:: {Constants.MapboxVersionNumber} :: {Constants.MapboxVersionString}");
 		}
 
 		public override void DidReceiveMemoryWarning()
