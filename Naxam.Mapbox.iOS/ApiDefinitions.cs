@@ -1213,7 +1213,7 @@ namespace Mapbox
 		MGLPolygon[] InteriorPolygons { get; }
 		//+ (instancetype)polygonWithCoordinates:(CLLocationCoordinate2D *)coords count:(nuint)count;
 		[Export("polygonWithCoordinates:count:"), Static]
-		MGLPolygon PolygonWithCoordinates(CLLocationCoordinate2D coords, nuint count);
+		MGLPolygon PolygonWithCoordinates(ref CLLocationCoordinate2D coords, nuint count);
 		//+ (instancetype)polygonWithCoordinates:(CLLocationCoordinate2D *)coords count:(nuint)count interiorPolygons:(nullable NS_ARRAY_OF(MGLPolygon *) *)interiorPolygons;
 		[Export("polygonWithCoordinates:count:interiorPolygons:"), Static]
 		MGLPolygon PolygonWithCoordinates(CLLocationCoordinate2D coords, nuint count, MGLPolygon[] interiorPolygons);
