@@ -30,16 +30,16 @@ namespace Mapbox
 		//@optional
 		//@property (nonatomic, readonly, copy, nullable) NSString *title;
 		[Export("title")]
-		string Title { get; }
+		NSString Title { get; }
 		//@property (nonatomic, readonly, copy, nullable) NSString *subtitle;
 		[Export("subtitle")]
-		string Subtitle { get; }
-		////#if !TARGET_OS_IPHONE
-		////@property (nonatomic, readonly, copy, nullable) NSString *toolTip;
-		//[Export("toolTip")]
-		//NSString ToolTip { get; }
-		////#endif
-		////@end
+		NSString Subtitle { get; }
+		//#if !TARGET_OS_IPHONE
+		//@property (nonatomic, readonly, copy, nullable) NSString *toolTip;
+		[Export("toolTip")]
+		NSString ToolTip { get; }
+		//#endif
+		//@end
 	}
 	//@interface MGLAnnotationImage : NSObject <NSSecureCoding>
 	[BaseType(typeof(NSObject))]
@@ -56,7 +56,7 @@ namespace Mapbox
 		NSString ReuseIdentifier { get; }
 		//@property (nonatomic, getter=isEnabled) BOOL enabled;
 		[Export("enabled")]
-		bool Enabled { [Export("isEnabled")]get; set; }
+		bool Enabled { [Bind("isEnabled")]get; set; }
 		//@end
 	}
 	//@interface MGLAnnotationView : UIView <NSSecureCoding>
@@ -83,16 +83,16 @@ namespace Mapbox
 		bool ScalesWithViewingDistance { get; set; }
 		//@property (nonatomic, assign, getter=isSelected) BOOL selected;
 		[Export("selected")]
-		bool Selected { [Export("isSelected")]get; set; }
+		bool Selected { [Bind("isSelected")]get; set; }
 		//- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 		[Export("setSelected:animated:"),]
 		void SetSelected(bool selected, bool animated);
 		//@property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 		[Export("enabled")]
-		bool Enabled { [Export("isEnabled")]get; set; }
+		bool Enabled { [Bind("isEnabled")]get; set; }
 		//@property (nonatomic, assign, getter=isDraggable) BOOL draggable;
 		[Export("draggable")]
-		bool Draggable { [Export("isDraggable")]get; set; }
+		bool Draggable { [Bind("isDraggable")]get; set; }
 		//@property (nonatomic, readonly) MGLAnnotationViewDragState dragState;
 		[Export("dragState")]
 		MGLAnnotationViewDragState DragState { get; }
@@ -116,7 +116,7 @@ namespace Mapbox
 		NSUrl URL { get; set; }
 		//@property (nonatomic, getter=isFeedbackLink) BOOL feedbackLink;
 		[Export("feedbackLink")]
-		bool FeedbackLink { [Export("isFeedbackLink")]get; set; }
+		bool FeedbackLink { [Bind("isFeedbackLink")]get; set; }
 		//- (nullable NSUrl *)feedbackURLAtCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate zoomLevel:(double)zoomLevel;
 		[Export("feedbackURLAtCenterCoordinate:zoomLevel:"),]
 		NSUrl FeedbackURLAtCenterCoordinate(CLLocationCoordinate2D centerCoordinate, double zoomLevel);
@@ -132,18 +132,18 @@ namespace Mapbox
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *backgroundColor;
 		[Export("backgroundColor")]
-		MGLStyleValue<UIColor> BackgroundColor { get; set; }
+		MGLStyleValue BackgroundColor { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *backgroundColor;
 		//[Export("backgroundColor")]
-		//MGLStyleValue<NSColor> BackgroundColor { get; set; }
+		//MGLStyleValue BackgroundColor { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *backgroundOpacity;
 		[Export("backgroundOpacity")]
-		MGLStyleValue<NSNumber> BackgroundOpacity { get; set; }
+		MGLStyleValue BackgroundOpacity { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSString *> *backgroundPattern;
 		[Export("backgroundPattern")]
-		MGLStyleValue<NSString> BackgroundPattern { get; set; }
+		MGLStyleValue BackgroundPattern { get; set; }
 		//@end
 	}
 
@@ -171,7 +171,7 @@ namespace Mapbox
 		//@optional
 		//@property (nonatomic, readonly, assign, getter=isAnchoredToAnnotation) BOOL anchoredToAnnotation;
 		[Export("anchoredToAnnotation")]
-		bool AnchoredToAnnotation { [Export("isAnchoredToAnnotation")]get; }
+		bool AnchoredToAnnotation { [Bind("isAnchoredToAnnotation")]get; }
 		//@property (nonatomic, readonly, assign) BOOL dismissesAutomatically;
 		[Export("dismissesAutomatically")]
 		bool DismissesAutomatically { get; }
@@ -201,39 +201,43 @@ namespace Mapbox
 	[BaseType(typeof(MGLVectorStyleLayer))]
 	public partial interface MGLCircleStyleLayer
 	{
+		//- (instancetype)initWithIdentifier:(NSString *)identifier source:(MGLSource *)source NS_DESIGNATED_INITIALIZER;
+		[Export("initWithIdentifier:source:"),]
+		IntPtr Constructor(NSString identifier, MGLSource source);
+
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *circleBlur;
 		[Export("circleBlur")]
-		MGLStyleValue<NSNumber> CircleBlur { get; set; }
+		MGLStyleValue CircleBlur { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *circleColor;
 		[Export("circleColor")]
-		MGLStyleValue<UIColor> CircleColor { get; set; }
+		MGLStyleValue CircleColor { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *circleColor;
 		//[Export("circleColor")]
-		//MGLStyleValue<NSColor> CircleColor { get; set; }
+		//MGLStyleValue CircleColor { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *circleOpacity;
 		[Export("circleOpacity")]
-		MGLStyleValue<NSNumber> CircleOpacity { get; set; }
+		MGLStyleValue CircleOpacity { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *circleRadius;
 		[Export("circleRadius")]
-		MGLStyleValue<NSNumber> CircleRadius { get; set; }
+		MGLStyleValue CircleRadius { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *circleScaleAlignment;
 		[Export("circleScaleAlignment")]
-		MGLStyleValue<NSValue> CircleScaleAlignment { get; set; }
+		MGLStyleValue CircleScaleAlignment { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *circleTranslation;
 		[Export("circleTranslation")]
-		MGLStyleValue<NSValue> CircleTranslation { get; set; }
+		MGLStyleValue CircleTranslation { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *circleTranslation;
 		//[Export("circleTranslation")]
-		//MGLStyleValue<NSValue> CircleTranslation { get; set; }
+		//MGLStyleValue CircleTranslation { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *circleTranslationAnchor;
 		[Export("circleTranslationAnchor")]
-		MGLStyleValue<NSValue> CircleTranslationAnchor { get; set; }
+		MGLStyleValue CircleTranslationAnchor { get; set; }
 		//@end
 	}
 	//@interface NSValue (MGLCircleStyleLayerAdditions)
@@ -379,43 +383,43 @@ namespace Mapbox
 	{
 		//@property (nonatomic, null_resettable, getter=isFillAntialiased) MGLStyleValue<NSNumber *> *fillAntialiased;
 		[Export("fillAntialiased")]
-		MGLStyleValue<NSNumber> FillAntialiased { [Export("isFillAntialiased")]get; set; }
+		MGLStyleValue FillAntialiased { [Bind("isFillAntialiased")]get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *fillColor;
 		[Export("fillColor")]
-		MGLStyleValue<UIColor> FillColor { get; set; }
+		MGLStyleValue FillColor { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *fillColor;
 		//[Export("fillColor")]
-		//MGLStyleValue<NSColor> FillColor { get; set; }
+		//MGLStyleValue FillColor { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *fillOpacity;
 		[Export("fillOpacity")]
-		MGLStyleValue<NSNumber> FillOpacity { get; set; }
+		MGLStyleValue FillOpacity { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *fillOutlineColor;
 		[Export("fillOutlineColor")]
-		MGLStyleValue<UIColor> FillOutlineColor { get; set; }
+		MGLStyleValue FillOutlineColor { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *fillOutlineColor;
 		//[Export("fillOutlineColor")]
-		//MGLStyleValue<NSColor> FillOutlineColor { get; set; }
+		//MGLStyleValue FillOutlineColor { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSString *> *fillPattern;
 		[Export("fillPattern")]
-		MGLStyleValue<NSString> FillPattern { get; set; }
+		MGLStyleValue FillPattern { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillTranslation;
 		[Export("fillTranslation")]
-		MGLStyleValue<NSValue> FillTranslation { get; set; }
+		MGLStyleValue FillTranslation { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillTranslation;
 		//[Export("fillTranslation")]
-		//MGLStyleValue<NSValue> FillTranslation { get; set; }
+		//MGLStyleValue FillTranslation { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillTranslationAnchor;
 		[Export("fillTranslationAnchor")]
-		MGLStyleValue<NSValue> FillTranslationAnchor { get; set; }
+		MGLStyleValue FillTranslationAnchor { get; set; }
 		//@end
 	}
 	//@interface NSValue (MGLFillStyleLayerAdditions)
@@ -448,15 +452,6 @@ namespace Mapbox
 	{
 		//[Field("MGLCoordinateSpanZero", "__Internal")]
 		//MGLCoordinateSpan MGLCoordinateSpanZero { get; set; }
-		///// Project version number for Mapbox.
-		//FOUNDATION_EXPORT double MapboxVersionNumber;
-		[Field("MapboxVersionNumber", "__Internal")]
-		nfloat MapboxVersionNumber { get; }
-
-		///// Project version string for Mapbox.
-		//FOUNDATION_EXPORT const unsigned char MapboxVersionString[];
-		//[Field("MapboxVersionString", "__Internal")]
-		//NSString MapboxVersionString { get; }
 	}
 	//### Example
 	//@interface MGLLineStyleLayer : MGLVectorStyleLayer
@@ -465,58 +460,58 @@ namespace Mapbox
 	{
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *lineCap;
 		[Export("lineCap")]
-		MGLStyleValue<NSValue> LineCap { get; set; }
+		MGLStyleValue LineCap { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *lineJoin;
 		[Export("lineJoin")]
-		MGLStyleValue<NSValue> LineJoin { get; set; }
+		MGLStyleValue LineJoin { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *lineMiterLimit;
 		[Export("lineMiterLimit")]
-		MGLStyleValue<NSNumber> LineMiterLimit { get; set; }
+		MGLStyleValue LineMiterLimit { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *lineRoundLimit;
 		[Export("lineRoundLimit")]
-		MGLStyleValue<NSNumber> LineRoundLimit { get; set; }
+		MGLStyleValue LineRoundLimit { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *lineBlur;
 		[Export("lineBlur")]
-		MGLStyleValue<NSNumber> LineBlur { get; set; }
+		MGLStyleValue LineBlur { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *lineColor;
 		[Export("lineColor")]
-		MGLStyleValue<UIColor> LineColor { get; set; }
+		MGLStyleValue LineColor { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *lineColor;
 		//[Export("lineColor")]
-		//MGLStyleValue<NSColor> LineColor { get; set; }
+		//MGLStyleValue LineColor { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSArray<NSNumber *> *> *lineDashPattern;
 		[Export("lineDashPattern")]
-		MGLStyleValue<NSArray<NSNumber>> LineDashPattern { get; set; }
+		MGLStyleValue LineDashPattern { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *lineGapWidth;
 		[Export("lineGapWidth")]
-		MGLStyleValue<NSNumber> LineGapWidth { get; set; }
+		MGLStyleValue LineGapWidth { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *lineOffset;
 		[Export("lineOffset")]
-		MGLStyleValue<NSNumber> LineOffset { get; set; }
+		MGLStyleValue LineOffset { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *lineOpacity;
 		[Export("lineOpacity")]
-		MGLStyleValue<NSNumber> LineOpacity { get; set; }
+		MGLStyleValue LineOpacity { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSString *> *linePattern;
 		[Export("linePattern")]
-		MGLStyleValue<NSString> LinePattern { get; set; }
+		MGLStyleValue LinePattern { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *lineTranslation;
 		[Export("lineTranslation")]
-		MGLStyleValue<NSValue> LineTranslation { get; set; }
+		MGLStyleValue LineTranslation { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *lineTranslation;
 		//[Export("lineTranslation")]
-		//MGLStyleValue<NSValue> LineTranslation { get; set; }
+		//MGLStyleValue LineTranslation { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *lineTranslationAnchor;
 		[Export("lineTranslationAnchor")]
-		MGLStyleValue<NSValue> LineTranslationAnchor { get; set; }
+		MGLStyleValue LineTranslationAnchor { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *lineWidth;
 		[Export("lineWidth")]
-		MGLStyleValue<NSNumber> LineWidth { get; set; }
+		MGLStyleValue LineWidth { get; set; }
 		//@end
 	}
 	//@interface NSValue (MGLLineStyleLayerAdditions)
@@ -563,8 +558,15 @@ namespace Mapbox
 		[Export("camera"), Static]
 		MGLMapCamera Camera();
 		//+ (instancetype)cameraLookingAtCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate
-		[Export("cameraLookingAtCenterCoordinate:"), Static]
-		MGLMapCamera CameraLookingAtCenterCoordinate(CLLocationCoordinate2D centerCoordinate);
+		//[Export("cameraLookingAtCenterCoordinate:"), Static]
+		//MGLMapCamera CameraLookingAtCenterCoordinate(CLLocationCoordinate2D centerCoordinate);
+		//+ (instancetype)cameraLookingAtCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate
+		//						   fromDistance:(CLLocationDistance)distance
+		//								  pitch:(CGFloat)pitch
+		//								heading:(CLLocationDirection)heading;
+		[Export("cameraLookingAtCenterCoordinate:fromDistance:pitch:heading:"), Static]
+		MGLMapCamera CameraLookingAtCenterCoordinate(CLLocationCoordinate2D centerCoordinate, double fromDistance,
+													 nfloat pitch, double heading);
 		////+ (instancetype)cameraLookingAtCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate
 		//[Export("cameraLookingAtCenterCoordinate:"), Static]
 		//MGLMapCamera CameraLookingAtCenterCoordinate(CLLocationCoordinate2D centerCoordinate);
@@ -663,7 +665,7 @@ namespace Mapbox
 		bool ShowsUserLocation { get; set; }
 		//@property (nonatomic, assign, readonly, getter=isUserLocationVisible) BOOL userLocationVisible;
 		[Export("userLocationVisible")]
-		bool UserLocationVisible { [Export("isUserLocationVisible")]get; }
+		bool UserLocationVisible { [Bind("isUserLocationVisible")]get; }
 		//@property (nonatomic, readonly, nullable) MGLUserLocation *userLocation;
 		[Export("userLocation")]
 		MGLUserLocation UserLocation { get; }
@@ -690,16 +692,16 @@ namespace Mapbox
 		void SetTargetCoordinate(CLLocationCoordinate2D targetCoordinate, bool animated);
 		//@property(nonatomic, getter=isZoomEnabled) BOOL zoomEnabled;
 		[Export("zoomEnabled")]
-		bool ZoomEnabled { [Export("isZoomEnabled")]get; set; }
+		bool ZoomEnabled { [Bind("isZoomEnabled")]get; set; }
 		//@property(nonatomic, getter=isScrollEnabled) BOOL scrollEnabled;
 		[Export("scrollEnabled")]
-		bool ScrollEnabled { [Export("isScrollEnabled")]get; set; }
+		bool ScrollEnabled { [Bind("isScrollEnabled")]get; set; }
 		//@property(nonatomic, getter=isRotateEnabled) BOOL rotateEnabled;
 		[Export("rotateEnabled")]
-		bool RotateEnabled { [Export("isRotateEnabled")]get; set; }
+		bool RotateEnabled { [Bind("isRotateEnabled")]get; set; }
 		//@property(nonatomic, getter=isPitchEnabled) BOOL pitchEnabled;
 		[Export("pitchEnabled")]
-		bool PitchEnabled { [Export("isPitchEnabled")]get; set; }
+		bool PitchEnabled { [Bind("isPitchEnabled")]get; set; }
 		//@property(nonatomic) nfloat decelerationRate;
 		[Export("decelerationRate")]
 		nfloat DecelerationRate { get; set; }
@@ -1003,22 +1005,22 @@ namespace Mapbox
 		nuint PointCount { get; }
 		//- (void)getCoordinates:(CLLocationCoordinate2D *)coords range:(NSRange)range;
 		[Export("getCoordinates:range:"),]
-		void GetCoordinates(CLLocationCoordinate2D coords, NSRange range);
+		void GetCoordinates(ref CLLocationCoordinate2D coords, NSRange range);
 		//- (void)setCoordinates:(CLLocationCoordinate2D *)coords count:(nuint)count;
 		[Export("setCoordinates:count:"),]
-		void SetCoordinates(CLLocationCoordinate2D coords, nuint count);
+		void SetCoordinates(ref CLLocationCoordinate2D coords, nuint count);
 		//- (void)insertCoordinates:(CLLocationCoordinate2D *)coords count:(nuint)count atIndex:(nuint)index;
 		[Export("insertCoordinates:count:atIndex:"),]
-		void InsertCoordinates(CLLocationCoordinate2D coords, nuint count, nuint index);
+		void InsertCoordinates(ref CLLocationCoordinate2D coords, nuint count, nuint index);
 		//- (void)appendCoordinates:(CLLocationCoordinate2D *)coords count:(nuint)count;
 		[Export("appendCoordinates:count:"),]
 		void AppendCoordinates(ref CLLocationCoordinate2D coords, nuint count);
 		//- (void)replaceCoordinatesInRange:(NSRange)range withCoordinates:(CLLocationCoordinate2D *)coords;
 		[Export("replaceCoordinatesInRange:withCoordinates:"),]
-		void ReplaceCoordinatesInRange(NSRange range, CLLocationCoordinate2D coords);
+		void ReplaceCoordinatesInRange(NSRange range, ref CLLocationCoordinate2D coords);
 		//- (void)replaceCoordinatesInRange:(NSRange)range withCoordinates:(CLLocationCoordinate2D *)coords count:(nuint)count;
 		[Export("replaceCoordinatesInRange:withCoordinates:count:"),]
-		void ReplaceCoordinatesInRange(NSRange range, CLLocationCoordinate2D coords, nuint count);
+		void ReplaceCoordinatesInRange(NSRange range, ref CLLocationCoordinate2D coords, nuint count);
 		//- (void)removeCoordinatesInRange:(NSRange)range;
 		[Export("removeCoordinatesInRange:"),]
 		void RemoveCoordinatesInRange(NSRange range);
@@ -1201,7 +1203,7 @@ namespace Mapbox
 		nuint PointCount { get; }
 		//- (void)getCoordinates:(CLLocationCoordinate2D *)coords range:(NSRange)range;
 		[Export("getCoordinates:range:"),]
-		void GetCoordinates(CLLocationCoordinate2D coords, NSRange range);
+		void GetCoordinates(ref CLLocationCoordinate2D coords, NSRange range);
 		//@end
 	}
 	//@interface MGLPolygon : MGLMultiPoint <MGLOverlay>
@@ -1216,7 +1218,7 @@ namespace Mapbox
 		MGLPolygon PolygonWithCoordinates(ref CLLocationCoordinate2D coords, nuint count);
 		//+ (instancetype)polygonWithCoordinates:(CLLocationCoordinate2D *)coords count:(nuint)count interiorPolygons:(nullable NS_ARRAY_OF(MGLPolygon *) *)interiorPolygons;
 		[Export("polygonWithCoordinates:count:interiorPolygons:"), Static]
-		MGLPolygon PolygonWithCoordinates(CLLocationCoordinate2D coords, nuint count, MGLPolygon[] interiorPolygons);
+		MGLPolygon PolygonWithCoordinates(ref CLLocationCoordinate2D coords, nuint count, MGLPolygon[] interiorPolygons);
 		//@end
 	}
 	//@interface MGLMultiPolygon : MGLShape <MGLOverlay>
@@ -1282,25 +1284,25 @@ namespace Mapbox
 	{
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *maximumRasterBrightness;
 		[Export("maximumRasterBrightness")]
-		MGLStyleValue<NSNumber> MaximumRasterBrightness { get; set; }
+		MGLStyleValue MaximumRasterBrightness { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *minimumRasterBrightness;
 		[Export("minimumRasterBrightness")]
-		MGLStyleValue<NSNumber> MinimumRasterBrightness { get; set; }
+		MGLStyleValue MinimumRasterBrightness { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *rasterContrast;
 		[Export("rasterContrast")]
-		MGLStyleValue<NSNumber> RasterContrast { get; set; }
+		MGLStyleValue RasterContrast { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *rasterFadeDuration;
 		[Export("rasterFadeDuration")]
-		MGLStyleValue<NSNumber> RasterFadeDuration { get; set; }
+		MGLStyleValue RasterFadeDuration { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *rasterHueRotation;
 		[Export("rasterHueRotation")]
-		MGLStyleValue<NSNumber> RasterHueRotation { get; set; }
+		MGLStyleValue RasterHueRotation { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *rasterOpacity;
 		[Export("rasterOpacity")]
-		MGLStyleValue<NSNumber> RasterOpacity { get; set; }
+		MGLStyleValue RasterOpacity { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *rasterSaturation;
 		[Export("rasterSaturation")]
-		MGLStyleValue<NSNumber> RasterSaturation { get; set; }
+		MGLStyleValue RasterSaturation { get; set; }
 		//@end
 	}
 	//@interface MGLShape : NSObject <MGLAnnotation, NSSecureCoding>
@@ -1313,10 +1315,10 @@ namespace Mapbox
 		MGLShape ShapeWithData(NSData data, NSStringEncoding encoding, NSError outError);
 		//@property (nonatomic, copy, nullable) NSString *title;
 		[Export("title")]
-		string Title { get; set; }
+		NSString Title { get; set; }
 		//@property (nonatomic, copy, nullable) NSString *subtitle;
 		[Export("subtitle")]
-		string Subtitle { get; set; }
+		NSString Subtitle { get; set; }
 		//#if !TARGET_OS_IPHONE
 		//@property (nonatomic, copy, nullable) NSString *toolTip;
 		//[Export("toolTip")]
@@ -1388,16 +1390,16 @@ namespace Mapbox
 	{
 		//- (instancetype)initWithIdentifier:(NSString *)identifier URL:(NSUrl *)url options:(nullable NS_DICTIONARY_OF(NSString, id) *)options NS_DESIGNATED_INITIALIZER;
 		[Export("initWithIdentifier:URL:options:"),]
-		IntPtr Constructor(NSString identifier, NSUrl url, NSDictionary<NSString, NSObject> options);
+		IntPtr Constructor(NSString identifier, NSUrl url, [NullAllowed] NSDictionary<NSString, NSObject> options);
 		//- (instancetype)initWithIdentifier:(NSString *)identifier shape:(nullable MGLShape *)shape options:(nullable NS_DICTIONARY_OF(NSString, id) *)options NS_DESIGNATED_INITIALIZER;
 		[Export("initWithIdentifier:shape:options:"),]
-		IntPtr Constructor(NSString identifier, MGLShape shape, NSDictionary<NSString, NSObject> options);
+		IntPtr Constructor(NSString identifier, MGLShape shape, [NullAllowed] NSDictionary<NSString, NSObject> options);
 		//- (instancetype)initWithIdentifier:(NSString *)identifier features:(NS_ARRAY_OF(MGLShape<MGLFeature> *) *)features options:(nullable NS_DICTIONARY_OF(NSString, id) *)options;
 		[Export("initWithIdentifier:features:options:"),]
-		IntPtr Constructor(NSString identifier, IMGLFeature[] features, NSDictionary<NSString, NSObject> options);
+		IntPtr Constructor(NSString identifier, IMGLFeature[] features, [NullAllowed] NSDictionary<NSString, NSObject> options);
 		//- (instancetype)initWithIdentifier:(NSString *)identifier shapes:(NS_ARRAY_OF(MGLShape *) *)shapes options:(nullable NS_DICTIONARY_OF(NSString, id) *)options;
 		[Export("initWithIdentifier:shapes:options:"),]
-		IntPtr Constructor(NSString identifier, MGLShape[] shapes, NSDictionary<NSString, NSObject> options);
+		IntPtr Constructor(NSString identifier, MGLShape[] shapes, [NullAllowed] NSDictionary<NSString, NSObject> options);
 		//@property (nonatomic, copy, nullable) MGLShape *shape;
 		[Export("shape")]
 		MGLShape Shape { get; set; }
@@ -1500,7 +1502,7 @@ namespace Mapbox
 		NSString Identifier { get; }
 		//@property (nonatomic, assign, getter=isVisible) BOOL visible;
 		[Export("visible")]
-		bool Visible { [Export("isVisible")]get; set; }
+		bool Visible { [Bind("isVisible")]get; set; }
 		//@property (nonatomic, assign) float maximumZoomLevel;
 		[Export("maximumZoomLevel")]
 		float MaximumZoomLevel { get; set; }
@@ -1512,54 +1514,54 @@ namespace Mapbox
 
 	//@interface MGLStyleValue<T> : NSObject
 	[BaseType(typeof(NSObject))]
-	public partial interface MGLStyleValue<T> : INativeObject
+	public partial interface MGLStyleValue : INativeObject
 	{
 		////+ (instancetype)valueWithRawValue:(T)rawValue;
-		//[Export("valueWithRawValue:"), Static]
-		//MGLStyleValue<Ti> ValueWithRawValue<Ti>(Ti rawValue);
+		[Export("valueWithRawValue:"), Static]
+		MGLStyleValue ValueWithRawValue(NSObject rawValue);
 
 		////+ (instancetype)valueWithStops:(NSDictionary<NSNumber *, MGLStyleValue<T> *> *)stops;
-		//[Export("valueWithStops:"), Static]
-		//MGLStyleValue<Ti> ValueWithStops<Ti>(NSDictionary<NSNumber, MGLStyleValue<Ti>> stops);
+		[Export("valueWithStops:"), Static]
+		MGLStyleValue ValueWithStops(NSDictionary<NSNumber, MGLStyleValue> stops);
 		////+ (instancetype)valueWithInterpolationBase:(nfloat)interpolationBase stops:(NSDictionary<NSNumber *, MGLStyleValue<T> *> *)stops;
-		//[Export("valueWithInterpolationBase:stops:"), Static]
-		//MGLStyleValue<Ti> ValueWithInterpolationBase<Ti>(nfloat interpolationBase, NSDictionary<NSNumber, MGLStyleValue<Ti>> stops);
+		[Export("valueWithInterpolationBase:stops:"), Static]
+		MGLStyleValue ValueWithInterpolationBase(nfloat interpolationBase, NSDictionary<NSNumber, MGLStyleValue> stops);
 		//@end
 	}
 	//@interface MGLStyleConstantValue<T> : MGLStyleValue<T>
-	[BaseType(typeof(MGLStyleValue<>))]
-	public partial interface MGLStyleConstantValue<T>
+	[BaseType(typeof(MGLStyleValue))]
+	public partial interface MGLStyleConstantValue
 	{
 		//+ (instancetype)valueWithRawValue:(T)rawValue;
-		//[Export("valueWithRawValue:"), Static]
-		//MGLStyleConstantValue<Ti> ValueWithRawValue<Ti>(Ti rawValue);
+		[Export("valueWithRawValue:"), Static]
+		MGLStyleConstantValue ValueWithRawValue(NSObject rawValue);
 		//- (instancetype)initWithRawValue:(T)rawValue NS_DESIGNATED_INITIALIZER;
 		[Export("initWithRawValue:"),]
-		IntPtr Constructor(T rawValue);
+		IntPtr Constructor(NSObject rawValue);
 		//@property (nonatomic) T rawValue;
 		[Export("rawValue")]
-		T RawValue { get; set; }
+		NSObject RawValue { get; set; }
 		//@end
 	}
 	//@interface MGLStyleFunction<T> : MGLStyleValue<T>
-	[BaseType(typeof(MGLStyleValue<>))]
-	public partial interface MGLStyleFunction<T>
+	[BaseType(typeof(MGLStyleValue))]
+	public partial interface MGLStyleFunction
 	{
 		////+ (instancetype)functionWithStops:(NSDictionary<NSNumber *, MGLStyleValue<T> *> *)stops;
-		//[Export("functionWithStops:"), Static]
-		//MGLStyleFunction<Ti> FunctionWithStops<Ti>(NSDictionary<NSNumber, MGLStyleValue<Ti>> stops);
+		[Export("functionWithStops:"), Static]
+		MGLStyleFunction FunctionWithStops(NSDictionary<NSNumber, MGLStyleValue> stops);
 		////+ (instancetype)functionWithInterpolationBase:(nfloat)interpolationBase stops:(NSDictionary<NSNumber *, MGLStyleValue<T> *> *)stops;
-		//[Export("functionWithInterpolationBase:stops:"), Static]
-		//MGLStyleFunction<Ti> FunctionWithInterpolationBase<Ti>(nfloat interpolationBase, NSDictionary<NSNumber, MGLStyleValue<Ti>> stops);
+		[Export("functionWithInterpolationBase:stops:"), Static]
+		MGLStyleFunction FunctionWithInterpolationBase(nfloat interpolationBase, NSDictionary<NSNumber, MGLStyleValue> stops);
 		//- (instancetype)initWithInterpolationBase:(nfloat)interpolationBase stops:(NSDictionary<NSNumber *, MGLStyleValue<T> *> *)stops NS_DESIGNATED_INITIALIZER;
 		[Export("initWithInterpolationBase:stops:"),]
-		IntPtr Constructor(nfloat interpolationBase, NSDictionary<NSNumber, MGLStyleValue<T>> stops);
+		IntPtr Constructor(nfloat interpolationBase, NSDictionary<NSNumber, MGLStyleValue> stops);
 		//@property (nonatomic) nfloat interpolationBase;
 		[Export("interpolationBase")]
 		nfloat InterpolationBase { get; set; }
 		//@property (nonatomic, copy) NSDictionary<NSNumber *, MGLStyleValue<T> *> *stops;
 		[Export("stops")]
-		NSObject Stops { get; set; }
+		NSDictionary<NSNumber, MGLStyleValue> Stops { get; set; }
 		//@end
 	}
 	//### Example
@@ -1569,202 +1571,202 @@ namespace Mapbox
 	{
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *iconAllowsOverlap;
 		[Export("iconAllowsOverlap")]
-		MGLStyleValue<NSNumber> IconAllowsOverlap { get; set; }
+		MGLStyleValue IconAllowsOverlap { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *iconIgnoresPlacement;
 		[Export("iconIgnoresPlacement")]
-		MGLStyleValue<NSNumber> IconIgnoresPlacement { get; set; }
+		MGLStyleValue IconIgnoresPlacement { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSString *> *iconImageName;
 		[Export("iconImageName")]
-		MGLStyleValue<NSString> IconImageName { get; set; }
+		MGLStyleValue IconImageName { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconOffset;
 		[Export("iconOffset")]
-		MGLStyleValue<NSValue> IconOffset { get; set; }
+		MGLStyleValue IconOffset { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconOffset;
 		//[Export("iconOffset")]
-		//MGLStyleValue<NSValue> IconOffset { get; set; }
+		//MGLStyleValue IconOffset { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable, getter=isIconOptional) MGLStyleValue<NSNumber *> *iconOptional;
 		[Export("iconOptional")]
-		MGLStyleValue<NSNumber> IconOptional { [Export("isIconOptional")]get; set; }
+		MGLStyleValue IconOptional { [Bind("isIconOptional")]get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *iconPadding;
 		[Export("iconPadding")]
-		MGLStyleValue<NSNumber> IconPadding { get; set; }
+		MGLStyleValue IconPadding { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *iconRotation;
 		[Export("iconRotation")]
-		MGLStyleValue<NSNumber> IconRotation { get; set; }
+		MGLStyleValue IconRotation { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconRotationAlignment;
 		[Export("iconRotationAlignment")]
-		MGLStyleValue<NSValue> IconRotationAlignment { get; set; }
+		MGLStyleValue IconRotationAlignment { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *iconScale;
 		[Export("iconScale")]
-		MGLStyleValue<NSNumber> IconScale { get; set; }
+		MGLStyleValue IconScale { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconTextFit;
 		[Export("iconTextFit")]
-		MGLStyleValue<NSValue> IconTextFit { get; set; }
+		MGLStyleValue IconTextFit { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconTextFitPadding;
 		[Export("iconTextFitPadding")]
-		MGLStyleValue<NSValue> IconTextFitPadding { get; set; }
+		MGLStyleValue IconTextFitPadding { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconTextFitPadding;
 		//[Export("iconTextFitPadding")]
-		//MGLStyleValue<NSValue> IconTextFitPadding { get; set; }
+		//MGLStyleValue IconTextFitPadding { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *keepsIconUpright;
 		[Export("keepsIconUpright")]
-		MGLStyleValue<NSNumber> KeepsIconUpright { get; set; }
+		MGLStyleValue KeepsIconUpright { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *keepsTextUpright;
 		[Export("keepsTextUpright")]
-		MGLStyleValue<NSNumber> KeepsTextUpright { get; set; }
+		MGLStyleValue KeepsTextUpright { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *maximumTextAngle;
 		[Export("maximumTextAngle")]
-		MGLStyleValue<NSNumber> MaximumTextAngle { get; set; }
+		MGLStyleValue MaximumTextAngle { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *maximumTextWidth;
 		[Export("maximumTextWidth")]
-		MGLStyleValue<NSNumber> MaximumTextWidth { get; set; }
+		MGLStyleValue MaximumTextWidth { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *symbolAvoidsEdges;
 		[Export("symbolAvoidsEdges")]
-		MGLStyleValue<NSNumber> SymbolAvoidsEdges { get; set; }
+		MGLStyleValue SymbolAvoidsEdges { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *symbolPlacement;
 		[Export("symbolPlacement")]
-		MGLStyleValue<NSValue> SymbolPlacement { get; set; }
+		MGLStyleValue SymbolPlacement { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *symbolSpacing;
 		[Export("symbolSpacing")]
-		MGLStyleValue<NSNumber> SymbolSpacing { get; set; }
+		MGLStyleValue SymbolSpacing { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSString *> *text;
 		[Export("text")]
-		MGLStyleValue<NSString> Text { get; set; }
+		MGLStyleValue Text { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *textAllowsOverlap;
 		[Export("textAllowsOverlap")]
-		MGLStyleValue<NSNumber> TextAllowsOverlap { get; set; }
+		MGLStyleValue TextAllowsOverlap { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textAnchor;
 		[Export("textAnchor")]
-		MGLStyleValue<NSValue> TextAnchor { get; set; }
+		MGLStyleValue TextAnchor { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSArray<NSString *> *> *textFontNames;
 		[Export("textFontNames")]
-		MGLStyleValue<NSArray<NSString>> TextFontNames { get; set; }
+		MGLStyleValue TextFontNames { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *textFontSize;
 		[Export("textFontSize")]
-		MGLStyleValue<NSNumber> TextFontSize { get; set; }
+		MGLStyleValue TextFontSize { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *textIgnoresPlacement;
 		[Export("textIgnoresPlacement")]
-		MGLStyleValue<NSNumber> TextIgnoresPlacement { get; set; }
+		MGLStyleValue TextIgnoresPlacement { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textJustification;
 		[Export("textJustification")]
-		MGLStyleValue<NSValue> TextJustification { get; set; }
+		MGLStyleValue TextJustification { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *textLetterSpacing;
 		[Export("textLetterSpacing")]
-		MGLStyleValue<NSNumber> TextLetterSpacing { get; set; }
+		MGLStyleValue TextLetterSpacing { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *textLineHeight;
 		[Export("textLineHeight")]
-		MGLStyleValue<NSNumber> TextLineHeight { get; set; }
+		MGLStyleValue TextLineHeight { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textOffset;
 		[Export("textOffset")]
-		MGLStyleValue<NSValue> TextOffset { get; set; }
+		MGLStyleValue TextOffset { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textOffset;
 		//[Export("textOffset")]
-		//MGLStyleValue<NSValue> TextOffset { get; set; }
+		//MGLStyleValue TextOffset { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable, getter=isTextOptional) MGLStyleValue<NSNumber *> *textOptional;
 		[Export("textOptional")]
-		MGLStyleValue<NSNumber> TextOptional { [Export("isTextOptional")]get; set; }
+		MGLStyleValue TextOptional { [Bind("isTextOptional")]get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *textPadding;
 		[Export("textPadding")]
-		MGLStyleValue<NSNumber> TextPadding { get; set; }
+		MGLStyleValue TextPadding { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textPitchAlignment;
 		[Export("textPitchAlignment")]
-		MGLStyleValue<NSValue> TextPitchAlignment { get; set; }
+		MGLStyleValue TextPitchAlignment { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *textRotation;
 		[Export("textRotation")]
-		MGLStyleValue<NSNumber> TextRotation { get; set; }
+		MGLStyleValue TextRotation { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textRotationAlignment;
 		[Export("textRotationAlignment")]
-		MGLStyleValue<NSValue> TextRotationAlignment { get; set; }
+		MGLStyleValue TextRotationAlignment { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textTransform;
 		[Export("textTransform")]
-		MGLStyleValue<NSValue> TextTransform { get; set; }
+		MGLStyleValue TextTransform { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *iconColor;
 		[Export("iconColor")]
-		MGLStyleValue<UIColor> IconColor { get; set; }
+		MGLStyleValue IconColor { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *iconColor;
 		//[Export("iconColor")]
-		//MGLStyleValue<NSColor> IconColor { get; set; }
+		//MGLStyleValue IconColor { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *iconHaloBlur;
 		[Export("iconHaloBlur")]
-		MGLStyleValue<NSNumber> IconHaloBlur { get; set; }
+		MGLStyleValue IconHaloBlur { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *iconHaloColor;
 		[Export("iconHaloColor")]
-		MGLStyleValue<UIColor> IconHaloColor { get; set; }
+		MGLStyleValue IconHaloColor { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *iconHaloColor;
 		//[Export("iconHaloColor")]
-		//MGLStyleValue<NSColor> IconHaloColor { get; set; }
+		//MGLStyleValue IconHaloColor { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *iconHaloWidth;
 		[Export("iconHaloWidth")]
-		MGLStyleValue<NSNumber> IconHaloWidth { get; set; }
+		MGLStyleValue IconHaloWidth { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *iconOpacity;
 		[Export("iconOpacity")]
-		MGLStyleValue<NSNumber> IconOpacity { get; set; }
+		MGLStyleValue IconOpacity { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconTranslation;
 		[Export("iconTranslation")]
-		MGLStyleValue<NSValue> IconTranslation { get; set; }
+		MGLStyleValue IconTranslation { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconTranslation;
 		//[Export("iconTranslation")]
-		//MGLStyleValue<NSValue> IconTranslation { get; set; }
+		//MGLStyleValue IconTranslation { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconTranslationAnchor;
 		[Export("iconTranslationAnchor")]
-		MGLStyleValue<NSValue> IconTranslationAnchor { get; set; }
+		MGLStyleValue IconTranslationAnchor { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *textColor;
 		[Export("textColor")]
-		MGLStyleValue<UIColor> TextColor { get; set; }
+		MGLStyleValue TextColor { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *textColor;
 		//[Export("textColor")]
-		//MGLStyleValue<NSColor> TextColor { get; set; }
+		//MGLStyleValue TextColor { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *textHaloBlur;
 		[Export("textHaloBlur")]
-		MGLStyleValue<NSNumber> TextHaloBlur { get; set; }
+		MGLStyleValue TextHaloBlur { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *textHaloColor;
 		[Export("textHaloColor")]
-		MGLStyleValue<UIColor> TextHaloColor { get; set; }
+		MGLStyleValue TextHaloColor { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *textHaloColor;
 		//[Export("textHaloColor")]
-		//MGLStyleValue<NSColor> TextHaloColor { get; set; }
+		//MGLStyleValue TextHaloColor { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *textHaloWidth;
 		[Export("textHaloWidth")]
-		MGLStyleValue<NSNumber> TextHaloWidth { get; set; }
+		MGLStyleValue TextHaloWidth { get; set; }
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *textOpacity;
 		[Export("textOpacity")]
-		MGLStyleValue<NSNumber> TextOpacity { get; set; }
+		MGLStyleValue TextOpacity { get; set; }
 		//#if TARGET_OS_IPHONE
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textTranslation;
 		[Export("textTranslation")]
-		MGLStyleValue<NSValue> TextTranslation { get; set; }
+		MGLStyleValue TextTranslation { get; set; }
 		//#else
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textTranslation;
 		//[Export("textTranslation")]
-		//MGLStyleValue<NSValue> TextTranslation { get; set; }
+		//MGLStyleValue TextTranslation { get; set; }
 		//#endif
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textTranslationAnchor;
 		[Export("textTranslationAnchor")]
-		MGLStyleValue<NSValue> TextTranslationAnchor { get; set; }
+		MGLStyleValue TextTranslationAnchor { get; set; }
 		//@end
 	}
 	//@interface NSValue (MGLSymbolStyleLayerAdditions)
@@ -1967,7 +1969,7 @@ namespace Mapbox
 		CLLocation Location { get; }
 		//@property (nonatomic, readonly, getter=isUpdating) BOOL updating;
 		[Export("updating")]
-		bool Updating { [Export("isUpdating")]get; }
+		bool Updating { [Bind("isUpdating")]get; }
 		//@property (nonatomic, readonly, nullable) CLHeading *heading;
 		[Export("heading")]
 		CLHeading Heading { get; }
@@ -2056,7 +2058,8 @@ namespace Mapbox
 
 
 	[Static]
-	partial interface MGLOfflinePackUserInfoKey { 
+	partial interface MGLOfflinePackUserInfoKey
+	{
 
 		[Field("MGLOfflinePackUserInfoKeyError", "__Internal")]
 		NSString Error { get; }
