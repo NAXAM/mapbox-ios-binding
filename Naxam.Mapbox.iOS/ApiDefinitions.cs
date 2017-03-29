@@ -26,18 +26,21 @@ namespace Mapbox
 	{
 		//@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 		[Export("coordinate")]
+		[Abstract]
 		CLLocationCoordinate2D Coordinate { get; }
 		//@optional
 		//@property (nonatomic, readonly, copy, nullable) NSString *title;
 		[Export("title")]
+		[Abstract]
 		NSString Title { get; }
 		//@property (nonatomic, readonly, copy, nullable) NSString *subtitle;
 		[Export("subtitle")]
+		[Abstract]
 		NSString Subtitle { get; }
 		//#if !TARGET_OS_IPHONE
 		//@property (nonatomic, readonly, copy, nullable) NSString *toolTip;
-		[Export("toolTip")]
-		NSString ToolTip { get; }
+		//[Export("toolTip")]
+		//NSString ToolTip { get; }
 		//#endif
 		//@end
 	}
@@ -314,16 +317,20 @@ namespace Mapbox
 	public partial interface MGLFeature : MGLAnnotation
 	{
 		//@property (nonatomic, copy, nullable) id identifier;
-		[Export("identifier")]
+		[Export("identifier"),]
+		[Abstract]
 		NSObject Identifier { get; set; }
 		//@property (nonatomic, copy) NS_DICTIONARY_OF(NSString *, id) *attributes;
 		[Export("attributes")]
+		[Abstract]
 		NSDictionary<NSString, NSObject> Attributes { get; set; }
 		//- (nullable id)attributeForKey:(NSString *)key;
-		[Export("attributeForKey:"),]
+		[Export("attributeForKey:")]
+		[Abstract]
 		NSObject AttributeForKey(NSString key);
 		//- (NS_DICTIONARY_OF(NSString *, id) *)geoJSONDictionary;
-		[Export("geoJSONDictionary"),]
+		[Export("geoJSONDictionary")]
+		[Abstract]
 		NSDictionary<NSString, NSObject> GeoJSONDictionary();
 		//@end
 	}
