@@ -1322,10 +1322,10 @@ namespace Mapbox
 		MGLShape ShapeWithData(NSData data, NSStringEncoding encoding, NSError outError);
 		//@property (nonatomic, copy, nullable) NSString *title;
 		[Export("title")]
-		NSString Title { get; set; }
+		string Title { get; set; }
 		//@property (nonatomic, copy, nullable) NSString *subtitle;
 		[Export("subtitle")]
-		NSString Subtitle { get; set; }
+		string Subtitle { get; set; }
 		//#if !TARGET_OS_IPHONE
 		//@property (nonatomic, copy, nullable) NSString *toolTip;
 		//[Export("toolTip")]
