@@ -32,11 +32,11 @@ namespace Mapbox
 		//@property (nonatomic, readonly, copy, nullable) NSString *title;
 		[Export("title")]
 		[Abstract]
-		NSString Title { get; }
+		string Title { get; }
 		//@property (nonatomic, readonly, copy, nullable) NSString *subtitle;
 		[Export("subtitle")]
 		[Abstract]
-		NSString Subtitle { get; }
+		string Subtitle { get; }
 		//#if !TARGET_OS_IPHONE
 		//@property (nonatomic, readonly, copy, nullable) NSString *toolTip;
 		//[Export("toolTip")]
