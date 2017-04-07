@@ -880,10 +880,10 @@ namespace Mapbox
 		void RemoveOverlays(IMGLOverlay[] overlays);
 		//- (NS_ARRAY_OF(id <MGLFeature>) *)visibleFeaturesAtPoint:(CGPoint)point NS_SWIFT_NAME(visibleFeatures(at:));
 		[Export("visibleFeaturesAtPoint:"),]
-		IMGLFeature[] VisibleFeaturesAtPoint(CGPoint point);
+		NSObject[] VisibleFeaturesAtPoint(CGPoint point);
 		//- (NS_ARRAY_OF(id <MGLFeature>) *)visibleFeaturesAtPoint:(CGPoint)point inStyleLayersWithIdentifiers:(nullable NS_SET_OF(NSString *) *)styleLayerIdentifiers NS_SWIFT_NAME(visibleFeatures(at:styleLayerIdentifiers:));
 		[Export("visibleFeaturesAtPoint:inStyleLayersWithIdentifiers:"),]
-		IMGLFeature[] VisibleFeaturesAtPoint(CGPoint point, [NullAllowed] NSSet styleLayerIdentifiers);
+		NSObject[] VisibleFeaturesAtPoint(CGPoint point, [NullAllowed] NSSet styleLayerIdentifiers);
 		//- (NS_ARRAY_OF(id <MGLFeature>) *)visibleFeaturesInRect:(CGRect)rect NS_SWIFT_NAME(visibleFeatures(in:));
 		[Export("visibleFeaturesInRect:"),]
 		NSObject[] VisibleFeaturesInRect(CGRect rect);
