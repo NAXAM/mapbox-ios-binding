@@ -26,18 +26,21 @@ namespace Mapbox
 	{
 		//@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 		[Export("coordinate")]
+		[Abstract]
 		CLLocationCoordinate2D Coordinate { get; }
 		//@optional
 		//@property (nonatomic, readonly, copy, nullable) NSString *title;
 		[Export("title")]
-		NSString Title { get; }
+		[Abstract]
+		string Title { get; }
 		//@property (nonatomic, readonly, copy, nullable) NSString *subtitle;
 		[Export("subtitle")]
-		NSString Subtitle { get; }
+		[Abstract]
+		string Subtitle { get; }
 		//#if !TARGET_OS_IPHONE
 		//@property (nonatomic, readonly, copy, nullable) NSString *toolTip;
-		[Export("toolTip")]
-		NSString ToolTip { get; }
+		//[Export("toolTip")]
+		//NSString ToolTip { get; }
 		//#endif
 		//@end
 	}
@@ -107,7 +110,7 @@ namespace Mapbox
 	{
 		//- (instancetype)initWithTitle:(NSAttributedString *)title URL:(nullable NSUrl *)URL;
 		[Export("initWithTitle:URL:"),]
-		IntPtr Constructor(NSAttributedString title, NSUrl URL);
+		IntPtr Constructor(NSAttributedString title, [NullAllowed] NSUrl URL);
 		//@property (nonatomic) NSAttributedString *title;
 		[Export("title")]
 		NSAttributedString Title { get; set; }
@@ -270,7 +273,7 @@ namespace Mapbox
 		NSString StringFromDirection(nfloat direction);
 		//- (BOOL)getObjectValue:(out id __nullable * __nullable)obj forString:(NSString *)string errorDescription:(out NSString * __nullable * __nullable)error;
 		[Export("getObjectValue:forString:errorDescription:")]
-		bool GetObjectValue(NSNumber MGLMapViewDecelerationRat, NSString @string, out NSString error);
+		bool GetObjectValue(out NSNumber MGLMapViewDecelerationRat, NSString @string, out NSString error);
 		//@end
 	}
 	//@interface MGLCompassDirectionFormatter : NSFormatter
@@ -314,16 +317,20 @@ namespace Mapbox
 	public partial interface MGLFeature : MGLAnnotation
 	{
 		//@property (nonatomic, copy, nullable) id identifier;
-		[Export("identifier")]
+		[Export("identifier"),]
+		[Abstract]
 		NSObject Identifier { get; set; }
 		//@property (nonatomic, copy) NS_DICTIONARY_OF(NSString *, id) *attributes;
 		[Export("attributes")]
+		[Abstract]
 		NSDictionary<NSString, NSObject> Attributes { get; set; }
 		//- (nullable id)attributeForKey:(NSString *)key;
-		[Export("attributeForKey:"),]
+		[Export("attributeForKey:")]
+		[Abstract]
 		NSObject AttributeForKey(NSString key);
 		//- (NS_DICTIONARY_OF(NSString *, id) *)geoJSONDictionary;
-		[Export("geoJSONDictionary"),]
+		[Export("geoJSONDictionary")]
+		[Abstract]
 		NSDictionary<NSString, NSObject> GeoJSONDictionary();
 		//@end
 	}
@@ -458,6 +465,10 @@ namespace Mapbox
 	[BaseType(typeof(MGLVectorStyleLayer))]
 	public partial interface MGLLineStyleLayer
 	{
+		//- (instancetype)initWithIdentifier:(NSString *)identifier source:(MGLSource *)source NS_DESIGNATED_INITIALIZER;
+		[Export("initWithIdentifier:source:"),]
+		IntPtr Constructor(NSString identifier, MGLSource source);
+		//@property (nonatomic, readonly, nullable) NSString *sourceIdentifier;
 		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *lineCap;
 		[Export("lineCap")]
 		MGLStyleValue LineCap { get; set; }
@@ -638,7 +649,7 @@ namespace Mapbox
 		IntPtr Constructor(CGRect frame);
 		//- (instancetype)initWithFrame:(CGRect)frame styleURL:(nullable NSUrl *)styleURL;
 		[Export("initWithFrame:styleURL:"),]
-		IntPtr Constructor(CGRect frame, NSUrl styleURL);
+		IntPtr Constructor(CGRect frame, [NullAllowed] NSUrl styleURL);
 		//@property(nonatomic, weak, nullable) IBOutlet id<MGLMapViewDelegate> delegate;
 		[Export("delegate")]
 		IMGLMapViewDelegate Delegate { get; set; }
@@ -803,16 +814,16 @@ namespace Mapbox
 		void SetContentInset(UIEdgeInsets contentInset, bool animated);
 		//- (CLLocationCoordinate2D)convertPoint:(CGPoint)point toCoordinateFromView:(nullable UIView *)view;
 		[Export("convertPoint:toCoordinateFromView:"),]
-		CLLocationCoordinate2D ConvertPoint(CGPoint point, UIView view);
+		CLLocationCoordinate2D ConvertPoint(CGPoint point, [NullAllowed] UIView view);
 		//- (CGPoint)convertCoordinate:(CLLocationCoordinate2D)coordinate toPointToView:(nullable UIView *)view;
 		[Export("convertCoordinate:toPointToView:"),]
-		CGPoint ConvertCoordinate(CLLocationCoordinate2D coordinate, UIView view);
+		CGPoint ConvertCoordinate(CLLocationCoordinate2D coordinate, [NullAllowed] UIView view);
 		//- (MGLCoordinateBounds)convertRect:(CGRect)rect toCoordinateBoundsFromView:(nullable UIView *)view;
 		[Export("convertRect:toCoordinateBoundsFromView:"),]
-		MGLCoordinateBounds ConvertRect(CGRect rect, UIView view);
+		MGLCoordinateBounds ConvertRect(CGRect rect, [NullAllowed] UIView view);
 		//- (CGRect)convertCoordinateBounds:(MGLCoordinateBounds)bounds toRectToView:(nullable UIView *)view;
 		[Export("convertCoordinateBounds:toRectToView:"),]
-		CGRect ConvertCoordinateBounds(MGLCoordinateBounds bounds, UIView view);
+		CGRect ConvertCoordinateBounds(MGLCoordinateBounds bounds, [NullAllowed] UIView view);
 		//- (nfloat)metersPerPointAtLatitude:(nfloat)latitude;
 		[Export("metersPerPointAtLatitude:"),]
 		nfloat MetersPerPointAtLatitude(nfloat latitude);
@@ -869,16 +880,16 @@ namespace Mapbox
 		void RemoveOverlays(IMGLOverlay[] overlays);
 		//- (NS_ARRAY_OF(id <MGLFeature>) *)visibleFeaturesAtPoint:(CGPoint)point NS_SWIFT_NAME(visibleFeatures(at:));
 		[Export("visibleFeaturesAtPoint:"),]
-		IMGLFeature[] VisibleFeaturesAtPoint(CGPoint point);
+		NSObject[] VisibleFeaturesAtPoint(CGPoint point);
 		//- (NS_ARRAY_OF(id <MGLFeature>) *)visibleFeaturesAtPoint:(CGPoint)point inStyleLayersWithIdentifiers:(nullable NS_SET_OF(NSString *) *)styleLayerIdentifiers NS_SWIFT_NAME(visibleFeatures(at:styleLayerIdentifiers:));
 		[Export("visibleFeaturesAtPoint:inStyleLayersWithIdentifiers:"),]
-		IMGLFeature[] VisibleFeaturesAtPoint(CGPoint point, NSSet styleLayerIdentifiers);
+		NSObject[] VisibleFeaturesAtPoint(CGPoint point, [NullAllowed] NSSet styleLayerIdentifiers);
 		//- (NS_ARRAY_OF(id <MGLFeature>) *)visibleFeaturesInRect:(CGRect)rect NS_SWIFT_NAME(visibleFeatures(in:));
 		[Export("visibleFeaturesInRect:"),]
 		NSObject[] VisibleFeaturesInRect(CGRect rect);
 		//- (NS_ARRAY_OF(id <MGLFeature>) *)visibleFeaturesInRect:(CGRect)rect inStyleLayersWithIdentifiers:(nullable NS_SET_OF(NSString *) *)styleLayerIdentifiers NS_SWIFT_NAME(visibleFeatures(in:styleLayerIdentifiers:));
 		[Export("visibleFeaturesInRect:inStyleLayersWithIdentifiers:"),]
-		NSObject[] VisibleFeaturesInRect(CGRect rect, NSSet styleLayerIdentifiers);
+		NSObject[] VisibleFeaturesInRect(CGRect rect, [NullAllowed] NSSet styleLayerIdentifiers);
 		//@property (nonatomic) MGLMapDebugMaskOptions debugMask;
 		[Export("debugMask")]
 		MGLMapDebugMaskOptions DebugMask { get; set; }
@@ -1128,10 +1139,10 @@ namespace Mapbox
 		MGLOfflinePack[] Packs { get; }
 		//- (void)addPackForRegion:(id <MGLOfflineRegion>)region withContext:(NSData *)context completionHandler:(nullable MGLOfflinePackAdditionCompletionHandler)completion;
 		[Export("addPackForRegion:withContext:completionHandler:"),]
-		void AddPackForRegion(NSObject region, NSData context, MGLOfflinePackAdditionCompletionHandler completion);
+		void AddPackForRegion(NSObject region, NSData context, [NullAllowed] MGLOfflinePackAdditionCompletionHandler completion);
 		//- (void)removePack:(MGLOfflinePack *)pack withCompletionHandler:(nullable MGLOfflinePackRemovalCompletionHandler)completion;
 		[Export("removePack:withCompletionHandler:"),]
-		void RemovePack(MGLOfflinePack pack, MGLOfflinePackRemovalCompletionHandler completion);
+		void RemovePack(MGLOfflinePack pack, [NullAllowed] MGLOfflinePackRemovalCompletionHandler completion);
 		//- (void)reloadPacks;
 		[Export("reloadPacks"),]
 		void ReloadPacks();
@@ -1218,7 +1229,7 @@ namespace Mapbox
 		MGLPolygon PolygonWithCoordinates(ref CLLocationCoordinate2D coords, nuint count);
 		//+ (instancetype)polygonWithCoordinates:(CLLocationCoordinate2D *)coords count:(nuint)count interiorPolygons:(nullable NS_ARRAY_OF(MGLPolygon *) *)interiorPolygons;
 		[Export("polygonWithCoordinates:count:interiorPolygons:"), Static]
-		MGLPolygon PolygonWithCoordinates(ref CLLocationCoordinate2D coords, nuint count, MGLPolygon[] interiorPolygons);
+		MGLPolygon PolygonWithCoordinates(ref CLLocationCoordinate2D coords, nuint count, [NullAllowed] MGLPolygon[] interiorPolygons);
 		//@end
 	}
 	//@interface MGLMultiPolygon : MGLShape <MGLOverlay>
@@ -1853,7 +1864,7 @@ namespace Mapbox
 		double MaximumZoomLevel { get; }
 		//- (instancetype)initWithStyleURL:(nullable NSUrl *)styleURL bounds:(MGLCoordinateBounds)bounds fromZoomLevel:(double)minimumZoomLevel toZoomLevel:(double)maximumZoomLevel NS_DESIGNATED_INITIALIZER;
 		[Export("initWithStyleURL:bounds:fromZoomLevel:toZoomLevel:"),]
-		IntPtr Constructor(NSUrl styleURL, MGLCoordinateBounds bounds, double minimumZoomLevel, double maximumZoomLevel);
+		IntPtr Constructor([NullAllowed] NSUrl styleURL, MGLCoordinateBounds bounds, double minimumZoomLevel, double maximumZoomLevel);
 		//@end
 	}
 	////extern NSString NSStringMinimumZoomLevel;
@@ -1918,7 +1929,7 @@ namespace Mapbox
 		//#### Tile URL templates
 		//- (instancetype)initWithIdentifier:(NSString *)identifier tileURLTemplates:(NS_ARRAY_OF(NSString *) *)tileURLTemplates options:(nullable NS_DICTIONARY_OF(NSString, id) *)options;
 		[Export("initWithIdentifier:tileURLTemplates:options:"),]
-		IntPtr Constructor(NSString identifier, NSString[] tileURLTemplates, NSDictionary<NSString, NSObject> options);
+		IntPtr Constructor(NSString identifier, NSString[] tileURLTemplates, [NullAllowed] NSDictionary<NSString, NSObject> options);
 		//@property (nonatomic, copy, nullable, readonly) NSUrl *configurationURL;
 		[Export("configurationURL")]
 		NSUrl ConfigurationURL { get; }
@@ -2009,7 +2020,7 @@ namespace Mapbox
 		IntPtr Constructor(NSString identifier, NSUrl configurationURL);
 		//- (instancetype)initWithIdentifier:(NSString *)identifier tileURLTemplates:(NS_ARRAY_OF(NSString *) *)tileURLTemplates options:(nullable NS_DICTIONARY_OF(NSString, id) *)options NS_DESIGNATED_INITIALIZER;
 		[Export("initWithIdentifier:tileURLTemplates:options:"),]
-		IntPtr Constructor(NSString identifier, NSString[] tileURLTemplates, NSDictionary<NSString, NSObject> options);
+		IntPtr Constructor(NSString identifier, NSString[] tileURLTemplates, [NullAllowed] NSDictionary<NSString, NSObject> options);
 		//@end
 	}
 	//@interface MGLVectorStyleLayer : MGLForegroundStyleLayer
