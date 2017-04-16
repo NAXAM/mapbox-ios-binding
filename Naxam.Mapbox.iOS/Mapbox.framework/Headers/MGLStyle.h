@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+#import "MGLFoundation.h"
 #import "MGLStyleLayer.h"
 
 #import "MGLTypes.h"
@@ -27,24 +28,25 @@ NS_ASSUME_NONNULL_BEGIN
     the constant itself. Such details may change significantly from version to
     version.
  */
-static const NSInteger MGLStyleDefaultVersion = 9;
+static MGL_EXPORT const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  The proxy object for the current map style.
- 
+
  MGLStyle provides a set of convenience methods for changing Mapbox
  default styles using `-[MGLMapView styleURL]`.
  <a href="https://www.mapbox.com/maps/">Learn more about Mapbox default styles</a>.
- 
- It is also possible to directly manipulate the current map style 
+
+ It is also possible to directly manipulate the current map style
  via `-[MGLMapView style]` by updating the style's data sources or layers.
- 
+
  @note Wait until the map style has finished loading before modifying a map's
-    style via any of the `MGLStyle` instance methods below. You can use the 
+    style via any of the `MGLStyle` instance methods below. You can use the
     `-[MGLMapViewDelegate mapView:didFinishLoadingStyle:]` or
     `-[MGLMapViewDelegate mapViewDidFinishLoadingMap:]` methods as indicators
     that it's safe to modify the map's style.
  */
+MGL_EXPORT
 @interface MGLStyle : NSObject
 
 #pragma mark Accessing Default Styles
@@ -192,12 +194,18 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 @property (nonatomic, strong) NS_SET_OF(__kindof MGLSource *) *sources;
 
 /**
+ Values describing animated transitions to changes on a style's individual
+ paint properties.
+ */
+@property (nonatomic) MGLTransition transition;
+
+/**
  Returns a source with the given identifier in the current style.
 
  @note Source identifiers are not guaranteed to exist across styles or different
     versions of the same style. Applications that use this API must first set the
     style URL to an explicitly versioned style using a convenience method like
-    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`'s “Style URL”
+    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`’s “Style URL”
     inspectable in Interface Builder, or a manually constructed `NSURL`. This
     approach also avoids source identifer name changes that will occur in the default
     style’s sources over time.
@@ -209,15 +217,15 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Adds a new source to the current style.
- 
+
  @note Adding the same source instance more than once will result in a
     `MGLRedundantSourceException`. Reusing the same source identifier, even with
-    different source instances, will result in a 
-    `MGLRedundantSourceIdentifierException`. 
- 
- @note Sources should be added in 
+    different source instances, will result in a
+    `MGLRedundantSourceIdentifierException`.
+
+ @note Sources should be added in
     `-[MGLMapViewDelegate mapView:didFinishLoadingStyle:]` or
-    `-[MGLMapViewDelegate mapViewDidFinishLoadingMap:]` to ensure that the map 
+    `-[MGLMapViewDelegate mapViewDidFinishLoadingMap:]` to ensure that the map
     has loaded the style and is ready to accept a new source.
 
  @param source The source to add to the current style.
@@ -226,11 +234,11 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Removes a source from the current style.
- 
+
  @note Source identifiers are not guaranteed to exist across styles or different
     versions of the same style. Applications that use this API must first set the
     style URL to an explicitly versioned style using a convenience method like
-    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`'s “Style URL”
+    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`’s “Style URL”
     inspectable in Interface Builder, or a manually constructed `NSURL`. This
     approach also avoids source identifer name changes that will occur in the default
     style’s sources over time.
@@ -249,15 +257,15 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Returns a style layer with the given identifier in the current style.
- 
+
  @note Layer identifiers are not guaranteed to exist across styles or different
     versions of the same style. Applications that use this API must first set
     the style URL to an explicitly versioned style using a convenience method like
-    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`'s “Style URL”
+    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`’s “Style URL”
     inspectable in Interface Builder, or a manually constructed `NSURL`. This
     approach also avoids layer identifer name changes that will occur in the default
     style’s layers over time.
- 
+
  @return An instance of a concrete subclass of `MGLStyleLayer` associated with
     the given identifier, or `nil` if the current style contains no such style
     layer.
@@ -266,14 +274,14 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Adds a new layer on top of existing layers.
- 
+
  @note Adding the same layer instance more than once will result in a
     `MGLRedundantLayerException`. Reusing the same layer identifer, even with
-    different layer instances, will also result in an exception. 
- 
- @note Layers should be added in 
+    different layer instances, will also result in an exception.
+
+ @note Layers should be added in
     `-[MGLMapViewDelegate mapView:didFinishLoadingStyle:]` or
-    `-[MGLMapViewDelegate mapViewDidFinishLoadingMap:]` to ensure that the map 
+    `-[MGLMapViewDelegate mapViewDidFinishLoadingMap:]` to ensure that the map
     has loaded the style and is ready to accept a new layer.
 
  @param layer The layer object to add to the map view. This object must be an
@@ -283,14 +291,14 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Inserts a new layer into the style at the given index.
- 
+
  @note Adding the same layer instance more than once will result in a
     `MGLRedundantLayerException`. Reusing the same layer identifer, even with
-    different layer instances, will also result in an exception. 
- 
+    different layer instances, will also result in an exception.
+
  @note Layers should be added in
     `-[MGLMapViewDelegate mapView:didFinishLoadingStyle:]` or
-    `-[MGLMapViewDelegate mapViewDidFinishLoadingMap:]` to ensure that the map 
+    `-[MGLMapViewDelegate mapViewDidFinishLoadingMap:]` to ensure that the map
     has loaded the style and is ready to accept a new layer.
 
  @param layer The layer to insert.
@@ -302,15 +310,15 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Inserts a new layer below another layer.
- 
+
  @note Layer identifiers are not guaranteed to exist across styles or different
     versions of the same style. Applications that use this API must first set
     the style URL to an explicitly versioned style using a convenience method like
-    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`'s “Style URL”
+    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`’s “Style URL”
     inspectable in Interface Builder, or a manually constructed `NSURL`. This
     approach also avoids layer identifer name changes that will occur in the default
     style’s layers over time.
- 
+
     Inserting the same layer instance more than once will result in a
     `MGLRedundantLayerException`. Reusing the same layer identifer, even with
     different layer instances, will also result in an exception.
@@ -322,15 +330,15 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Inserts a new layer above another layer.
- 
+
  @note Layer identifiers are not guaranteed to exist across styles or different
     versions of the same style. Applications that use this API must first set
     the style URL to an explicitly versioned style using a convenience method like
-    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`'s “Style URL”
+    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`’s “Style URL”
     inspectable in Interface Builder, or a manually constructed `NSURL`. This
     approach also avoids layer identifer name changes that will occur in the default
     style’s layers over time.
- 
+
     Inserting the same layer instance more than once will result in a
     `MGLRedundantLayerException`. Reusing the same layer identifer, even with
     different layer instances, will also result in an exception.
@@ -342,11 +350,11 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Removes a layer from the map view.
- 
+
  @note Layer identifiers are not guaranteed to exist across styles or different
     versions of the same style. Applications that use this API must first set
     the style URL to an explicitly versioned style using a convenience method like
-    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`'s “Style URL”
+    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`’s “Style URL”
     inspectable in Interface Builder, or a manually constructed `NSURL`. This
     approach also avoids layer identifer name changes that will occur in the default
     style’s layers over time.
@@ -381,11 +389,11 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Deactivates the style class with the given identifier.
- 
+
  @note Style class names are not guaranteed to exist across styles or different
     versions of the same style. Applications that use this API must first set the
     style URL to an explicitly versioned style using a convenience method like
-    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`'s “Style URL”
+    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`’s “Style URL”
     inspectable in Interface Builder, or a manually constructed `NSURL`. This
     approach also avoids style class name changes that will occur in the default
     style over time.
@@ -398,15 +406,15 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Returns the image associated with the given name in the style.
- 
+
  @note Names and their associated images are not guaranteed to exist across
     styles or different versions of the same style. Applications that use this
     API must first set the style URL to an explicitly versioned style using a
     convenience method like `+[MGLStyle outdoorsStyleURLWithVersion:]`,
-    `MGLMapView`'s “Style URL” inspectable in Interface Builder, or a manually
-    constructed `NSURL`. This approach also avoids image name changes that will 
+    `MGLMapView`’s “Style URL” inspectable in Interface Builder, or a manually
+    constructed `NSURL`. This approach also avoids image name changes that will
     occur in the default style over time.
- 
+
  @param name The name associated with the image you want to obtain.
  @return The image associated with the given name, or `nil` if no image is
     associated with that name.
@@ -415,11 +423,11 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Adds or overrides an image used by the style’s layers.
- 
+
  To use an image in a style layer, give it a unique name using this method, then
  set the `iconImageName` property of an `MGLSymbolStyleLayer` object to that
  name.
- 
+
  @param image The image for the name.
  @param name The name of the image to set to the style.
  */
@@ -427,13 +435,13 @@ static const NSInteger MGLStyleDefaultVersion = 9;
 
 /**
  Removes a name and its associated image from the style.
- 
+
  @note Names and their associated images are not guaranteed to exist across
     styles or different versions of the same style. Applications that use this
     API must first set the style URL to an explicitly versioned style using a
     convenience method like `+[MGLStyle outdoorsStyleURLWithVersion:]`,
-    `MGLMapView`'s “Style URL” inspectable in Interface Builder, or a manually
-    constructed `NSURL`. This approach also avoids image name changes that will 
+    `MGLMapView`’s “Style URL” inspectable in Interface Builder, or a manually
+    constructed `NSURL`. This approach also avoids image name changes that will
     occur in the default style over time.
 
  @param name The name of the image to remove.

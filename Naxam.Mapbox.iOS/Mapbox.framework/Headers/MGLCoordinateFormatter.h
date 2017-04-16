@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+#import "MGLFoundation.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -8,11 +10,12 @@ NS_ASSUME_NONNULL_BEGIN
  geographic coordinate pairs. Use this class to create localized coordinate
  strings when displaying location information to users.
  */
+MGL_EXPORT
 @interface MGLCoordinateFormatter : NSFormatter
 
 /**
  Determines whether the output may contain minutes of arc when nonzero.
- 
+
  The default value of this property is `YES`, causing the receiver to include
  minutes of arc in its output. If `allowsSeconds` is `YES`, this property is
  ignored and the output always includes minutes of arc.
@@ -21,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Determines whether the output may contain seconds of arc when nonzero.
- 
+
  The default value of this property is `YES`, causing the receiver to include
  seconds of arc in its output.
  */
@@ -29,14 +32,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The unit style used by this formatter.
- 
+
  The default value of this property is `NSFormattingUnitStyleMedium`.
  */
 @property (nonatomic) NSFormattingUnitStyle unitStyle;
 
 /**
  Returns a coordinate string for the provided value.
- 
+
  @param coordinate The coordinate’s value.
  @return The coordinate string appropriately formatted for the formatter’s
     locale.

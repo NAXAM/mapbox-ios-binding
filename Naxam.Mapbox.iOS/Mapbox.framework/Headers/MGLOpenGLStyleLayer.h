@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+#import "MGLFoundation.h"
 #import "MGLStyleValue.h"
 #import "MGLStyleLayer.h"
 
@@ -14,8 +15,10 @@ typedef struct MGLStyleLayerDrawingContext {
     double zoomLevel;
     CLLocationDirection direction;
     CGFloat pitch;
+    CGFloat fieldOfView;
 } MGLStyleLayerDrawingContext;
 
+MGL_EXPORT
 @interface MGLOpenGLStyleLayer : MGLStyleLayer
 
 @property (nonatomic, weak, readonly) MGLMapView *mapView;

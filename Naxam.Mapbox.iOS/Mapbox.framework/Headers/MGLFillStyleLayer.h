@@ -1,6 +1,7 @@
-// This file is generated. 
-// Edit platform/darwin/scripts/generate-style-code.js, then run `make style-code-darwin`.
+// This file is generated.
+// Edit platform/darwin/scripts/generate-style-code.js, then run `make darwin-style-code`.
 
+#import "MGLFoundation.h"
 #import "MGLStyleValue.h"
 #import "MGLVectorStyleLayer.h"
 
@@ -8,7 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Controls the translation reference point.
- 
+
  Values of this type are used in the `MGLFillStyleLayer.fillTranslationAnchor`
  property.
  */
@@ -31,15 +32,15 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  multipolygon features in vector tiles loaded by an `MGLVectorSource` object or
  `MGLPolygon`, `MGLPolygonFeature`, `MGLMultiPolygon`, or
  `MGLMultiPolygonFeature` instances in an `MGLShapeSource` object.
- 
+
  You can access an existing fill style layer using the
  `-[MGLStyle layerWithIdentifier:]` method if you know its identifier;
  otherwise, find it using the `MGLStyle.layers` property. You can also create a
  new fill style layer and add it to the style using a method such as
  `-[MGLStyle addLayer:]`.
- 
+
  ### Example
- 
+
  ```swift
  let layer = MGLFillStyleLayer(identifier: "parks", source: parks)
  layer.sourceLayerIdentifier = "parks"
@@ -48,6 +49,7 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  mapView.style?.addLayer(layer)
  ```
  */
+MGL_EXPORT
 @interface MGLFillStyleLayer : MGLVectorStyleLayer
 
 #pragma mark - Accessing the Paint Attributes
@@ -62,6 +64,12 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  This attribute corresponds to the <a
  href="https://www.mapbox.com/mapbox-gl-style-spec/#paint-fill-antialias"><code>fill-antialias</code></a>
  layout property in the Mapbox Style Specification.
+ 
+ You can set this property to an instance of:
+ 
+ * `MGLConstantStyleValue`
+ * `MGLCameraStyleFunction` with an interpolation mode of
+ `MGLInterpolationModeInterval`
  */
 @property (nonatomic, null_resettable, getter=isFillAntialiased) MGLStyleValue<NSNumber *> *fillAntialiased;
 
@@ -77,6 +85,22 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  
  This property is only applied to the style if `fillPattern` is set to `nil`.
  Otherwise, it is ignored.
+ 
+ You can set this property to an instance of:
+ 
+ * `MGLConstantStyleValue`
+ * `MGLCameraStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+ * `MGLSourceStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+   * `MGLInterpolationModeCategorical`
+   * `MGLInterpolationModeIdentity`
+ * `MGLCompositeStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+   * `MGLInterpolationModeCategorical`
  */
 @property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *fillColor;
 #else
@@ -89,9 +113,32 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  
  This property is only applied to the style if `fillPattern` is set to `nil`.
  Otherwise, it is ignored.
+ 
+ You can set this property to an instance of:
+ 
+ * `MGLConstantStyleValue`
+ * `MGLCameraStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+ * `MGLSourceStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+   * `MGLInterpolationModeCategorical`
+   * `MGLInterpolationModeIdentity`
+ * `MGLCompositeStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+   * `MGLInterpolationModeCategorical`
  */
 @property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *fillColor;
 #endif
+
+/**
+ The transition affecting any changes to this layer’s `fillColor` property.
+
+ This property corresponds to the `fill-color-transition` property in the style JSON file format.
+*/
+@property (nonatomic) MGLTransition fillColorTransition;
 
 /**
  The opacity of the entire fill layer. In contrast to the `fillColor`, this
@@ -100,8 +147,31 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  The default value of this property is an `MGLStyleValue` object containing an
  `NSNumber` object containing the float `1`. Set this property to `nil` to reset
  it to the default value.
+ 
+ You can set this property to an instance of:
+ 
+ * `MGLConstantStyleValue`
+ * `MGLCameraStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+ * `MGLSourceStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+   * `MGLInterpolationModeCategorical`
+   * `MGLInterpolationModeIdentity`
+ * `MGLCompositeStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+   * `MGLInterpolationModeCategorical`
  */
 @property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *fillOpacity;
+
+/**
+ The transition affecting any changes to this layer’s `fillOpacity` property.
+
+ This property corresponds to the `fill-opacity-transition` property in the style JSON file format.
+*/
+@property (nonatomic) MGLTransition fillOpacityTransition;
 
 #if TARGET_OS_IPHONE
 /**
@@ -110,6 +180,22 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  This property is only applied to the style if `fillPattern` is set to `nil`,
  and `fillAntialiased` is set to an `MGLStyleValue` object containing an
  `NSNumber` object containing `YES`. Otherwise, it is ignored.
+ 
+ You can set this property to an instance of:
+ 
+ * `MGLConstantStyleValue`
+ * `MGLCameraStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+ * `MGLSourceStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+   * `MGLInterpolationModeCategorical`
+   * `MGLInterpolationModeIdentity`
+ * `MGLCompositeStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+   * `MGLInterpolationModeCategorical`
  */
 @property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *fillOutlineColor;
 #else
@@ -119,15 +205,51 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  This property is only applied to the style if `fillPattern` is set to `nil`,
  and `fillAntialiased` is set to an `MGLStyleValue` object containing an
  `NSNumber` object containing `YES`. Otherwise, it is ignored.
+ 
+ You can set this property to an instance of:
+ 
+ * `MGLConstantStyleValue`
+ * `MGLCameraStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+ * `MGLSourceStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+   * `MGLInterpolationModeCategorical`
+   * `MGLInterpolationModeIdentity`
+ * `MGLCompositeStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
+   * `MGLInterpolationModeCategorical`
  */
 @property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *fillOutlineColor;
 #endif
 
 /**
+ The transition affecting any changes to this layer’s `fillOutlineColor` property.
+
+ This property corresponds to the `fill-outline-color-transition` property in the style JSON file format.
+*/
+@property (nonatomic) MGLTransition fillOutlineColorTransition;
+
+/**
  Name of image in sprite to use for drawing image fills. For seamless patterns,
  image width and height must be a factor of two (2, 4, 8, ..., 512).
+ 
+ You can set this property to an instance of:
+ 
+ * `MGLConstantStyleValue`
+ * `MGLCameraStyleFunction` with an interpolation mode of
+ `MGLInterpolationModeInterval`
  */
 @property (nonatomic, null_resettable) MGLStyleValue<NSString *> *fillPattern;
+
+/**
+ The transition affecting any changes to this layer’s `fillPattern` property.
+
+ This property corresponds to the `fill-pattern-transition` property in the style JSON file format.
+*/
+@property (nonatomic) MGLTransition fillPatternTransition;
 
 #if TARGET_OS_IPHONE
 /**
@@ -142,6 +264,13 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  This attribute corresponds to the <a
  href="https://www.mapbox.com/mapbox-gl-style-spec/#paint-fill-translate"><code>fill-translate</code></a>
  layout property in the Mapbox Style Specification.
+ 
+ You can set this property to an instance of:
+ 
+ * `MGLConstantStyleValue`
+ * `MGLCameraStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
  */
 @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillTranslation;
 #else
@@ -157,9 +286,23 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  This attribute corresponds to the <a
  href="https://www.mapbox.com/mapbox-gl-style-spec/#paint-fill-translate"><code>fill-translate</code></a>
  layout property in the Mapbox Style Specification.
+ 
+ You can set this property to an instance of:
+ 
+ * `MGLConstantStyleValue`
+ * `MGLCameraStyleFunction` with an interpolation mode of:
+   * `MGLInterpolationModeExponential`
+   * `MGLInterpolationModeInterval`
  */
 @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillTranslation;
 #endif
+
+/**
+ The transition affecting any changes to this layer’s `fillTranslation` property.
+
+ This property corresponds to the `fill-translate-transition` property in the style JSON file format.
+*/
+@property (nonatomic) MGLTransition fillTranslationTransition;
 
 @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillTranslate __attribute__((unavailable("Use fillTranslation instead.")));
 
@@ -176,6 +319,12 @@ typedef NS_ENUM(NSUInteger, MGLFillTranslationAnchor) {
  This attribute corresponds to the <a
  href="https://www.mapbox.com/mapbox-gl-style-spec/#paint-fill-translate-anchor"><code>fill-translate-anchor</code></a>
  layout property in the Mapbox Style Specification.
+ 
+ You can set this property to an instance of:
+ 
+ * `MGLConstantStyleValue`
+ * `MGLCameraStyleFunction` with an interpolation mode of
+ `MGLInterpolationModeInterval`
  */
 @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillTranslationAnchor;
 

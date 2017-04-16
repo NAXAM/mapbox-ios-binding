@@ -1,5 +1,6 @@
 #import "MGLSource.h"
 
+#import "MGLFoundation.h"
 #import "MGLTypes.h"
 #import "MGLShape.h"
 
@@ -20,21 +21,21 @@ typedef NSString *MGLShapeSourceOption NS_STRING_ENUM;
  This attribute corresponds to the
  <a href="https://www.mapbox.com/mapbox-gl-style-spec/#sources-geojson-cluster"><code>cluster</code></a>
  source property in the Mapbox Style Specification.
- 
+
  This option only affects point features within a shape source.
  */
-extern const MGLShapeSourceOption MGLShapeSourceOptionClustered;
+extern MGL_EXPORT const MGLShapeSourceOption MGLShapeSourceOptionClustered;
 
 /**
  An `NSNumber` object containing an integer; specifies the radius of each
  cluster if clustering is enabled. A value of 512 produces a radius equal to
  the width of a tile. The default value is 50.
  */
-extern const MGLShapeSourceOption MGLShapeSourceOptionClusterRadius;
+extern MGL_EXPORT const MGLShapeSourceOption MGLShapeSourceOptionClusterRadius;
 
 /**
  An `NSNumber` object containing an integer; specifies the maximum zoom level at
- which to cluster points if clustering is enabled. Defaults to one zoom level 
+ which to cluster points if clustering is enabled. Defaults to one zoom level
  less than the value of `MGLShapeSourceOptionMaximumZoomLevel` so that, at the
  maximum zoom level, the shapes are not clustered.
 
@@ -42,7 +43,7 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionClusterRadius;
  <a href="https://www.mapbox.com/mapbox-gl-style-spec/#sources-geojson-clusterMaxZoom"><code>clusterMaxZoom</code></a>
  source property in the Mapbox Style Specification.
  */
-extern const MGLShapeSourceOption MGLShapeSourceOptionMaximumZoomLevelForClustering;
+extern MGL_EXPORT const MGLShapeSourceOption MGLShapeSourceOptionMaximumZoomLevelForClustering;
 
 /**
  An `NSNumber` object containing an integer; specifies the maximum zoom level at
@@ -53,19 +54,19 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionMaximumZoomLevelForCluster
  <a href="https://www.mapbox.com/mapbox-gl-style-spec/#sources-geojson-maxzoom"><code>maxzoom</code></a>
  source property in the Mapbox Style Specification.
  */
-extern const MGLShapeSourceOption MGLShapeSourceOptionMaximumZoomLevel;
+extern MGL_EXPORT const MGLShapeSourceOption MGLShapeSourceOptionMaximumZoomLevel;
 
 /**
  An `NSNumber` object containing an integer; specifies the size of the tile
- buffer on each side. A value of 0 produces no buffer. A value of 512 produces a 
- buffer as wide as the tile itself. Larger values produce fewer rendering 
+ buffer on each side. A value of 0 produces no buffer. A value of 512 produces a
+ buffer as wide as the tile itself. Larger values produce fewer rendering
  artifacts near tile edges and slower performance. The default value is 128.
 
  This attribute corresponds to the
  <a href="https://www.mapbox.com/mapbox-gl-style-spec/#sources-geojson-buffer"><code>buffer</code></a>
  source property in the Mapbox Style Specification.
  */
-extern const MGLShapeSourceOption MGLShapeSourceOptionBuffer;
+extern MGL_EXPORT const MGLShapeSourceOption MGLShapeSourceOptionBuffer;
 
 /**
  An `NSNumber` object containing a double; specifies the Douglas-Peucker
@@ -76,7 +77,7 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionBuffer;
  <a href="https://www.mapbox.com/mapbox-gl-style-spec/#sources-geojson-tolerance"><code>tolerance</code></a>
  source property in the Mapbox Style Specification.
  */
-extern const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
+extern MGL_EXPORT const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
 
 /**
  `MGLShapeSource` is a map content source that supplies vector shapes to be
@@ -85,7 +86,7 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
  <a href="http://geojson.org/">GeoJSON</a> code. A shape source is added to an
  `MGLStyle` object along with an `MGLVectorStyleLayer` object. The vector style
  layer defines the appearance of any content supplied by the shape source.
- 
+
  Each
  <a href="https://www.mapbox.com/mapbox-gl-style-spec/#sources-geojson"><code>geojson</code></a>
  source defined by the style JSON file is represented at runtime by an
@@ -93,12 +94,12 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
  initialize new style layers. You can also add and remove sources dynamically
  using methods such as `-[MGLStyle addSource:]` and
  `-[MGLStyle sourceWithIdentifier:]`.
- 
+
  Any vector style layer initialized with a shape source should have a `nil`
  value in its `sourceLayerIdentifier` property.
- 
+
  ### Example
- 
+
  ```swift
  var coordinates: [CLLocationCoordinate2D] = [
      CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
@@ -109,6 +110,7 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
  mapView.style?.addSource(source)
  ```
  */
+MGL_EXPORT
 @interface MGLShapeSource : MGLSource
 
 #pragma mark Initializing a Source
@@ -116,7 +118,7 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
 /**
  Returns a shape source with an identifier, URL, and dictionary of options for
  the source.
- 
+
  @param identifier A string that uniquely identifies the source.
  @param url An HTTP(S) URL, absolute file URL, or local file URL relative to the
     current application’s resource bundle.
@@ -128,17 +130,17 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
 /**
  Returns a shape source with an identifier, a shape, and dictionary of options
  for the source.
- 
+
  To specify attributes about the shape, use an instance of an `MGLShape`
  subclass that conforms to the `MGLFeature` protocol, such as `MGLPointFeature`.
  To include multiple shapes in the source, use an `MGLShapeCollection` or
  `MGLShapeCollectionFeature` object, or use the
- `-initWithIdentifier:features:options:` or 
+ `-initWithIdentifier:features:options:` or
  `-initWithIdentifier:shapes:options:` methods.
- 
+
  To create a shape from GeoJSON source code, use the
  `+[MGLShape shapeWithData:encoding:error:]` method.
- 
+
  @param identifier A string that uniquely identifies the source.
  @param shape A concrete subclass of `MGLShape`
  @param options An `NSDictionary` of options for this source.
@@ -149,7 +151,7 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
 /**
  Returns a shape source with an identifier, an array of features, and a dictionary
  of options for the source.
- 
+
  Unlike `-initWithIdentifier:shapes:options:`, this method accepts `MGLFeature`
  instances, such as `MGLPointFeature` objects, whose attributes you can use when
  applying a predicate to `MGLVectorStyleLayer` or configuring a style layer’s
@@ -168,11 +170,11 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
 /**
  Returns a shape source with an identifier, an array of shapes, and a dictionary of
  options for the source.
- 
+
  Any `MGLFeature` instance passed into this initializer is treated as an ordinary
  shape, causing any attributes to be inaccessible to an `MGLVectorStyleLayer` when
- evaluating a predicate or configuring certain layout or paint attributes. To 
- preserve the attributes associated with each feature, use the 
+ evaluating a predicate or configuring certain layout or paint attributes. To
+ preserve the attributes associated with each feature, use the
  `-initWithIdentifier:features:options:` method instead.
 
  To create a shape from GeoJSON source code, use the
@@ -194,8 +196,8 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
  If the receiver was initialized using `-initWithIdentifier:URL:options:`, this
  property is set to `nil`. This property is unavailable until the receiver is
  passed into `-[MGLStyle addSource:]`.
- 
- You can get/set the shapes within a collection via this property. Actions must 
+
+ You can get/set the shapes within a collection via this property. Actions must
  be performed on the application's main thread.
  */
 @property (nonatomic, copy, nullable) MGLShape *shape;
@@ -207,6 +209,36 @@ extern const MGLShapeSourceOption MGLShapeSourceOptionSimplificationTolerance;
  this property is set to `nil`.
  */
 @property (nonatomic, copy, nullable) NSURL *URL;
+
+/**
+ Returns an array of map features for this source, filtered by the given
+ predicate.
+
+ Each object in the returned array represents a feature for the current style
+ and provides access to attributes specified via the `shape` property.
+
+ Features come from tiled GeoJSON data that is converted to tiles internally,
+ so feature geometries are clipped at tile boundaries and features
+ may appear duplicated across tiles. For example, suppose this source contains a
+ long polyline representing a road. The resulting array includes those parts of
+ the road that lie within the map tiles that the source has loaded, even if the
+ road extends into other tiles. The portion of the road within each map tile is
+ included individually.
+ 
+ Returned features may not necessarily be visible to the user at the time they
+ are loaded: the style may lack a layer that draws the features in question. To
+ obtain only _visible_ features, use the
+ `-[MGLMapView visibleFeaturesAtPoint:inStyleLayersWithIdentifiers:predicate:]`
+ or
+ `-[MGLMapView visibleFeaturesInRect:inStyleLayersWithIdentifiers:predicate:]`
+ method.
+
+ @param predicate A predicate to filter the returned features. Use `nil` to
+    include all features in the source.
+ @return An array of objects conforming to the `MGLFeature` protocol that
+    represent features in the source that match the predicate.
+ */
+- (NS_ARRAY_OF(id <MGLFeature>) *)featuresMatchingPredicate:(nullable NSPredicate *)predicate;
 
 @end
 

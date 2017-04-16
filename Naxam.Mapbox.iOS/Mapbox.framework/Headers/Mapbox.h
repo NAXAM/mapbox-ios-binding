@@ -1,10 +1,12 @@
 #import <Foundation/Foundation.h>
 
+#import "MGLFoundation.h"
+
 /// Project version number for Mapbox.
-FOUNDATION_EXPORT double MapboxVersionNumber;
+FOUNDATION_EXPORT MGL_EXPORT double MapboxVersionNumber;
 
 /// Project version string for Mapbox.
-FOUNDATION_EXPORT const unsigned char MapboxVersionString[];
+FOUNDATION_EXPORT MGL_EXPORT const unsigned char MapboxVersionString[];
 
 #import "MGLAnnotationView.h"
 #import "MGLAccountManager.h"
@@ -14,6 +16,7 @@ FOUNDATION_EXPORT const unsigned char MapboxVersionString[];
 #import "MGLClockDirectionFormatter.h"
 #import "MGLCompassDirectionFormatter.h"
 #import "MGLCoordinateFormatter.h"
+#import "MGLDistanceFormatter.h"
 #import "MGLFeature.h"
 #import "MGLGeometry.h"
 #import "MGLMapCamera.h"

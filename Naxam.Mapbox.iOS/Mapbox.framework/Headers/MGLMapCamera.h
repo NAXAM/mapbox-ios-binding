@@ -2,12 +2,15 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <CoreLocation/CoreLocation.h>
 
+#import "MGLFoundation.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  An `MGLMapCamera` object represents a viewpoint from which the user observes
  some point on an `MGLMapView`.
  */
+MGL_EXPORT
 @interface MGLMapCamera : NSObject <NSSecureCoding, NSCopying>
 
 /** Coordinate at the center of the map view. */
@@ -31,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Returns a new camera based on information about the camera’s viewpoint
  and focus point.
- 
+
  @param centerCoordinate The geographic coordinate on which the map should be
     centered.
  @param eyeCoordinate The geometric coordinate at which the camera should be
@@ -46,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Returns a new camera with the given distance, pitch, and heading.
- 
+
  @param centerCoordinate The geographic coordinate on which the map should be
     centered.
  @param distance The straight-line distance from the viewpoint to the
@@ -63,6 +66,20 @@ NS_ASSUME_NONNULL_BEGIN
                                    fromDistance:(CLLocationDistance)distance
                                           pitch:(CGFloat)pitch
                                         heading:(CLLocationDirection)heading;
+
+/**
+ Returns a Boolean value indicating whether the given camera is functionally
+ equivalent to the receiver.
+ 
+ Unlike `-isEqual:`, this method returns `YES` if the difference between the
+ coordinates, altitudes, pitches, or headings of the two camera objects is
+ negligible.
+ 
+ @param otherCamera The camera with which to compare the receiver.
+ @return A Boolean value indicating whether the two cameras are functionally
+    equivalent.
+ */
+- (BOOL)isEqualToMapCamera:(MGLMapCamera *)otherCamera;
 
 @end
 

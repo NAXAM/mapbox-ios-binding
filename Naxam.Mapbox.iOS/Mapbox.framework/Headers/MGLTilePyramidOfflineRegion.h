@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+#import "MGLFoundation.h"
 #import "MGLOfflineRegion.h"
 #import "MGLGeometry.h"
 
@@ -9,14 +10,15 @@ NS_ASSUME_NONNULL_BEGIN
  An offline region defined by a style URL, geographic coordinate bounds, and
  range of zoom levels.
  */
+MGL_EXPORT
 @interface MGLTilePyramidOfflineRegion : NSObject <MGLOfflineRegion, NSSecureCoding, NSCopying>
 
 /**
  URL of the style whose resources are required for offline viewing.
- 
+
  In addition to the JSON stylesheet, different styles may require different font
  glyphs, sprite sheets, and other resources.
- 
+
  The URL may be a full HTTP or HTTPS URL or a Mapbox URL indicating the style’s
  map ID (`mapbox://styles/{user}/{style}`).
  */
@@ -30,14 +32,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The minimum zoom level for which to download tiles and other resources.
- 
+
  For more information about zoom levels, `-[MGLMapView zoomLevel]`.
  */
 @property (nonatomic, readonly) double minimumZoomLevel;
 
 /**
  The maximum zoom level for which to download tiles and other resources.
- 
+
  For more information about zoom levels, `-[MGLMapView zoomLevel]`.
  */
 @property (nonatomic, readonly) double maximumZoomLevel;
@@ -47,9 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Initializes a newly created offline region with the given style URL, geographic
  coordinate bounds, and range of zoom levels.
- 
+
  This is the designated initializer for `MGLTilePyramidOfflineRegion`.
- 
+
  @param styleURL URL of the map style for which to download resources. The URL
     may be a full HTTP or HTTPS URL or a Mapbox URL indicating the style’s map
     ID (`mapbox://styles/{user}/{style}`). Specify `nil` for the default style.
