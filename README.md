@@ -3,6 +3,10 @@
 > This binding library is in internal verification and testing. 
 > Any forks are warmly welcome to make it quicker and better.
 
+```
+Install-Package Naxam.Mapbox.iOS -Pre
+```
+
 ## Mapbox Access Token
 
 An access token is necessary to use Mapbox services and APIs, such as maps, directions, and geocoding. Your access tokens can be managed in your account settings, where you can retrieve current tokens and generate new ones. You should create a new token for each of your apps, which will help you track usage and minimize disruption in the event a token needs to be revoked.

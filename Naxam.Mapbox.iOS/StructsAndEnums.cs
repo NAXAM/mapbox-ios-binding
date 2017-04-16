@@ -25,73 +25,73 @@ namespace Mapbox
 		public double longitudeDelta;
 	}
 
-	static class CFunctions
-	{
-		// MGLCoordinateSpan MGLCoordinateSpanMake (CLLocationDegrees latitudeDelta, CLLocationDegrees longitudeDelta) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern MGLCoordinateSpan MGLCoordinateSpanMake (double latitudeDelta, double longitudeDelta);
+	//static class CFunctions
+	//{
+	//	// MGLCoordinateSpan MGLCoordinateSpanMake (CLLocationDegrees latitudeDelta, CLLocationDegrees longitudeDelta) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern MGLCoordinateSpan MGLCoordinateSpanMake (double latitudeDelta, double longitudeDelta);
 
-		// BOOL MGLCoordinateSpanEqualToCoordinateSpan (MGLCoordinateSpan span1, MGLCoordinateSpan span2) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern bool MGLCoordinateSpanEqualToCoordinateSpan (MGLCoordinateSpan span1, MGLCoordinateSpan span2);
+	//	// BOOL MGLCoordinateSpanEqualToCoordinateSpan (MGLCoordinateSpan span1, MGLCoordinateSpan span2) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern bool MGLCoordinateSpanEqualToCoordinateSpan (MGLCoordinateSpan span1, MGLCoordinateSpan span2);
 
-		// MGLCoordinateBounds MGLCoordinateBoundsMake (CLLocationCoordinate2D sw, CLLocationCoordinate2D ne) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern MGLCoordinateBounds MGLCoordinateBoundsMake (CLLocationCoordinate2D sw, CLLocationCoordinate2D ne);
+	//	// MGLCoordinateBounds MGLCoordinateBoundsMake (CLLocationCoordinate2D sw, CLLocationCoordinate2D ne) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern MGLCoordinateBounds MGLCoordinateBoundsMake (CLLocationCoordinate2D sw, CLLocationCoordinate2D ne);
 
-		// BOOL MGLCoordinateBoundsEqualToCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern bool MGLCoordinateBoundsEqualToCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2);
+	//	// BOOL MGLCoordinateBoundsEqualToCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern bool MGLCoordinateBoundsEqualToCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2);
 
-		// BOOL MGLCoordinateBoundsIntersectsCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern bool MGLCoordinateBoundsIntersectsCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2);
+	//	// BOOL MGLCoordinateBoundsIntersectsCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern bool MGLCoordinateBoundsIntersectsCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2);
 
-		// BOOL MGLCoordinateInCoordinateBounds (CLLocationCoordinate2D coordinate, MGLCoordinateBounds bounds) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern bool MGLCoordinateInCoordinateBounds (CLLocationCoordinate2D coordinate, MGLCoordinateBounds bounds);
+	//	// BOOL MGLCoordinateInCoordinateBounds (CLLocationCoordinate2D coordinate, MGLCoordinateBounds bounds) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern bool MGLCoordinateInCoordinateBounds (CLLocationCoordinate2D coordinate, MGLCoordinateBounds bounds);
 
-		// MGLCoordinateSpan MGLCoordinateBoundsGetCoordinateSpan (MGLCoordinateBounds bounds) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern MGLCoordinateSpan MGLCoordinateBoundsGetCoordinateSpan (MGLCoordinateBounds bounds);
+	//	// MGLCoordinateSpan MGLCoordinateBoundsGetCoordinateSpan (MGLCoordinateBounds bounds) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern MGLCoordinateSpan MGLCoordinateBoundsGetCoordinateSpan (MGLCoordinateBounds bounds);
 
-		// MGLCoordinateBounds MGLCoordinateBoundsOffset (MGLCoordinateBounds bounds, MGLCoordinateSpan offset) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern MGLCoordinateBounds MGLCoordinateBoundsOffset (MGLCoordinateBounds bounds, MGLCoordinateSpan offset);
+	//	// MGLCoordinateBounds MGLCoordinateBoundsOffset (MGLCoordinateBounds bounds, MGLCoordinateSpan offset) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern MGLCoordinateBounds MGLCoordinateBoundsOffset (MGLCoordinateBounds bounds, MGLCoordinateSpan offset);
 
-		// BOOL MGLCoordinateBoundsIsEmpty (MGLCoordinateBounds bounds) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern bool MGLCoordinateBoundsIsEmpty (MGLCoordinateBounds bounds);
+	//	// BOOL MGLCoordinateBoundsIsEmpty (MGLCoordinateBounds bounds) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern bool MGLCoordinateBoundsIsEmpty (MGLCoordinateBounds bounds);
 
-		// NSString * _Nonnull MGLStringFromCoordinateBounds (MGLCoordinateBounds bounds) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern NSString MGLStringFromCoordinateBounds (MGLCoordinateBounds bounds);
+	//	// NSString * _Nonnull MGLStringFromCoordinateBounds (MGLCoordinateBounds bounds) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern NSString MGLStringFromCoordinateBounds (MGLCoordinateBounds bounds);
 
-		// CGFloat MGLRadiansFromDegrees (CLLocationDegrees degrees) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern nfloat MGLRadiansFromDegrees (double degrees);
+	//	// CGFloat MGLRadiansFromDegrees (CLLocationDegrees degrees) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern nfloat MGLRadiansFromDegrees (double degrees);
 
-		// CLLocationDegrees MGLDegreesFromRadians (CGFloat radians) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern double MGLDegreesFromRadians (nfloat radians);
+	//	// CLLocationDegrees MGLDegreesFromRadians (CGFloat radians) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern double MGLDegreesFromRadians (nfloat radians);
 
-		// MGLTransition MGLTransitionMake (NSTimeInterval duration, NSTimeInterval delay) __attribute__((always_inline));
-		[DllImport ("__Internal")]
-		//[Verify (PlatformInvoke)]
-		static extern MGLTransition MGLTransitionMake (double duration, double delay);
-	}
+	//	// MGLTransition MGLTransitionMake (NSTimeInterval duration, NSTimeInterval delay) __attribute__((always_inline));
+	//	[DllImport ("__Internal")]
+	//	//[Verify (PlatformInvoke)]
+	//	static extern MGLTransition MGLTransitionMake (double duration, double delay);
+	//}
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct MGLCoordinateBounds
