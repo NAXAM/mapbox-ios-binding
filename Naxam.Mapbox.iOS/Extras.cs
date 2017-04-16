@@ -1,5 +1,5 @@
-﻿namespace Mapbox {
-
+﻿namespace Mapbox
+{
 	//@protocol MGLAnnotation <NSObject>
 	public partial interface IMGLAnnotation { }
 	//@protocol MGLCalloutView <NSObject>
@@ -14,5 +14,7 @@
 	public partial interface IMGLOfflineRegion { }
 	//@protocol MGLOverlay <MGLAnnotation>
 	public partial interface IMGLOverlay { }
+	public partial interface IMGLOfflineStorageDelegate { }
 
+	//interface MGLStyleValue<T> : MGLStyleValue { }
 }

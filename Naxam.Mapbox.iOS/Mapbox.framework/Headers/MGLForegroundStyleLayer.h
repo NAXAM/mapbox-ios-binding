@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+#import "MGLFoundation.h"
 #import "MGLStyleLayer.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -9,11 +10,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  `MGLForegroundStyleLayer` is an abstract superclass for style layers whose
  content is defined by an `MGLSource` object.
- 
+
  Do not create instances of this class directly, and do not create your own
  subclasses of this class. Instead, create instances of `MGLRasterStyleLayer`
  and the concrete subclasses of `MGLVectorStyleLayer`.
  */
+MGL_EXPORT
 @interface MGLForegroundStyleLayer : MGLStyleLayer
 
 #pragma mark Initializing a Style Layer
@@ -23,11 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Returns a foreground style layer initialized with an identifier and source.
- 
+
  After initializing and configuring the style layer, add it to a map view’s
  style using the `-[MGLStyle addLayer:]` or
  `-[MGLStyle insertLayer:belowLayer:]` method.
- 
+
  @param identifier A string that uniquely identifies the source in the style to
     which it is added.
  @param source The source from which to obtain the data to style. If the source

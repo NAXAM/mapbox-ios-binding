@@ -2,6 +2,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <CoreLocation/CoreLocation.h>
 
+#import "MGLFoundation.h"
 #import "MGLTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -10,11 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
  Information about an attribution statement, usually a copyright or trademark
  statement, associated with a map content source.
  */
+MGL_EXPORT
 @interface MGLAttributionInfo : NSObject
 
 /**
  Returns an initialized attribution info object with the given title and URL.
- 
+
  @param title The attribution statement’s title.
  @param URL A URL to more information about the entity named in the attribution.
  @return An initialized attribution info object.
@@ -28,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The URL to more information about the entity named in the attribution.
- 
+
  If this property is set, the attribution statement should be displayed as a
  hyperlink or action button. Otherwise, if it is `nil`, the attribution
  statement should be displayed as plain text.
@@ -38,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  A Boolean value indicating whether the attribution statement is a shortcut to a
  feedback tool.
- 
+
  If this property is set, the statement should be treated as a way for the user
  to provide feedback rather than an attribution statement.
  */
@@ -47,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Returns a copy of the `URL` property modified to account for the given center
  coordinate and zoom level.
- 
+
  @param centerCoordinate The map’s center coordinate.
  @param zoomLevel The map’s zoom level. See the `MGLMapView.zoomLevel` property
     for more information.

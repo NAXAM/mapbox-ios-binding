@@ -2,8 +2,9 @@ using System;
 using System.Runtime.InteropServices;
 using CoreGraphics;
 using CoreLocation;
+using Foundation;
+using Mapbox;
 using ObjCRuntime;
-
 namespace Mapbox
 {
 	[Native]
@@ -16,25 +17,83 @@ namespace Mapbox
 		Ending
 	}
 
-	[StructLayout(LayoutKind.Sequential)]
+	[StructLayout (LayoutKind.Sequential)]
 	public struct MGLCoordinateSpan
 	{
 		public double latitudeDelta;
 
 		public double longitudeDelta;
-
-		public static MGLCoordinateSpan Empty {
-			get {
-				return new MGLCoordinateSpan {
-					latitudeDelta = 0, 
-					longitudeDelta = 0
-				};
-			}
-		}
 	}
 
+	static class CFunctions
+	{
+		// MGLCoordinateSpan MGLCoordinateSpanMake (CLLocationDegrees latitudeDelta, CLLocationDegrees longitudeDelta) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern MGLCoordinateSpan MGLCoordinateSpanMake (double latitudeDelta, double longitudeDelta);
 
-	[StructLayout(LayoutKind.Sequential)]
+		// BOOL MGLCoordinateSpanEqualToCoordinateSpan (MGLCoordinateSpan span1, MGLCoordinateSpan span2) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern bool MGLCoordinateSpanEqualToCoordinateSpan (MGLCoordinateSpan span1, MGLCoordinateSpan span2);
+
+		// MGLCoordinateBounds MGLCoordinateBoundsMake (CLLocationCoordinate2D sw, CLLocationCoordinate2D ne) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern MGLCoordinateBounds MGLCoordinateBoundsMake (CLLocationCoordinate2D sw, CLLocationCoordinate2D ne);
+
+		// BOOL MGLCoordinateBoundsEqualToCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern bool MGLCoordinateBoundsEqualToCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2);
+
+		// BOOL MGLCoordinateBoundsIntersectsCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern bool MGLCoordinateBoundsIntersectsCoordinateBounds (MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2);
+
+		// BOOL MGLCoordinateInCoordinateBounds (CLLocationCoordinate2D coordinate, MGLCoordinateBounds bounds) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern bool MGLCoordinateInCoordinateBounds (CLLocationCoordinate2D coordinate, MGLCoordinateBounds bounds);
+
+		// MGLCoordinateSpan MGLCoordinateBoundsGetCoordinateSpan (MGLCoordinateBounds bounds) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern MGLCoordinateSpan MGLCoordinateBoundsGetCoordinateSpan (MGLCoordinateBounds bounds);
+
+		// MGLCoordinateBounds MGLCoordinateBoundsOffset (MGLCoordinateBounds bounds, MGLCoordinateSpan offset) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern MGLCoordinateBounds MGLCoordinateBoundsOffset (MGLCoordinateBounds bounds, MGLCoordinateSpan offset);
+
+		// BOOL MGLCoordinateBoundsIsEmpty (MGLCoordinateBounds bounds) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern bool MGLCoordinateBoundsIsEmpty (MGLCoordinateBounds bounds);
+
+		// NSString * _Nonnull MGLStringFromCoordinateBounds (MGLCoordinateBounds bounds) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern NSString MGLStringFromCoordinateBounds (MGLCoordinateBounds bounds);
+
+		// CGFloat MGLRadiansFromDegrees (CLLocationDegrees degrees) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern nfloat MGLRadiansFromDegrees (double degrees);
+
+		// CLLocationDegrees MGLDegreesFromRadians (CGFloat radians) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern double MGLDegreesFromRadians (nfloat radians);
+
+		// MGLTransition MGLTransitionMake (NSTimeInterval duration, NSTimeInterval delay) __attribute__((always_inline));
+		[DllImport ("__Internal")]
+		//[Verify (PlatformInvoke)]
+		static extern MGLTransition MGLTransitionMake (double duration, double delay);
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
 	public struct MGLCoordinateBounds
 	{
 		public CLLocationCoordinate2D sw;
@@ -52,15 +111,6 @@ namespace Mapbox
 	}
 
 	[Native]
-	public enum MGLUserTrackingMode : ulong
-	{
-		None = 0,
-		Follow,
-		FollowWithHeading,
-		FollowWithCourse
-	}
-
-	[Native]
 	public enum MGLMapDebugMaskOptions : ulong
 	{
 		TileBoundariesMask = 1 << 1,
@@ -68,6 +118,14 @@ namespace Mapbox
 		TimestampsMask = 1 << 3,
 		CollisionBoxesMask = 1 << 4,
 		OverdrawVisualizationMask = 1 << 5
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct MGLTransition
+	{
+		public double duration;
+
+		public double delay;
 	}
 
 	[Native]
@@ -79,7 +137,16 @@ namespace Mapbox
 	}
 
 	[Native]
-	public enum MGLOfflinePackState : ulong
+	public enum MGLUserTrackingMode : ulong
+	{
+		None = 0,
+		Follow,
+		FollowWithHeading,
+		FollowWithCourse
+	}
+
+	[Native]
+	public enum MGLOfflinePackState : long
 	{
 		Unknown = 0,
 		Inactive = 1,
@@ -88,7 +155,7 @@ namespace Mapbox
 		Invalid = 4
 	}
 
-	[StructLayout(LayoutKind.Sequential)]
+	[StructLayout (LayoutKind.Sequential)]
 	public struct MGLOfflinePackProgress
 	{
 		public ulong countOfResourcesCompleted;
@@ -102,6 +169,27 @@ namespace Mapbox
 		public ulong countOfResourcesExpected;
 
 		public ulong maximumResourcesExpected;
+	}
+
+	[Native]
+	public enum MGLResourceKind : ulong
+	{
+		Unknown,
+		Style,
+		Source,
+		Tile,
+		Glyphs,
+		SpriteImage,
+		SpriteJSON
+	}
+
+	[Native]
+	public enum MGLInterpolationMode : ulong
+	{
+		Exponential = 0,
+		Interval,
+		Categorical,
+		Identity
 	}
 
 	[Native]
@@ -232,7 +320,7 @@ namespace Mapbox
 		Viewport
 	}
 
-	[StructLayout(LayoutKind.Sequential)]
+	[StructLayout (LayoutKind.Sequential)]
 	public struct MGLStyleLayerDrawingContext
 	{
 		public CGSize size;
@@ -244,6 +332,8 @@ namespace Mapbox
 		public double direction;
 
 		public nfloat pitch;
+
+		public nfloat fieldOfView;
 	}
 
 	[Native]
