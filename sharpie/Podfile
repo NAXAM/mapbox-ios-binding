@@ -3,4 +3,4 @@ install! 'cocoapods', :integrate_targets => false
 target 'ObjectiveSharpieIntegration' do
   use_frameworks!
 end
-pod 'Mapbox-iOS-SDK', '3.5.2'
+pod 'Mapbox-iOS-SDK', '3.5.4'

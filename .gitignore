@@ -4,6 +4,5 @@ packages/
 *.nupkg
 *.userprefs
 Podfile.lock
-sharpie/Binding/Mapbox.framework
 sharpie/build
 sharpie/Pods
