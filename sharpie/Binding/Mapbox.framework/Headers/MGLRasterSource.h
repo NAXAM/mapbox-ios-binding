@@ -104,6 +104,26 @@ MGL_EXPORT
  */
 - (instancetype)initWithIdentifier:(NSString *)identifier configurationURL:(NSURL *)configurationURL tileSize:(CGFloat)tileSize NS_DESIGNATED_INITIALIZER;
 
+/**
+ Returns a raster source initialized an identifier, tile URL templates, and
+ options.
+
+ Tile URL templates are strings that specify the URLs of the raster tile images
+ to load. See the “<a href="../tile-url-templates.html">Tile URL Templates</a>”
+ guide for information about the format of a tile URL template.
+
+ After initializing and configuring the source, add it to a map view’s style
+ using the `-[MGLStyle addSource:]` method.
+
+ @param identifier A string that uniquely identifies the source in the style to
+    which it is added.
+ @param tileURLTemplates An array of tile URL template strings. Only the first
+    string is used; any additional strings are ignored.
+ @param options A dictionary containing configuration options. See
+    `MGLTileSourceOption` for available keys and values. Pass in `nil` to use
+    the default values.
+ @return An initialized tile source.
+ */
 - (instancetype)initWithIdentifier:(NSString *)identifier tileURLTemplates:(NS_ARRAY_OF(NSString *) *)tileURLTemplates options:(nullable NS_DICTIONARY_OF(MGLTileSourceOption, id) *)options NS_DESIGNATED_INITIALIZER;
 
 @end

@@ -1,7 +1,6 @@
 bin/
 obj/
 packages/
-*.nupkg
 *.userprefs
 Podfile.lock
 sharpie/build

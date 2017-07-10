@@ -6,13 +6,14 @@
 #import "MGLTypes.h"
 
 @class MGLSource;
+@class MGLLight;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- A version number identifying the default version of the suite of default styles
- provided by Mapbox. This version number may be passed into one of the
- “StyleURLWithVersion” class methods of MGLStyle.
+ A version number identifying the default version of the Mapbox Streets style
+ obtained through the `-streetsStyleURL` method. This version number may also be
+ passed into the `-streetsStyleURLWithVersion:` method.
 
  The value of this constant generally corresponds to the latest released version
  as of the date on which this SDK was published. You can use this constant to
@@ -28,17 +29,54 @@ NS_ASSUME_NONNULL_BEGIN
     the constant itself. Such details may change significantly from version to
     version.
  */
-static MGL_EXPORT const NSInteger MGLStyleDefaultVersion = 9;
+static MGL_EXPORT const NSInteger MGLStyleDefaultVersion = 10;
 
 /**
- The proxy object for the current map style.
-
- MGLStyle provides a set of convenience methods for changing Mapbox
- default styles using `-[MGLMapView styleURL]`.
- <a href="https://www.mapbox.com/maps/">Learn more about Mapbox default styles</a>.
-
- It is also possible to directly manipulate the current map style
- via `-[MGLMapView style]` by updating the style's data sources or layers.
+ An `MGLStyle` object represents the active map style of an `MGLMapView`. A
+ style defines both the map’s content and every aspect of its appearance. Styles
+ can be designed in
+ <a href="https://www.mapbox.com/studio/">Mapbox Studio</a> and hosted on
+ mapbox.com. `MGLStyle` provides methods for inspecting and manipulating a style
+ dynamically, with classes and properties that parallel the style JSON format
+ defined by the
+ <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/">Mapbox Style Specification</a>.
+ 
+ You set a map view’s active style using the `MGLMapView.styleURL` property.
+ `MGLStyle` provides a set of convenience methods that return the URLs of
+ <a href="https://www.mapbox.com/maps/">popular Mapbox-designed styles</a>.
+ Once the `-[MGLMapViewDelegate mapView:didFinishLoadingStyle:]` or
+ `-[MGLMapViewDelegate mapViewDidFinishLoadingMap:]` method is called, signaling
+ that the style has finished loading, you can use the `MGLMapView.style`
+ property to obtain the map view’s `MGLStyle`.
+ 
+ A style primarily consists of the following components:
+ 
+ * _Content sources_ supply content to be shown on the map. Use methods such as
+   `-sourceWithIdentifier:` and `-addSource:` to configure the style’s content
+   sources, which are represented by `MGLSource` objects.
+ * _Style layers_ manage the layout and appearance of content at specific
+   z-indices in the style. Most kinds of style layers display content provided
+   by a content source. Use methods such as `-layerWithIdentifier:` and
+   `-addLayer:` to configure the style’s layers, which are represented by
+   `MGLStyleLayer` objects.
+ * _Style images_ are used as icons and patterns in style layers. Use the
+   `-setImage:forName:` method to register an image as a style image.
+   (Annotations are represented by annotation images rather than style images.
+   To configure an annotation’s appearance, use the
+   `-[MGLMapViewDelegate mapView:imageForAnnotation:]` method.)
+ * The style’s _light_ is the light source affecting any 3D extruded fills.
+   Use the `light` property to configure the style’s light, which is represented
+   by an `MGLLight` object.
+ 
+ The `MGLStyle`, `MGLSource`, `MGLStyleLayer`, and `MGLLight` classes are
+ collectively known as the _runtime styling API_. The active style influences a
+ related API, visible feature querying, which is available through methods such
+ as `-[MGLMapView visibleFeaturesInRect:]`.
+ 
+ Some terminology differs between the Mapbox Style Specification and the various
+ classes associated with `MGLStyle`. Consult the
+ “[Information for Style Authors](../for-style-authors.html)” guide for an
+ overview of these differences.
 
  @note Wait until the map style has finished loading before modifying a map's
     style via any of the `MGLStyle` instance methods below. You can use the
@@ -52,15 +90,22 @@ MGL_EXPORT
 #pragma mark Accessing Default Styles
 
 /**
- Returns the URL to version 8 of the
- <a href="https://www.mapbox.com/maps/streets/">Mapbox Streets</a> style.
+ Returns the URL to the current version of the
+ <a href="https://www.mapbox.com/maps/streets/">Mapbox Streets</a> style as of
+ publication.
 
  Streets is a general-purpose style with detailed road and transit networks.
 
  `MGLMapView` and `MGLTilePyramidOfflineRegion` use Mapbox Streets when no style
  is specified explicitly.
+
+ @warning The return value may change in a future release of the SDK. If you use
+    any feature that depends on a specific aspect of a default style – for
+    instance, the minimum zoom level that includes roads – use the
+    `-streetsStyleURLWithVersion:` method instead. Such details may change
+    significantly from version to version.
  */
-+ (NSURL *)streetsStyleURL __attribute__((deprecated("Use -streetsStyleURLWithVersion:.")));
++ (NSURL *)streetsStyleURL;
 
 /**
  Returns the URL to the given version of the
@@ -71,8 +116,7 @@ MGL_EXPORT
  `MGLMapView` and `MGLTilePyramidOfflineRegion` use Mapbox Streets when no style
  is specified explicitly.
 
- @param version The style’s latest released version. As of publication, the
-    current version is `9`.
+ @param version A specific version of the style.
  */
 + (NSURL *)streetsStyleURLWithVersion:(NSInteger)version;
 
@@ -85,70 +129,102 @@ MGL_EXPORT
 + (NSURL *)emeraldStyleURL __attribute__((deprecated("Create an NSURL object with the string “mapbox://styles/mapbox/emerald-v8”.")));
 
 /**
+ Returns the URL to the current version of the
+ <a href="https://www.mapbox.com/maps/outdoors/">Mapbox Outdoors</a> style as of
+ publication.
+
+ Outdoors is a general-purpose style tailored to outdoor activities.
+
+ @warning The return value may change in a future release of the SDK. If you use
+    any feature that depends on a specific aspect of a default style – for
+    instance, the minimum zoom level that includes roads – use the
+    `-outdoorsStyleURLWithVersion:` method instead. Such details may change
+    significantly from version to version.
+ */
++ (NSURL *)outdoorsStyleURL;
+
+/**
  Returns the URL to the given version of the
  <a href="https://www.mapbox.com/maps/outdoors/">Mapbox Outdoors</a> style.
 
  Outdoors is a general-purpose style tailored to outdoor activities.
 
- @param version The style’s latest released version. As of publication, the
-    current version is `9`.
+ @param version A specific version of the style.
  */
 + (NSURL *)outdoorsStyleURLWithVersion:(NSInteger)version;
 
 /**
- Returns the URL to version 8 of the
+ Returns the URL to the current version of the
  <a href="https://www.mapbox.com/maps/light-dark/">Mapbox Light</a> style.
 
  Light is a subtle, light-colored backdrop for data visualizations.
+
+ @warning The return value may change in a future release of the SDK. If you use
+    any feature that depends on a specific aspect of a default style – for
+    instance, the minimum zoom level that includes roads – use the
+    `-lightStyleURLWithVersion:` method instead. Such details may change
+    significantly from version to version.
  */
-+ (NSURL *)lightStyleURL __attribute__((deprecated("Use -lightStyleURLWithVersion:.")));
++ (NSURL *)lightStyleURL;
 
 /**
  Returns the URL to the given version of the
- <a href="https://www.mapbox.com/maps/light-dark/">Mapbox Light</a> style.
+ <a href="https://www.mapbox.com/maps/light-dark/">Mapbox Light</a> style as of
+ publication.
 
  Light is a subtle, light-colored backdrop for data visualizations.
 
- @param version The style’s latest released version. As of publication, the
-    current version is `9`.
+ @param version A specific version of the style.
  */
 + (NSURL *)lightStyleURLWithVersion:(NSInteger)version;
 
 /**
- Returns the URL to version 8 of the
+ Returns the URL to the current version of the
  <a href="https://www.mapbox.com/maps/light-dark/">Mapbox Dark</a> style.
 
  Dark is a subtle, dark-colored backdrop for data visualizations.
+
+ @warning The return value may change in a future release of the SDK. If you use
+    any feature that depends on a specific aspect of a default style – for
+    instance, the minimum zoom level that includes roads – use the
+    `-darkStyleURLWithVersion:` method instead. Such details may change
+    significantly from version to version.
  */
-+ (NSURL *)darkStyleURL __attribute__((deprecated("Use -darkStyleURLWithVersion:.")));
++ (NSURL *)darkStyleURL;
 
 /**
  Returns the URL to the given version of the
- <a href="https://www.mapbox.com/maps/light-dark/">Mapbox Dark</a> style.
+ <a href="https://www.mapbox.com/maps/light-dark/">Mapbox Dark</a> style as of
+ publication.
 
  Dark is a subtle, dark-colored backdrop for data visualizations.
 
- @param version The style’s latest released version. As of publication, the
-    current version is `9`.
+ @param version A specific version of the style.
  */
 + (NSURL *)darkStyleURLWithVersion:(NSInteger)version;
 
 /**
- Returns the URL to version 8 of the
+ Returns the URL to the current version of the
  <a href="https://www.mapbox.com/maps/satellite/">Mapbox Satellite</a> style.
 
  Satellite is high-resolution satellite and aerial imagery.
+
+ @warning The return value may change in a future release of the SDK. If you use
+    any feature that depends on a specific aspect of a default style – for
+    instance, the raster tile sets included in the style – use the
+    `-satelliteStyleURLWithVersion:` method instead. Such details may change
+    significantly from version to version.
  */
-+ (NSURL *)satelliteStyleURL __attribute__((deprecated("Use -satelliteStyleURLWithVersion:.")));
++ (NSURL *)satelliteStyleURL;
 
 /**
  Returns the URL to the given version of the
- <a href="https://www.mapbox.com/maps/satellite/">Mapbox Satellite</a> style.
+ <a href="https://www.mapbox.com/maps/satellite/">Mapbox Satellite</a> style as
+ of publication.
 
  Satellite is high-resolution satellite and aerial imagery.
 
- @param version The style’s latest released version. As of publication, the
-    current version is `9`.
+ @param version A specific version of the style.
  */
 + (NSURL *)satelliteStyleURLWithVersion:(NSInteger)version;
 
@@ -161,7 +237,24 @@ MGL_EXPORT
  Mapbox Satellite with unobtrusive labels and translucent roads from Mapbox
  Streets.
  */
-+ (NSURL *)hybridStyleURL __attribute__((deprecated("Use -satelliteStreetsStyleURLWithVersion:.")));
++ (NSURL *)hybridStyleURL __attribute__((deprecated("Use -satelliteStreetsStyleURL.")));
+
+/**
+ Returns the URL to the current version of the
+ <a href="https://www.mapbox.com/maps/satellite/">Mapbox Satellite Streets</a>
+ style as of publication.
+
+ Satellite Streets combines the high-resolution satellite and aerial imagery of
+ Mapbox Satellite with unobtrusive labels and translucent roads from Mapbox
+ Streets.
+
+ @warning The return value may change in a future release of the SDK. If you use
+    any feature that depends on a specific aspect of a default style – for
+    instance, the minimum zoom level that includes roads – use the
+    `-satelliteStreetsStyleURLWithVersion:` method instead. Such details may
+    change significantly from version to version.
+ */
++ (NSURL *)satelliteStreetsStyleURL;
 
 /**
  Returns the URL to the given version of the
@@ -172,10 +265,71 @@ MGL_EXPORT
  Mapbox Satellite with unobtrusive labels and translucent roads from Mapbox
  Streets.
 
- @param version The style’s latest released version. As of publication, the
-    current version is `9`.
+ @param version A specific version of the style.
  */
 + (NSURL *)satelliteStreetsStyleURLWithVersion:(NSInteger)version;
+
+/**
+ Returns the URL to the current version of the
+ <a href="https://www.mapbox.com/blog/live-traffic-maps/">Mapbox Traffic Day</a>
+ style.
+
+ Traffic Day color-codes roads based on live traffic congestion data. Traffic
+ data is currently available in
+ <a href="https://www.mapbox.com/api-documentation/pages/traffic-countries.html">these select countries</a>.
+
+ @warning The return value may change in a future release of the SDK. If you use
+    any feature that depends on a specific aspect of a default style – for
+    instance, the minimum zoom level that includes roads – use the
+    `-trafficDayStyleURLWithVersion:` method instead. Such details may change
+    significantly from version to version.
+ */
++ (NSURL *)trafficDayStyleURL;
+
+/**
+ Returns the URL to the given version of the
+ <a href="https://www.mapbox.com/blog/live-traffic-maps/">Mapbox Traffic Day</a>
+ style as of publication.
+
+ Traffic Day color-codes roads based on live traffic congestion data. Traffic
+ data is currently available in
+ <a href="https://www.mapbox.com/api-documentation/pages/traffic-countries.html">these select countries</a>.
+
+ @param version A specific version of the style.
+ */
++ (NSURL *)trafficDayStyleURLWithVersion:(NSInteger)version;
+
+/**
+ Returns the URL to the current version of the
+ <a href="https://www.mapbox.com/blog/live-traffic-maps/">Mapbox Traffic Night</a>
+ style.
+
+ Traffic Night color-codes roads based on live traffic congestion data and is
+ designed to maximize legibility in low-light situations. Traffic data is
+ currently available in
+ <a href="https://www.mapbox.com/api-documentation/pages/traffic-countries.html">these select countries</a>.
+
+ @warning The return value may change in a future release of the SDK. If you use
+    any feature that depends on a specific aspect of a default style – for
+    instance, the minimum zoom level that includes roads – use the
+    `-trafficNightStyleURLWithVersion:` method instead. Such details may change
+    significantly from version to version.
+ */
++ (NSURL *)trafficNightStyleURL;
+
+/**
+ Returns the URL to the given version of the
+ <a href="https://www.mapbox.com/blog/live-traffic-maps/">Mapbox Traffic Night</a>
+ style as of publication.
+
+ Traffic Night color-codes roads based on live traffic congestion data and is
+ designed to maximize legibility in low-light situations. Traffic data is
+ currently available in
+ <a href="https://www.mapbox.com/api-documentation/pages/traffic-countries.html">these select countries</a>.
+
+ @param version A specific version of the style.
+ */
++ (NSURL *)trafficNightStyleURLWithVersion:(NSInteger)version;
 
 #pragma mark Accessing Metadata About the Style
 
@@ -447,6 +601,14 @@ MGL_EXPORT
  @param name The name of the image to remove.
  */
 - (void)removeImageForName:(NSString *)name;
+
+
+#pragma mark Managing the Style's Light
+
+/**
+ Provides global light source for the style.
+ */
+@property (nonatomic, strong) MGLLight *light;
 
 @end
 

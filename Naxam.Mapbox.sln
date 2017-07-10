@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naxam.Mapbox.iOS", "Naxam.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naxam.Mapbox.iOSQs", "demo\Naxam.Mapbox.iOSQs\Naxam.Mapbox.iOSQs.csproj", "{3A2E7243-0208-4292-92B4-8C25F27B9843}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{D8F96117-BE6D-4B99-A089-3119F86961BB}"
+	ProjectSection(SolutionItems) = preProject
+		mapbox-ios.nuspec = mapbox-ios.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

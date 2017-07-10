@@ -51,8 +51,45 @@ MGL_EXPORT
 
 #pragma mark Initializing a Source
 
+/**
+ Returns a vector source initialized with an identifier and configuration URL.
+
+ After initializing and configuring the source, add it to a map view’s style
+ using the `-[MGLStyle addSource:]` method.
+
+ The URL may be a full HTTP or HTTPS URL or, for tile sets hosted by Mapbox, a
+ Mapbox URL indicating a map identifier (`mapbox://<mapid>`). The URL should
+ point to a JSON file that conforms to the
+ <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+
+ @param identifier A string that uniquely identifies the source in the style to
+    which it is added.
+ @param configurationURL A URL to a TileJSON configuration file describing the
+    source’s contents and other metadata.
+ @return An initialized vector source.
+ */
 - (instancetype)initWithIdentifier:(NSString *)identifier configurationURL:(NSURL *)configurationURL NS_DESIGNATED_INITIALIZER;
 
+/**
+ Returns a vector source initialized an identifier, tile URL templates, and
+ options.
+
+ Tile URL templates are strings that specify the URLs of the vector tiles to
+ load. See the “<a href="../tile-url-templates.html">Tile URL Templates</a>”
+ guide for information about the format of a tile URL template.
+
+ After initializing and configuring the source, add it to a map view’s style
+ using the `-[MGLStyle addSource:]` method.
+
+ @param identifier A string that uniquely identifies the source in the style to
+    which it is added.
+ @param tileURLTemplates An array of tile URL template strings. Only the first
+    string is used; any additional strings are ignored.
+ @param options A dictionary containing configuration options. See
+    `MGLTileSourceOption` for available keys and values. Pass in `nil` to use
+    the default values.
+ @return An initialized tile source.
+ */
 - (instancetype)initWithIdentifier:(NSString *)identifier tileURLTemplates:(NS_ARRAY_OF(NSString *) *)tileURLTemplates options:(nullable NS_DICTIONARY_OF(MGLTileSourceOption, id) *)options NS_DESIGNATED_INITIALIZER;
 
 #pragma mark Accessing a Source’s Content

@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 #import "MGLFoundation.h"
 
@@ -42,6 +43,10 @@ typedef NS_ENUM(NSInteger, MGLErrorCode) {
     MGLErrorCodeBadServerResponse = 2,
     /** An attempt to establish a connection failed. */
     MGLErrorCodeConnectionFailed = 3,
+    /** A style parse error occurred while attempting to load the map. */
+    MGLErrorCodeParseStyleFailed = 4,
+    /** An attempt to load the style failed. */
+    MGLErrorCodeLoadStyleFailed = 5,
 };
 
 /** Options for enabling debugging features in an `MGLMapView` instance. */
@@ -73,7 +78,7 @@ typedef NS_OPTIONS(NSUInteger, MGLMapDebugMaskOptions) {
 /**
  A structure containing information about a transition.
  */
-typedef struct MGLTransition {
+typedef struct __attribute__((objc_boxable)) MGLTransition {
     /**
      The amount of time the animation should take, not including the delay.
      */

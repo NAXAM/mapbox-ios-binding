@@ -10,8 +10,9 @@ NS_ASSUME_NONNULL_BEGIN
  The `MGLMultiPoint` class is an abstract superclass used to define shapes
  composed of multiple vertices.
 
- You do not create instances of this class directly. Instead, you create
- instances of the `MGLPolyline` or `MGLPolygon` classes. However, you can use
+ Create instances of `MGLPolyline` or `MGLPolygon` in order to use 
+ properties of `MGLMultiPoint`. Do not create instances of `MGLMultiPoint`
+ directly and do not create your own subclasses of this class. You can use
  the method and properties of this class to access information about the
  vertices of the line or polygon.
 
@@ -58,8 +59,12 @@ MGL_EXPORT
 - (void)setCoordinates:(CLLocationCoordinate2D *)coords count:(NSUInteger)count;
 
 /**
- Inserts the given vertices into the shape. If the shape is currently visible on
- the map, it is redrawn immediately.
+ Inserts the given vertices into the shape.
+ 
+ If the shape is currently visible on the map as an annotation, it is redrawn
+ immediately. If the shape is part of an `MGLShapeSource` object, you must
+ explicitly set the `MGLShapeSource.shape` property in order for any style
+ layers that use the source to be redrawn.
 
  @param coords The array of coordinates to insert into the shape. The data in
     this array is copied to the shape’s `coordinates` property.
@@ -70,8 +75,12 @@ MGL_EXPORT
 - (void)insertCoordinates:(const CLLocationCoordinate2D *)coords count:(NSUInteger)count atIndex:(NSUInteger)index;
 
 /**
- Appends the given vertices to the shape. If the shape is currently visible on
- the map, it is redrawn immediately.
+ Appends the given vertices to the shape.
+ 
+ If the shape is currently visible on the map as an annotation, it is redrawn
+ immediately. If the shape is part of an `MGLShapeSource` object, you must
+ explicitly set the `MGLShapeSource.shape` property in order for any style
+ layers that use the source to be redrawn.
 
  @param coords The array of coordinates to add to the shape. The data in this
     array is copied to the shape’s `coordinates` property.
@@ -81,8 +90,12 @@ MGL_EXPORT
 
 /**
  Replaces the vertices at the given range in the shape with the same number of
- vertices from a given C array. If the shape is currently visible on the map, it
- is redrawn immediately.
+ vertices from a given C array.
+ 
+ If the shape is currently visible on the map as an annotation, it is redrawn
+ immediately. If the shape is part of an `MGLShapeSource` object, you must
+ explicitly set the `MGLShapeSource.shape` property in order for any style
+ layers that use the source to be redrawn.
 
  The number of coordinates in `coords` must be equal to the length of `range`.
  If you want to insert or delete one or more vertices, use the
@@ -103,8 +116,12 @@ MGL_EXPORT
 
 /**
  Replaces the vertices at the given range in the shape with the specified number
- of vertices from a given C array. If the shape is currently visible on the map,
- it is redrawn immediately.
+ of vertices from a given C array.
+ 
+ If the shape is currently visible on the map as an annotation, it is redrawn
+ immediately. If the shape is part of an `MGLShapeSource` object, you must
+ explicitly set the `MGLShapeSource.shape` property in order for any style
+ layers that use the source to be redrawn.
 
  If `count` is greater than the `length` field of `range`, some vertices will
  effectively be inserted into the shape. On the other hand, if `count` is less
@@ -128,8 +145,12 @@ MGL_EXPORT
 - (void)replaceCoordinatesInRange:(NSRange)range withCoordinates:(const CLLocationCoordinate2D *)coords count:(NSUInteger)count;
 
 /**
- Removes the vertices at the given range from the shape. If the shape is
- currently visible on the map, it is redrawn immediately.
+ Removes the vertices at the given range from the shape.
+ 
+ If the shape is currently visible on the map as an annotation, it is redrawn
+ immediately. If the shape is part of an `MGLShapeSource` object, you must
+ explicitly set the `MGLShapeSource.shape` property in order for any style
+ layers that use the source to be redrawn.
 
  If `range` extends beyond the shape’s `coordinates` property, an
  `NSRangeException` is raised.
