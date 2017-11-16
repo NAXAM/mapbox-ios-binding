@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using CoreAnimation;
 using CoreGraphics;
 using CoreLocation;
@@ -1758,7 +1758,7 @@ namespace Mapbox
 
 	// @protocol MGLOfflineRegion <NSObject>
 	[Protocol, Model]
-	[BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "MGLOfflineRegion")]
 	interface MGLOfflineRegion
 	{
 	}
@@ -1769,7 +1769,7 @@ namespace Mapbox
 	{
 		// @property (readonly, nonatomic) id<MGLOfflineRegion> _Nonnull region;
 		[Export("region")]
-		MGLOfflineRegion Region { get; }
+        IMGLOfflineRegion Region { get; }
 
 		// @property (readonly, nonatomic) NSData * _Nonnull context;
 		[Export("context")]
@@ -1859,7 +1859,7 @@ namespace Mapbox
 
 		// -(void)addPackForRegion:(id<MGLOfflineRegion> _Nonnull)region withContext:(NSData * _Nonnull)context completionHandler:(MGLOfflinePackAdditionCompletionHandler _Nullable)completion;
 		[Export("addPackForRegion:withContext:completionHandler:")]
-		void AddPackForRegion(MGLOfflineRegion region, NSData context, [NullAllowed] MGLOfflinePackAdditionCompletionHandler completion);
+		void AddPackForRegion(IMGLOfflineRegion region, NSData context, [NullAllowed] MGLOfflinePackAdditionCompletionHandler completion);
 
 		// -(void)removePack:(MGLOfflinePack * _Nonnull)pack withCompletionHandler:(MGLOfflinePackRemovalCompletionHandler _Nullable)completion;
 		[Export("removePack:withCompletionHandler:")]
@@ -2646,7 +2646,7 @@ namespace Mapbox
 	// @interface MGLTilePyramidOfflineRegion : NSObject <MGLOfflineRegion, NSSecureCoding, NSCopying>
 	[BaseType(typeof(NSObject))]
 	[DisableDefaultCtor]
-	interface MGLTilePyramidOfflineRegion : IMGLOfflineRegion, INSSecureCoding, INSCopying
+	interface MGLTilePyramidOfflineRegion : MGLOfflineRegion, INSSecureCoding, INSCopying
 	{
 		// @property (readonly, nonatomic) NSURL * _Nonnull styleURL;
 		[Export("styleURL")]
