@@ -5,6 +5,7 @@ using CoreLocation;
 using Foundation;
 using ObjCRuntime;
 using UIKit;
+using CoreFoundation;
 
 namespace Mapbox
 {
@@ -450,6 +451,10 @@ namespace Mapbox
 		[Export("circleOpacityTransition", ArgumentSemantic.Assign)]
 		MGLTransition CircleOpacityTransition { get; set; }
 
+		// @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *circlePitchAlignment;
+		[Export("circlePitchAlignment", ArgumentSemantic.Assign), NullAllowed]
+		MGLStyleValue CirclePitchAlignment { get; set; }
+
 		// @property (nonatomic) MGLStyleValue<NSNumber *> * _Null_unspecified circleRadius;
 		[Export("circleRadius", ArgumentSemantic.Assign)]
 		MGLStyleValue CircleRadius { get; set; }
@@ -523,6 +528,16 @@ namespace Mapbox
         [Export("MGLCircleTranslationAnchorValue")]
         //MGLCircleTranslationAnchor MGLCircleTranslationAnchorValue { get; }
         MGLCircleTranslationAnchor MGLCircleTranslationAnchorValue();
+
+		// + (instancetype)valueWithMGLCirclePitchAlignment:(MGLCirclePitchAlignment)circlePitchAlignment;
+		[Static]
+		[Export("valueWithMGLCirclePitchAlignment:")]
+		NSValue ValueWithMGLCirclePitchAlignment(MGLCirclePitchAlignment circlePitchAlignment);
+
+        // @property (readonly) MGLCirclePitchAlignment MGLCirclePitchAlignmentValue;
+        [Export("MGLCirclePitchAlignmentValue")]
+        //MGLCircleScaleAlignment MGLCircleScaleAlignmentValue { get; }
+        MGLCirclePitchAlignment MGLCirclePitchAlignmentValue();
 	}
 
 	// @interface MGLClockDirectionFormatter : NSFormatter
@@ -1252,6 +1267,11 @@ namespace Mapbox
 	//	// @property (nonatomic) BOOL showsUserLocation;
 	//	[Export("showsUserLocation")]
 	//	bool ShowsUserLocation { }
+
+	// @property (nonatomic) IBInspectable BOOL showsHeading;
+	//	[Export("showsHeading")]
+	//	bool showsHeading { }
+
 	//}
 
 	// @interface MGLMapView : UIView
@@ -1329,6 +1349,11 @@ namespace Mapbox
 		// -(void)setUserLocationVerticalAlignment:(MGLAnnotationVerticalAlignment)alignment animated:(BOOL)animated;
 		[Export("setUserLocationVerticalAlignment:animated:")]
 		void SetUserLocationVerticalAlignment(MGLAnnotationVerticalAlignment alignment, bool animated);
+
+		//@property (nonatomic, assign) BOOL showsUserHeadingIndicator;
+		[Export("showsUserHeadingIndicator", ArgumentSemantic.Assign)]
+		bool ShowsUserHeadingIndicator { get; set; }
+
 
 		// @property (assign, nonatomic) BOOL displayHeadingCalibration;
 		[Export("displayHeadingCalibration")]
@@ -1442,6 +1467,10 @@ namespace Mapbox
 		[Export("showAnnotations:edgePadding:animated:")]
 		void ShowAnnotations(IMGLAnnotation[] annotations, UIEdgeInsets insets, bool animated);
 
+		//- (IBAction)showAttribution:(id)sender;
+		[Export("showAttribution:")]
+		void ShowAttribution(NSObject sender);
+
 		// @property (copy, nonatomic) MGLMapCamera * _Nonnull camera;
 		[Export("camera", ArgumentSemantic.Copy)]
 		MGLMapCamera Camera { get; set; }
@@ -1453,6 +1482,10 @@ namespace Mapbox
 		// -(void)setCamera:(MGLMapCamera * _Nonnull)camera withDuration:(NSTimeInterval)duration animationTimingFunction:(CAMediaTimingFunction * _Nullable)function;
 		[Export("setCamera:withDuration:animationTimingFunction:")]
 		void SetCamera(MGLMapCamera camera, double duration, [NullAllowed] CAMediaTimingFunction function);
+
+		//- (void)setCamera:(MGLMapCamera *)camera withDuration:(NSTimeInterval)duration animationTimingFunction:(nullable CAMediaTimingFunction *)function edgePadding:(UIEdgeInsets)edgePadding completionHandler:(nullable void (^)(void))completion;
+		[Export("setCamera:withDuration:animationTimingFunction:edgePadding:completionHandler:")]
+		void SetCamera(MGLMapCamera camera, double duration, [NullAllowed] CAMediaTimingFunction function, UIEdgeInsets edgePadding, [NullAllowed] Action completion);
 
 		// -(void)setCamera:(MGLMapCamera * _Nonnull)camera withDuration:(NSTimeInterval)duration animationTimingFunction:(CAMediaTimingFunction * _Nullable)function completionHandler:(void (^ _Nullable)(void))completion;
 		[Export("setCamera:withDuration:animationTimingFunction:completionHandler:")]
@@ -1477,6 +1510,10 @@ namespace Mapbox
 		// -(MGLMapCamera * _Nonnull)cameraThatFitsCoordinateBounds:(MGLCoordinateBounds)bounds edgePadding:(UIEdgeInsets)insets;
 		[Export("cameraThatFitsCoordinateBounds:edgePadding:")]
 		MGLMapCamera CameraThatFitsCoordinateBounds(MGLCoordinateBounds bounds, UIEdgeInsets insets);
+
+		//- (MGLMapCamera *)cameraThatFitsShape:(MGLShape *)shape direction:(CLLocationDirection)direction edgePadding:(UIEdgeInsets)insets;
+		[Export("cameraThatFitsShape:direction:edgePadding:")]
+		MGLMapCamera CameraThatFitsShape(MGLShape shape, nfloat direction, UIEdgeInsets insets);
 
 		// -(CGPoint)anchorPointForGesture:(UIGestureRecognizer * _Nonnull)gesture;
 		[Export("anchorPointForGesture:")]
@@ -1514,9 +1551,9 @@ namespace Mapbox
 		[NullAllowed, Export("annotations")]
 		NSObject [] Annotations { get; }
 
-		// @property (readonly, nonatomic) NSArray<id<MGLAnnotation>> * _Nullable visibleAnnotations;
+		// @property (nonatomic, readonly, nullable) NS_ARRAY_OF(id <MGLAnnotation>) *visibleAnnotations;
 		[NullAllowed, Export("visibleAnnotations")]
-		NSObject [] VisibleAnnotations { get; }
+		IMGLAnnotation [] VisibleAnnotations { get; }
 
 		// -(void)addAnnotation:(id<MGLAnnotation> _Nonnull)annotation;
 		[Export("addAnnotation:")]
@@ -1550,11 +1587,15 @@ namespace Mapbox
 		// -(NSArray<id<MGLAnnotation>> * _Nullable)visibleAnnotationsInRect:(CGRect)rect;
 		[Export("visibleAnnotationsInRect:")]
 		[return: NullAllowed]
-		NSObject [] VisibleAnnotationsInRect(CGRect rect);
+		IMGLAnnotation[] VisibleAnnotationsInRect(CGRect rect);
 
 		// @property (copy, nonatomic) NSArray<id<MGLAnnotation>> * _Nonnull selectedAnnotations;
 		[Export("selectedAnnotations", ArgumentSemantic.Copy)]
-		NSObject [] SelectedAnnotations { get; set; }
+		IMGLAnnotation[] SelectedAnnotations { get; set; }
+
+		//@property (nonatomic, readonly, nonnull) NS_ARRAY_OF(id <MGLOverlay>) *overlays;
+		[Export("overlays")]
+		IMGLOverlay[] Overlays { get; }
 
 		// -(void)selectAnnotation:(id<MGLAnnotation> _Nonnull)annotation animated:(BOOL)animated;
 		[Export("selectAnnotation:animated:")]
@@ -1893,9 +1934,9 @@ namespace Mapbox
 	[BaseType(typeof(MGLStyleLayer))]
 	interface MGLOpenGLStyleLayer
 	{
-		// @property (readonly, nonatomic, weak) MGLMapView * _Nullable mapView;
-		[NullAllowed, Export("mapView", ArgumentSemantic.Weak)]
-		MGLMapView MapView { get; }
+		// @property (nonatomic, weak, readonly) MGLStyle *style;
+		[NullAllowed, Export("style", ArgumentSemantic.Weak)]
+		MGLStyle Style { get; }
 
 		// -(instancetype _Nonnull)initWithIdentifier:(NSString * _Nonnull)identifier;
 		[Export("initWithIdentifier:")]
@@ -2194,25 +2235,25 @@ namespace Mapbox
 		[Export("satelliteStreetsStyleURLWithVersion:")]
 		NSUrl SatelliteStreetsStyleURLWithVersion(nint version);
 
-		// +(NSURL * _Nonnull)trafficDayStyleURL;
-		[Static]
+		// + (NSURL *)trafficDayStyleURL __attribute__((deprecated("Create an NSURL object with the string “mapbox://styles/mapbox/traffic-day-v2”.")));
+        [Static, Deprecated(PlatformName.iOS, message: "Create an NSURL object with the string “mapbox://styles/mapbox/traffic-day-v2”.")]
 		[Export("trafficDayStyleURL")]
 		//[Verify(MethodToProperty)]
 		NSUrl TrafficDayStyleURL { get; }
 
-		// +(NSURL * _Nonnull)trafficDayStyleURLWithVersion:(NSInteger)version;
-		[Static]
+		// + (NSURL *)trafficDayStyleURLWithVersion:(NSInteger)version __attribute__((deprecated("Create an NSURL object with the string “mapbox://styles/mapbox/traffic-day-v2”.")));;
+        [Static, Deprecated(PlatformName.iOS, message: "Create an NSURL object with the string “mapbox://styles/mapbox/traffic-day-v2”.")]
 		[Export("trafficDayStyleURLWithVersion:")]
 		NSUrl TrafficDayStyleURLWithVersion(nint version);
 
-		// +(NSURL * _Nonnull)trafficNightStyleURL;
-		[Static]
+		// +(NSURL * _Nonnull)trafficNightStyleURL __attribute__((deprecated("Create an NSURL object with the string “mapbox://styles/mapbox/traffic-day-v2”.")));
+        [Static, Deprecated(PlatformName.iOS, message: "Create an NSURL object with the string “mapbox://styles/mapbox/traffic-day-v2”.")]
 		[Export("trafficNightStyleURL")]
 		//[Verify(MethodToProperty)]
 		NSUrl TrafficNightStyleURL { get; }
 
-		// +(NSURL * _Nonnull)trafficNightStyleURLWithVersion:(NSInteger)version;
-		[Static]
+		// +(NSURL * _Nonnull)trafficNightStyleURLWithVersion:(NSInteger)version __attribute__((deprecated("Create an NSURL object with the string “mapbox://styles/mapbox/traffic-day-v2”.")));
+        [Static, Deprecated(PlatformName.iOS, message: "Create an NSURL object with the string “mapbox://styles/mapbox/traffic-day-v2”.")]
 		[Export("trafficNightStyleURLWithVersion:")]
 		NSUrl TrafficNightStyleURLWithVersion(nint version);
 
@@ -2286,6 +2327,10 @@ namespace Mapbox
 		// @property (nonatomic, strong) MGLLight * _Nonnull light;
 		[Export("light", ArgumentSemantic.Strong)]
 		MGLLight Light { get; set; }
+
+		//@property (nonatomic) BOOL localizesLabels;
+		[Export("localizesLabels", ArgumentSemantic.Assign)]
+		bool LocalizesLabels { get; set; }
 	}
 
 	// @interface MGLSymbolStyleLayer : MGLVectorStyleLayer
@@ -2300,25 +2345,33 @@ namespace Mapbox
 		[Export("iconAllowsOverlap", ArgumentSemantic.Assign)]
 		MGLStyleValue IconAllowsOverlap { get; set; }
 
+		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconAnchor;
+		[Export("iconAnchor"), NullAllowed]
+		MGLStyleValue IconAnchor { get; set; }
+
 		// @property (nonatomic) MGLStyleValue<NSNumber *> * _Null_unspecified iconIgnoresPlacement;
-		[Export("iconIgnoresPlacement", ArgumentSemantic.Assign)]
+		[Export("iconIgnoresPlacement")]
 		MGLStyleValue IconIgnoresPlacement { get; set; }
 
 		// @property (nonatomic) MGLStyleValue<NSString *> * _Null_unspecified iconImageName;
-		[Export("iconImageName", ArgumentSemantic.Assign)]
+		[Export("iconImageName")]
 		MGLStyleValue IconImageName { get; set; }
 
 		// @property (nonatomic) MGLStyleValue<NSValue *> * _Null_unspecified iconOffset;
-		[Export("iconOffset", ArgumentSemantic.Assign)]
+		[Export("iconOffset")]
 		MGLStyleValue IconOffset { get; set; }
 
 		// @property (getter = isIconOptional, nonatomic) MGLStyleValue<NSNumber *> * _Null_unspecified iconOptional;
-		[Export("iconOptional", ArgumentSemantic.Assign)]
+		[Export("iconOptional")]
 		MGLStyleValue IconOptional { [Bind("isIconOptional")] get; set; }
 
 		// @property (nonatomic) MGLStyleValue<NSNumber *> * _Null_unspecified iconPadding;
-		[Export("iconPadding", ArgumentSemantic.Assign)]
+		[Export("iconPadding")]
 		MGLStyleValue IconPadding { get; set; }
+
+		//@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconPitchAlignment;
+		[Export("iconPitchAlignment"), NullAllowed]
+		MGLStyleValue IconPitchAlignment { get; set; }
 
 		// @property (nonatomic) MGLStyleValue<NSNumber *> * _Null_unspecified iconRotation;
 		[Export("iconRotation", ArgumentSemantic.Assign)]
@@ -2542,6 +2595,24 @@ namespace Mapbox
 	[BaseType(typeof(NSValue))]
 	interface NSValue_MGLSymbolStyleLayerAdditions
 	{
+		//+ (instancetype)valueWithMGLIconAnchor:(MGLIconAnchor)iconAnchor;
+		[Static]
+		[Export("valueWithMGLIconAnchor:")]
+		NSValue ValueWithMGLIconAnchor(MGLIconAnchor iconAnchor);
+
+        //@property (readonly) MGLIconAnchor MGLIconAnchorValue;
+        [Export("MGLIconAnchorValue")]
+        MGLIconAnchor MGLIconAnchorValue();
+
+		//+ (instancetype)valueWithMGLIconPitchAlignment:(MGLIconPitchAlignment)iconPitchAlignment;
+		[Static]
+		[Export("valueWithMGLIconPitchAlignment:")]
+		NSValue ValueWithMGLIconPitchAlignment(MGLIconPitchAlignment iconPitchAlignment);
+
+        //@property (readonly) MGLIconPitchAlignment MGLIconPitchAlignmentValue;
+        [Export("MGLIconPitchAlignmentValue")]
+        MGLIconPitchAlignment MGLIconPitchAlignmentValue();
+
 		// +(instancetype _Nonnull)valueWithMGLIconRotationAlignment:(MGLIconRotationAlignment)iconRotationAlignment;
 		[Static]
 		[Export("valueWithMGLIconRotationAlignment:")]
@@ -2771,7 +2842,15 @@ namespace Mapbox
         //MGLCoordinateBounds MGLCoordinateBoundsValue { get; }
         MGLCoordinateBounds MGLCoordinateBoundsValue();
 
+		//+ (instancetype)valueWithMGLCoordinateQuad:(MGLCoordinateQuad)quad;
+		[Static]
+		[Export("valueWithMGLCoordinateQuad:")]
+		NSValue ValueWithMGLCoordinateQuad(MGLCoordinateQuad quad);
 
+        //- (MGLCoordinateQuad)MGLCoordinateQuadValue;
+        [Export("MGLCoordinateQuadValue")]
+        MGLCoordinateQuad MGLCoordinateQuadValue();
+		
 		// +(NSValue * _Nonnull)valueWithMGLOfflinePackProgress:(MGLOfflinePackProgress)progress;
 		[Static]
 		[Export("valueWithMGLOfflinePackProgress:")]
@@ -2779,7 +2858,6 @@ namespace Mapbox
 
         // @property (readonly) MGLOfflinePackProgress MGLOfflinePackProgressValue;
         [Export("MGLOfflinePackProgressValue")]
-        //MGLOfflinePackProgress MGLOfflinePackProgressValue { get; }
         MGLOfflinePackProgress MGLOfflinePackProgressValue();
 
 		// +(NSValue * _Nonnull)valueWithMGLTransition:(MGLTransition)transition;
@@ -2811,5 +2889,119 @@ namespace Mapbox
         [Export("MGLLightAnchorValue")]
         //MGLLightAnchor MGLLightAnchorValue { get; }
         MGLLightAnchor MGLLightAnchorValue();
+	}
+
+	[BaseType(typeof(MGLSource))]
+	interface MGLImageSource {
+		
+		//- (instancetype)initWithIdentifier:(NSString *)identifier coordinateQuad:(MGLCoordinateQuad)coordinateQuad URL:(NSURL *)url;
+		[Export("initWithIdentifier:coordinateQuad:URL:")]
+		IntPtr Constructor(string identifier, MGLCoordinateQuad coordinateQuad, NSUrl url);
+
+		//- (instancetype)initWithIdentifier:(NSString *)identifier coordinateQuad:(MGLCoordinateQuad)coordinateQuad image:(MGLImage *)image;
+		[Export("initWithIdentifier:coordinateQuad:image:")]
+        IntPtr Constructor(string identifier, MGLCoordinateQuad coordinateQuad, UIImage image);
+
+		//@property (nonatomic, copy, nullable)NSURL *URL;
+		[NullAllowed, Export("URL", ArgumentSemantic.Copy)]
+		NSUrl Url { get; set; }
+
+		//@property (nonatomic, retain, nullable)MGLImage *image;
+		[NullAllowed, Export("image", ArgumentSemantic.Retain)]
+        UIImage Image { get; set; }
+
+		//@property (nonatomic) MGLCoordinateQuad coordinates;
+		[Export("subtitle", ArgumentSemantic.Assign)]
+		MGLCoordinateQuad Subtitle { get; set; }
+
+	}
+
+	[BaseType(typeof(NSObject))]
+	interface MGLMapSnapshotOptions {
+		//- (instancetype)initWithStyleURL:(nullable NSURL *)styleURL camera:(MGLMapCamera *)camera size:(CGSize)size;
+		[Export("initWithStyleURL:camera:size:")]
+		IntPtr Constructor(NSUrl styleURL, MGLMapCamera camera, CGSize size);
+
+		//@property (nonatomic, readonly) NSURL *styleURL;
+		[Export("styleURL", ArgumentSemantic.Copy)]
+		NSUrl StyleURL { get; }
+
+		//@property (nonatomic) double zoomLevel;
+		[Export("zoomLevel", ArgumentSemantic.Assign)]
+		double ZoomLevel { get; set; }
+
+		//@property (nonatomic) MGLMapCamera *camera;
+		[Export("camera")]
+		MGLMapCamera Camera { get; set; }
+
+		//@property (nonatomic) MGLCoordinateBounds coordinateBounds;
+		[Export("coordinateBounds")]
+		MGLCoordinateBounds CoordinateBounds { get; set; }
+
+		//@property (nonatomic, readonly) CGSize size;
+		[Export("size")]
+		CGSize Size { get; }
+
+		//@property (nonatomic) CGFloat scale;
+		[Export("scale")]
+		nfloat Scale { get; set; }
+	}
+
+	//typedef void (^MGLMapSnapshotCompletionHandler)(MGLMapSnapshot* _Nullable snapshot, NSError* _Nullable error);
+	delegate void MGLMapSnapshotCompletionHandler(MGLMapSnapshot snapshot, [NullAllowed]NSError error);
+
+	[BaseType(typeof(NSObject))]
+	interface MGLMapSnapshot { 
+		//- (CGPoint)pointForCoordinate:(CLLocationCoordinate2D)coordinate;
+		[Export("pointForCoordinate:")]
+		CGPoint PointForCoordinate(CLLocationCoordinate2D coordinate);
+
+		// @property (nonatomic, readonly) UIImage *image;
+		[Export("image")]
+		UIImage Image { get; }
+	}
+
+	[BaseType(typeof(NSObject))]
+    interface MGLMapSnapshotter { 
+		//- (instancetype)initWithOptions:(MGLMapSnapshotOptions *)options;
+		[Export("initWithOptions:")]
+		IntPtr Constructor(MGLMapSnapshotOptions options);
+
+		//- (void)startWithCompletionHandler:(MGLMapSnapshotCompletionHandler)completionHandler;
+		[Export("startWithCompletionHandler:")]
+		void StartWithCompletionHandler(MGLMapSnapshotCompletionHandler completionHandler);
+
+
+		//- (void)startWithQueue:(dispatch_queue_t)queue completionHandler:(MGLMapSnapshotCompletionHandler)completionHandler;
+		[Export("startWithQueue:completionHandler:")]
+        void StartWithCompletionHandler(DispatchQueue queue, MGLMapSnapshotCompletionHandler completionHandler);
+
+		//- (void)cancel;
+		[Export("cancel")]
+		void Cancel();
+		
+		//@property (nonatomic) double zoomLevel;
+		[Export("zoomLevel")]
+		double ZoomLevel { get; set; }
+
+		//@property (nonatomic) MGLMapCamera *camera;
+		[Export("camera")]
+		MGLMapCamera Camera { get; set; }
+
+		//@property (nonatomic) MGLCoordinateBounds coordinateBounds;
+		[Export("coordinateBounds")]
+		MGLCoordinateBounds CoordinateBounds { get; set; }
+		
+		//@property (nonatomic, nullable) NSURL *styleURL;
+		[Export("styleURL"), NullAllowed]
+		NSUrl StyleURL { get; set; }
+
+		//@property (nonatomic) CGSize size;
+		[Export("size")]
+		CGSize Size { get; set; }
+
+		//@property (nonatomic, readonly, getter=isLoading) BOOL loading;
+		[Export("isLoading")]
+        bool Loading { get;}
 	}
 }

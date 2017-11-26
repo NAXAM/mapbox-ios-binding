@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{D8F96117
 		mapbox-ios.nuspec = mapbox-ios.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naxam.Mapbox.Common", "Naxam.Mapbox.Common\Naxam.Mapbox.Common.csproj", "{A80B2873-6EAF-48A1-8445-2896815EFEE0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{22E7F713-BE34-4A11-939A-E358DA858995}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,20 +48,11 @@ Global
 		{3A2E7243-0208-4292-92B4-8C25F27B9843}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{3A2E7243-0208-4292-92B4-8C25F27B9843}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{3A2E7243-0208-4292-92B4-8C25F27B9843}.Debug|iPhone.Build.0 = Debug|iPhone
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Release|iPhone.Build.0 = Release|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{A80B2873-6EAF-48A1-8445-2896815EFEE0}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3A2E7243-0208-4292-92B4-8C25F27B9843} = {22E7F713-BE34-4A11-939A-E358DA858995}
 	EndGlobalSection
 EndGlobal

@@ -9,6 +9,71 @@ using ObjCRuntime;
 namespace Mapbox
 {
     [Native]
+    public enum MGLIconAnchor : ulong
+    {
+    /**
+     The center of the icon is placed closest to the anchor.
+     */
+    Center,
+    /**
+     The left side of the icon is placed closest to the anchor.
+     */
+    Left,
+    /**
+     The right side of the icon is placed closest to the anchor.
+     */
+    Right,
+    /**
+     The top of the icon is placed closest to the anchor.
+     */
+    Top,
+    /**
+     The bottom of the icon is placed closest to the anchor.
+     */
+    Bottom,
+    /**
+     The top left corner of the icon is placed closest to the anchor.
+     */
+    TopLeft,
+    /**
+     The top right corner of the icon is placed closest to the anchor.
+     */
+    TopRight,
+    /**
+     The bottom left corner of the icon is placed closest to the anchor.
+     */
+    BottomLeft,
+    /**
+     The bottom right corner of the icon is placed closest to the anchor.
+     */
+    BottomRight,
+}
+    [Native]
+    public enum MGLIconPitchAlignment : ulong
+    {
+    /**
+     The icon is aligned to the plane of the map.
+     */
+    Map,
+    /**
+     The icon is aligned to the plane of the viewport.
+     */
+    Viewport,
+    /**
+     Automatically matches the value of `iconRotationAlignment`.
+     */
+    Auto,
+}
+
+
+    [Native]
+    public enum MGLCirclePitchAlignment : ulong
+    {
+        Map = 0,
+        ViewPort
+    }
+
+    [Native]
     public enum MGLAnnotationViewDragState : ulong
     {
         None = 0,
@@ -26,7 +91,8 @@ namespace Mapbox
         BadServerResponse = 2,
         ConnectionFailed = 3,
         ParseStyleFailed = 4,
-        LoadStyleFailed = 5
+        LoadStyleFailed = 5,
+        SnapshotFailed = 6
     }
 
     [Native]
@@ -73,17 +139,26 @@ namespace Mapbox
     [StructLayout(LayoutKind.Sequential)]
     public struct MGLCoordinateSpan
     {
-        public double latitudeDelta;
+        public double LatitudeDelta;
 
-        public double longitudeDelta;
+        public double LongitudeDelta;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct MGLCoordinateQuad
+    {
+        public CLLocationCoordinate2D TopLeft;
+        public CLLocationCoordinate2D TopRight;
+        public CLLocationCoordinate2D BottomLeft;
+        public CLLocationCoordinate2D BottomRight;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct MGLCoordinateBounds
     {
-        public CLLocationCoordinate2D sw;
+        public CLLocationCoordinate2D Sw;
 
-        public CLLocationCoordinate2D ne;
+        public CLLocationCoordinate2D Ne;
     }
 
     [Native]
@@ -192,7 +267,8 @@ namespace Mapbox
         Tile,
         Glyphs,
         SpriteImage,
-        SpriteJSON
+        SpriteJSON,
+        Image
     }
 
     [StructLayout(LayoutKind.Sequential)]

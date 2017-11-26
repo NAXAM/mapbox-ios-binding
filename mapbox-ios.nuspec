@@ -3,18 +3,17 @@
     <metadata>
         <!-- Required elements-->
         <id>Naxam.Mapbox.iOS</id>
-       <version>3.6.0.3</version>
-        <description>Xamarin binding library for Mapbox iOS SDK</description>
-        <authors>Vu Duc Tuyen</authors>
+        <version>3.7.0</version>
+        <authors>NAXAM</authors>
         <owners>NAXAM CO.,LTD</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-
-        <!-- Optional elements -->
         <title>Naxam - Mapbox iOS</title>
         <summary>Xamarin binding library for Mapbox iOS SDK</summary>
-        <releaseNotes>Fix support for offline packs</releaseNotes>
+        <description>Xamarin.iOS binding library for Mapbox SDK</description>
+        <releaseNotes>Mapbox iOS v3.7.0</releaseNotes>
+        <iconUrl>https://avatars0.githubusercontent.com/u/600935</iconUrl>
         <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
-        <projectUrl>https://github.com/kanvuduc/xam-mapbox-ios</projectUrl>
+        <projectUrl>https://github.com/kanvuduc/mapbox-ios-binding</projectUrl>
         <copyright>Copyright (c) 2017 NAXAM</copyright>
         <tags>Xamarin.iOS, Mapbox, iOS</tags>
         <dependencies>
