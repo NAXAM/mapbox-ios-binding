@@ -79,6 +79,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Masonry">
+      <HintPath>..\..\packages\Masonry.0.6.4.0\lib\Xamarin.iOS\Masonry.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -94,6 +103,7 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -102,11 +112,16 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="LayersListViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Naxam.Mapbox.iOS\Naxam.Mapbox.iOS.csproj">
       <Project>{682AEE9E-B4F4-4BED-8D14-23582E4992FE}</Project>
       <Name>Naxam.Mapbox.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Naxam.Mapbox.Common\Naxam.Mapbox.Common.csproj">
+      <Project>{A80B2873-6EAF-48A1-8445-2896815EFEE0}</Project>
+      <Name>Naxam.Mapbox.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

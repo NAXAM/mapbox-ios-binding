@@ -37,6 +37,6 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>MGLMapboxAccessToken</key>
-	<string>pk.eyJ1IjoidHV5ZW52IiwiYSI6ImNpdzI5aDc5NzBha3Eyem1kaGpsYXhlbWsifQ.kqHP9Qm0cc96eVdWeP_e8w</string>
+	<string>pk.eyJ1IjoiZ2V2YWRtaW4iLCJhIjoiY2o2cTY4cGJyMDY0NTMycnBrbHk0eWNidiJ9.mAflshtCfDuRN7XpTARhQQ</string>
 </dict>
 </plist>
