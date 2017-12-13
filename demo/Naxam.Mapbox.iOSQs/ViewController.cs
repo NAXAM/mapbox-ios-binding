@@ -30,6 +30,17 @@ namespace Naxam.Mapbox.iOSQs
 			mapView.SetCenterCoordinate(new CLLocationCoordinate2D(40.7326808, -73.9843407), false);
 			mapView.SetZoomLevel(11, false);
             mapView.ScaleBar.Hidden = false;
+            var tapGest = new UITapGestureRecognizer((UITapGestureRecognizer sender) => {
+                if (sender.State == UIGestureRecognizerState.Ended) {
+                    var touchedPoint = sender.LocationOfTouch(0, mapView);
+                    var coords = mapView.ConvertPoint(touchedPoint, mapView);
+                    var reversePoint = mapView.ConvertCoordinate(coords, mapView);
+                    System.Diagnostics.Debug.WriteLine($"Touched point: {touchedPoint.X} {touchedPoint.Y}");
+                    System.Diagnostics.Debug.WriteLine($"Touched coordinates: {coords.Latitude} {coords.Longitude}");
+                    System.Diagnostics.Debug.WriteLine($"Reverse point: {reversePoint.X} {reversePoint.Y}");
+                }   
+            });
+            mapView.AddGestureRecognizer(tapGest);
 			View.AddSubview(mapView);
 
             //mapView.Delegate = this;
@@ -41,7 +52,7 @@ namespace Naxam.Mapbox.iOSQs
             //	Title = "Sample Marker",
             //	Subtitle = "This is the subtitle"
             //});
-            mapView.StyleURL = new NSUrl("mapbox://styles/gevadmin/cj7rtpzfde3oe2sta2xwhdi6l");
+            mapView.StyleURL = new NSUrl("mapbox://styles/naxamtest/cj5kin5x21li42soxdx3mb1yt");
 
             //System.Diagnostics.Debug.WriteLine($"Mapbox-Version:: {Constants.MapboxVersionNumber} :: {Constants.MapboxVersionString}");
             var toolbar = new UIToolbar()

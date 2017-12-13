@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using Mapbox;
 
 namespace Naxam.Mapbox.iOSQs
 {
@@ -18,9 +19,9 @@ namespace Naxam.Mapbox.iOSQs
 
 		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
 		{
-			// Override point for customization after application launch.
-			// If not required for your application you can safely delete this method
-
+            // Override point for customization after application launch.
+            // If not required for your application you can safely delete this method
+            MGLAccountManager.AccessToken = "pk.eyJ1IjoibmF4YW10ZXN0IiwiYSI6ImNqNWtpaG1oYTJqZmQyd28yM2tsdDhucmEifQ.Zr35ENq9tziBBDAbdeU2dw";
 			return true;
 		}
 
