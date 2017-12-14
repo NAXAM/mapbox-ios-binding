@@ -46,6 +46,8 @@
   <ItemGroup>
     <NativeReference Include="..\frameworks\Mapbox.framework">
       <Kind>Framework</Kind>
+      <IsCxx>True</IsCxx>
+      <ForceLoad>True</ForceLoad>
       <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>
