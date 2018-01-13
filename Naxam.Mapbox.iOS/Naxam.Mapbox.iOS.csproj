@@ -48,7 +48,8 @@
       <Kind>Framework</Kind>
       <IsCxx>True</IsCxx>
       <ForceLoad>True</ForceLoad>
-      <SmartLink>False</SmartLink>
+      <LinkerFlags>-ObjC</LinkerFlags>
+      <Frameworks>GLKit</Frameworks>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
