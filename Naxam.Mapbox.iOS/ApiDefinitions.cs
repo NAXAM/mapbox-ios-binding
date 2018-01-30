@@ -1726,7 +1726,7 @@ namespace Mapbox
 		// @optional -(MGLAnnotationImage * _Nullable)mapView:(MGLMapView * _Nonnull)mapView imageForAnnotation:(id<MGLAnnotation> _Nonnull)annotation;
 		[Export("mapView:imageForAnnotation:")]
 		[return: NullAllowed]
-		MGLAnnotationImage MapView_ImageForAnnotation(MGLMapView mapView, MGLAnnotation annotation);
+		MGLAnnotationImage MapView_ImageForAnnotation(MGLMapView mapView, IMGLAnnotation annotation);
 
 		// @optional -(CGFloat)mapView:(MGLMapView * _Nonnull)mapView alphaForShapeAnnotation:(MGLShape * _Nonnull)annotation;
 		[Export("mapView:alphaForShapeAnnotation:")]
