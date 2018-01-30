@@ -5,12 +5,21 @@ using Mapbox;
 using UIKit;
 using Masonry;
 using Foundation;
+using CoreGraphics;
 
 namespace Naxam.Mapbox.iOSQs
 {
+    public class MyMapView : MGLMapView
+    {
+        public MyMapView(CGRect rect) : base(rect)
+        {
+
+        }
+    }
+
 	public partial class ViewController : UIViewController, IMGLMapViewDelegate
 	{
-		MGLMapView mapView;
+        MyMapView mapView;
 
 		protected ViewController(IntPtr handle) : base(handle)
 		{
@@ -23,9 +32,9 @@ namespace Naxam.Mapbox.iOSQs
             // Perform any additional setup after loading the view, typically from a nib.
 
             // Create a MapView and set the coordinates/zoom
-            mapView = new MGLMapView(View.Bounds)
+            mapView = new MyMapView(View.Bounds)
             {
-                TranslatesAutoresizingMaskIntoConstraints = false
+                TranslatesAutoresizingMaskIntoConstraints = false   
             };
 			mapView.SetCenterCoordinate(new CLLocationCoordinate2D(40.7326808, -73.9843407), false);
 			mapView.SetZoomLevel(11, false);
@@ -35,9 +44,13 @@ namespace Naxam.Mapbox.iOSQs
                     var touchedPoint = sender.LocationOfTouch(0, mapView);
                     var coords = mapView.ConvertPoint(touchedPoint, mapView);
                     var reversePoint = mapView.ConvertCoordinate(coords, mapView);
-                    System.Diagnostics.Debug.WriteLine($"Touched point: {touchedPoint.X} {touchedPoint.Y}");
-                    System.Diagnostics.Debug.WriteLine($"Touched coordinates: {coords.Latitude} {coords.Longitude}");
-                    System.Diagnostics.Debug.WriteLine($"Reverse point: {reversePoint.X} {reversePoint.Y}");
+
+                    var alert = UIAlertController.Create("Mapbox", $"Coords: { coords.Latitude},{ coords.Longitude}", UIAlertControllerStyle.Alert);
+                    alert.AddAction(UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, delegate {
+                        alert.DismissViewController(true, null);
+                    }));
+
+                    PresentViewController(alert, true, null);
                 }   
             });
             mapView.AddGestureRecognizer(tapGest);

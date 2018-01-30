@@ -9,6 +9,22 @@ using ObjCRuntime;
 namespace Mapbox
 {
     [Native]
+    public enum MGLAttributionInfoStyle : long {
+        /**
+        Specifies a short attribution info style.
+        */
+        Short = 1,
+        /**
+        Specifies a medium attribution info style.
+        */
+        Medium,
+        /**
+        Specifies a long attribution info style.
+        */
+        Long
+    }
+
+    [Native]
     public enum MGLIconAnchor : ulong
     {
     /**
