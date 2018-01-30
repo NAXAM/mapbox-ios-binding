@@ -719,7 +719,7 @@ namespace Mapbox
 		// +(instancetype _Nonnull)polylineWithCoordinates:(const CLLocationCoordinate2D * _Nonnull)coords count:(NSUInteger)count;
 		[Static]
 		[Export("polylineWithCoordinates:count:")]
-		unsafe MGLPolyline PolylineWithCoordinates(NSArray coords, nuint count);
+        unsafe MGLPolyline PolylineWithCoordinates(ref CLLocationCoordinate2D coords, nuint count);
 	}
 
 	// @interface MGLMultiPolyline : MGLShape <MGLOverlay>
@@ -747,12 +747,12 @@ namespace Mapbox
 		// +(instancetype _Nonnull)polygonWithCoordinates:(const CLLocationCoordinate2D * _Nonnull)coords count:(NSUInteger)count;
 		[Static]
 		[Export("polygonWithCoordinates:count:")]
-		unsafe MGLPolygon PolygonWithCoordinates(NSArray coords, nuint count);
+        unsafe MGLPolygon PolygonWithCoordinates(ref CLLocationCoordinate2D coords, nuint count);
 
 		// +(instancetype _Nonnull)polygonWithCoordinates:(const CLLocationCoordinate2D * _Nonnull)coords count:(NSUInteger)count interiorPolygons:(NSArray<MGLPolygon *> * _Nullable)interiorPolygons;
 		[Static]
 		[Export("polygonWithCoordinates:count:interiorPolygons:")]
-		unsafe MGLPolygon PolygonWithCoordinates(NSArray coords, nuint count, [NullAllowed] MGLPolygon[] interiorPolygons);
+        unsafe MGLPolygon PolygonWithCoordinates(ref CLLocationCoordinate2D coords, nuint count, [NullAllowed] MGLPolygon[] interiorPolygons);
 	}
 
 	// @interface MGLMultiPolygon : MGLShape <MGLOverlay>
@@ -785,7 +785,7 @@ namespace Mapbox
 		// +(instancetype)pointCollectionWithCoordinates:(const CLLocationCoordinate2D *)coords count:(NSUInteger)count;
 		[Static]
 		[Export("pointCollectionWithCoordinates:count:")]
-		unsafe MGLPointCollection PointCollectionWithCoordinates(NSArray coords, nuint count);
+        unsafe MGLPointCollection PointCollectionWithCoordinates(ref CLLocationCoordinate2D coords, nuint count);
 
 		// @property (readonly, nonatomic) CLLocationCoordinate2D * coordinates __attribute__((objc_returns_inner_pointer));
 		[Export("coordinates")]
@@ -1473,11 +1473,11 @@ namespace Mapbox
 
 		// -(void)setVisibleCoordinates:(const CLLocationCoordinate2D * _Nonnull)coordinates count:(NSUInteger)count edgePadding:(UIEdgeInsets)insets animated:(BOOL)animated;
 		[Export("setVisibleCoordinates:count:edgePadding:animated:")]
-		unsafe void SetVisibleCoordinates(NSArray coordinates, nuint count, UIEdgeInsets insets, bool animated);
+        unsafe void SetVisibleCoordinates(ref CLLocationCoordinate2D coords, nuint count, UIEdgeInsets insets, bool animated);
 
 		// -(void)setVisibleCoordinates:(const CLLocationCoordinate2D * _Nonnull)coordinates count:(NSUInteger)count edgePadding:(UIEdgeInsets)insets direction:(CLLocationDirection)direction duration:(NSTimeInterval)duration animationTimingFunction:(CAMediaTimingFunction * _Nullable)function completionHandler:(void (^ _Nullable)(void))completion;
 		[Export("setVisibleCoordinates:count:edgePadding:direction:duration:animationTimingFunction:completionHandler:")]
-		unsafe void SetVisibleCoordinates(NSArray coordinates, nuint count, UIEdgeInsets insets, double direction, double duration, [NullAllowed] CAMediaTimingFunction function, [NullAllowed] Action completion);
+        unsafe void SetVisibleCoordinates(ref CLLocationCoordinate2D coords, nuint count, UIEdgeInsets insets, double direction, double duration, [NullAllowed] CAMediaTimingFunction function, [NullAllowed] Action completion);
 
 		// -(void)showAnnotations:(NSArray<id<MGLAnnotation>> * _Nonnull)annotations animated:(BOOL)animated;
 		[Export("showAnnotations:animated:")]

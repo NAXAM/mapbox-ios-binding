@@ -17,46 +17,49 @@ namespace Naxam.Mapbox.iOSQs
         }
     }
 
-	public partial class ViewController : UIViewController, IMGLMapViewDelegate
-	{
+    public partial class ViewController : UIViewController, IMGLMapViewDelegate
+    {
         MyMapView mapView;
 
-		protected ViewController(IntPtr handle) : base(handle)
-		{
-			// Note: this .ctor should not contain any initialization logic.
-		}
+        protected ViewController(IntPtr handle) : base(handle)
+        {
+            // Note: this .ctor should not contain any initialization logic.
+        }
 
-		public override void ViewDidLoad()
-		{
-			base.ViewDidLoad();
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
 
             // Create a MapView and set the coordinates/zoom
             mapView = new MyMapView(View.Bounds)
             {
-                TranslatesAutoresizingMaskIntoConstraints = false   
+                TranslatesAutoresizingMaskIntoConstraints = false
             };
-			mapView.SetCenterCoordinate(new CLLocationCoordinate2D(40.7326808, -73.9843407), false);
-			mapView.SetZoomLevel(11, false);
+            mapView.SetCenterCoordinate(new CLLocationCoordinate2D(0, 0), false);
+            //mapView.SetZoomLevel(11, false);
             mapView.ScaleBar.Hidden = false;
-            var tapGest = new UITapGestureRecognizer((UITapGestureRecognizer sender) => {
-                if (sender.State == UIGestureRecognizerState.Ended) {
+            var tapGest = new UITapGestureRecognizer((UITapGestureRecognizer sender) =>
+            {
+                if (sender.State == UIGestureRecognizerState.Ended)
+                {
                     var touchedPoint = sender.LocationOfTouch(0, mapView);
                     var coords = mapView.ConvertPoint(touchedPoint, mapView);
                     var reversePoint = mapView.ConvertCoordinate(coords, mapView);
 
                     var alert = UIAlertController.Create("Mapbox", $"Coords: { coords.Latitude},{ coords.Longitude}", UIAlertControllerStyle.Alert);
-                    alert.AddAction(UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, delegate {
+                    alert.AddAction(UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, delegate
+                    {
                         alert.DismissViewController(true, null);
                     }));
 
                     PresentViewController(alert, true, null);
-                }   
+                }
             });
             mapView.AddGestureRecognizer(tapGest);
-			View.AddSubview(mapView);
+            View.AddSubview(mapView);
 
-            //mapView.Delegate = this;
+            mapView.WeakDelegate = this;
 
             //// Add new annotation
             //mapView.AddAnnotation(new MGLPointAnnotation
@@ -82,15 +85,44 @@ namespace Naxam.Mapbox.iOSQs
             toolbar.SetItems(itemsArr, false);
             View.AddSubview(toolbar);
 
-            toolbar.MakeConstraints( (mk) => {
+            toolbar.MakeConstraints((mk) =>
+            {
                 mk.Left.Right.Bottom.EqualTo(View);
                 mk.Height.EqualTo(NSNumber.FromNFloat(44.0f));
             });
-            mapView.MakeConstraints( (mk) => {
+            mapView.MakeConstraints((mk) =>
+            {
                 mk.Left.Right.Top.EqualTo(View);
                 mk.Bottom.EqualTo(mk.Top);
             });
-		}
+        }
+
+        [Export("mapViewDidFinishLoadingMap:")]
+        void MapViewDidFinishLoadingMap(MGLMapView mapView)
+        {
+            var coordinates = new CLLocationCoordinate2D[] {
+                new CLLocationCoordinate2D(latitude: 35, longitude: -25),
+                new CLLocationCoordinate2D(latitude: 20, longitude: -30),
+                new CLLocationCoordinate2D(latitude: 0, longitude: -25),
+                new CLLocationCoordinate2D(latitude: -15, longitude: 0),
+                new CLLocationCoordinate2D(latitude: -45, longitude: 10),
+                new CLLocationCoordinate2D(latitude: -45, longitude: 40)
+            };
+            var polyline = MGLPolyline.PolylineWithCoordinates(ref coordinates[0], (nuint)coordinates.Length);
+            mapView.AddAnnotation(polyline);
+        }
+
+        [Export("mapView:strokeColorForShapeAnnotation:")]
+        public UIColor MapView_StrokeColorForShapeAnnotation(MGLMapView mapView, MGLShape annotation)
+        {
+            return UIColor.Blue;
+        }
+
+        [Export("mapView:lineWidthForPolylineAnnotation:")]
+        public nfloat MapView_LineWidthForPolylineAnnotation(MGLMapView mapView, MGLPolyline annotation)
+        {
+            return 2.0f;
+        }
 
         private void ShowLayers(object sender, EventArgs e)
         {
@@ -102,9 +134,9 @@ namespace Naxam.Mapbox.iOSQs
         }
 
         public override void DidReceiveMemoryWarning()
-		{
-			base.DidReceiveMemoryWarning();
-			// Release any cached data, images, etc that aren't in use.
-		}
-	}
+        {
+            base.DidReceiveMemoryWarning();
+            // Release any cached data, images, etc that aren't in use.
+        }
+    }
 }
