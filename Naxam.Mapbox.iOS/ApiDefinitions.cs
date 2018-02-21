@@ -665,27 +665,27 @@ namespace Mapbox
 
 		// -(void)getCoordinates:(CLLocationCoordinate2D * _Nonnull)coords range:(NSRange)range;
 		[Export("getCoordinates:range:")]
-        unsafe void GetCoordinates(NSArray coords, NSRange range);
+        unsafe void GetCoordinates(ref CLLocationCoordinate2D coords, NSRange range);
 
 		// -(void)setCoordinates:(CLLocationCoordinate2D * _Nonnull)coords count:(NSUInteger)count;
 		[Export("setCoordinates:count:")]
-		unsafe void SetCoordinates(NSArray coords, nuint count);
+        unsafe void SetCoordinates(ref CLLocationCoordinate2D coords, nuint count);
 
 		// -(void)insertCoordinates:(const CLLocationCoordinate2D * _Nonnull)coords count:(NSUInteger)count atIndex:(NSUInteger)index;
 		[Export("insertCoordinates:count:atIndex:")]
-		unsafe void InsertCoordinates(NSArray coords, nuint count, nuint index);
+        unsafe void InsertCoordinates(ref CLLocationCoordinate2D coords, nuint count, nuint index);
 
 		// -(void)appendCoordinates:(const CLLocationCoordinate2D * _Nonnull)coords count:(NSUInteger)count;
 		[Export("appendCoordinates:count:")]
-		unsafe void AppendCoordinates(NSArray coords, nuint count);
+        unsafe void AppendCoordinates(ref CLLocationCoordinate2D coords, nuint count);
 
 		// -(void)replaceCoordinatesInRange:(NSRange)range withCoordinates:(const CLLocationCoordinate2D * _Nonnull)coords;
 		[Export("replaceCoordinatesInRange:withCoordinates:")]
-		unsafe void ReplaceCoordinatesInRange(NSRange range, NSArray coords);
+        unsafe void ReplaceCoordinatesInRange(NSRange range, ref CLLocationCoordinate2D coords);
 
 		// -(void)replaceCoordinatesInRange:(NSRange)range withCoordinates:(const CLLocationCoordinate2D * _Nonnull)coords count:(NSUInteger)count;
 		[Export("replaceCoordinatesInRange:withCoordinates:count:")]
-		unsafe void ReplaceCoordinatesInRange(NSRange range, NSArray coords, nuint count);
+        unsafe void ReplaceCoordinatesInRange(NSRange range, ref CLLocationCoordinate2D coords, nuint count);
 
 		// -(void)removeCoordinatesInRange:(NSRange)range;
 		[Export("removeCoordinatesInRange:")]
