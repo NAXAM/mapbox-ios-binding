@@ -1,12 +1,12 @@
 ﻿using System;
-using Foundation;
-using UIKit;
-using Masonry;
-using Mapbox;
-using Naxam.Mapbox.Common;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using Foundation;
+using Mapbox;
+using Masonry;
+using Naxam.Mapbox.Common;
 using Newtonsoft.Json.Linq;
+using UIKit;
 
 namespace Naxam.Mapbox.iOSQs
 {
@@ -438,7 +438,7 @@ namespace Naxam.Mapbox.iOSQs
             //else {
             //    cell.ImageView.Image = null;
             //}
-            return cell;
+            //return cell;
         }
 
         public nint RowsInSection(UITableView tableView, nint section)
