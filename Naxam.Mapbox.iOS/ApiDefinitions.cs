@@ -1,11 +1,11 @@
 using System;
 using CoreAnimation;
+using CoreFoundation;
 using CoreGraphics;
 using CoreLocation;
 using Foundation;
 using ObjCRuntime;
 using UIKit;
-using CoreFoundation;
 
 namespace Mapbox
 {
@@ -1679,17 +1679,34 @@ namespace Mapbox
 		[Export("mapView:regionWillChangeAnimated:")]
 		void MapViewRegionWillChange(MGLMapView mapView, bool animated);
 
+        // @optional -(void)mapView:(MGLMapView * _Nonnull)mapView regionWillChangeWithReason:(MGLCameraChangeReason)reason animated:(BOOL)animated;
+        [Export("mapView:regionWillChangeWithReason:animated:")]
+        void MapViewRegionWillChangeWithReason(MGLMapView mapView, MGLCameraChangeReason reason, bool animated);
+
 		// @optional -(void)mapViewRegionIsChanging:(MGLMapView * _Nonnull)mapView;
 		[Export("mapViewRegionIsChanging:")]
 		void MapViewRegionIsChanging(MGLMapView mapView);
+
+        // @optional -(void)mapView:(MGLMapView * _Nonnull)mapView regionIsChangingWithReason:(MGLCameraChangeReason)reason;
+        [Export("mapView:regionIsChangingWithReason:")]
+        void MapViewRegionIsChangingWithReason(MGLMapView mapView, MGLCameraChangeReason reason);
+
 
 		// @optional -(void)mapView:(MGLMapView * _Nonnull)mapView regionDidChangeAnimated:(BOOL)animated;
 		[Export("mapView:regionDidChangeAnimated:")]
 		void MapViewRegionDidChange(MGLMapView mapView, bool animated);
 
+        // @optional -(void)mapView:(MGLMapView * _Nonnull)mapView regionDidChangeWithReason:(MGLCameraChangeReason)reason animated:(BOOL)animated;
+        [Export("mapView:regionDidChangeWithReason:animated:")]
+        void MapViewRegionDidChangeWithReason(MGLMapView mapView, MGLCameraChangeReason reason, bool animated);
+
 		// @optional -(BOOL)mapView:(MGLMapView * _Nonnull)mapView shouldChangeFromCamera:(MGLMapCamera * _Nonnull)oldCamera toCamera:(MGLMapCamera * _Nonnull)newCamera;
 		[Export("mapView:shouldChangeFromCamera:toCamera:")]
 		bool MapViewShouldChangeCamera(MGLMapView mapView, MGLMapCamera oldCamera, MGLMapCamera newCamera);
+
+        // @optional -(BOOL)mapView:(MGLMapView * _Nonnull)mapView shouldChangeFromCamera:(MGLMapCamera * _Nonnull)oldCamera toCamera:(MGLMapCamera * _Nonnull)newCamera reason:(MGLCameraChangeReason)reason;
+        [Export("mapView:shouldChangeFromCamera:toCamera:reason:")]
+        bool MapViewShouldChangeCameraWithReason(MGLMapView mapView, MGLMapCamera oldCamera, MGLMapCamera newCamera, MGLCameraChangeReason reason);
 
 		// @optional -(void)mapViewWillStartLoadingMap:(MGLMapView * _Nonnull)mapView;
 		[Export("mapViewWillStartLoadingMap:")]
@@ -1815,7 +1832,7 @@ namespace Mapbox
 		// @optional -(void)mapView:(MGLMapView * _Nonnull)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation> _Nonnull)annotation;
 		[Export("mapView:tapOnCalloutForAnnotation:")]
 		void MapView_TapOnCalloutForAnnotation(MGLMapView mapView, IMGLAnnotation annotation);
-	}
+  	}
 
 	// @protocol MGLOfflineRegion <NSObject>
 	[Protocol, Model]
@@ -2020,6 +2037,10 @@ namespace Mapbox
 		// extern const MGLTileSourceOption _Nonnull MGLTileSourceOptionTileSize __attribute__((visibility("default")));
 		[Field("MGLTileSourceOptionTileSize", "__Internal")]
 		NSString TileSize { get; }
+
+        // extern const MGLTileSourceOption _Nonnull MGLTileSourceOptionCoordinateBounds __attribute__((visibility("default")));
+        [Field("MGLTileSourceOptionCoordinateBounds", "__Internal")]
+        NSString CoordinateBounds { get; }
 	}
 
 	// @interface MGLTileSource : MGLSource

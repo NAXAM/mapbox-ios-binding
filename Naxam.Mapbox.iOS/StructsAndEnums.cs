@@ -393,4 +393,19 @@ namespace Mapbox
         Map,
         Viewport
     }
+
+    [Native]
+    public enum MGLCameraChangeReason : ulong
+    {
+        None = 0,
+        Programmatic = 1 << 0,
+        ResetNorth = 1 << 1,
+        GesturePan = 1 << 2,
+        GesturePinch = 1 << 3,
+        GestureRotate = 1 << 4,
+        GestureZoomIn = 1 << 5,
+        GestureZoomOut = 1 << 6,
+        GestureOneFingerZoom = 1 << 7,
+        GestureTilt = 1 << 8
+    }
 }
