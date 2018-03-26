@@ -20,7 +20,8 @@ Install-Package Naxam.Mapbox.iOS
 
 ## Usage
 
-Plz follow the official guide [here](https://www.mapbox.com/ios-sdk/).
+[Getting started with the package](https://blogs.naxam.net/using-mapbox-in-xamarin-ios-ffa9bdee13f4).
+Please don't forget to follow the official guide [here](https://www.mapbox.com/ios-sdk/).
 
 ## License
 

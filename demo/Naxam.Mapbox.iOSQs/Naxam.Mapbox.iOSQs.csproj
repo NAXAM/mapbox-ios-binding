@@ -104,9 +104,13 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small%402x.png" />
+    <ImageAsset Include="Assets.xcassets\temple.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\temple.imageset\torri%402x.png" />
+    <ImageAsset Include="Assets.xcassets\temple.imageset\torri%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Assets.xcassets\temple.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
