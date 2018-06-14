@@ -142,6 +142,23 @@ typedef NS_ENUM(NSUInteger, MGLTileCoordinateSystem) {
 };
 
 /**
+ The encoding formula used to generate the raster-dem tileset
+*/
+
+typedef NS_ENUM(NSUInteger, MGLDEMEncoding) {
+
+    /**
+     Raster tiles generated with the [Mapbox encoding formula](https://www.mapbox.com/help/access-elevation-data/#mapbox-terrain-rgb).
+    */
+    MGLDEMEncodingMapbox = 0,
+
+    /**
+     Raster tiles generated with the [Mapzen Terrarium encoding formula](https://aws.amazon.com/public-datasets/terrain/).
+    */
+    MGLDEMEncodingTerrarium
+};
+
+/**
  `MGLTileSource` is a map content source that supplies map tiles to be shown on
  the map. The location of and metadata about the tiles are defined either by an
  option dictionary or by an external file that conforms to the
@@ -154,9 +171,9 @@ typedef NS_ENUM(NSUInteger, MGLTileCoordinateSystem) {
  Mapbox-hosted tile set, view it in
  <a href="https://www.mapbox.com/studio/tilesets/">Mapbox Studio’s Tilesets editor</a>.
 
- Create instances of `MGLRasterSource` and `MGLVectorSource` in order to use
- `MGLTileSource`'s properties and methods. Do not create instances of `MGLTileSource`
- directly, and do not create your own subclasses of this class.
+ Create instances of `MGLRasterTileSource` and `MGLVectorTileSource` in order
+ to use `MGLTileSource`'s properties and methods. Do not create instances of
+ `MGLTileSource` directly, and do not create your own subclasses of this class.
  */
 MGL_EXPORT
 @interface MGLTileSource : MGLSource

@@ -2,13 +2,13 @@
 // Edit platform/darwin/scripts/generate-style-code.js, then run `make darwin-style-code`.
 
 #import "MGLFoundation.h"
-#import "MGLStyleValue.h"
 #import "MGLVectorStyleLayer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Controls the translation reference point.
+ Controls the frame of reference for
+ `MGLFillExtrusionStyleLayer.fillExtrusionTranslation`.
 
  Values of this type are used in the `MGLFillExtrusionStyleLayer.fillExtrusionTranslationAnchor`
  property.
@@ -29,9 +29,10 @@ typedef NS_ENUM(NSUInteger, MGLFillExtrusionTranslationAnchor) {
  extruded polygons on the map.
  
  Use a fill-extrusion style layer to configure the visual appearance of polygon
- or multipolygon features in vector tiles loaded by an `MGLVectorSource` object
- or `MGLPolygon`, `MGLPolygonFeature`, `MGLMultiPolygon`, or
- `MGLMultiPolygonFeature` instances in an `MGLShapeSource` object.
+ or multipolygon features. These features can come from vector tiles loaded by
+ an `MGLVectorTileSource` object, or they can be `MGLPolygon`,
+ `MGLPolygonFeature`, `MGLMultiPolygon`, or `MGLMultiPolygonFeature` instances
+ in an `MGLShapeSource` or `MGLComputedShapeSource` object.
 
  You can access an existing fill-extrusion style layer using the
  `-[MGLStyle layerWithIdentifier:]` method if you know its identifier;
@@ -44,8 +45,8 @@ typedef NS_ENUM(NSUInteger, MGLFillExtrusionTranslationAnchor) {
  ```swift
  let layer = MGLFillExtrusionStyleLayer(identifier: "buildings", source: buildings)
  layer.sourceLayerIdentifier = "building"
- layer.fillExtrusionHeight = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "height", options: nil)
- layer.fillExtrusionBase = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "min_height", options: nil)
+ layer.fillExtrusionHeight = NSExpression(forKeyPath: "height")
+ layer.fillExtrusionBase = NSExpression(forKeyPath: "min_height")
  layer.predicate = NSPredicate(format: "extrude == 'true'")
  mapView.style?.addLayer(layer)
  ```
@@ -76,30 +77,22 @@ MGL_EXPORT
  
  This property is measured in meters.
  
- The default value of this property is an `MGLStyleValue` object containing an
- `NSNumber` object containing the float `0`. Set this property to `nil` to reset
- it to the default value.
+ The default value of this property is an expression that evaluates to the float
+ `0`. Set this property to `nil` to reset it to the default value.
  
  This property is only applied to the style if `fillExtrusionHeight` is
  non-`nil`. Otherwise, it is ignored.
  
- You can set this property to an instance of:
+ You can set this property to an expression containing any of the following:
  
- * `MGLConstantStyleValue`
- * `MGLCameraStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
- * `MGLSourceStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
-   * `MGLInterpolationModeCategorical`
-   * `MGLInterpolationModeIdentity`
- * `MGLCompositeStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
-   * `MGLInterpolationModeCategorical`
+ * Constant numeric values no less than 0
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Interpolation and step functions applied to the `$zoomLevel` variable and/or
+ feature attributes
  */
-@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *fillExtrusionBase;
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionBase;
 
 /**
  The transition affecting any changes to this layer’s `fillExtrusionBase` property.
@@ -115,30 +108,23 @@ MGL_EXPORT
  this color is specified with an alpha component, the alpha component will be
  ignored; use `fillExtrusionOpacity` to set layer opacityco.
  
- The default value of this property is an `MGLStyleValue` object containing
+ The default value of this property is an expression that evaluates to
  `UIColor.blackColor`. Set this property to `nil` to reset it to the default
  value.
  
  This property is only applied to the style if `fillExtrusionPattern` is set to
  `nil`. Otherwise, it is ignored.
  
- You can set this property to an instance of:
+ You can set this property to an expression containing any of the following:
  
- * `MGLConstantStyleValue`
- * `MGLCameraStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
- * `MGLSourceStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
-   * `MGLInterpolationModeCategorical`
-   * `MGLInterpolationModeIdentity`
- * `MGLCompositeStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
-   * `MGLInterpolationModeCategorical`
+ * Constant `UIColor` values
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Interpolation and step functions applied to the `$zoomLevel` variable and/or
+ feature attributes
  */
-@property (nonatomic, null_resettable) MGLStyleValue<UIColor *> *fillExtrusionColor;
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionColor;
 #else
 /**
  The base color of this layer. The extrusion's surfaces will be shaded
@@ -146,30 +132,23 @@ MGL_EXPORT
  this color is specified with an alpha component, the alpha component will be
  ignored; use `fillExtrusionOpacity` to set layer opacityco.
  
- The default value of this property is an `MGLStyleValue` object containing
+ The default value of this property is an expression that evaluates to
  `NSColor.blackColor`. Set this property to `nil` to reset it to the default
  value.
  
  This property is only applied to the style if `fillExtrusionPattern` is set to
  `nil`. Otherwise, it is ignored.
  
- You can set this property to an instance of:
+ You can set this property to an expression containing any of the following:
  
- * `MGLConstantStyleValue`
- * `MGLCameraStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
- * `MGLSourceStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
-   * `MGLInterpolationModeCategorical`
-   * `MGLInterpolationModeIdentity`
- * `MGLCompositeStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
-   * `MGLInterpolationModeCategorical`
+ * Constant `NSColor` values
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Interpolation and step functions applied to the `$zoomLevel` variable and/or
+ feature attributes
  */
-@property (nonatomic, null_resettable) MGLStyleValue<NSColor *> *fillExtrusionColor;
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionColor;
 #endif
 
 /**
@@ -184,27 +163,19 @@ MGL_EXPORT
  
  This property is measured in meters.
  
- The default value of this property is an `MGLStyleValue` object containing an
- `NSNumber` object containing the float `0`. Set this property to `nil` to reset
- it to the default value.
+ The default value of this property is an expression that evaluates to the float
+ `0`. Set this property to `nil` to reset it to the default value.
  
- You can set this property to an instance of:
+ You can set this property to an expression containing any of the following:
  
- * `MGLConstantStyleValue`
- * `MGLCameraStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
- * `MGLSourceStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
-   * `MGLInterpolationModeCategorical`
-   * `MGLInterpolationModeIdentity`
- * `MGLCompositeStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
-   * `MGLInterpolationModeCategorical`
+ * Constant numeric values no less than 0
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Interpolation and step functions applied to the `$zoomLevel` variable and/or
+ feature attributes
  */
-@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *fillExtrusionHeight;
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionHeight;
 
 /**
  The transition affecting any changes to this layer’s `fillExtrusionHeight` property.
@@ -217,18 +188,21 @@ MGL_EXPORT
  The opacity of the entire fill extrusion layer. This is rendered on a
  per-layer, not per-feature, basis, and data-driven styling is not available.
  
- The default value of this property is an `MGLStyleValue` object containing an
- `NSNumber` object containing the float `1`. Set this property to `nil` to reset
- it to the default value.
+ The default value of this property is an expression that evaluates to the float
+ `1`. Set this property to `nil` to reset it to the default value.
  
- You can set this property to an instance of:
+ You can set this property to an expression containing any of the following:
  
- * `MGLConstantStyleValue`
- * `MGLCameraStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
+ * Constant numeric values between 0 and 1 inclusive
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Interpolation and step functions applied to the `$zoomLevel` variable
+ 
+ This property does not support applying interpolation or step functions to
+ feature attributes.
  */
-@property (nonatomic, null_resettable) MGLStyleValue<NSNumber *> *fillExtrusionOpacity;
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionOpacity;
 
 /**
  The transition affecting any changes to this layer’s `fillExtrusionOpacity` property.
@@ -242,13 +216,19 @@ MGL_EXPORT
  seamless patterns, image width and height must be a factor of two (2, 4, 8,
  ..., 512).
  
- You can set this property to an instance of:
+ You can set this property to an expression containing any of the following:
  
- * `MGLConstantStyleValue`
- * `MGLCameraStyleFunction` with an interpolation mode of
- `MGLInterpolationModeInterval`
+ * Constant string values
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Step functions applied to the `$zoomLevel` variable
+ 
+ This property does not support applying interpolation functions to the
+ `$zoomLevel` variable or applying interpolation or step functions to feature
+ attributes.
  */
-@property (nonatomic, null_resettable) MGLStyleValue<NSString *> *fillExtrusionPattern;
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionPattern;
 
 /**
  The transition affecting any changes to this layer’s `fillExtrusionPattern` property.
@@ -263,7 +243,7 @@ MGL_EXPORT
  
  This property is measured in points.
  
- The default value of this property is an `MGLStyleValue` object containing an
+ The default value of this property is an expression that evaluates to an
  `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
  points downward. Set this property to `nil` to reset it to the default value.
  
@@ -271,21 +251,25 @@ MGL_EXPORT
  href="https://www.mapbox.com/mapbox-gl-style-spec/#paint-fill-extrusion-translate"><code>fill-extrusion-translate</code></a>
  layout property in the Mapbox Style Specification.
  
- You can set this property to an instance of:
+ You can set this property to an expression containing any of the following:
  
- * `MGLConstantStyleValue`
- * `MGLCameraStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
+ * Constant `CGVector` values
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Interpolation and step functions applied to the `$zoomLevel` variable
+ 
+ This property does not support applying interpolation or step functions to
+ feature attributes.
  */
-@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillExtrusionTranslation;
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionTranslation;
 #else
 /**
  The geometry's offset.
  
  This property is measured in points.
  
- The default value of this property is an `MGLStyleValue` object containing an
+ The default value of this property is an expression that evaluates to an
  `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
  points upward. Set this property to `nil` to reset it to the default value.
  
@@ -293,14 +277,18 @@ MGL_EXPORT
  href="https://www.mapbox.com/mapbox-gl-style-spec/#paint-fill-extrusion-translate"><code>fill-extrusion-translate</code></a>
  layout property in the Mapbox Style Specification.
  
- You can set this property to an instance of:
+ You can set this property to an expression containing any of the following:
  
- * `MGLConstantStyleValue`
- * `MGLCameraStyleFunction` with an interpolation mode of:
-   * `MGLInterpolationModeExponential`
-   * `MGLInterpolationModeInterval`
+ * Constant `CGVector` values
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Interpolation and step functions applied to the `$zoomLevel` variable
+ 
+ This property does not support applying interpolation or step functions to
+ feature attributes.
  */
-@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillExtrusionTranslation;
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionTranslation;
 #endif
 
 /**
@@ -310,14 +298,13 @@ MGL_EXPORT
 */
 @property (nonatomic) MGLTransition fillExtrusionTranslationTransition;
 
-@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillExtrusionTranslate __attribute__((unavailable("Use fillExtrusionTranslation instead.")));
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionTranslate __attribute__((unavailable("Use fillExtrusionTranslation instead.")));
 
 /**
- Controls the translation reference point.
+ Controls the frame of reference for `fillExtrusionTranslation`.
  
- The default value of this property is an `MGLStyleValue` object containing an
- `NSValue` object containing `MGLFillExtrusionTranslationAnchorMap`. Set this
- property to `nil` to reset it to the default value.
+ The default value of this property is an expression that evaluates to `map`.
+ Set this property to `nil` to reset it to the default value.
  
  This property is only applied to the style if `fillExtrusionTranslation` is
  non-`nil`. Otherwise, it is ignored.
@@ -326,15 +313,24 @@ MGL_EXPORT
  href="https://www.mapbox.com/mapbox-gl-style-spec/#paint-fill-extrusion-translate-anchor"><code>fill-extrusion-translate-anchor</code></a>
  layout property in the Mapbox Style Specification.
  
- You can set this property to an instance of:
+ You can set this property to an expression containing any of the following:
  
- * `MGLConstantStyleValue`
- * `MGLCameraStyleFunction` with an interpolation mode of
- `MGLInterpolationModeInterval`
+ * Constant `MGLFillExtrusionTranslationAnchor` values
+ * Any of the following constant string values:
+   * `map`: The fill extrusion is translated relative to the map.
+   * `viewport`: The fill extrusion is translated relative to the viewport.
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Step functions applied to the `$zoomLevel` variable
+ 
+ This property does not support applying interpolation functions to the
+ `$zoomLevel` variable or applying interpolation or step functions to feature
+ attributes.
  */
-@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillExtrusionTranslationAnchor;
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionTranslationAnchor;
 
-@property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillExtrusionTranslateAnchor __attribute__((unavailable("Use fillExtrusionTranslationAnchor instead.")));
+@property (nonatomic, null_resettable) NSExpression *fillExtrusionTranslateAnchor __attribute__((unavailable("Use fillExtrusionTranslationAnchor instead.")));
 
 @end
 
