@@ -8,89 +8,7 @@ using ObjCRuntime;
 
 namespace Mapbox
 {
-    [Native]
-    public enum MGLAttributionInfoStyle : long {
-        /**
-        Specifies a short attribution info style.
-        */
-        Short = 1,
-        /**
-        Specifies a medium attribution info style.
-        */
-        Medium,
-        /**
-        Specifies a long attribution info style.
-        */
-        Long
-    }
-
-    [Native]
-    public enum MGLIconAnchor : ulong
-    {
-    /**
-     The center of the icon is placed closest to the anchor.
-     */
-    Center,
-    /**
-     The left side of the icon is placed closest to the anchor.
-     */
-    Left,
-    /**
-     The right side of the icon is placed closest to the anchor.
-     */
-    Right,
-    /**
-     The top of the icon is placed closest to the anchor.
-     */
-    Top,
-    /**
-     The bottom of the icon is placed closest to the anchor.
-     */
-    Bottom,
-    /**
-     The top left corner of the icon is placed closest to the anchor.
-     */
-    TopLeft,
-    /**
-     The top right corner of the icon is placed closest to the anchor.
-     */
-    TopRight,
-    /**
-     The bottom left corner of the icon is placed closest to the anchor.
-     */
-    BottomLeft,
-    /**
-     The bottom right corner of the icon is placed closest to the anchor.
-     */
-    BottomRight,
-}
-    [Native]
-    public enum MGLIconPitchAlignment : ulong
-    {
-    /**
-     The icon is aligned to the plane of the map.
-     */
-    Map,
-    /**
-     The icon is aligned to the plane of the viewport.
-     */
-    Viewport,
-    /**
-     Automatically matches the value of `iconRotationAlignment`.
-     */
-    Auto,
-}
-
-
-    [Native]
-    public enum MGLCirclePitchAlignment : ulong
-    {
-        Map = 0,
-        ViewPort
-    }
-
-    [Native]
-    public enum MGLAnnotationViewDragState : ulong
+	public enum MGLAnnotationViewDragState : ulong
     {
         None = 0,
         Starting,
@@ -111,17 +29,18 @@ namespace Mapbox
         SnapshotFailed = 6
     }
 
+    [Flags]
     [Native]
     public enum MGLMapDebugMaskOptions : ulong
     {
-        TileBoundariesMask = 1 << 1,
-        TileInfoMask = 1 << 2,
-        TimestampsMask = 1 << 3,
-        CollisionBoxesMask = 1 << 4,
-        OverdrawVisualizationMask = 1 << 5
+        TileBoundariesMask = 1uL << 1,
+        TileInfoMask = 1uL << 2,
+        TimestampsMask = 1uL << 3,
+        CollisionBoxesMask = 1uL << 4,
+        OverdrawVisualizationMask = 1uL << 5
     }
 
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout (LayoutKind.Sequential)]
     public struct MGLTransition
     {
         public double duration;
@@ -130,12 +49,34 @@ namespace Mapbox
     }
 
     [Native]
-    public enum MGLInterpolationMode : ulong
+    public enum MGLAttributionInfoStyle : ulong
     {
-        Exponential = 0,
-        Interval,
-        Categorical,
-        Identity
+        Short = 1,
+        Medium,
+        Long
+    }
+
+    [Flags]
+    [Native]
+    public enum MGLCameraChangeReason : ulong
+    {
+        None = 0x0,
+        Programmatic = 1uL << 0,
+        ResetNorth = 1uL << 1,
+        GesturePan = 1uL << 2,
+        GesturePinch = 1uL << 3,
+        GestureRotate = 1uL << 4,
+        GestureZoomIn = 1uL << 5,
+        GestureZoomOut = 1uL << 6,
+        GestureOneFingerZoom = 1uL << 7,
+        GestureTilt = 1uL << 8
+    }
+
+    [Native]
+    public enum MGLCirclePitchAlignment : ulong
+    {
+        Map,
+        Viewport
     }
 
     [Native]
@@ -152,29 +93,78 @@ namespace Mapbox
         Viewport
     }
 
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout (LayoutKind.Sequential)]
     public struct MGLCoordinateSpan
     {
-        public double LatitudeDelta;
+        public double latitudeDelta;
 
-        public double LongitudeDelta;
+        public double longitudeDelta;
     }
 
-    [StructLayout(LayoutKind.Sequential)]
-    public struct MGLCoordinateQuad
+    [StructLayout (LayoutKind.Sequential)]
+    public struct MGLMapPoint
     {
-        public CLLocationCoordinate2D TopLeft;
-        public CLLocationCoordinate2D TopRight;
-        public CLLocationCoordinate2D BottomLeft;
-        public CLLocationCoordinate2D BottomRight;
+        public nfloat x;
+
+        public nfloat y;
+
+        public nfloat zoomLevel;
     }
 
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout (LayoutKind.Sequential)]
+    public struct MGLMatrix4
+    {
+        public double m00;
+
+        public double m01;
+
+        public double m02;
+
+        public double m03;
+
+        public double m10;
+
+        public double m11;
+
+        public double m12;
+
+        public double m13;
+
+        public double m20;
+
+        public double m21;
+
+        public double m22;
+
+        public double m23;
+
+        public double m30;
+
+        public double m31;
+
+        public double m32;
+
+        public double m33;
+    }
+
+    [StructLayout (LayoutKind.Sequential)]
     public struct MGLCoordinateBounds
     {
-        public CLLocationCoordinate2D Sw;
+        public CLLocationCoordinate2D sw;
 
-        public CLLocationCoordinate2D Ne;
+        public CLLocationCoordinate2D ne;
+    }
+
+    [StructLayout (LayoutKind.Sequential)]
+    public struct MGLCoordinateQuad
+    {
+        public CLLocationCoordinate2D topLeft;
+
+        public CLLocationCoordinate2D bottomLeft;
+
+        public CLLocationCoordinate2D bottomRight;
+
+        public CLLocationCoordinate2D topRight;
     }
 
     [Native]
@@ -192,13 +182,20 @@ namespace Mapbox
     }
 
     [Native]
+    public enum MGLHillshadeIlluminationAnchor : ulong
+    {
+        Map,
+        Viewport
+    }
+
+    [Native]
     public enum MGLLightAnchor : ulong
     {
         Map,
         Viewport
     }
 
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout (LayoutKind.Sequential)]
     public struct MGLSphericalPosition
     {
         public nfloat radial;
@@ -258,7 +255,7 @@ namespace Mapbox
         Invalid = 4
     }
 
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout (LayoutKind.Sequential)]
     public struct MGLOfflinePackProgress
     {
         public ulong countOfResourcesCompleted;
@@ -287,7 +284,7 @@ namespace Mapbox
         Image
     }
 
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout (LayoutKind.Sequential)]
     public struct MGLStyleLayerDrawingContext
     {
         public CGSize size;
@@ -301,6 +298,8 @@ namespace Mapbox
         public nfloat pitch;
 
         public nfloat fieldOfView;
+
+        public MGLMatrix4 projectionMatrix;
     }
 
     [Native]
@@ -308,6 +307,35 @@ namespace Mapbox
     {
         Xyz = 0,
         Tms
+    }
+
+    [Native]
+    public enum MGLDEMEncoding : ulong
+    {
+        Mapbox = 0,
+        Terrarium
+    }
+
+    [Native]
+    public enum MGLIconAnchor : ulong
+    {
+        Center,
+        Left,
+        Right,
+        Top,
+        Bottom,
+        TopLeft,
+        TopRight,
+        BottomLeft,
+        BottomRight
+    }
+
+    [Native]
+    public enum MGLIconPitchAlignment : ulong
+    {
+        Map,
+        Viewport,
+        Auto
     }
 
     [Native]
@@ -394,18 +422,4 @@ namespace Mapbox
         Viewport
     }
 
-    [Native]
-    public enum MGLCameraChangeReason : ulong
-    {
-        None = 0,
-        Programmatic = 1 << 0,
-        ResetNorth = 1 << 1,
-        GesturePan = 1 << 2,
-        GesturePinch = 1 << 3,
-        GestureRotate = 1 << 4,
-        GestureZoomIn = 1 << 5,
-        GestureZoomOut = 1 << 6,
-        GestureOneFingerZoom = 1 << 7,
-        GestureTilt = 1 << 8
-    }
 }
