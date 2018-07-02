@@ -1,6 +1,7 @@
 bin/
 obj/
 packages/
+.vs/
 *.userprefs
 Podfile.lock
 sharpie/build

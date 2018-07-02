@@ -758,7 +758,7 @@ namespace Mapbox
     [BaseType(typeof(MGLMultiPoint))]
     interface MGLPolygon : MGLOverlay
     {
-        // @property (readonly, nonatomic) NSArray<MGLPolygon *> * _Nullable interiorPolygons;
+		// roperty (nonatomic, nullable, readonly) NSArray<MGLPolygon *> *interiorPolygons;
         [NullAllowed, Export("interiorPolygons")]
         MGLPolygon[] InteriorPolygons { get; }
 
@@ -766,8 +766,8 @@ namespace Mapbox
         [Static]
         [Export("polygonWithCoordinates:count:")]
         unsafe MGLPolygon PolygonWithCoordinates(ref CLLocationCoordinate2D coords, nuint count);
-
-        // +(instancetype _Nonnull)polygonWithCoordinates:(const CLLocationCoordinate2D * _Nonnull)coords count:(NSUInteger)count interiorPolygons:(NSArray<MGLPolygon *> * _Nullable)interiorPolygons;
+        
+		// +(instancetype)polygonWithCoordinates:(const CLLocationCoordinate2D *)coords count:(NSUInteger)count interiorPolygons:(nullable NSArray<MGLPolygon *> *)interiorPolygons;
         [Static]
         [Export("polygonWithCoordinates:count:interiorPolygons:")]
         unsafe MGLPolygon PolygonWithCoordinates(ref CLLocationCoordinate2D coords, nuint count, [NullAllowed] MGLPolygon[] interiorPolygons);
@@ -841,8 +841,8 @@ namespace Mapbox
         [Abstract]
         [NullAllowed, Export("identifier", ArgumentSemantic.Copy)]
         NSObject Identifier { get; set; }
-
-        // @required @property (copy, nonatomic) NSDictionary<NSString *,id> * _Nonnull attributes;
+        
+		//@property (nonatomic, copy) NSDictionary<NSString *, id> *attributes;
         [Abstract]
         [Export("attributes", ArgumentSemantic.Copy)]
         NSDictionary<NSString, NSObject> Attributes { get; set; }
@@ -853,7 +853,7 @@ namespace Mapbox
         [return: NullAllowed]
         NSObject AttributeForKey(string key);
 
-        // @required -(NSDictionary<NSString *,id> * _Nonnull)geoJSONDictionary;
+		// - (NSDictionary<NSString *, id> *)geoJSONDictionary;
         [Abstract]
         [Export("geoJSONDictionary")]
         NSDictionary<NSString, NSObject> GeoJSONDictionary { get; }
@@ -899,11 +899,11 @@ namespace Mapbox
     [BaseType(typeof(MGLShapeCollection))]
     interface MGLShapeCollectionFeature : MGLFeature
     {
-        // @property (readonly, copy, nonatomic) NSArray<MGLShape<MGLFeature> *> * _Nonnull shapes;
+		// @property (nonatomic, copy, readonly) NSArray<MGLShape<MGLFeature> *> *shapes;
         [Export("shapes", ArgumentSemantic.Copy)]
         NSObject[] Shapes { get; }
 
-        // +(instancetype _Nonnull)shapeCollectionWithShapes:(NSArray<MGLShape<MGLFeature> *> * _Nonnull)shapes;
+		// + (instancetype)shapeCollectionWithShapes:(NSArray<MGLShape<MGLFeature> *> *)shapes;
         [Static]
         [Export("shapeCollectionWithShapes:")]
         MGLShapeCollectionFeature ShapeCollectionWithShapes(NSObject[] shapes);
@@ -1511,7 +1511,7 @@ namespace Mapbox
         // @property (nonatomic, weak) id<MGLMapViewDelegate> _Nullable delegate __attribute__((iboutlet));
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
         NSObject WeakDelegate { get; set; }
-
+        
         // @property (readonly, nonatomic) MGLStyle * _Nullable style;
         [NullAllowed, Export("style")]
         MGLStyle Style { get; }
@@ -1772,9 +1772,9 @@ namespace Mapbox
         [Export("metersPerPointAtLatitude:")]
         double MetersPerPointAtLatitude(double latitude);
 
-        // @property (readonly, nonatomic) NSArray<id<MGLAnnotation>> * _Nullable annotations;
+		// @property (nonatomic, readonly, nullable) NSArray<id<MGLAnnotation>> *annotations;
         [NullAllowed, Export("annotations")]
-        MGLAnnotation[] Annotations { get; }
+        IMGLAnnotation[] Annotations { get; } 
 
         // -(void)addAnnotation:(id<MGLAnnotation> _Nonnull)annotation;
         [Export("addAnnotation:")]
@@ -1807,16 +1807,16 @@ namespace Mapbox
 
         // @property (readonly, nonatomic) NSArray<id<MGLAnnotation>> * _Nullable visibleAnnotations;
         [NullAllowed, Export("visibleAnnotations")]
-        MGLAnnotation[] VisibleAnnotations { get; }
+        IMGLAnnotation[] VisibleAnnotations { get; }
 
         // -(NSArray<id<MGLAnnotation>> * _Nullable)visibleAnnotationsInRect:(CGRect)rect;
         [Export("visibleAnnotationsInRect:")]
         [return: NullAllowed]
-        MGLAnnotation[] VisibleAnnotationsInRect(CGRect rect);
+        IMGLAnnotation[] VisibleAnnotationsInRect(CGRect rect);
 
         // @property (copy, nonatomic) NSArray<id<MGLAnnotation>> * _Nonnull selectedAnnotations;
         [Export("selectedAnnotations", ArgumentSemantic.Copy)]
-        MGLAnnotation[] SelectedAnnotations { get; set; }
+        IMGLAnnotation[] SelectedAnnotations { get; set; }
 
         // -(void)selectAnnotation:(id<MGLAnnotation> _Nonnull)annotation animated:(BOOL)animated;
         [Export("selectAnnotation:animated:")]
@@ -1989,9 +1989,9 @@ namespace Mapbox
         [Export("mapView:viewForAnnotation:")]
         [return: NullAllowed]
         MGLAnnotationView MapView_ViewForAnnotation(MGLMapView mapView, IMGLAnnotation annotation);
-
-        // @optional -(void)mapView:(MGLMapView * _Nonnull)mapView didAddAnnotationViews:(NSArray<MGLAnnotationView *> * _Nonnull)annotationViews;
-        [Export("mapView:didAddAnnotationViews:")]
+        
+		// @optional - (void)mapView:(MGLMapView *)mapView didAddAnnotationViews:(NSArray<MGLAnnotationView *> *)annotationViews;
+		[Export("mapView:didAddAnnotationViews:")]
         void MapViewDidAddAnnotationViews(MGLMapView mapView, MGLAnnotationView[] annotationViews);
 
         // @optional -(void)mapView:(MGLMapView * _Nonnull)mapView didSelectAnnotation:(id<MGLAnnotation> _Nonnull)annotation;
@@ -2132,8 +2132,8 @@ namespace Mapbox
         // @property (nonatomic, weak) id<MGLOfflineStorageDelegate> _Nullable delegate __attribute__((iboutlet));
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
         NSObject WeakDelegate { get; set; }
-
-        // @property (readonly, nonatomic, strong) NSArray<MGLOfflinePack *> * _Nullable packs;
+        
+		// @property (nonatomic, strong, readonly, nullable) NSArray<MGLOfflinePack *> *packs;
         [NullAllowed, Export("packs", ArgumentSemantic.Strong)]
         MGLOfflinePack[] Packs { get; }
 

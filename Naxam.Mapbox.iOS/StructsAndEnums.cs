@@ -69,7 +69,8 @@ namespace Mapbox
         GestureZoomIn = 1uL << 5,
         GestureZoomOut = 1uL << 6,
         GestureOneFingerZoom = 1uL << 7,
-        GestureTilt = 1uL << 8
+        GestureTilt = 1uL << 8,
+		TransitionCancelled = 1uL << 16
     }
 
     [Native]
