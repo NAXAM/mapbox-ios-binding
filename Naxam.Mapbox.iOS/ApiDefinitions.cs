@@ -339,7 +339,7 @@ namespace Mapbox
         MGLTransition CircleBlurTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified circleColor;
-        [Export("circleColor", ArgumentSemantic.Assign)]
+        [Export("circleColor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleColor { get; set; }
 
         // @property (nonatomic) MGLTransition circleColorTransition;
@@ -2482,19 +2482,19 @@ namespace Mapbox
         IntPtr Constructor(string identifier, MGLSource source);
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconAllowsOverlap;
-        [Export("iconAllowsOverlap", ArgumentSemantic.Assign)]
+        [Export("iconAllowsOverlap")]
         NSExpression IconAllowsOverlap { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconAnchor;
-        [Export("iconAnchor", ArgumentSemantic.Assign)]
+        [Export("iconAnchor")]
         NSExpression IconAnchor { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconIgnoresPlacement;
-        [Export("iconIgnoresPlacement", ArgumentSemantic.Assign)]
+        [Export("iconIgnoresPlacement")]
         NSExpression IconIgnoresPlacement { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconImageName;
-        [Export("iconImageName", ArgumentSemantic.Assign)]
+        [Export("iconImageName")]
         NSExpression IconImageName { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconOffset;

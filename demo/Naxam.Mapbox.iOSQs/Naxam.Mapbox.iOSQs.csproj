@@ -6,6 +6,7 @@
     <ProjectGuid>{3A2E7243-0208-4292-92B4-8C25F27B9843}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
+    <LangVersion>latest</LangVersion>
     <RootNamespace>Naxam.Mapbox.iOSQs</RootNamespace>
     <AssemblyName>Naxam.Mapbox.iOSQs</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
@@ -99,6 +100,9 @@
     <Reference Include="Naxam.Mapbox.iOS">
       <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="Naxam.Mapbox.iOS">
+      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -136,6 +140,7 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="LayersListViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Naxam.Mapbox.Common\Naxam.Mapbox.Common.csproj">

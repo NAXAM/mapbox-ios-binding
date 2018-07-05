@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 using Mapbox;
+using CoreGraphics;
 
 namespace Naxam.Mapbox.iOSQs
 {
@@ -22,6 +23,9 @@ namespace Naxam.Mapbox.iOSQs
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
             MGLAccountManager.AccessToken = "pk.eyJ1IjoibmF4YW10ZXN0IiwiYSI6ImNqNWtpaG1oYTJqZmQyd28yM2tsdDhucmEifQ.Zr35ENq9tziBBDAbdeU2dw";
+			//Window = new UIWindow(new CGRect(0,0,UIScreen.MainScreen.Bounds.Width,UIScreen.MainScreen.Bounds.Height));
+			//Window.MakeKeyAndVisible();
+			//Window.RootViewController = new UINavigationController(new LayersListViewController());
 			return true;
 		}
 

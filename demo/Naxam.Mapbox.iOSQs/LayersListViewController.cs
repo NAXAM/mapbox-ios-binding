@@ -26,6 +26,12 @@ namespace Naxam.Mapbox.iOSQs
         }
     }
 
+    class TextLayer : DisplayedLayer
+    {
+        public string Text { get; set; }
+        public UIColor TextColor { get; set; }
+    }
+
     class ImageLayer : DisplayedLayer
     {
         public UIImage Image
@@ -56,6 +62,7 @@ namespace Naxam.Mapbox.iOSQs
         {
             get; set;
         }
+        public nfloat FillOpacity { get; set; }
     }
 
     class CircleLayer : DisplayedLayer
@@ -103,6 +110,7 @@ namespace Naxam.Mapbox.iOSQs
             tableView.RegisterClassForCellReuse(typeof(UITableViewCell), "FillCell");
             tableView.RegisterClassForCellReuse(typeof(UITableViewCell), "CircleCell");
             tableView.RegisterClassForCellReuse(typeof(UITableViewCell), "LineCell");
+            tableView.RegisterClassForCellReuse(typeof(UITableViewCell), "TextCell");
 
             Style = style;
             mbService = new MapboxService();
@@ -128,62 +136,61 @@ namespace Naxam.Mapbox.iOSQs
 
                 if (layer is MGLVectorStyleLayer vl)
                 {
-                    if (vl is MGLSymbolStyleLayer sl && sl.IconImageName != null)
+                    if (vl is MGLSymbolStyleLayer sl)
                     {
-                        newLayer = new ImageLayer()
+                        if (GetValueFromExpression<NSString>(sl.IconImageName) is NSString iconName)
                         {
-                            Id = layer.Identifier
-                        };
-                        if (sl.IconImageName is MGLCameraStyleFunction csFunc)
-                        {
-                            var imgName = GetValueFromCameraStyleFunction(csFunc);
-                            if (imgName != null)
+                            newLayer = new ImageLayer()
                             {
-                                (newLayer as ImageLayer).Image = Style.ImageForName(imgName.ToString());
-                            }
+                                Id = layer.Identifier
+                            };
+                            (newLayer as ImageLayer).Image = Style.ImageForName(iconName);
                         }
                         else
                         {
-                            var imgName = GetObjectFromStyleValue(sl.IconImageName);
-                            if (imgName != null)
+                            newLayer = new TextLayer()
                             {
-                                (newLayer as ImageLayer).Image = Style.ImageForName(imgName.ToString());
-                            }
-                        }
+                                Id = layer.Identifier,
+                                TextColor = GetValueFromExpression<UIColor>(sl.TextColor)
+                            };
+                        };
                     }
                     else if (vl is MGLLineStyleLayer ll)
                     {
                         newLayer = new LineLayer()
                         {
                             Id = layer.Identifier,
-                            LineColor = GetObjectFromStyleValue(ll.LineColor) as UIColor
+                            LineColor = GetValueFromExpression<UIColor>(ll.LineColor)
                         };
 
-                        if (ll.LineDashPattern != null)
-                        {
+                        //if (ll.LineDashPattern != null)
+                        //{
 
-                            if (GetObjectFromStyleValue(ll.LineDashPattern) is NSArray arr && arr.Count != 0)
-                            {
-                                var dash = new List<double>();
-                                for (nuint i = 0; i < arr.Count; i++)
-                                {
-                                    var obj = arr.GetItem<NSNumber>(i);
-                                    dash.Add(obj.DoubleValue);
-                                }
-                                (newLayer as LineLayer).Dashes = dash.ToArray();
-                            }
-                            else
-                            {
-
-                            }
-                        }
+                        //    if (GetValueFromExpression<NSArray>(ll.LineDashPattern) is NSArray arr && arr.Count != 0)
+                        //    {
+                        //        var dash = new List<double>();
+                        //        for (nuint i = 0; i < arr.Count; i++)
+                        //        {
+                        //            var obj = arr.GetItem<NSExpression>(i);
+                        //            if (GetValueFromExpression<NSNumber>(obj) is NSNumber num)
+                        //            {
+                        //                dash.Add(num.DoubleValue);
+                        //            }
+                        //        }
+                        //        (newLayer as LineLayer).Dashes = dash.ToArray();
+                        //    }
+                        //    else
+                        //    {
+                        //        //TODO
+                        //    }
+                        //}
                     }
                     else if (vl is MGLCircleStyleLayer cl)
                     {
                         newLayer = new CircleLayer()
                         {
                             Id = layer.Identifier,
-                            FillColor = GetObjectFromStyleValue(cl.CircleColor) as UIColor
+                            FillColor = GetValueFromExpression<UIColor>(cl.CircleColor)
                         };
                     }
                     else if (vl is MGLFillStyleLayer fl)
@@ -191,14 +198,15 @@ namespace Naxam.Mapbox.iOSQs
                         newLayer = new FillLayer()
                         {
                             Id = layer.Identifier,
-                            FillColor = GetObjectFromStyleValue(fl.FillColor) as UIColor
+                            FillColor = GetValueFromExpression<UIColor>(fl.FillColor),
+                            FillOpacity = GetValueFromExpression<NSNumber>(fl.FillOpacity)?.NFloatValue ?? 1.0f
                         };
                     }
+
                     if (!string.IsNullOrEmpty(vl.SourceLayerIdentifier))
                     {
                         gn = vl.SourceLayerIdentifier;
                     }
-
                 }
                 if (newLayer != null)
                 {
@@ -228,53 +236,86 @@ namespace Naxam.Mapbox.iOSQs
             groups = groupList.ToArray();
         }
 
-        private NSObject GetValueFromCameraStyleFunction(MGLCameraStyleFunction csFunc)
+        public T GetValueFromExpression<T>(NSExpression expr) where T : NSObject
         {
-            if (csFunc.Stops == null || csFunc.Stops.Count == 0) return null;
-            MGLStyleValue output = null;
-            switch (csFunc.InterpolationMode)
+            if (expr == null) return default(T);
+            switch (expr.ExpressionType)
             {
-                case MGLInterpolationMode.Identity:
-                    nuint i = 0;
-                    while (i < csFunc.Stops.Count)
+                case NSExpressionType.ConstantValue:
+                    return expr.ConstantValue as T;
+                case NSExpressionType.NSAggregate:
+                    if (expr.Collection is T)
+                        return expr.Collection as T;
+                    if (expr.Collection is NSArray array
+                        && array.Count != 0)
                     {
-                        var key = csFunc.Stops.Keys[i];
-                        var zoomLevel = (key as NSNumber).DoubleValue;
-                        if (zoomLevel < ZoomLevel)
+                        var first = array.GetItem<T>(0);
+                        if (first is NSExpression innerExpr)
                         {
-                            output = csFunc.Stops[key];
+                            return GetValueFromExpression<T>(innerExpr);
                         }
-                        else
-                        {
-                            break;
-                        }
-                        i++;
+                        return first;
                     }
-                    break;
-                default: break;
+                    return default(T);
+                case NSExpressionType.Function:
+                    //TODO
+                    var function = expr.Function; //"mgl_interpolate:withCurveType:parameters:stops:"
+                    if (expr.Arguments is NSExpression[] args)// $zoomLevel, exponential, 1.299999, {{ 13 = "0.5", 20 = 2;}}
+                    {
+                        //TODO
+                    }
+                    return default(T);
+                default:
+                    return default(T);
             }
-            if (output == null)
-            {
-                output = csFunc.Stops.Values[0];
-            }
-            return GetObjectFromStyleValue(output);
         }
+        //private NSObject GetValueFromCameraStyleFunction(MGLCameraStyleFunction csFunc)
+        //{
+        //    if (csFunc.Stops == null || csFunc.Stops.Count == 0) return null;
+        //    MGLStyleValue output = null;
+        //    switch (csFunc.InterpolationMode)
+        //    {
+        //        case MGLInterpolationMode.Identity:
+        //            nuint i = 0;
+        //            while (i < csFunc.Stops.Count)
+        //            {
+        //                var key = csFunc.Stops.Keys[i];
+        //                var zoomLevel = (key as NSNumber).DoubleValue;
+        //                if (zoomLevel < ZoomLevel)
+        //                {
+        //                    output = csFunc.Stops[key];
+        //                }
+        //                else
+        //                {
+        //                    break;
+        //                }
+        //                i++;
+        //            }
+        //            break;
+        //        default: break;
+        //    }
+        //    if (output == null)
+        //    {
+        //        output = csFunc.Stops.Values[0];
+        //    }
+        //    return GetObjectFromStyleValue(output);
+        //}
 
-        private NSObject GetObjectFromStyleValue(MGLStyleValue value)
-        {
-            if (value is MGLConstantStyleValue cValue)
-            {
-                return cValue.RawValue;
-            }
-            if (value is MGLCameraStyleFunction csFunc)
-            {
-                return GetValueFromCameraStyleFunction(csFunc);
-            }
-            if (value != null && value.RespondsToSelector(new ObjCRuntime.Selector("rawValue"))) {
-                return value.ValueForKey((NSString)"rawValue");
-            }
-            return value;
-        }
+        //private NSObject GetObjectFromStyleValue(MGLStyleValue value)
+        //{
+        //    if (value is MGLConstantStyleValue cValue)
+        //    {
+        //        return cValue.RawValue;
+        //    }
+        //    if (value is MGLCameraStyleFunction csFunc)
+        //    {
+        //        return GetValueFromCameraStyleFunction(csFunc);
+        //    }
+        //    if (value != null && value.RespondsToSelector(new ObjCRuntime.Selector("rawValue"))) {
+        //        return value.ValueForKey((NSString)"rawValue");
+        //    }
+        //    return value;
+        //}
 
 
         public override void ViewDidAppear(bool animated)
@@ -396,6 +437,14 @@ namespace Naxam.Mapbox.iOSQs
                 cell.ContentView.Layer.CornerRadius = 20;
                 cell.ContentView.Layer.MasksToBounds = true;
             }
+            else if (layer is TextLayer tl)
+            {
+                cell = tableView.DequeueReusableCell("TextCell");
+                str.Append(new NSAttributedString(" (text) " + tl.Text, new UIStringAttributes()
+                {
+                    ForegroundColor = tl.TextColor
+                }));
+            }
             cell.TextLabel.AttributedText = str;
             return cell;
             //var cell = tableView.DequeueReusableCell("Cell");
@@ -411,34 +460,13 @@ namespace Naxam.Mapbox.iOSQs
             //        if (remoteLayers?.FirstOrDefault( (arg) => arg.Id == layer.Identifier) is RemoteLayer rl)
             //           {
             //            var iconImg = rl.Layout?.IconImage;
-            //            if (iconImg == null && remoteLayers?.FirstOrDefault((arg) => arg.Id == rl.SourceLayer) is RemoteLayer sourceLayer)
-            //            {
-            //                iconImg = sourceLayer.Layout?.IconImage;
-            //            }
+            //          
+        }
 
-            //            if (iconImg is JObject jo) {
-            //                if (jo.Property("stops") != null) {
-            //      var imgWithStops = jo.ToObject<IconImageWithStops>();
-            //                    if (imgWithStops != null && imgWithStops.Stops != null && imgWithStops.Stops.Length != 0) {
-            //                        var first = imgWithStops.Stops.First();
-            //                        if (first.Length > 1) {
-            //                            iconImg = first[1] as string;
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //if (iconImg is string imgName)
-            //{
-            //  cell.ImageView.Image = Style.ImageForName(imgName);
-            //}
-            //    else if (iconImg != null) {
-
-            //    }
-            //}
-            //else {
-            //    cell.ImageView.Image = null;
-            //}
-            //return cell;
+        [Export("tableView:titleForHeaderInSection:")]
+        public string TitleForHeader(UITableView tableView, nint section)
+        {
+            return groups[section].Info.Name;
         }
 
         public nint RowsInSection(UITableView tableView, nint section)
@@ -453,10 +481,5 @@ namespace Naxam.Mapbox.iOSQs
             return groups == null ? 0 : groups.Length;
         }
 
-        [Export("tableView:titleForHeaderInSection:")]
-        public string TitleForHeader(UITableView tableView, nint section)
-        {
-            return groups[section].Info.Name;
-        }
     }
 }
