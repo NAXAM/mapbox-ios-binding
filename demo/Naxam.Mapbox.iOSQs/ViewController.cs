@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using CoreLocation;
 using Foundation;
 using Mapbox;
@@ -12,6 +13,40 @@ namespace Naxam.Mapbox.iOSQs
         protected ViewController(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
+        }
+
+		public T GetValueFromExpression<T>(NSExpression expr) where T : NSObject
+        {
+            if (expr == null) return default(T);
+            switch (expr.ExpressionType)
+            {
+                case NSExpressionType.ConstantValue:
+                    return expr.ConstantValue as T;
+                case NSExpressionType.NSAggregate:
+                    if (expr.Collection is T)
+                        return expr.Collection as T;
+                    if (expr.Collection is NSArray array
+                        && array.Count != 0)
+                    {
+                        var first = array.GetItem<T>(0);
+                        if (first is NSExpression innerExpr)
+                        {
+                            return GetValueFromExpression<T>(innerExpr);
+                        }
+                        return first;
+                    }
+                    return default(T);
+                case NSExpressionType.Function:
+                    //TODO
+                    var function = expr.Function; //"mgl_interpolate:withCurveType:parameters:stops:"
+                    if (expr.Arguments is NSExpression[] args)// $zoomLevel, exponential, 1.299999, {{ 13 = "0.5", 20 = 2;}}
+                    {
+                        //TODO
+                    }
+                    return default(T);
+                default:
+                    return default(T);
+            }
         }
 
         public override void ViewDidLoad()
@@ -34,7 +69,13 @@ namespace Naxam.Mapbox.iOSQs
                 Coordinate = new CLLocationCoordinate2D(21.0276, 105.8355)
             };
             mapView.AddAnnotation(temple);
-
+            
+			var newLayer = new MGLSymbolStyleLayer(Guid.NewGuid().ToString(), new MGLSource("xxx"))
+            {
+                IconImageName = NSExpression.FromConstant(new NSString("temple")),
+                IconOpacity = NSExpression.FromConstant(NSNumber.FromDouble(0.7))
+            };
+			Debug.WriteLine(newLayer.IconImageName.ToString());
         }
 
         [Export("mapViewDidFinishLoadingMap:")]
