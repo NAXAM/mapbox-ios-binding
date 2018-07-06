@@ -331,7 +331,7 @@ namespace Mapbox
         IntPtr Constructor(string identifier, MGLSource source);
 
         // @property (nonatomic) NSExpression * _Null_unspecified circleBlur;
-        [Export("circleBlur", ArgumentSemantic.Assign)]
+        [Export("circleBlur", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleBlur { get; set; }
 
         // @property (nonatomic) MGLTransition circleBlurTransition;
@@ -347,7 +347,7 @@ namespace Mapbox
         MGLTransition CircleColorTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified circleOpacity;
-        [Export("circleOpacity", ArgumentSemantic.Assign)]
+        [Export("circleOpacity", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleOpacity { get; set; }
 
         // @property (nonatomic) MGLTransition circleOpacityTransition;
@@ -359,7 +359,7 @@ namespace Mapbox
         NSExpression CirclePitchAlignment { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified circleRadius;
-        [Export("circleRadius", ArgumentSemantic.Assign)]
+        [Export("circleRadius", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleRadius { get; set; }
 
         // @property (nonatomic) MGLTransition circleRadiusTransition;
@@ -367,11 +367,11 @@ namespace Mapbox
         MGLTransition CircleRadiusTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified circleScaleAlignment;
-        [Export("circleScaleAlignment", ArgumentSemantic.Assign)]
+        [Export("circleScaleAlignment", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleScaleAlignment { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified circleStrokeColor;
-        [Export("circleStrokeColor", ArgumentSemantic.Assign)]
+        [Export("circleStrokeColor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleStrokeColor { get; set; }
 
         // @property (nonatomic) MGLTransition circleStrokeColorTransition;
@@ -379,7 +379,7 @@ namespace Mapbox
         MGLTransition CircleStrokeColorTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified circleStrokeOpacity;
-        [Export("circleStrokeOpacity", ArgumentSemantic.Assign)]
+        [Export("circleStrokeOpacity", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleStrokeOpacity { get; set; }
 
         // @property (nonatomic) MGLTransition circleStrokeOpacityTransition;
@@ -387,7 +387,7 @@ namespace Mapbox
         MGLTransition CircleStrokeOpacityTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified circleStrokeWidth;
-        [Export("circleStrokeWidth", ArgumentSemantic.Assign)]
+        [Export("circleStrokeWidth", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleStrokeWidth { get; set; }
 
         // @property (nonatomic) MGLTransition circleStrokeWidthTransition;
@@ -395,7 +395,7 @@ namespace Mapbox
         MGLTransition CircleStrokeWidthTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified circleTranslation;
-        [Export("circleTranslation", ArgumentSemantic.Assign)]
+        [Export("circleTranslation", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleTranslation { get; set; }
 
         // @property (nonatomic) MGLTransition circleTranslationTransition;
@@ -403,7 +403,7 @@ namespace Mapbox
         MGLTransition CircleTranslationTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified circleTranslationAnchor;
-        [Export("circleTranslationAnchor", ArgumentSemantic.Assign)]
+        [Export("circleTranslationAnchor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleTranslationAnchor { get; set; }
     }
 
@@ -2482,11 +2482,11 @@ namespace Mapbox
         IntPtr Constructor(string identifier, MGLSource source);
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconAllowsOverlap;
-        [Export("iconAllowsOverlap")]
+        [Export("iconAllowsOverlap"), NullAllowed]
         NSExpression IconAllowsOverlap { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconAnchor;
-        [Export("iconAnchor")]
+        [Export("iconAnchor"), NullAllowed]
         NSExpression IconAnchor { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconIgnoresPlacement;
@@ -2494,7 +2494,7 @@ namespace Mapbox
         NSExpression IconIgnoresPlacement { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconImageName;
-        [Export("iconImageName")]
+        [Export("iconImageName", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconImageName { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconOffset;
@@ -2502,11 +2502,11 @@ namespace Mapbox
         NSExpression IconOffset { get; set; }
 
         // @property (getter = isIconOptional, nonatomic) NSExpression * _Null_unspecified iconOptional;
-        [Export("iconOptional", ArgumentSemantic.Assign)]
+        [Export("iconOptional", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconOptional { [Bind("isIconOptional")] get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconPadding;
-        [Export("iconPadding", ArgumentSemantic.Assign)]
+        [Export("iconPadding", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconPadding { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconPitchAlignment;
@@ -2514,7 +2514,7 @@ namespace Mapbox
         NSExpression IconPitchAlignment { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconRotation;
-        [Export("iconRotation", ArgumentSemantic.Assign)]
+        [Export("iconRotation", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconRotation { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconRotationAlignment;
@@ -2526,7 +2526,7 @@ namespace Mapbox
         NSExpression IconScale { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconTextFit;
-        [Export("iconTextFit", ArgumentSemantic.Assign)]
+        [Export("iconTextFit", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconTextFit { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconTextFitPadding;
@@ -2534,99 +2534,99 @@ namespace Mapbox
         NSExpression IconTextFitPadding { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified keepsIconUpright;
-        [Export("keepsIconUpright", ArgumentSemantic.Assign)]
+        [Export("keepsIconUpright", ArgumentSemantic.Assign), NullAllowed]
         NSExpression KeepsIconUpright { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified keepsTextUpright;
-        [Export("keepsTextUpright", ArgumentSemantic.Assign)]
+        [Export("keepsTextUpright", ArgumentSemantic.Assign), NullAllowed]
         NSExpression KeepsTextUpright { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified maximumTextAngle;
-        [Export("maximumTextAngle", ArgumentSemantic.Assign)]
+        [Export("maximumTextAngle", ArgumentSemantic.Assign), NullAllowed]
         NSExpression MaximumTextAngle { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified maximumTextWidth;
-        [Export("maximumTextWidth", ArgumentSemantic.Assign)]
+        [Export("maximumTextWidth", ArgumentSemantic.Assign), NullAllowed]
         NSExpression MaximumTextWidth { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified symbolAvoidsEdges;
-        [Export("symbolAvoidsEdges", ArgumentSemantic.Assign)]
+        [Export("symbolAvoidsEdges", ArgumentSemantic.Assign), NullAllowed]
         NSExpression SymbolAvoidsEdges { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified symbolPlacement;
-        [Export("symbolPlacement", ArgumentSemantic.Assign)]
+        [Export("symbolPlacement", ArgumentSemantic.Assign), NullAllowed]
         NSExpression SymbolPlacement { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified symbolSpacing;
-        [Export("symbolSpacing", ArgumentSemantic.Assign)]
+        [Export("symbolSpacing", ArgumentSemantic.Assign), NullAllowed]
         NSExpression SymbolSpacing { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified text;
-        [Export("text", ArgumentSemantic.Assign)]
+        [Export("text", ArgumentSemantic.Assign), NullAllowed]
         NSExpression Text { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textAllowsOverlap;
-        [Export("textAllowsOverlap", ArgumentSemantic.Assign)]
+        [Export("textAllowsOverlap", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextAllowsOverlap { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textAnchor;
-        [Export("textAnchor", ArgumentSemantic.Assign)]
+        [Export("textAnchor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextAnchor { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textFontNames;
-        [Export("textFontNames", ArgumentSemantic.Assign)]
+        [Export("textFontNames", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextFontNames { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textFontSize;
-        [Export("textFontSize", ArgumentSemantic.Assign)]
+        [Export("textFontSize", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextFontSize { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textIgnoresPlacement;
-        [Export("textIgnoresPlacement", ArgumentSemantic.Assign)]
+        [Export("textIgnoresPlacement", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextIgnoresPlacement { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textJustification;
-        [Export("textJustification", ArgumentSemantic.Assign)]
+        [Export("textJustification", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextJustification { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textLetterSpacing;
-        [Export("textLetterSpacing", ArgumentSemantic.Assign)]
+        [Export("textLetterSpacing", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextLetterSpacing { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textLineHeight;
-        [Export("textLineHeight", ArgumentSemantic.Assign)]
+        [Export("textLineHeight", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextLineHeight { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textOffset;
-        [Export("textOffset", ArgumentSemantic.Assign)]
+        [Export("textOffset", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextOffset { get; set; }
 
         // @property (getter = isTextOptional, nonatomic) NSExpression * _Null_unspecified textOptional;
-        [Export("textOptional", ArgumentSemantic.Assign)]
+        [Export("textOptional", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextOptional { [Bind("isTextOptional")] get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textPadding;
-        [Export("textPadding", ArgumentSemantic.Assign)]
+        [Export("textPadding", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextPadding { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textPitchAlignment;
-        [Export("textPitchAlignment", ArgumentSemantic.Assign)]
+        [Export("textPitchAlignment", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextPitchAlignment { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textRotation;
-        [Export("textRotation", ArgumentSemantic.Assign)]
+        [Export("textRotation", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextRotation { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textRotationAlignment;
-        [Export("textRotationAlignment", ArgumentSemantic.Assign)]
+        [Export("textRotationAlignment", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextRotationAlignment { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textTransform;
-        [Export("textTransform", ArgumentSemantic.Assign)]
+        [Export("textTransform", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextTransform { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconColor;
-        [Export("iconColor", ArgumentSemantic.Assign)]
+        [Export("iconColor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconColor { get; set; }
 
         // @property (nonatomic) MGLTransition iconColorTransition;
@@ -2634,7 +2634,7 @@ namespace Mapbox
         MGLTransition IconColorTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconHaloBlur;
-        [Export("iconHaloBlur", ArgumentSemantic.Assign)]
+        [Export("iconHaloBlur", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconHaloBlur { get; set; }
 
         // @property (nonatomic) MGLTransition iconHaloBlurTransition;
@@ -2642,7 +2642,7 @@ namespace Mapbox
         MGLTransition IconHaloBlurTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconHaloColor;
-        [Export("iconHaloColor", ArgumentSemantic.Assign)]
+        [Export("iconHaloColor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconHaloColor { get; set; }
 
         // @property (nonatomic) MGLTransition iconHaloColorTransition;
@@ -2650,7 +2650,7 @@ namespace Mapbox
         MGLTransition IconHaloColorTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconHaloWidth;
-        [Export("iconHaloWidth", ArgumentSemantic.Assign)]
+        [Export("iconHaloWidth", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconHaloWidth { get; set; }
 
         // @property (nonatomic) MGLTransition iconHaloWidthTransition;
@@ -2658,7 +2658,7 @@ namespace Mapbox
         MGLTransition IconHaloWidthTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconOpacity;
-        [Export("iconOpacity", ArgumentSemantic.Assign)]
+        [Export("iconOpacity", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconOpacity { get; set; }
 
         // @property (nonatomic) MGLTransition iconOpacityTransition;
@@ -2666,7 +2666,7 @@ namespace Mapbox
         MGLTransition IconOpacityTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconTranslation;
-        [Export("iconTranslation", ArgumentSemantic.Assign)]
+        [Export("iconTranslation", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconTranslation { get; set; }
 
         // @property (nonatomic) MGLTransition iconTranslationTransition;
@@ -2674,11 +2674,11 @@ namespace Mapbox
         MGLTransition IconTranslationTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified iconTranslationAnchor;
-        [Export("iconTranslationAnchor", ArgumentSemantic.Assign)]
+        [Export("iconTranslationAnchor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression IconTranslationAnchor { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textColor;
-        [Export("textColor", ArgumentSemantic.Assign)]
+        [Export("textColor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextColor { get; set; }
 
         // @property (nonatomic) MGLTransition textColorTransition;
@@ -2686,7 +2686,7 @@ namespace Mapbox
         MGLTransition TextColorTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textHaloBlur;
-        [Export("textHaloBlur", ArgumentSemantic.Assign)]
+        [Export("textHaloBlur", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextHaloBlur { get; set; }
 
         // @property (nonatomic) MGLTransition textHaloBlurTransition;
@@ -2694,7 +2694,7 @@ namespace Mapbox
         MGLTransition TextHaloBlurTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textHaloColor;
-        [Export("textHaloColor", ArgumentSemantic.Assign)]
+        [Export("textHaloColor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextHaloColor { get; set; }
 
         // @property (nonatomic) MGLTransition textHaloColorTransition;
@@ -2702,7 +2702,7 @@ namespace Mapbox
         MGLTransition TextHaloColorTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textHaloWidth;
-        [Export("textHaloWidth", ArgumentSemantic.Assign)]
+        [Export("textHaloWidth", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextHaloWidth { get; set; }
 
         // @property (nonatomic) MGLTransition textHaloWidthTransition;
@@ -2710,7 +2710,7 @@ namespace Mapbox
         MGLTransition TextHaloWidthTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textOpacity;
-        [Export("textOpacity", ArgumentSemantic.Assign)]
+        [Export("textOpacity", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextOpacity { get; set; }
 
         // @property (nonatomic) MGLTransition textOpacityTransition;
@@ -2718,7 +2718,7 @@ namespace Mapbox
         MGLTransition TextOpacityTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textTranslation;
-        [Export("textTranslation", ArgumentSemantic.Assign)]
+        [Export("textTranslation", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextTranslation { get; set; }
 
         // @property (nonatomic) MGLTransition textTranslationTransition;
@@ -2726,7 +2726,7 @@ namespace Mapbox
         MGLTransition TextTranslationTransition { get; set; }
 
         // @property (nonatomic) NSExpression * _Null_unspecified textTranslationAnchor;
-        [Export("textTranslationAnchor", ArgumentSemantic.Assign)]
+        [Export("textTranslationAnchor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextTranslationAnchor { get; set; }
     }
 
