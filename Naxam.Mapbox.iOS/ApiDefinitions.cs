@@ -52,7 +52,7 @@ namespace Mapbox
 		MGLLocationManagerDelegate Delegate { get; set; }
 
 		//@required @property (nonatomic, readonly) CLAuthorizationStatus authorizationStatus;
-		[Export("delegate")]
+		[Export("authorizationStatus")]
 		CLAuthorizationStatus AuthorizationStatus { get; }
 
 		// -(void)requestAlwaysAuthorization;
