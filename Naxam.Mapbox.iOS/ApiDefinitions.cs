@@ -24,8 +24,91 @@ namespace Mapbox
     //@protocol MGLOverlay <MGLAnnotation>
     public partial interface IMGLOverlay { }
     public partial interface IMGLOfflineStorageDelegate { }
+	//@protocol MGLLocationManagerDelegate;
+	public partial interface IMGLLocationManagerDelegate { }
     //@protocol MGLComputedShapeSourceDataSource<NSObject>
     public partial interface IMGLComputedShapeSourceDataSource { }
+
+	//@protocol MGLLocationManager <NSObject>
+	[Protocol, Model]
+    [BaseType(typeof(NSObject))]
+	interface MGLLocationManager
+	{
+		
+		//@optional @property(nonatomic, assign) CLLocationDistance distanceFilter;
+		[Export("distanceFilter", ArgumentSemantic.Assign)]
+		Double DistanceFilter { get; set; }
+
+		//@optional @property (nonatomic, assign) CLLocationAccuracy desiredAccuracy;
+		[Export("desiredAccuracy", ArgumentSemantic.Assign)]
+		Double desiredAccuracy { get; set; }
+
+		//@optional @property(nonatomic, assign) CLActivityType activityType;
+		[Export("activityType", ArgumentSemantic.Assign)]
+		CLActivityType ActivityType { get; set; }
+
+		//@required @property (nonatomic, weak) id<MGLLocationManagerDelegate> delegate;
+		[Export("delegate", ArgumentSemantic.Weak)]
+		MGLLocationManagerDelegate Delegate { get; set; }
+
+		//@required @property (nonatomic, readonly) CLAuthorizationStatus authorizationStatus;
+		[Export("delegate")]
+		CLAuthorizationStatus AuthorizationStatus { get; }
+
+		// -(void)requestAlwaysAuthorization;
+		[Export("requestAlwaysAuthorization")]
+		void RequestAlwaysAuthorization();
+
+		// -(void)requestWhenInUseAuthorization;
+		[Export("requestWhenInUseAuthorization")]
+		void RequestWhenInUseAuthorization();
+
+		// -(void)startUpdatingLocation;
+		[Export("startUpdatingLocation")]
+		void StartUpdatingLocation();
+
+		// -(void)stopUpdatingLocation;
+		[Export("stopUpdatingLocation")]
+		void StopUpdatingLocation();
+
+		//@required @property (nonatomic) CLDeviceOrientation headingOrientation;
+		[Export("headingOrientation")]
+		CLDeviceOrientation HeadingOrientation { get; set; }
+
+		// -(void)startUpdatingHeading;
+		[Export("startUpdatingHeading")]
+		void StartUpdatingHeading();
+
+		// -(void)stopUpdatingHeading;
+		[Export("stopUpdatingHeading")]
+		void StopUpdatingHeading();
+
+		// -(void)dismissHeadingCalibrationDisplay;
+		[Export("dismissHeadingCalibrationDisplay")]
+		void DismissHeadingCalibrationDisplay();
+	}
+
+	// @protocol MGLLocationManagerDelegate <NSObject>
+    [Protocol, Model]
+    [BaseType(typeof(NSObject))]
+	interface MGLLocationManagerDelegate
+	{
+		//- (void)locationManager:(id<MGLLocationManager>)manager didUpdateLocations:(NSArray<CLLocation*>*) locations;
+		[Export("locationManager:didUpdateLocations:")]
+		void LocationManager(MGLLocationManager manager, CLLocation[] locations);
+
+		//- (void)locationManager:(id<MGLLocationManager>)manager didUpdateHeading:(CLHeading*) newHeading;
+		[Export("locationManager:didUpdateHeading:")]
+		void LocationManager(MGLLocationManager manager, CLHeading newHeading);
+
+		//- (BOOL)locationManagerShouldDisplayHeadingCalibration:(id<MGLLocationManager>)manager;
+		[Export("locationManagerShouldDisplayHeadingCalibration:")]
+		void LocationManagerShouldDisplayHeadingCalibration(MGLLocationManager manager);
+
+		//- (void)locationManager:(id<MGLLocationManager>)manager didFailWithError:(nonnull NSError *)error;
+		[Export("locationManager:didFailWithError")]
+		void locationManager(MGLLocationManager manager,NSError error);      
+	}
 
     // @interface MGLAccountManager : NSObject
     [BaseType(typeof(NSObject))]
@@ -406,6 +489,21 @@ namespace Mapbox
         [Export("circleTranslationAnchor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression CircleTranslationAnchor { get; set; }
     }
+
+	// @interface NSValue (MGLRasterStyleLayerAdditions)
+	[Category]
+    [BaseType(typeof(NSValue))]
+	interface NSValue_MGLRasterStyleLayerAdditions{
+		//+ (instancetype)valueWithMGLRasterResamplingMode:(MGLRasterResamplingMode)rasterResamplingMode;
+		[Static]
+		[Export("valueWithMGLRasterResamplingMode:")]
+		NSValue ValueWithMGLRasterResamplingMode(MGLRasterResamplingMode rasterResamplingMode);
+
+		//@property (readonly) MGLRasterResamplingMode MGLRasterResamplingModeValue;
+		[Static]
+		[Export("MGLRasterResamplingModeValue")]
+		MGLRasterResamplingMode MGLRasterResamplingModeValue { get; }
+	}
 
     // @interface MGLCircleStyleLayerAdditions (NSValue)
     [Category]
@@ -1473,6 +1571,16 @@ namespace Mapbox
         // @property (readonly, getter = isLoading, nonatomic) BOOL loading;
         [Export("loading")]
         bool Loading { [Bind("isLoading")] get; }
+
+		//Converts the specified image point to a map coordinate.
+		//- (CLLocationCoordinate2D) coordinateForPoint:(CGPoint) point;
+		[Export("coordinateForPoint:")]
+		CLLocationCoordinate2D CoordinateForPoint(CGPoint point);
+
+		//Converts the specified image point to a map coordinate.
+		//- (CLLocationCoordinate2D)coordinateForPoint:(NSPoint)point;
+		//[Export("coordinateForPoint:")]
+		//CLLocationCoordinate2D CoordinateForPoint(NSPoint point);
     }
 
 
@@ -1543,6 +1651,16 @@ namespace Mapbox
         // @property (readonly, nonatomic) UIButton * _Nonnull attributionButton;
         [Export("attributionButton")]
         UIButton AttributionButton { get; }
+
+        //@property (nonatomic, assign) MGLMapViewPreferredFramesPerSecond preferredFramesPerSecond;
+		[Export("preferredFramesPerSecond", ArgumentSemantic.Assign)]
+		MGLMapViewPreferredFramesPerSecond PreferredFramesPerSecond { get; set; }
+
+
+
+		//@property (nonatomic, null_resettable) id<MGLLocationManager> locationManager;
+		[Export("locationManager")]
+		MGLLocationManager LocationManager { get; set; }
 
         // -(void)showAttribution:(id _Nonnull)sender __attribute__((ibaction));
         [Export("showAttribution:")]
@@ -1735,6 +1853,16 @@ namespace Mapbox
         // -(MGLMapCamera * _Nonnull)cameraThatFitsCoordinateBounds:(MGLCoordinateBounds)bounds edgePadding:(UIEdgeInsets)insets;
         [Export("cameraThatFitsCoordinateBounds:edgePadding:")]
         MGLMapCamera CameraThatFitsCoordinateBounds(MGLCoordinateBounds bounds, UIEdgeInsets insets);
+
+		//- (MGLMapCamera *)camera:(MGLMapCamera *)camera fittingCoordinateBounds:(MGLCoordinateBounds)bounds edgePadding:(UIEdgeInsets)insets;
+		[Export("camera:fittingCoordinateBounds:edgePadding:")]
+		MGLMapCamera CameraFittingCoordinateBounds(MGLMapCamera camera, MGLCoordinateBounds bounds,UIEdgeInsets insets);
+
+		//- (MGLMapCamera *)camera:(MGLMapCamera *)camera fittingShape:(MGLShape *)shape edgePadding:(UIEdgeInsets)insets;
+		[Export("camera:fittingShape:edgePadding:")]
+		MGLMapCamera CameraFittingShape(MGLMapCamera camera, MGLShape shape, UIEdgeInsets insets);
+
+
 
         // -(MGLMapCamera * _Nonnull)cameraThatFitsShape:(MGLShape * _Nonnull)shape direction:(CLLocationDirection)direction edgePadding:(UIEdgeInsets)insets;
         [Export("cameraThatFitsShape:direction:edgePadding:")]
@@ -2230,8 +2358,8 @@ namespace Mapbox
         NSString TileSize { get; }
 
         // extern const MGLTileSourceOption MGLTileSourceOptionDEMEncoding __attribute__((visibility("default")));
-        [Field("MGLTileSourceOptionDEMEncoding", "__Internal")]
-        NSString DEMEncoding { get; }
+        //[Field("MGLTileSourceOptionDEMEncoding", "__Internal")]
+        //NSString DEMEncoding { get; }
     }
 
     // @interface MGLTileSource : MGLSource
@@ -2331,7 +2459,16 @@ namespace Mapbox
         // @property (nonatomic) MGLTransition rasterSaturationTransition;
         [Export("rasterSaturationTransition", ArgumentSemantic.Assign)]
         MGLTransition RasterSaturationTransition { get; set; }
+
+		//@property(nonatomic, null_resettable) NSExpression* rasterResamplingMode;
+		[Export("rasterResamplingMode")]
+		NSExpression RasterResamplingMode { get; set; }
+
+		//@property (nonatomic, null_resettable) NSExpression *rasterResampling __attribute__((unavailable("Use rasterResamplingMode instead.")));
+		//NSExpression RasterResampling { get; set; }
     }
+
+
 
     // @interface MGLStyle : NSObject
     [BaseType(typeof(NSObject))]

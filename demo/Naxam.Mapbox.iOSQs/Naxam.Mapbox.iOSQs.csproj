@@ -109,6 +109,15 @@
     <Reference Include="Naxam.Mapbox.iOS">
       <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="Naxam.Mapbox.iOS">
+      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Naxam.Mapbox.iOS">
+      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Naxam.Mapbox.iOS">
+      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />

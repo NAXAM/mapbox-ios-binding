@@ -360,7 +360,8 @@ namespace Mapbox
     public enum MGLSymbolPlacement : ulong
     {
         Point,
-        Line
+        Line,
+		LineCenter
     }
 
     [Native]
@@ -423,4 +424,19 @@ namespace Mapbox
         Viewport
     }
 
+
+	[Native]
+	public enum MGLMapViewPreferredFramesPerSecond : long
+    {
+        Default,
+        LowPower,
+		Maximum
+    }
+
+	[Native]
+	public enum MGLRasterResamplingMode : ulong
+    {
+		Linear,
+		Nearest
+    }
 }

@@ -46,7 +46,7 @@
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\..\Desktop\mapbox-ios-sdk-4.2.0-dynamic\dynamic\Mapbox.framework">
+    <NativeReference Include="..\..\..\Downloads\Samples\mapbox-sdk\Carthage\Build\iOS\Mapbox.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
       <IsCxx>True</IsCxx>

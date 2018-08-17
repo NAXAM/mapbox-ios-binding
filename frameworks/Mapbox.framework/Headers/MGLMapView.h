@@ -2,7 +2,6 @@
 #import "MGLMapCamera.h"
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 
 #import "MGLFoundation.h"
 #import "MGLTypes.h"
@@ -22,15 +21,16 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MGLOverlay;
 @protocol MGLCalloutView;
 @protocol MGLFeature;
+@protocol MGLLocationManager;
 
 /** The default deceleration rate for a map view. */
-extern MGL_EXPORT const CGFloat MGLMapViewDecelerationRateNormal;
+FOUNDATION_EXTERN MGL_EXPORT const CGFloat MGLMapViewDecelerationRateNormal;
 
 /** A fast deceleration rate for a map view. */
-extern MGL_EXPORT const CGFloat MGLMapViewDecelerationRateFast;
+FOUNDATION_EXTERN MGL_EXPORT const CGFloat MGLMapViewDecelerationRateFast;
 
 /** Disables deceleration in a map view. */
-extern MGL_EXPORT const CGFloat MGLMapViewDecelerationRateImmediate;
+FOUNDATION_EXTERN MGL_EXPORT const CGFloat MGLMapViewDecelerationRateImmediate;
 
 /**
  The vertical alignment of an annotation within a map view. Used with
@@ -78,6 +78,21 @@ typedef NS_ENUM(NSUInteger, MGLUserTrackingMode) {
      */
     MGLUserTrackingModeFollowWithCourse,
 };
+
+/** Options for `MGLMapView.preferredFramesPerSecond`. */
+typedef NSInteger MGLMapViewPreferredFramesPerSecond NS_TYPED_EXTENSIBLE_ENUM;
+
+/**
+ The default frame rate. This can be either 30 FPS or 60 FPS, depending on
+ device capabilities.
+ */
+FOUNDATION_EXTERN MGL_EXPORT const MGLMapViewPreferredFramesPerSecond MGLMapViewPreferredFramesPerSecondDefault;
+
+/** A conservative frame rate; typically 30 FPS. */
+FOUNDATION_EXTERN MGL_EXPORT const MGLMapViewPreferredFramesPerSecond MGLMapViewPreferredFramesPerSecondLowPower;
+
+/** The maximum supported frame rate; typically 60 FPS. */
+FOUNDATION_EXTERN MGL_EXPORT const MGLMapViewPreferredFramesPerSecond MGLMapViewPreferredFramesPerSecondMaximum;
 
 /**
  An interactive, customizable map view with an interface similar to the one
@@ -286,6 +301,21 @@ MGL_EXPORT IB_DESIGNABLE
  */
 - (IBAction)showAttribution:(id)sender;
 
+/**
+ The preferred frame rate at which the map view is rendered.
+
+ The default value for this property is
+ `MGLMapViewPreferredFramesPerSecondDefault`, which will adaptively set the
+ preferred frame rate based on the capability of the user’s device to maintain
+ a smooth experience.
+
+ In addition to the provided `MGLMapViewPreferredFramesPerSecond` options, this
+ property can be set to arbitrary integer values.
+
+ @see `CADisplayLink.preferredFramesPerSecond`
+ */
+@property (nonatomic, assign) MGLMapViewPreferredFramesPerSecond preferredFramesPerSecond;
+
 @property (nonatomic) NSArray<NSString *> *styleClasses __attribute__((unavailable("Support for style classes has been removed.")));
 
 - (BOOL)hasStyleClass:(NSString *)styleClass __attribute__((unavailable("Support for style classes has been removed.")));
@@ -295,6 +325,23 @@ MGL_EXPORT IB_DESIGNABLE
 - (void)removeStyleClass:(NSString *)styleClass __attribute__((unavailable("Support for style classes has been removed.")));
 
 #pragma mark Displaying the User’s Location
+
+/**
+ The object that this map view uses to start and stop the delivery of location-related
+ updates.
+ 
+ To receive the current user location, implement the `-[MGLMapViewDelegate mapView:didUpdateUserLocation:]`
+ and `-[MGLMapViewDelegate mapView:didFailToLocateUserWithError:]` methods.
+ 
+ If setting this property to `nil` or if no custom manager is provided this property
+ is set to the default location manager.
+ 
+ `MGLMapView` uses a default location manager. If you want to substitute your own
+ location manager, you should do so by setting this property before setting
+ `showsUserLocation` to `YES`. To restore the default location manager,
+ set this property to `nil`.
+ */
+@property (nonatomic, null_resettable) id<MGLLocationManager> locationManager;
 
 /**
  A Boolean value indicating whether the map may display the user location.
@@ -312,6 +359,9 @@ MGL_EXPORT IB_DESIGNABLE
  `NSLocationAlwaysUsageDescription` in its `Info.plist` to satisfy the
  requirements of the underlying Core Location framework when enabling this
  property.
+ 
+ If you implement a custom location manager, set the `locationManager` before
+ calling `showsUserLocation`.
  */
 @property (nonatomic, assign) BOOL showsUserLocation;
 
@@ -925,6 +975,37 @@ MGL_EXPORT IB_DESIGNABLE
     direction and pitch.
  */
 - (MGLMapCamera *)cameraThatFitsCoordinateBounds:(MGLCoordinateBounds)bounds edgePadding:(UIEdgeInsets)insets;
+
+/**
+ Returns the camera that best fits the given coordinate bounds, with the specified camera,
+ optionally with some additional padding on each side.
+ 
+ @param camera The camera that the return camera should adhere to. All values
+    on this camera will be manipulated except for pitch and direction.
+ @param bounds The coordinate bounds to fit to the receiver’s viewport.
+ @param insets The minimum padding (in screen points) that would be visible
+    around the returned camera object if it were set as the receiver’s camera.
+ @return A camera object centered on the same location as the coordinate bounds
+    with zoom level as high (close to the ground) as possible while still
+    including the entire coordinate bounds. The initial camera's pitch and
+    direction will be honored.
+ */
+- (MGLMapCamera *)camera:(MGLMapCamera *)camera fittingCoordinateBounds:(MGLCoordinateBounds)bounds edgePadding:(UIEdgeInsets)insets;
+
+/**
+ Returns the camera that best fits the given shape, with the specified camera,
+ optionally with some additional padding on each side.
+ 
+ @param camera The camera that the return camera should adhere to. All values
+    on this camera will be manipulated except for pitch and direction.
+ @param shape The shape to fit to the receiver’s viewport.
+ @param insets The minimum padding (in screen points) that would be visible
+    around the returned camera object if it were set as the receiver’s camera.
+ @return A camera object centered on the shape's center with zoom level as high
+    (close to the ground) as possible while still including the entire shape. The
+    initial camera's pitch and direction will be honored.
+ */
+- (MGLMapCamera *)camera:(MGLMapCamera *)camera fittingShape:(MGLShape *)shape edgePadding:(UIEdgeInsets)insets;
 
 /**
  Returns the camera that best fits the given shape, with the specified direction,
