@@ -2179,7 +2179,7 @@ namespace Mapbox
     {
         // @property (readonly, nonatomic) id<MGLOfflineRegion> _Nonnull region;
         [Export("region")]
-        MGLOfflineRegion Region { get; }
+        IMGLOfflineRegion Region { get; }
 
         // @property (readonly, nonatomic) NSData * _Nonnull context;
         [Export("context")]
