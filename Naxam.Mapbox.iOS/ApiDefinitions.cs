@@ -95,19 +95,19 @@ namespace Mapbox
 	{
 		//- (void)locationManager:(id<MGLLocationManager>)manager didUpdateLocations:(NSArray<CLLocation*>*) locations;
 		[Export("locationManager:didUpdateLocations:")]
-		void LocationManager(MGLLocationManager manager, CLLocation[] locations);
+		void DidUpdateLocations(MGLLocationManager manager, CLLocation[] locations);
 
 		//- (void)locationManager:(id<MGLLocationManager>)manager didUpdateHeading:(CLHeading*) newHeading;
 		[Export("locationManager:didUpdateHeading:")]
-		void LocationManager(MGLLocationManager manager, CLHeading newHeading);
+		void DidUpdateHeading(MGLLocationManager manager, CLHeading newHeading);
 
 		//- (BOOL)locationManagerShouldDisplayHeadingCalibration:(id<MGLLocationManager>)manager;
 		[Export("locationManagerShouldDisplayHeadingCalibration:")]
-		void LocationManagerShouldDisplayHeadingCalibration(MGLLocationManager manager);
+		void ShouldDisplayHeadingCalibration(MGLLocationManager manager);
 
 		//- (void)locationManager:(id<MGLLocationManager>)manager didFailWithError:(nonnull NSError *)error;
-		[Export("locationManager:didFailWithError")]
-		void locationManager(MGLLocationManager manager,NSError error);      
+		[Export("locationManager:didFailWithError:")]
+		void DidFailWithError(MGLLocationManager manager, NSError error);      
 	}
 
     // @interface MGLAccountManager : NSObject
