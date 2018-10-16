@@ -308,6 +308,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)mapView:(MGLMapView *)mapView didChangeUserTrackingMode:(MGLUserTrackingMode)mode animated:(BOOL)animated;
 
+/**
+ Returns a screen coordinate at which to position the user location annotation.
+ This coordinate is relative to the map view’s origin after applying the map view’s
+ content insets.
+ 
+ When unimplemented, the user location annotation is aligned within the center of
+ the map view with respect to the content insets.
+ 
+ This method will override any values set by `MGLMapView.userLocationVerticalAlignment`
+ or `-[MGLMapView setUserLocationVerticalAlignment:]`.
+ 
+ @param mapView The map view that is tracking the user's location.
+ */
+- (CGPoint)mapViewUserLocationAnchorPoint:(MGLMapView *)mapView;
+
 #pragma mark Managing the Appearance of Annotations
 
 /**
@@ -431,6 +446,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)mapView:(MGLMapView *)mapView didAddAnnotationViews:(NSArray<MGLAnnotationView *> *)annotationViews;
 
 #pragma mark Selecting Annotations
+
+/**
+ Returns a Boolean value indicating whether the shape annotation can be selected.
+ 
+ If the return value is `YES`, the user can select the annotation by tapping
+ on it. If the delegate does not implement this method, the default value is `YES`.
+ 
+ @param mapView The map view that has selected the annotation.
+ @param annotation The object representing the shape annotation.
+ @return A Boolean value indicating whether the annotation can be selected.
+ */
+- (BOOL)mapView:(MGLMapView *)mapView shapeAnnotationIsEnabled:(MGLShape *)annotation;
 
 /**
  Tells the delegate that one of its annotations was selected.

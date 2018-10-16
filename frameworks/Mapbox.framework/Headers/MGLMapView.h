@@ -23,14 +23,17 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MGLFeature;
 @protocol MGLLocationManager;
 
+/** Options for `MGLMapView.decelerationRate`. */
+typedef CGFloat MGLMapViewDecelerationRate NS_TYPED_EXTENSIBLE_ENUM;
+
 /** The default deceleration rate for a map view. */
-FOUNDATION_EXTERN MGL_EXPORT const CGFloat MGLMapViewDecelerationRateNormal;
+FOUNDATION_EXTERN MGL_EXPORT const MGLMapViewDecelerationRate MGLMapViewDecelerationRateNormal;
 
 /** A fast deceleration rate for a map view. */
-FOUNDATION_EXTERN MGL_EXPORT const CGFloat MGLMapViewDecelerationRateFast;
+FOUNDATION_EXTERN MGL_EXPORT const MGLMapViewDecelerationRate MGLMapViewDecelerationRateFast;
 
 /** Disables deceleration in a map view. */
-FOUNDATION_EXTERN MGL_EXPORT const CGFloat MGLMapViewDecelerationRateImmediate;
+FOUNDATION_EXTERN MGL_EXPORT const MGLMapViewDecelerationRate MGLMapViewDecelerationRateImmediate;
 
 /**
  The vertical alignment of an annotation within a map view. Used with
@@ -93,6 +96,10 @@ FOUNDATION_EXTERN MGL_EXPORT const MGLMapViewPreferredFramesPerSecond MGLMapView
 
 /** The maximum supported frame rate; typically 60 FPS. */
 FOUNDATION_EXTERN MGL_EXPORT const MGLMapViewPreferredFramesPerSecond MGLMapViewPreferredFramesPerSecondMaximum;
+
+FOUNDATION_EXTERN MGL_EXPORT MGLExceptionName const MGLMissingLocationServicesUsageDescriptionException;
+FOUNDATION_EXTERN MGL_EXPORT MGLExceptionName const MGLUserLocationAnnotationTypeException;
+FOUNDATION_EXTERN MGL_EXPORT MGLExceptionName const MGLResourceNotFoundException;
 
 /**
  An interactive, customizable map view with an interface similar to the one
@@ -409,7 +416,7 @@ MGL_EXPORT IB_DESIGNABLE
  transition. If you don’t want to animate the change, use the
  `-setUserLocationVerticalAlignment:animated:` method instead.
  */
-@property (nonatomic, assign) MGLAnnotationVerticalAlignment userLocationVerticalAlignment;
+@property (nonatomic, assign) MGLAnnotationVerticalAlignment userLocationVerticalAlignment __attribute__((deprecated("Use -[MGLMapViewDelegate mapViewUserLocationAnchorPoint:] instead.")));
 
 /**
  Sets the vertical alignment of the user location annotation within the
@@ -420,7 +427,20 @@ MGL_EXPORT IB_DESIGNABLE
     position within the map view. If `NO`, the user location annotation
     instantaneously moves to its new position.
  */
-- (void)setUserLocationVerticalAlignment:(MGLAnnotationVerticalAlignment)alignment animated:(BOOL)animated;
+- (void)setUserLocationVerticalAlignment:(MGLAnnotationVerticalAlignment)alignment animated:(BOOL)animated __attribute__((deprecated("Use -[MGLMapViewDelegate mapViewUserLocationAnchorPoint:] instead.")));
+
+/**
+ Updates the position of the user location annotation view by retreiving the user's last
+ known location.
+ */
+- (void)updateUserLocationAnnotationView;
+
+/**
+ Updates the position of the user location annotation view by retreiving the user's last
+ known location with a specified duration.
+ @param duration The duration to animate the change in seconds.
+*/
+- (void)updateUserLocationAnnotationViewAnimatedWithDuration:(NSTimeInterval)duration;
 
 /**
  A Boolean value indicating whether the user location annotation may display a
@@ -1111,8 +1131,9 @@ MGL_EXPORT IB_DESIGNABLE
  Converts a rectangle in the given view’s coordinate system to a geographic
  bounding box.
  
- If a longitude is less than −180 degrees or greater than 180 degrees, the
- bounding box straddles the antimeridian or international date line.
+ If the returned coordinate bounds contains a longitude is less than −180 degrees
+ or greater than 180 degrees, the bounding box straddles the antimeridian or
+ international date line.
 
  @param rect The rectangle to convert.
  @param view The view in whose coordinate system the rectangle is expressed.
@@ -1123,6 +1144,11 @@ MGL_EXPORT IB_DESIGNABLE
 /**
  Converts a geographic bounding box to a rectangle in the given view’s
  coordinate system.
+ 
+ To bring both sides of the antimeridian or international date line into view,
+ specify some longitudes less than −180 degrees or greater than 180 degrees. For
+ example, to show both Tokyo and San Francisco simultaneously, you could set the
+ visible bounds to extend from (35.68476, −220.24257) to (37.78428, −122.41310).
 
  @param bounds The geographic bounding box to convert.
  @param view The view in whose coordinate system the returned rectangle should
