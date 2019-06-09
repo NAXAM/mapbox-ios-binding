@@ -5,7 +5,7 @@
 	<key>CFBundleName</key>
 	<string>MapboxQs</string>
 	<key>CFBundleIdentifier</key>
-	<string>net.naxam.mapboxqs</string>
+	<string>com.signkeys.mapboxqs</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

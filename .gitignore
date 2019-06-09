@@ -6,3 +6,4 @@ packages/
 Podfile.lock
 sharpie/build
 sharpie/Pods
+._*

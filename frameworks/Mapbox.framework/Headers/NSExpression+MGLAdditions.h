@@ -7,6 +7,8 @@
 
 #import "MGLTypes.h"
 
+@class MGLAttributedExpression;
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NSString *MGLExpressionInterpolationMode NS_TYPED_ENUM;
@@ -63,6 +65,13 @@ FOUNDATION_EXTERN MGL_EXPORT const MGLExpressionInterpolationMode MGLExpressionI
 
 /**
  `NSExpression` variable that corresponds to the
+ <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-line-progress"><code>line-progress</code></a>
+ expression operator in the Mapbox Style Specification.
+ */
+@property (class, nonatomic, readonly) NSExpression *lineProgressVariableExpression;
+
+/**
+ `NSExpression` variable that corresponds to the
  <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#eexpressions-geometry-type"><code>geometry-type</code></a>
  expression operator in the Mapbox Style Specification.
  */
@@ -105,6 +114,13 @@ FOUNDATION_EXTERN MGL_EXPORT const MGLExpressionInterpolationMode MGLExpressionI
  @param steppingExpression The stepping expression.
  @param minimumExpression The expression which could be a constant or function expression.
  @param stops The stops must be an `NSDictionary` constant `NSExpression`.
+ 
+ #### Related examples
+ See the <a href="https://docs.mapbox.com/ios/maps/examples/dds-circle-layer/">
+ Data-driven circles</a>, <a href="https://docs.mapbox.com/ios/maps/examples/clustering/">
+ Cluster point data</a>, and <a href="https://docs.mapbox.com/ios/maps/examples/clustering-with-images/">
+ Use images to cluster point data</a> examples to learn how to use this
+ expression to style a map layer based on an attribute value.
  */
 + (instancetype)mgl_expressionForSteppingExpression:(nonnull NSExpression*)steppingExpression fromExpression:(nonnull NSExpression *)minimumExpression stops:(nonnull NSExpression*)stops NS_SWIFT_NAME(init(forMGLStepping:from:stops:));
 
@@ -118,6 +134,11 @@ FOUNDATION_EXTERN MGL_EXPORT const MGLExpressionInterpolationMode MGLExpressionI
  `MGLExpressionInterpolationModeCubicBezier`.
  @param parameters The parameters expression.
  @param stops The stops expression.
+ 
+ #### Related examples
+ See the <a href="https://docs.mapbox.com/ios/maps/examples/heatmap-example/">
+ Create a heatmap layer</a> example to learn how to style an `MGLHeatmapStyleLayer`
+ based on zoom level and point density with this expression.
  */
 + (instancetype)mgl_expressionForInterpolatingExpression:(nonnull NSExpression*)inputExpression withCurveType:(nonnull MGLExpressionInterpolationMode)curveType parameters:(nullable NSExpression *)parameters stops:(nonnull NSExpression*)stops NS_SWIFT_NAME(init(forMGLInterpolating:curveType:parameters:stops:));
 
@@ -130,6 +151,14 @@ FOUNDATION_EXTERN MGL_EXPORT const MGLExpressionInterpolationMode MGLExpressionI
  @param defaultExpression The defaultValue expression to be used in case there is no match.
  */
 + (instancetype)mgl_expressionForMatchingExpression:(nonnull NSExpression *)inputExpression inDictionary:(nonnull NSDictionary<NSExpression *, NSExpression *> *)matchedExpressions defaultExpression:(nonnull NSExpression *)defaultExpression NS_SWIFT_NAME(init(forMGLMatchingKey:in:default:));
+
+/**
+ Returns an attributed function expression specifying an `MGLAttributedExpression` constant
+ expression array.
+ 
+ @param attributedExpressions The `MGLAttributedExpression` constant expression array.
+ */
++ (instancetype)mgl_expressionForAttributedExpressions:(nonnull NSArray<NSExpression *> *)attributedExpressions NS_SWIFT_NAME(init(forAttributedExpressions:));
 
 #pragma mark Concatenating String Expressions
 
@@ -185,7 +214,7 @@ FOUNDATION_EXTERN MGL_EXPORT const MGLExpressionInterpolationMode MGLExpressionI
  
  This method assumes the receiver refers to the feature attributes that are
  available in vector tiles supplied by the
- <a href="https://www.mapbox.com/vector-tiles/mapbox-streets-v7/#overview">Mapbox Streets source</a>.
+ <a href="https://www.mapbox.com/vector-tiles/mapbox-streets-v8/#overview">Mapbox Streets source</a>.
  On iOS, the user can set the system’s preferred language in Settings, General
  Settings, Language & Region. On macOS, the user can set the system’s preferred
  language in the Language & Region pane of System Preferences.

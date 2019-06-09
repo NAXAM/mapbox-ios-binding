@@ -151,6 +151,26 @@ typedef NS_ENUM(NSUInteger, MGLSymbolPlacement) {
 };
 
 /**
+ Controls the order in which overlapping symbols in the same layer are rendered
+
+ Values of this type are used in the `MGLSymbolStyleLayer.symbolZOrder`
+ property.
+ */
+typedef NS_ENUM(NSUInteger, MGLSymbolZOrder) {
+    /**
+     Specify this z order if symbols’ appearance relies on lower features
+     overlapping higher features. For example, symbols with a pin-like
+     appearance would require this z order.
+     */
+    MGLSymbolZOrderViewportY,
+    /**
+     Specify this z order if the order in which features appear in the source is
+     significant.
+     */
+    MGLSymbolZOrderSource,
+};
+
+/**
  Part of the text placed closest to the anchor.
 
  Values of this type are used in the `MGLSymbolStyleLayer.textAnchor`
@@ -202,6 +222,10 @@ typedef NS_ENUM(NSUInteger, MGLTextAnchor) {
  property.
  */
 typedef NS_ENUM(NSUInteger, MGLTextJustification) {
+    /**
+     The text is aligned towards the anchor position.
+     */
+    MGLTextJustificationAuto,
     /**
      The text is aligned to the left.
      */
@@ -335,6 +359,14 @@ typedef NS_ENUM(NSUInteger, MGLTextTranslationAnchor) {
  otherwise, find it using the `MGLStyle.layers` property. You can also create a
  new symbol style layer and add it to the style using a method such as
  `-[MGLStyle addLayer:]`.
+
+ #### Related examples
+ See the <a
+ href="https://docs.mapbox.com/ios/maps/examples/runtime-multiple-annotations/">Dynamically
+ style interactive points</a> and <a
+ href="https://docs.mapbox.com/ios/maps/examples/clustering-with-images/">Use
+ images to cluster point data</a> examples learn how to style data on your map
+ using this layer.
 
  ### Example
 
@@ -489,6 +521,12 @@ MGL_EXPORT
  * Variable assignments and references to assigned variables
  * Interpolation and step functions applied to the `$zoomLevel` variable and/or
  feature attributes
+
+ #### Related examples
+ See the <a
+ href="https://docs.mapbox.com/ios/maps/examples/clustering-with-images/">Use
+ images to cluster point data</a> example to learn how to dynamically set your
+ icons with an expression.
  */
 @property (nonatomic, null_resettable) NSExpression *iconImageName;
 
@@ -1005,6 +1043,32 @@ MGL_EXPORT
 @property (nonatomic, null_resettable) NSExpression *symbolSpacing;
 
 /**
+ Controls the order in which overlapping symbols in the same layer are rendered
+ 
+ The default value of this property is an expression that evaluates to
+ `viewport-y`. Set this property to `nil` to reset it to the default value.
+ 
+ You can set this property to an expression containing any of the following:
+ 
+ * Constant `MGLSymbolZOrder` values
+ * Any of the following constant string values:
+   * `viewport-y`: Specify this z order if symbols’ appearance relies on lower
+ features overlapping higher features. For example, symbols with a pin-like
+ appearance would require this z order.
+   * `source`: Specify this z order if the order in which features appear in the
+ source is significant.
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Step functions applied to the `$zoomLevel` variable
+ 
+ This property does not support applying interpolation functions to the
+ `$zoomLevel` variable or applying interpolation or step functions to feature
+ attributes.
+ */
+@property (nonatomic, null_resettable) NSExpression *symbolZOrder;
+
+/**
  Value to use for a text label.
  
  Within a constant string value, a feature attribute name enclosed in curly
@@ -1022,11 +1086,19 @@ MGL_EXPORT
  You can set this property to an expression containing any of the following:
  
  * Constant string values
+ * Formatted expressions.
  * Predefined functions, including mathematical and string operators
  * Conditional expressions
  * Variable assignments and references to assigned variables
  * Interpolation and step functions applied to the `$zoomLevel` variable and/or
  feature attributes
+
+ #### Related examples
+ See the <a href="https://docs.mapbox.com/ios/maps/examples/clustering/">Cluster
+ point data</a> and <a
+ href="https://docs.mapbox.com/ios/maps/examples/clustering-with-images/">Use
+ images to cluster point data</a> to learn how to use an expression to set this
+ attribute to the number of markers within a cluster.
  */
 @property (nonatomic, null_resettable) NSExpression *text;
 
@@ -1212,6 +1284,7 @@ MGL_EXPORT
  
  * Constant `MGLTextJustification` values
  * Any of the following constant string values:
+   * `auto`: The text is aligned towards the anchor position.
    * `left`: The text is aligned to the left.
    * `center`: The text is centered.
    * `right`: The text is aligned to the right.
@@ -1282,8 +1355,8 @@ MGL_EXPORT
  `NSValue` object containing a `CGVector` struct set to 0 ems rightward and 0
  ems downward. Set this property to `nil` to reset it to the default value.
  
- This property is only applied to the style if `text` is non-`nil`. Otherwise,
- it is ignored.
+ This property is only applied to the style if `text` is non-`nil`, and
+ `textRadialOffset` is set to `nil`. Otherwise, it is ignored.
  
  You can set this property to an expression containing any of the following:
  
@@ -1305,8 +1378,8 @@ MGL_EXPORT
  `NSValue` object containing a `CGVector` struct set to 0 ems rightward and 0
  ems upward. Set this property to `nil` to reset it to the default value.
  
- This property is only applied to the style if `text` is non-`nil`. Otherwise,
- it is ignored.
+ This property is only applied to the style if `text` is non-`nil`, and
+ `textRadialOffset` is set to `nil`. Otherwise, it is ignored.
  
  You can set this property to an expression containing any of the following:
  
@@ -1397,6 +1470,27 @@ MGL_EXPORT
 @property (nonatomic, null_resettable) NSExpression *textPitchAlignment;
 
 /**
+ Radial offset of text, in the direction of the symbol's anchor. Useful in
+ combination with `textVariableAnchor`, which doesn't support the
+ two-dimensional `textOffset`.
+ 
+ This property is measured in ems.
+ 
+ This property is only applied to the style if `textOffset` is set to `nil`.
+ Otherwise, it is ignored.
+ 
+ You can set this property to an expression containing any of the following:
+ 
+ * Constant numeric values
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Interpolation and step functions applied to the `$zoomLevel` variable and/or
+ feature attributes
+ */
+@property (nonatomic, null_resettable) NSExpression *textRadialOffset;
+
+/**
  Rotates the text clockwise.
  
  This property is measured in degrees.
@@ -1481,6 +1575,47 @@ MGL_EXPORT
  feature attributes
  */
 @property (nonatomic, null_resettable) NSExpression *textTransform;
+
+/**
+ To increase the chance of placing high-priority labels on the map, you can
+ provide an array of `textAnchor` locations: the render will attempt to place
+ the label at each location, in order, before moving onto the next label. Use
+ `textJustify: auto` to choose justification based on anchor position. To apply
+ an offset, use the `textRadialOffset` instead of the two-dimensional
+ `textOffset`.
+ 
+ This property is only applied to the style if `textAnchor` is set to `nil`, and
+ `textOffset` is set to `nil`, and `symbolPlacement` is set to an expression
+ that evaluates to or `MGLSymbolPlacementPoint`. Otherwise, it is ignored.
+ 
+ You can set this property to an expression containing any of the following:
+ 
+ * Constant `MGLTextAnchor` array values
+ * Constant array, whose each element is any of the following constant string
+ values:
+   * `center`: The center of the text is placed closest to the anchor.
+   * `left`: The left side of the text is placed closest to the anchor.
+   * `right`: The right side of the text is placed closest to the anchor.
+   * `top`: The top of the text is placed closest to the anchor.
+   * `bottom`: The bottom of the text is placed closest to the anchor.
+   * `top-left`: The top left corner of the text is placed closest to the
+ anchor.
+   * `top-right`: The top right corner of the text is placed closest to the
+ anchor.
+   * `bottom-left`: The bottom left corner of the text is placed closest to the
+ anchor.
+   * `bottom-right`: The bottom right corner of the text is placed closest to
+ the anchor.
+ * Predefined functions, including mathematical and string operators
+ * Conditional expressions
+ * Variable assignments and references to assigned variables
+ * Step functions applied to the `$zoomLevel` variable
+ 
+ This property does not support applying interpolation functions to the
+ `$zoomLevel` variable or applying interpolation or step functions to feature
+ attributes.
+ */
+@property (nonatomic, null_resettable) NSExpression *textVariableAnchor;
 
 #pragma mark - Accessing the Paint Attributes
 
@@ -2139,6 +2274,19 @@ MGL_EXPORT
  The `MGLSymbolPlacement` enumeration representation of the value.
  */
 @property (readonly) MGLSymbolPlacement MGLSymbolPlacementValue;
+
+/**
+ Creates a new value object containing the given `MGLSymbolZOrder` enumeration.
+
+ @param symbolZOrder The value for the new object.
+ @return A new value object that contains the enumeration value.
+ */
++ (instancetype)valueWithMGLSymbolZOrder:(MGLSymbolZOrder)symbolZOrder;
+
+/**
+ The `MGLSymbolZOrder` enumeration representation of the value.
+ */
+@property (readonly) MGLSymbolZOrder MGLSymbolZOrderValue;
 
 /**
  Creates a new value object containing the given `MGLTextAnchor` enumeration.

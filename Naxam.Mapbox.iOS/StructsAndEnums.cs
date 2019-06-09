@@ -7,7 +7,63 @@ using Mapbox;
 using ObjCRuntime;
 
 namespace Mapbox
-{
+{ 
+    [Native]
+	public enum MGLLoggingLevel : ulong
+    {
+        /**
+        None-level messages are ignored.
+        */
+        None = 0,
+        /**
+        Info-level messages contain information that may be helpful for flow tracing
+        but is not essential.
+        */
+        Info,
+        /**
+        Error-level messages contain information that is intended to aid in process-level
+        errors.
+        */
+        Error,
+        /**
+        Fault-level messages contain system-level error information.
+        */
+        Fault,
+        /**
+        :nodoc: Any new logging level should be included in the default logging implementation.
+        */
+    }
+
+    [Native]
+	public enum MGLSymbolZOrder : ulong
+    {
+        /**
+        Specify this z order if symbols’ appearance relies on lower features
+        overlapping higher features. For example, symbols with a pin-like
+        appearance would require this z order.
+        */
+        ViewportY,
+        /**
+        Specify this z order if the order in which features appear in the source is
+        significant.
+        */
+        Source,
+    }
+
+    [Native]
+	public enum MGLOrnamentPosition : ulong
+    {
+        /** Place the ornament in the top left of the map view. */
+        TopLeft = 0,
+        /** Place the ornament in the top right of the map view. */
+        TopRight,
+        /** Place the ornament in the bottom left of the map view. */
+        BottomLeft,
+        /** Place the ornament in the bottom right of the map view. */
+        BottomRight,
+    }
+
+    [Native]
 	public enum MGLAnnotationViewDragState : ulong
     {
         None = 0,
@@ -26,7 +82,12 @@ namespace Mapbox
         ConnectionFailed = 3,
         ParseStyleFailed = 4,
         LoadStyleFailed = 5,
-        SnapshotFailed = 6
+        SnapshotFailed = 6,
+
+        // /** Source is in use and cannot be removed */
+        SourceIsInUseCannotRemove = 7,
+        // /** Source is in use and cannot be removed */
+        SourceIdentifierMismatch = 8
     }
 
     [Flags]
@@ -381,6 +442,7 @@ namespace Mapbox
     [Native]
     public enum MGLTextJustification : ulong
     {
+        Auto,
         Left,
         Center,
         Right

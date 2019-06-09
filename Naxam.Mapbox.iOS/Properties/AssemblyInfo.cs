@@ -16,7 +16,7 @@ using Foundation;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("NAXAM CO.,LTD")]
 [assembly: AssemblyProduct("X Bindings")]
-[assembly: AssemblyCopyright("Copyright @ 2018 NAXAM")]
+[assembly: AssemblyCopyright("Copyright @ 2019 NAXAM")]
 [assembly: AssemblyTrademark("NAXAM")]
 [assembly: AssemblyCulture("")]
 
@@ -24,8 +24,8 @@ using Foundation;
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 
-[assembly: AssemblyVersion("4.3.0")]
-[assembly: AssemblyInformationalVersion("4.3.0.3")]
+[assembly: AssemblyVersion("4.10.0")]
+[assembly: AssemblyInformationalVersion("4.10.0")]
 
 // The following attributes are used to specify the signing key for the assembly, 
 // if desired. See the Mono documentation for more information about signing.
