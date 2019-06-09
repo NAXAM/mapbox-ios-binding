@@ -8,6 +8,16 @@ using ObjCRuntime;
 
 namespace Mapbox
 { 
+
+    [Native]
+    public enum MGLMetricType : ulong
+    {
+        /** :nodoc:
+        Metric that measures performance.
+        */
+        Performance = 0,
+    }
+
     [Native]
 	public enum MGLLoggingLevel : ulong
     {
@@ -37,6 +47,12 @@ namespace Mapbox
     [Native]
 	public enum MGLSymbolZOrder : ulong
     {
+        /**
+        If `MGLSymbolStyleLayer.symbolSortKey` is set, sort based on that.
+        Otherwise sort symbols by their y-position relative to the viewport.
+        */
+        Auto,
+
         /**
         Specify this z order if symbols’ appearance relies on lower features
         overlapping higher features. For example, symbols with a pin-like

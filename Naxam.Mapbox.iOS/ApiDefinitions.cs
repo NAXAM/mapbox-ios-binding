@@ -2861,6 +2861,10 @@ namespace Mapbox
         [Export("symbolPlacement", ArgumentSemantic.Assign), NullAllowed]
         NSExpression SymbolPlacement { get; set; }
 
+        // @property (nonatomic, null_resettable) NSExpression *symbolSortKey;
+        [Export("symbolSortKey", ArgumentSemantic.Assign), NullAllowed]
+        NSExpression SymbolSortKey { get; set; }
+
         // @property (nonatomic) NSExpression * _Null_unspecified symbolSpacing;
         [Export("symbolSpacing", ArgumentSemantic.Assign), NullAllowed]
         NSExpression SymbolSpacing { get; set; }
@@ -3401,7 +3405,7 @@ namespace Mapbox
         NSExpression FeatureAttributesVariableExpression  ();
 
         // @property (readonly, nonatomic, class) NSExpression * _Nonnull featurePropertiesVariableExpression __attribute__((deprecated("Use -featureAttributesVariableExpression.")));
-        [Static]
+        [Static][Deprecated(PlatformName.iOS, PlatformArchitecture.All, "Use -featureAttributesVariableExpression.")]
         [Export("featurePropertiesVariableExpression")]
         NSExpression FeaturePropertiesVariableExpression  ();
 
@@ -3699,5 +3703,73 @@ namespace Mapbox
         // @property (nonatomic, readonly) NSUInteger clusterPointCount;
         [Abstract, Export("clusterPointCount")]
         uint ClusterPointCount { get; }
+    }
+
+    // @protocol MGLMetricsManagerDelegate <NSObject>
+    [Protocol, Model]
+    [BaseType(typeof(NSObject))]
+    interface MGLMetricsManagerDelegate  {
+
+        // /**
+        //  :nodoc:
+        //  Asks the delegate whether the metrics manager should handle metric events.
+        
+        //  @param metricsManager The metrics manager object.
+        //  @param metricType The metric type event.
+        //  */
+        // - (BOOL)metricsManager:(MGLMetricsManager *)metricsManager shouldHandleMetric:(MGLMetricType)metricType;
+        [Abstract, Export("metricsManager:shouldHandleMetric:")]
+        bool MetricsManagerShouldHandleMetric(MGLMetricsManager metricsManager, MGLMetricType metricType);
+
+        // /**
+        //  :nodoc:
+        //  Asks the delegate to handle metric events.
+        
+        //  @param metricsManager The metrics manager object.
+        //  @param metricType The metric type event.
+        //  @param attributes The metric attributes.
+        //  */
+        // - (void)metricsManager:(MGLMetricsManager *)metricsManager didCollectMetric:(MGLMetricType)metricType withAttributes:(NSDictionary *)attributes;
+        [Abstract,Export("metricsManager:didCollectMetric:withAttributes:")]
+        void MetricsManagerShouldHandleMetric(MGLMetricsManager metricsManager, MGLMetricType metricType, NSDictionary attributes);
+
+    }
+
+    // /**
+    //  :nodoc:
+    //  The `MGLMetricsManager` object provides a single poin to collect SDK metrics
+    //  such as tile download latency.
+    //  */
+    // MGL_EXPORT
+    // @interface MGLMetricsManager : NSObject
+    [BaseType(typeof(NSObject))]
+    interface MGLMetricsManager 
+    {
+        // /**
+        //  :nodoc:
+        //  Returns the shared metrics manager object.
+        //  */
+        // @property (class, nonatomic, readonly) MGLMetricsManager *sharedManager;
+        [Static, Export("sharedManager")]
+        MGLMetricsManager SharedManager { get; }
+
+        [Wrap("WeakDelegate")]
+        [NullAllowed]
+        MGLMetricsManagerDelegate Delegate { get; set; }
+
+        // @property (nonatomic, weak) id<MGLMetricsManagerDelegate> delegate;
+        [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
+        NSObject WeakDelegate { get; set; }
+
+
+        // #if TARGET_OS_IOS
+        // /**
+        //  :nodoc:
+        //  Sends metric events to Mapbox.
+        //  */
+        // - (void)pushMetric:(MGLMetricType)metricType withAttributes:(NSDictionary *)attributes;
+        // #endif
+        [Export("pushMetric:withAttributes:")]
+        void PushMetric(MGLMetricType metricType, NSDictionary attributes);
     }
 }

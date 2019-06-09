@@ -179,7 +179,7 @@ FOUNDATION_EXTERN MGL_EXPORT MGLExceptionName const MGLResourceNotFoundException
  See the <a href="https://docs.mapbox.com/ios/maps/examples/simple-map-view/">
  Simple map view</a> example to learn how to initialize a basic `MGLMapView`.
  */
-MGL_EXPORT IB_DESIGNABLE
+MGL_EXPORT
 @interface MGLMapView : UIView
 
 #pragma mark Creating Instances
@@ -744,7 +744,7 @@ MGL_EXPORT IB_DESIGNABLE
  @param centerCoordinate The new center coordinate for the map.
  @param zoomLevel The new zoom level for the map.
  @param direction The new direction for the map, measured in degrees relative to
-    true north.
+    true north. A negative value leaves the map’s direction unchanged.
  @param animated Specify `YES` if you want the map view to animate scrolling,
     zooming, and rotating to the new location or `NO` if you want the map to
     display the new location immediately.
@@ -761,7 +761,7 @@ MGL_EXPORT IB_DESIGNABLE
  @param centerCoordinate The new center coordinate for the map.
  @param zoomLevel The new zoom level for the map.
  @param direction The new direction for the map, measured in degrees relative to
-    true north.
+    true north. A negative value leaves the map’s direction unchanged.
  @param animated Specify `YES` if you want the map view to animate scrolling,
     zooming, and rotating to the new location or `NO` if you want the map to
     display the new location immediately.
@@ -942,7 +942,8 @@ MGL_EXPORT IB_DESIGNABLE
  @param insets The minimum padding (in screen points) that will be visible
     around the given coordinate bounds.
  @param direction The direction to rotate the map to, measured in degrees
-    relative to true north.
+    relative to true north. A negative value leaves the map’s direction
+    unchanged.
  @param duration The duration to animate the change in seconds.
  @param function The timing function to animate the change.
  @param completion The block executed after the animation finishes.
