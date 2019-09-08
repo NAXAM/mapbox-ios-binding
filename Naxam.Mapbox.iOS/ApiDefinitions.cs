@@ -629,7 +629,7 @@ namespace Mapbox
 
         //FOUNDATION_EXTERN MGL_EXPORT const MGLShapeSourceOption MGLShapeSourceOptionLineDistanceMetrics;
         [Field("MGLShapeSourceOptionLineDistanceMetrics", "__Internal")]
-        NSString ShapeSourceOptionLineDistanceMetrics { get; }
+        NSString LineDistanceMetrics { get; }
     }
 
     // @interface MGLShapeSource : MGLSource
@@ -2094,27 +2094,27 @@ namespace Mapbox
 
         // -(NSArray<id<MGLFeature>> * _Nonnull)visibleFeaturesAtPoint:(CGPoint)point;
         [Export("visibleFeaturesAtPoint:")]
-        NSObject[] VisibleFeaturesAtPoint(CGPoint point);
+        IMGLFeature[] VisibleFeaturesAtPoint(CGPoint point);
 
         // -(NSArray<id<MGLFeature>> * _Nonnull)visibleFeaturesAtPoint:(CGPoint)point inStyleLayersWithIdentifiers:(NSSet<NSString *> * _Nullable)styleLayerIdentifiers;
         [Export("visibleFeaturesAtPoint:inStyleLayersWithIdentifiers:")]
-        NSObject[] VisibleFeaturesAtPoint(CGPoint point, [NullAllowed] NSSet<NSString> styleLayerIdentifiers);
+        IMGLFeature[] VisibleFeaturesAtPoint(CGPoint point, [NullAllowed] NSSet<NSString> styleLayerIdentifiers);
 
         // -(NSArray<id<MGLFeature>> * _Nonnull)visibleFeaturesAtPoint:(CGPoint)point inStyleLayersWithIdentifiers:(NSSet<NSString *> * _Nullable)styleLayerIdentifiers predicate:(NSPredicate * _Nullable)predicate;
         [Export("visibleFeaturesAtPoint:inStyleLayersWithIdentifiers:predicate:")]
-        NSObject[] VisibleFeaturesAtPoint(CGPoint point, [NullAllowed] NSSet<NSString> styleLayerIdentifiers, [NullAllowed] NSPredicate predicate);
+        IMGLFeature[] VisibleFeaturesAtPoint(CGPoint point, [NullAllowed] NSSet<NSString> styleLayerIdentifiers, [NullAllowed] NSPredicate predicate);
 
         // -(NSArray<id<MGLFeature>> * _Nonnull)visibleFeaturesInRect:(CGRect)rect;
         [Export("visibleFeaturesInRect:")]
-        NSObject[] VisibleFeaturesInRect(CGRect rect);
+        IMGLFeature[] VisibleFeaturesInRect(CGRect rect);
 
         // -(NSArray<id<MGLFeature>> * _Nonnull)visibleFeaturesInRect:(CGRect)rect inStyleLayersWithIdentifiers:(NSSet<NSString *> * _Nullable)styleLayerIdentifiers;
         [Export("visibleFeaturesInRect:inStyleLayersWithIdentifiers:")]
-        NSObject[] VisibleFeaturesInRect(CGRect rect, [NullAllowed] NSSet<NSString> styleLayerIdentifiers);
+        IMGLFeature[] VisibleFeaturesInRect(CGRect rect, [NullAllowed] NSSet<NSString> styleLayerIdentifiers);
 
         // -(NSArray<id<MGLFeature>> * _Nonnull)visibleFeaturesInRect:(CGRect)rect inStyleLayersWithIdentifiers:(NSSet<NSString *> * _Nullable)styleLayerIdentifiers predicate:(NSPredicate * _Nullable)predicate;
         [Export("visibleFeaturesInRect:inStyleLayersWithIdentifiers:predicate:")]
-        NSObject[] VisibleFeaturesInRect(CGRect rect, [NullAllowed] NSSet<NSString> styleLayerIdentifiers, [NullAllowed] NSPredicate predicate);
+        IMGLFeature[] VisibleFeaturesInRect(CGRect rect, [NullAllowed] NSSet<NSString> styleLayerIdentifiers, [NullAllowed] NSPredicate predicate);
 
         // @property (nonatomic) MGLMapDebugMaskOptions debugMask;
         [Export("debugMask", ArgumentSemantic.Assign)]
