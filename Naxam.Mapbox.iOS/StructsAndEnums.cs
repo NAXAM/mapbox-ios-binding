@@ -7,7 +7,30 @@ using Mapbox;
 using ObjCRuntime;
 
 namespace Mapbox
-{ 
+{
+    [Native]
+    public enum MGLOrnamentVisibility : ulong {
+        /** A constant indicating that the ornament adapts to the current map state. */
+        Adaptive,
+        /** A constant indicating that the ornament is always hidden. */
+        Hidden,
+        /** A constant indicating that the ornament is always visible. */
+        Visible
+    }
+
+    [Native] 
+    public enum MGLTextWritingMode : ulong {
+        /**
+        If a text's language supports horizontal writing mode, symbols with point
+        placement would be laid out horizontally.
+        */
+        Horizontal,
+        /**
+        If a text's language supports vertical writing mode, symbols with point
+        placement would be laid out vertically.
+        */
+        Vertical,
+    }
 
     [Native]
     public enum MGLMetricType : ulong
@@ -26,22 +49,31 @@ namespace Mapbox
         */
         None = 0,
         /**
-        Info-level messages contain information that may be helpful for flow tracing
-        but is not essential.
-        */
-        Info,
-        /**
-        Error-level messages contain information that is intended to aid in process-level
-        errors.
-        */
-        Error,
-        /**
         Fault-level messages contain system-level error information.
         */
         Fault,
         /**
         :nodoc: Any new logging level should be included in the default logging implementation.
         */
+        /**
+        Error-level messages contain information that is intended to aid in process-level
+        errors.
+        */
+        Error,
+        /**
+        Warning-level messages contain warning information for potential risks.
+        errors.
+        */
+        Warning,
+        /**
+        Info-level messages contain information that may be helpful for flow tracing
+        but is not essential.
+        */
+        Info,
+        /**
+        Verbose-level will print all messages.
+        */
+        Verbose,
     }
 
     [Native]
@@ -103,7 +135,9 @@ namespace Mapbox
         // /** Source is in use and cannot be removed */
         SourceIsInUseCannotRemove = 7,
         // /** Source is in use and cannot be removed */
-        SourceIdentifierMismatch = 8
+        SourceIdentifierMismatch = 8,
+        /** An error occurred while modifying the offline storage database */
+        ModifyingOfflineStorageFailed = 9
     }
 
     [Flags]

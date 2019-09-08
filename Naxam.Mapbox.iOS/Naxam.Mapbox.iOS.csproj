@@ -55,5 +55,39 @@
       <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Settings.bundle\ar.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\Base.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\bg.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\ca.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\cs.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\da.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\de.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\en.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\es.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\fi.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\fr.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\gl.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\he.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\hu.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\it.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\ko.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\lt.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\nl.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\pl.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\pt-BR.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\pt-PT.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\Root.plist" />
+    <BundleResource Include="Resources\Settings.bundle\ru.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\sv.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\uk.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\vi.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\zh-Hans.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\zh-Hant.lproj\Root.strings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Settings.bundle\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

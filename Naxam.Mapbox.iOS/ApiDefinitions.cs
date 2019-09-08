@@ -10,6 +10,21 @@ using UIKit;
 
 namespace Mapbox
 {
+    // @interface MGLCompassButton : UIImageView
+    [BaseType(typeof(UIImageView))]
+    interface MGLCompassButton {
+
+        // /**
+        //  The visibility of the compass button.
+
+        //  You can configure a compass button to be visible all the time or only when the compass heading changes.
+        //  */
+        // @property (nonatomic, assign) MGLOrnamentVisibility compassVisibility;
+		//@optional @property (nonatomic, assign) CLLocationAccuracy desiredAccuracy;
+		[Export("compassVisibility", ArgumentSemantic.Assign)]
+		MGLOrnamentVisibility CompassVisibility { get; set; }
+    }
+
     //@protocol MGLAnnotation <NSObject>
     public partial interface IMGLAnnotation { }
     //@protocol MGLCalloutView <NSObject>
@@ -1691,9 +1706,9 @@ namespace Mapbox
         [Export("scaleBarMargins")]
         CGPoint ScaleBarMargins { get; set; }
 
-        // @property (readonly, nonatomic) UIImageView * _Nonnull compassView;
+        // @property (readonly, nonatomic) MGLCompassButton * _Nonnull compassView;
         [Export("compassView")]
-        UIImageView CompassView { get; }
+        MGLCompassButton CompassView { get; }
 
         // /**
         //  The position of the compass view. The default value is `MGLOrnamentPositionTopRight`.
@@ -1779,9 +1794,9 @@ namespace Mapbox
         [Export("userTrackingMode", ArgumentSemantic.Assign)]
         MGLUserTrackingMode UserTrackingMode { get; set; }
 
-        // -(void)setUserTrackingMode:(MGLUserTrackingMode)mode animated:(BOOL)animated;
-        [Export("setUserTrackingMode:animated:")]
-        void SetUserTrackingMode(MGLUserTrackingMode mode, bool animated);
+        // - (void)setUserTrackingMode:(MGLUserTrackingMode)mode animated:(BOOL)animated completionHandler:(nullable void (^)(void))completion;
+        [Export("setUserTrackingMode:animated:completionHandler:")]
+        void SetUserTrackingMode(MGLUserTrackingMode mode, bool animated, [NullAllowed] Action completionHandler);
 
         // @property (assign, nonatomic) MGLAnnotationVerticalAlignment userLocationVerticalAlignment;
         [Deprecated(PlatformName.iOS, PlatformArchitecture.All, "Use `-[MGLMapViewDelegate mapViewUserLocationAnchorPoint:]` instead."), Export("userLocationVerticalAlignment", ArgumentSemantic.Assign)]
@@ -1820,9 +1835,9 @@ namespace Mapbox
         [Export("targetCoordinate", ArgumentSemantic.Assign)]
         CLLocationCoordinate2D TargetCoordinate { get; set; }
 
-        // -(void)setTargetCoordinate:(CLLocationCoordinate2D)targetCoordinate animated:(BOOL)animated;
-        [Export("setTargetCoordinate:animated:")]
-        void SetTargetCoordinate(CLLocationCoordinate2D targetCoordinate, bool animated);
+        // - (void)setTargetCoordinate:(CLLocationCoordinate2D)targetCoordinate animated:(BOOL)animated completionHandler:(nullable void (^)(void))completion;
+        [Export("setTargetCoordinate:animated:completionHandler:")]
+        void SetTargetCoordinate(CLLocationCoordinate2D targetCoordinate, bool animated, [NullAllowed] Action completionHandler);
 
         // @property (getter = isZoomEnabled, nonatomic) BOOL zoomEnabled;
         [Export("zoomEnabled")]
@@ -1904,9 +1919,9 @@ namespace Mapbox
         [Export("visibleCoordinateBounds", ArgumentSemantic.Assign)]
         MGLCoordinateBounds VisibleCoordinateBounds { get; set; }
 
-        // -(void)setVisibleCoordinateBounds:(MGLCoordinateBounds)bounds animated:(BOOL)animated;
-        [Export("setVisibleCoordinateBounds:animated:")]
-        void SetVisibleCoordinateBounds(MGLCoordinateBounds bounds, bool animated);
+        // - (void)setVisibleCoordinateBounds:(MGLCoordinateBounds)bounds edgePadding:(UIEdgeInsets)insets animated:(BOOL)animated completionHandler:(nullable void (^)(void))completion
+        [Export("setVisibleCoordinateBounds:animated:completionHandler:")]
+        void SetVisibleCoordinateBounds(MGLCoordinateBounds bounds, bool animated, [NullAllowed] Action completionHandler);
 
         // -(void)setVisibleCoordinateBounds:(MGLCoordinateBounds)bounds edgePadding:(UIEdgeInsets)insets animated:(BOOL)animated;
         [Export("setVisibleCoordinateBounds:edgePadding:animated:")]
@@ -1924,9 +1939,9 @@ namespace Mapbox
         [Export("showAnnotations:animated:")]
         void ShowAnnotations(IMGLAnnotation[] annotations, bool animated);
 
-        // -(void)showAnnotations:(NSArray<id<MGLAnnotation>> * _Nonnull)annotations edgePadding:(UIEdgeInsets)insets animated:(BOOL)animated;
-        [Export("showAnnotations:edgePadding:animated:")]
-        void ShowAnnotations(IMGLAnnotation[] annotations, UIEdgeInsets insets, bool animated);
+        // - (void)showAnnotations:(NSArray<id <MGLAnnotation>> *)annotations edgePadding:(UIEdgeInsets)insets animated:(BOOL)animated completionHandler:(nullable void (^)(void))completion;
+        [Export("showAnnotations:edgePadding:animated:completionHandler:")]
+        void ShowAnnotations(IMGLAnnotation[] annotations, UIEdgeInsets insets, bool animated, [NullAllowed] Action completionHandler);
 
         // @property (copy, nonatomic) MGLMapCamera * _Nonnull camera;
         [Export("camera", ArgumentSemantic.Copy)]
@@ -1990,9 +2005,9 @@ namespace Mapbox
         [Export("contentInset", ArgumentSemantic.Assign)]
         UIEdgeInsets ContentInset { get; set; }
 
-        // -(void)setContentInset:(UIEdgeInsets)contentInset animated:(BOOL)animated;
-        [Export("setContentInset:animated:")]
-        void SetContentInset(UIEdgeInsets contentInset, bool animated);
+        // - (void)setContentInset:(UIEdgeInsets)contentInset animated:(BOOL)animated completionHandler:(nullable void (^)(void))completion;
+        [Export("setContentInset:animated:completionHandler:")]
+        void SetContentInset(UIEdgeInsets contentInset, bool animated, [NullAllowed] Action completionHandler);
 
         // -(CLLocationCoordinate2D)convertPoint:(CGPoint)point toCoordinateFromView:(UIView * _Nullable)view;
         [Export("convertPoint:toCoordinateFromView:")]
@@ -2060,13 +2075,13 @@ namespace Mapbox
         [Export("selectedAnnotations", ArgumentSemantic.Copy)]
         IMGLAnnotation[] SelectedAnnotations { get; set; }
 
-        // -(void)selectAnnotation:(id<MGLAnnotation> _Nonnull)annotation animated:(BOOL)animated;
-        [Export("selectAnnotation:animated:")]
-        void SelectAnnotation(IMGLAnnotation annotation, bool animated);
+        // - (void)selectAnnotation:(id <MGLAnnotation>)annotation animated:(BOOL)animated completionHandler:(nullable void (^)(void))completion;
+        [Export("selectAnnotation:animated:completionHandler:")]
+        void SelectAnnotation(IMGLAnnotation annotation, bool animated, [NullAllowed] Action completionHandler);
 
-        // - (void)selectAnnotation:(id <MGLAnnotation>)annotation moveIntoView:(BOOL)moveIntoView animateSelection:(BOOL)animateSelection;
-        [Export("selectAnnotation:moveIntoView:animateSelection:")]
-        void SelectAnnotation(IMGLAnnotation annotation, bool moveIntoView, bool animated);
+        // - (void)selectAnnotation:(id <MGLAnnotation>)annotation moveIntoView:(BOOL)moveIntoView animateSelection:(BOOL)animateSelection completionHandler:(nullable void (^)(void))completion;
+        [Export("selectAnnotation:moveIntoView:animateSelection:completionHandler:")]
+        void SelectAnnotation(IMGLAnnotation annotation, bool moveIntoView, bool animated, [NullAllowed] Action completionHandler);
 
         // -(void)deselectAnnotation:(id<MGLAnnotation> _Nullable)annotation animated:(BOOL)animated;
         [Export("deselectAnnotation:animated:")]
@@ -2126,6 +2141,10 @@ namespace Mapbox
     [BaseType(typeof(NSObject))]
     interface MGLMapViewDelegate
     {
+        // - (BOOL)mapView:(MGLMapView *)mapView shouldRemoveStyleImage:(NSString *)imageName;
+        [Export("mapView:shouldRemoveStyleImage:")]
+        bool MapViewShouldRemoveStyleImage(MGLMapView mapView, string imageName);
+
         // @optional -(BOOL)mapView:(MGLMapView * _Nonnull)mapView shouldChangeFromCamera:(MGLMapCamera * _Nonnull)oldCamera toCamera:(MGLMapCamera * _Nonnull)newCamera;
         [Export("mapView:shouldChangeFromCamera:toCamera:")]
         bool MapViewShouldChangeCamera(MGLMapView mapView, MGLMapCamera oldCamera, MGLMapCamera newCamera);
@@ -2422,6 +2441,10 @@ namespace Mapbox
         [Export("removePack:withCompletionHandler:")]
         void RemovePack(MGLOfflinePack pack, [NullAllowed] MGLOfflinePackRemovalCompletionHandler completion);
 
+        // - (void)invalidatePack:(MGLOfflinePack *)pack withCompletionHandler:(void (^)(NSError * _Nullable))completion;
+        [Export("invalidatePack:withCompletionHandler:")]
+        void InvalidatePack(MGLOfflinePack pack, MGLOfflinePackRemovalCompletionHandler completion);
+
         // -(void)reloadPacks;
         [Export("reloadPacks")]
         void ReloadPacks();
@@ -2429,6 +2452,22 @@ namespace Mapbox
         // -(void)setMaximumAllowedMapboxTiles:(uint64_t)maximumCount;
         [Export("setMaximumAllowedMapboxTiles:")]
         void SetMaximumAllowedMapboxTiles(ulong maximumCount);
+
+        // - (void)setMaximumAmbientCacheSize:(NSUInteger)cacheSize withCompletionHandler:(void (^)(NSError *_Nullable error))completion;
+        [Export("setMaximumAmbientCacheSize:withCompletionHandler:")]
+        void SetMaximumAmbientCacheSize(uint cacheSize, MGLOfflinePackRemovalCompletionHandler completion);
+
+        // - (void)invalidateAmbientCacheWithCompletionHandler:(void (^)(NSError *_Nullable error))completion;
+        [Export("invalidateAmbientCacheWithCompletionHandler:")]
+        void InvalidateAmbientCacheWithCompletionHandler(MGLOfflinePackRemovalCompletionHandler completion);
+
+        // - (void)clearAmbientCacheWithCompletionHandler:(void (^)(NSError *_Nullable error))completion;
+        [Export("clearAmbientCacheWithCompletionHandler:")]
+        void ClearAmbientCacheWithCompletionHandler(MGLOfflinePackRemovalCompletionHandler completion);
+
+        // - (void)resetDatabaseWithCompletionHandler:(void (^)(NSError *_Nullable error))completion;
+        [Export("resetDatabaseWithCompletionHandler:")]
+        void ResetDatabaseWithCompletionHandler(MGLOfflinePackRemovalCompletionHandler completion);
 
         // @property (readonly, nonatomic) unsigned long long countOfBytesCompleted;
         [Export("countOfBytesCompleted")]
@@ -3044,6 +3083,10 @@ namespace Mapbox
         // @property (nonatomic) NSExpression * _Null_unspecified textTranslationAnchor;
         [Export("textTranslationAnchor", ArgumentSemantic.Assign), NullAllowed]
         NSExpression TextTranslationAnchor { get; set; }
+
+        // @property (nonatomic, null_resettable) NSExpression *textWritingModes;
+        [Export("textWritingModes", ArgumentSemantic.None)]
+        NSExpression TextWritingModes { get; set; }
     }
 
     // @interface MGLSymbolStyleLayerAdditions (NSValue)
@@ -3176,6 +3219,15 @@ namespace Mapbox
         // @property (readonly) MGLTextTranslationAnchor MGLTextTranslationAnchorValue;
         [Export("MGLTextTranslationAnchorValue")]
         MGLTextTranslationAnchor MGLTextTranslationAnchorValue();
+
+        // + (instancetype)valueWithMGLTextWritingMode:(MGLTextWritingMode)textWritingModes;
+        [Static]
+        [Export("valueWithMGLTextWritingMode:")]
+        NSValue ValueWithMGLTextWritingMode(MGLTextWritingMode textWritingModes);
+
+        // @property (readonly) MGLTextWritingMode MGLTextWritingModeValue;
+        [Export("MGLTextWritingModeValue")]
+        MGLTextWritingMode MGLTextWritingModeValue();
     }
 
     // @interface MGLTilePyramidOfflineRegion : NSObject <MGLOfflineRegion, NSSecureCoding, NSCopying>
