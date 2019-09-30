@@ -137,7 +137,8 @@ namespace Mapbox
         // /** Source is in use and cannot be removed */
         SourceIdentifierMismatch = 8,
         /** An error occurred while modifying the offline storage database */
-        ModifyingOfflineStorageFailed = 9
+        ModifyingOfflineStorageFailed = 9,
+        SourceCannotBeRemovedFromStyle  = 10
     }
 
     [Flags]
@@ -270,13 +271,13 @@ namespace Mapbox
     [StructLayout (LayoutKind.Sequential)]
     public struct MGLCoordinateQuad
     {
-        public CLLocationCoordinate2D topLeft;
+        public CLLocationCoordinate2D TopLeft;
 
-        public CLLocationCoordinate2D bottomLeft;
+        public CLLocationCoordinate2D BottomLeft;
 
-        public CLLocationCoordinate2D bottomRight;
+        public CLLocationCoordinate2D BottomRight;
 
-        public CLLocationCoordinate2D topRight;
+        public CLLocationCoordinate2D TopRight;
     }
 
     [Native]

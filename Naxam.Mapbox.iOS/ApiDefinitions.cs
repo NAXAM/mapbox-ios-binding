@@ -10,6 +10,17 @@ using UIKit;
 
 namespace Mapbox
 {
+    [BaseType(typeof(NSObject))]
+    interface MGLMapSnapshotOverlay 
+    {
+        // @property (nonatomic, readonly) CGContextRef context;
+        [Export("context", ArgumentSemantic.None)]
+        CGContext Context {get;}
+    }
+
+    // typedef void (^MGLMapSnapshotOverlayHandler)(MGLMapSnapshotOverlay * snapshotOverlay);
+    delegate void MGLMapSnapshotOverlayHandler(MGLMapSnapshotOverlay snapshotOverlay);
+
     // @interface MGLCompassButton : UIImageView
     [BaseType(typeof(UIImageView))]
     interface MGLCompassButton {
@@ -1612,6 +1623,10 @@ namespace Mapbox
         [Export("startWithQueue:completionHandler:")]
         void StartWithQueue(DispatchQueue queue, MGLMapSnapshotCompletionHandler completionHandler);
 
+        // - (void)startWithOverlayHandler:(MGLMapSnapshotOverlayHandler)overlayHandler completionHandler:(MGLMapSnapshotCompletionHandler)completionHandler;
+        [Export("startWithOverlayHandler:completionHandler:")]
+        void StartWithOverlayHandler(MGLMapSnapshotOverlayHandler overlayHandler, MGLMapSnapshotCompletionHandler completionHandler);
+
         // -(void)cancel;
         [Export("cancel")]
         void Cancel();
@@ -2596,6 +2611,19 @@ namespace Mapbox
     [BaseType(typeof(MGLRasterTileSource))]
     interface MGLRasterDEMSource
     {
+        // -(instancetype _Nonnull)initWithIdentifier:(NSString * _Nonnull)identifier configurationURL:(NSURL * _Nonnull)configurationURL;
+        [Export("initWithIdentifier:configurationURL:")]
+        IntPtr Constructor(string identifier, NSUrl configurationURL);
+
+        // -(instancetype _Nonnull)initWithIdentifier:(NSString * _Nonnull)identifier configurationURL:(NSURL * _Nonnull)configurationURL tileSize:(CGFloat)tileSize __attribute__((objc_designated_initializer));
+        [Export("initWithIdentifier:configurationURL:tileSize:")]
+        [DesignatedInitializer]
+        IntPtr Constructor(string identifier, NSUrl configurationURL, nfloat tileSize);
+
+        // -(instancetype _Nonnull)initWithIdentifier:(NSString * _Nonnull)identifier tileURLTemplates:(NSArray<NSString *> * _Nonnull)tileURLTemplates options:(NSDictionary<MGLTileSourceOption,id> * _Nullable)options __attribute__((objc_designated_initializer));
+        [Export("initWithIdentifier:tileURLTemplates:options:")]
+        [DesignatedInitializer]
+        IntPtr Constructor(string identifier, string[] tileURLTemplates, [NullAllowed] NSDictionary<NSString, NSObject> options);
     }
 
     // @interface MGLRasterStyleLayer : MGLForegroundStyleLayer
@@ -3587,6 +3615,11 @@ namespace Mapbox
 
     [Static]
     interface MGLExceptionName {
+
+        // FOUNDATION_EXTERN MGL_EXPORT MGLExceptionName const MGLInvalidStyleSourceException;
+        [Field("MGLInvalidStyleSourceException", "__Internal")]
+        NSString InvalidStyleSourceException { get; }
+
         // FOUNDATION_EXTERN MGL_EXPORT MGLExceptionName const MGLInvalidDatasourceException;
         [Field("MGLInvalidDatasourceException", "__Internal")]
         NSString InvalidDatasourceException { get; }
