@@ -81,6 +81,7 @@ namespace Naxam.Mapbox.iOSQs
         [Export("mapViewDidFinishLoadingMap:")]
         public void MapViewDidFinishLoadingMap(MGLMapView mapView)
         {
+            // Draw a polyline on the map
             var coordinates = new CLLocationCoordinate2D[] {
                 new CLLocationCoordinate2D(latitude: mapView.CenterCoordinate.Latitude + 0.03, longitude: mapView.CenterCoordinate.Longitude - 0.02),
                 new CLLocationCoordinate2D(latitude: mapView.CenterCoordinate.Latitude + 0.02, longitude: mapView.CenterCoordinate.Longitude - 0.03),

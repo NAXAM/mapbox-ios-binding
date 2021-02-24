@@ -88,41 +88,14 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Masonry">
-      <HintPath>..\..\packages\Masonry.0.6.4.0\lib\Xamarin.iOS\Masonry.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
+    <Reference Include="Masonry.iOS">
+      <HintPath>..\..\packages\Masonry.1.1.0\lib\Xamarin.iOS\Masonry.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -174,4 +147,5 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
 </Project>
