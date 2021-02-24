@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{D8F96117-BE6D-4B99-A089-3119F86961BB}"
 	ProjectSection(SolutionItems) = preProject
 		mapbox-ios.nuspec = mapbox-ios.nuspec
+		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{22E7F713-BE34-4A11-939A-E358DA858995}"

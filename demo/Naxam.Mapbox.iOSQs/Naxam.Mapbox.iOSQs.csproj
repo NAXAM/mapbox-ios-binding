@@ -97,6 +97,9 @@
     <Reference Include="Masonry.iOS">
       <HintPath>..\..\packages\Masonry.1.1.0\lib\Xamarin.iOS\Masonry.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="Naxam.Mapbox.iOS">
+      <HintPath>..\..\packages\Naxam.Mapbox.iOS.6.3.0\lib\Xamarin.iOS10\Naxam.Mapbox.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -140,10 +143,6 @@
     <ProjectReference Include="..\..\Naxam.Mapbox.Common\Naxam.Mapbox.Common.csproj">
       <Project>{A80B2873-6EAF-48A1-8445-2896815EFEE0}</Project>
       <Name>Naxam.Mapbox.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Naxam.Mapbox.iOS\Naxam.Mapbox.iOS.csproj">
-      <Project>{682AEE9E-B4F4-4BED-8D14-23582E4992FE}</Project>
-      <Name>Naxam.Mapbox.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
