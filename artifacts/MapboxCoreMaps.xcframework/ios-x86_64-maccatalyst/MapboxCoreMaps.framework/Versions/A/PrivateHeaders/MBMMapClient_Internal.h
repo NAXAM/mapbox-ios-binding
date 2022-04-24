@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCoreMaps/MBMTask_Internal.h>
+#import "MBMTask_Internal.h"
 
 NS_SWIFT_NAME(MapClient)
 @protocol MBMMapClient

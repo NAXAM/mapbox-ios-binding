@@ -1,10 +1,10 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCommon/MBXBillingSessionStatus_Internal.h>
-#import <MapboxCommon/MBXOnBillingServiceError_Internal.h>
-#import <MapboxCommon/MBXSessionSKUIdentifier_Internal.h>
-#import <MapboxCommon/MBXUserSKUIdentifier_Internal.h>
+#import "MBXBillingSessionStatus_Internal.h"
+#import "MBXOnBillingServiceError_Internal.h"
+#import "MBXSessionSKUIdentifier_Internal.h"
+#import "MBXUserSKUIdentifier_Internal.h"
 
 NS_SWIFT_NAME(BillingServiceInterface)
 @protocol MBXBillingServiceInterface

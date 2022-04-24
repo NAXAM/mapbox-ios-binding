@@ -1,9 +1,9 @@
 // This file is generated and will be overwritten automatically.
 
-#import <MapboxCoreMaps/MBMOfflineRegionManager.h>
-#import <MapboxCoreMaps/MBMOfflineDatabaseMergeCallback_Internal.h>
-#import <MapboxCoreMaps/MBMOfflineRegionCallback_Internal.h>
-#import <MapboxCoreMaps/MBMOfflineRegionCreateCallback_Internal.h>
+#import "MBMOfflineRegionManager.h"
+#import "MBMOfflineDatabaseMergeCallback_Internal.h"
+#import "MBMOfflineRegionCallback_Internal.h"
+#import "MBMOfflineRegionCreateCallback_Internal.h"
 
 @interface MBMOfflineRegionManager ()
 - (void)getOfflineRegionsForCallback:(nonnull MBMOfflineRegionCallback)callback;

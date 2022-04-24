@@ -97,33 +97,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Naxam.Mapbox.iOS">
-      <HintPath>..\..\Naxam.Mapbox.iOS\bin\Release\Naxam.Mapbox.iOS.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -168,9 +141,25 @@
       <Project>{A80B2873-6EAF-48A1-8445-2896815EFEE0}</Project>
       <Name>Naxam.Mapbox.Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Naxam.Mapbox.iOS\Naxam.Mapbox.iOS.csproj">
+    <ProjectReference Include="..\..\libs\MapboxMobileEvents.iOS\MapboxMobileEvents.iOS.csproj">
+      <Project>{451C5BBC-A76F-4B90-B13D-394006A593FA}</Project>
+      <Name>MapboxMobileEvents.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\MapboxTurf.iOS\MapboxTurf.iOS.csproj">
+      <Project>{F6367818-1DD9-425C-9D60-B0434617FBFF}</Project>
+      <Name>MapboxTurf.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\MapboxCoreMaps.iOS\MapboxCoreMaps.iOS.csproj">
+      <Project>{E1105607-4EE9-4E78-AEF5-53EC6D02F081}</Project>
+      <Name>MapboxCoreMaps.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\MapboxMaps.iOS\MapboxMaps.iOS.csproj">
       <Project>{682AEE9E-B4F4-4BED-8D14-23582E4992FE}</Project>
       <Name>MapboxMaps.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\MapboxCommon.iOS\MapboxCommon.iOS.csproj">
+      <Project>{3788F231-896A-49C7-A28C-CE655F7B2A8E}</Project>
+      <Name>MapboxCommon.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

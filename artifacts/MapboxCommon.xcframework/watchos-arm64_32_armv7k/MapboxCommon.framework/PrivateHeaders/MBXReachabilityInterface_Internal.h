@@ -1,8 +1,8 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCommon/MBXNetworkStatus_Internal.h>
-#import <MapboxCommon/MBXReachabilityChanged_Internal.h>
+#import "MBXNetworkStatus_Internal.h"
+#import "MBXReachabilityChanged_Internal.h"
 
 NS_SWIFT_NAME(ReachabilityInterface)
 @protocol MBXReachabilityInterface

@@ -1,6 +1,6 @@
 // This file is generated and will be overwritten automatically.
 
-#import <MapboxCommon/MBXOfflineSwitch.h>
+#import "MBXOfflineSwitch.h"
 
 @interface MBXOfflineSwitch ()
 - (void)registerObserverForObserver:(nonnull id<MBXOfflineSwitchObserver>)observer;

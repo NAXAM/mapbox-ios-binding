@@ -1,8 +1,8 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCoreMaps/MBMCancelTileFunctionCallback.h>
-#import <MapboxCoreMaps/MBMFetchTileFunctionCallback.h>
+#import "MBMCancelTileFunctionCallback.h"
+#import "MBMFetchTileFunctionCallback.h"
 
 @class MBMTileOptions;
 

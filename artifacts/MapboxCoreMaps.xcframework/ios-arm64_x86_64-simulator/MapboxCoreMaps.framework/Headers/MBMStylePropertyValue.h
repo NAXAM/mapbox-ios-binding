@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCoreMaps/MBMStylePropertyValueKind.h>
+#import "MBMStylePropertyValueKind.h"
 
 /** Holds a style property value with meta data. */
 NS_SWIFT_NAME(StylePropertyValue)

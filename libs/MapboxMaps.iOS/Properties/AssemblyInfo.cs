@@ -11,13 +11,13 @@ using Foundation;
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle("Naxam.Mapbox.iOS")]
-[assembly: AssemblyDescription("Xamarin.iOS binding library for Mapbox SDK")]
+[assembly: AssemblyTitle("MapboxMaps.iOS")]
+[assembly: AssemblyDescription("Xamarin.iOS binding library for MapboxMaps")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("NAXAM CO.,LTD")]
-[assembly: AssemblyProduct("X Bindings")]
-[assembly: AssemblyCopyright("Copyright @ 2019 NAXAM")]
-[assembly: AssemblyTrademark("NAXAM")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("")]
+[assembly: AssemblyCopyright("Copyright @ 2022 tuyen-vuduc")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".

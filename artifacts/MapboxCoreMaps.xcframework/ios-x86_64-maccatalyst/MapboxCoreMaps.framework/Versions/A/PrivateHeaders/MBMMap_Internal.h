@@ -1,10 +1,10 @@
 // This file is generated and will be overwritten automatically.
 
-#import <MapboxCoreMaps/MBMMap.h>
-#import <MapboxCoreMaps/MBMAsyncOperationResultCallback_Internal.h>
-#import <MapboxCoreMaps/MBMQueryFeatureExtensionCallback_Internal.h>
-#import <MapboxCoreMaps/MBMQueryFeatureStateCallback_Internal.h>
-#import <MapboxCoreMaps/MBMQueryFeaturesCallback_Internal.h>
+#import "MBMMap.h"
+#import "MBMAsyncOperationResultCallback_Internal.h"
+#import "MBMQueryFeatureExtensionCallback_Internal.h"
+#import "MBMQueryFeatureStateCallback_Internal.h"
+#import "MBMQueryFeaturesCallback_Internal.h"
 
 @interface MBMMap ()
 - (nonnull instancetype)initWithClient:(nonnull id<MBMMapClient>)client

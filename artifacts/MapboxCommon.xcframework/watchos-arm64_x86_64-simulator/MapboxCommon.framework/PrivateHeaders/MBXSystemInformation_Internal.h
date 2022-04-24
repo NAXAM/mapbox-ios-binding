@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCommon/MBXPlatform_Internal.h>
+#import "MBXPlatform_Internal.h"
 
 NS_SWIFT_NAME(SystemInformation)
 __attribute__((visibility ("default")))

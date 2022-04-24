@@ -1,6 +1,6 @@
 // This file is generated and will be overwritten automatically.
 
-#import <MapboxCoreMaps/MBMStyleManager.h>
+#import "MBMStyleManager.h"
 
 @interface MBMStyleManager ()
 - (nonnull MBXExpected *)addStyleLayerForProperties:(nonnull id)properties

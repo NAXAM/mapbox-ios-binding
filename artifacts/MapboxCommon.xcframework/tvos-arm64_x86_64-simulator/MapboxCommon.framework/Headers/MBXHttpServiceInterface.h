@@ -1,9 +1,9 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCommon/MBXDownloadStatusCallback.h>
-#import <MapboxCommon/MBXHttpResponseCallback.h>
-#import <MapboxCommon/MBXResultCallback.h>
+#import "MBXDownloadStatusCallback.h"
+#import "MBXHttpResponseCallback.h"
+#import "MBXResultCallback.h"
 
 @class MBXDownloadOptions;
 @class MBXHttpRequest;

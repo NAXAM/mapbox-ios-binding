@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCoreMaps/MBMResponseErrorReason.h>
+#import "MBMResponseErrorReason.h"
 
 /** Describes an offline request response error. */
 NS_SWIFT_NAME(ResponseError)

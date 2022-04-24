@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCoreMaps/MBMOfflineRegionDownloadState.h>
+#import "MBMOfflineRegionDownloadState.h"
 
 /**
  * A region's status includes its active/inactive state as well as counts

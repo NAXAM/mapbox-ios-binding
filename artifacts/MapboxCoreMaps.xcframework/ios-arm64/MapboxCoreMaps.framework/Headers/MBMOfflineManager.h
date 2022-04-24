@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCoreMaps/MBMStylePackLoadProgressCallback.h>
+#import "MBMStylePackLoadProgressCallback.h"
 
 @class MBMResourceOptions;
 @class MBMStylePackLoadOptions;

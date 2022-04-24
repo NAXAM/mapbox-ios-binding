@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCoreMaps/MBMGlyphsRasterizationMode.h>
+#import "MBMGlyphsRasterizationMode.h"
 
 /** The `style pack` represents a stored style package. */
 NS_SWIFT_NAME(StylePack)

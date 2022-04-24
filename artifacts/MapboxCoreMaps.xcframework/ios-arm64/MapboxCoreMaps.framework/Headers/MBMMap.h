@@ -2,13 +2,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import <MapboxCoreMaps/MBMConstrainMode.h>
-#import <MapboxCoreMaps/MBMMapDebugOptions.h>
-#import <MapboxCoreMaps/MBMNorthOrientation.h>
-#import <MapboxCoreMaps/MBMViewportMode.h>
+#import "MBMConstrainMode.h"
+#import "MBMMapDebugOptions.h"
+#import "MBMNorthOrientation.h"
+#import "MBMViewportMode.h"
 @class MBXExpected;
 @class MBXFeature;
-#import <MapboxCoreMaps/MBMCameraManager.h>
+#import "MBMCameraManager.h"
 
 @class MBMMapMemoryBudget;
 @class MBMMapOptions;

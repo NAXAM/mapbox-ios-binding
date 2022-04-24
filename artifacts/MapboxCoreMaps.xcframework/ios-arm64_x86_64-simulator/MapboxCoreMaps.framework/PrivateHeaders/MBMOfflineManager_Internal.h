@@ -1,9 +1,9 @@
 // This file is generated and will be overwritten automatically.
 
-#import <MapboxCoreMaps/MBMOfflineManager.h>
-#import <MapboxCoreMaps/MBMStylePackCallback_Internal.h>
-#import <MapboxCoreMaps/MBMStylePackMetadataCallback_Internal.h>
-#import <MapboxCoreMaps/MBMStylePacksCallback_Internal.h>
+#import "MBMOfflineManager.h"
+#import "MBMStylePackCallback_Internal.h"
+#import "MBMStylePackMetadataCallback_Internal.h"
+#import "MBMStylePacksCallback_Internal.h"
 
 @interface MBMOfflineManager ()
 - (nonnull MBXCancelable *)loadStylePackForStyleURI:(nonnull NSString *)styleURI

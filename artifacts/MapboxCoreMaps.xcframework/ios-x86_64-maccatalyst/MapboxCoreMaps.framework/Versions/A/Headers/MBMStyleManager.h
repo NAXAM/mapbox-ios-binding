@@ -3,7 +3,7 @@
 #import <Foundation/Foundation.h>
 @class MBXExpected;
 @class MBXFeature;
-#import <MapboxCoreMaps/MBMObservable.h>
+#import "MBMObservable.h"
 
 @class MBMCameraOptions;
 @class MBMCanonicalTileID;

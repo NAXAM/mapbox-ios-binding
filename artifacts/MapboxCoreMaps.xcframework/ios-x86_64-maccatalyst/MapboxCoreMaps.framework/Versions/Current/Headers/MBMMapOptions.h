@@ -1,10 +1,10 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCoreMaps/MBMConstrainMode.h>
-#import <MapboxCoreMaps/MBMContextMode.h>
-#import <MapboxCoreMaps/MBMNorthOrientation.h>
-#import <MapboxCoreMaps/MBMViewportMode.h>
+#import "MBMConstrainMode.h"
+#import "MBMContextMode.h"
+#import "MBMNorthOrientation.h"
+#import "MBMViewportMode.h"
 
 @class MBMGlyphsRasterizationOptions;
 @class MBMSize;

@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import <MapboxCommon/MBXNetworkRestriction.h>
+#import "MBXNetworkRestriction.h"
 @class MBXGeometry;
 
 @class MBXTilesetDescriptor;

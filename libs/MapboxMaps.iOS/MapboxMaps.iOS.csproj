@@ -47,16 +47,6 @@
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\frameworks\Mapbox.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-      <IsCxx>True</IsCxx>
-      <LinkerFlags>-ObjC</LinkerFlags>
-      <Frameworks>GLKit</Frameworks>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Settings.bundle\ar.lproj\Root.strings" />
     <BundleResource Include="Resources\Settings.bundle\Base.lproj\Root.strings" />
     <BundleResource Include="Resources\Settings.bundle\bg.lproj\Root.strings" />
@@ -89,6 +79,18 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Resources\Settings.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\artifacts\MapboxMaps.xcframework">
+      <Kind>Static</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MapboxCoreMaps.iOS\MapboxCoreMaps.iOS.csproj">
+      <Project>{E1105607-4EE9-4E78-AEF5-53EC6D02F081}</Project>
+      <Name>MapboxCoreMaps.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

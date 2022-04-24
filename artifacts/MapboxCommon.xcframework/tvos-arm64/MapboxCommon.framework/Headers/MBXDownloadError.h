@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCommon/MBXDownloadErrorCode.h>
+#import "MBXDownloadErrorCode.h"
 
 /** Structure to hold error information about download request. */
 NS_SWIFT_NAME(DownloadError)

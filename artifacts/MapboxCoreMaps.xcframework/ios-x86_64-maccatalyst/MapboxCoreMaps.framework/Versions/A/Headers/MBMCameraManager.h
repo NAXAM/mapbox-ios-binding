@@ -4,7 +4,7 @@
 #import <CoreLocation/CoreLocation.h>
 @class MBXExpected;
 @class MBXGeometry;
-#import <MapboxCoreMaps/MBMStyleManager.h>
+#import "MBMStyleManager.h"
 
 @class MBMCameraBounds;
 @class MBMCameraBoundsOptions;

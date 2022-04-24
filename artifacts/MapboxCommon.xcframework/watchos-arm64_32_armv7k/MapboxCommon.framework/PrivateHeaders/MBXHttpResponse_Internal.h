@@ -1,6 +1,6 @@
 // This file is generated and will be overwritten automatically.
 
-#import <MapboxCommon/MBXHttpResponse.h>
+#import "MBXHttpResponse.h"
 
 @interface MBXHttpResponse ()
 - (nonnull instancetype)initWithRequest:(nonnull MBXHttpRequest *)request

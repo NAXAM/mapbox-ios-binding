@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCoreMaps/MBMGlyphsRasterizationMode.h>
+#import "MBMGlyphsRasterizationMode.h"
 
 /** Describes the glyphs rasterization option values. */
 NS_SWIFT_NAME(GlyphsRasterizationOptions)

@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCoreMaps/MBMStylePackErrorType.h>
+#import "MBMStylePackErrorType.h"
 
 /** Describes a style package load request error. */
 NS_SWIFT_NAME(StylePackError)

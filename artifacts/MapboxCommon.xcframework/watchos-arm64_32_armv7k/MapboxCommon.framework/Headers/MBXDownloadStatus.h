@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-#import <MapboxCommon/MBXDownloadState.h>
+#import "MBXDownloadState.h"
 @class MBXExpected;
 
 @class MBXDownloadError;
