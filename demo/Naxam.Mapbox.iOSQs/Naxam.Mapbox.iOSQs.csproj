@@ -164,13 +164,13 @@
     <Compile Include="LayersListViewController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Naxam.Mapbox.Common\Naxam.Mapbox.Common.csproj">
+    <ProjectReference Include="..\Naxam.Mapbox.Shared\Naxam.Mapbox.Shared.csproj">
       <Project>{A80B2873-6EAF-48A1-8445-2896815EFEE0}</Project>
-      <Name>Naxam.Mapbox.Common</Name>
+      <Name>Naxam.Mapbox.Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Naxam.Mapbox.iOS\Naxam.Mapbox.iOS.csproj">
       <Project>{682AEE9E-B4F4-4BED-8D14-23582E4992FE}</Project>
-      <Name>Naxam.Mapbox.iOS</Name>
+      <Name>MapboxMaps.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

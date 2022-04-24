@@ -1,0 +1,6 @@
+framework module MapboxCoreMaps {
+  umbrella header "MapboxCoreMaps.h"
+
+  export *
+  module * { export * }
+}

@@ -4,7 +4,7 @@ using System.Linq;
 using Foundation;
 using Mapbox;
 using Masonry;
-using Naxam.Mapbox.Common;
+using Naxam.Mapbox.Shared;
 using Newtonsoft.Json.Linq;
 using UIKit;
 

@@ -3,18 +3,18 @@
     <metadata>
         <!-- Required elements-->
         <id>Naxam.Mapbox.iOS</id>
-        <version>5.4.0</version>
+        <version>10.4.3</version>
         <authors>NAXAM</authors>
         <owners>NAXAM CO.,LTD</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <title>Naxam - Mapbox iOS</title>
-        <summary>Xamarin binding library for Mapbox iOS SDK</summary>
-        <description>Xamarin.iOS binding library for Mapbox SDK</description>
-        <releaseNotes>Mapbox iOS v5.3</releaseNotes>
+        <title>Naxam - MapboxMaps iOS</title>
+        <summary>Xamarin.iOS binding library for MapboxMaps</summary>
+        <description>Xamarin.iOS binding library for MapboxMaps</description>
+        <releaseNotes>Mapbox iOS v10.4.3</releaseNotes>
         <iconUrl>https://avatars0.githubusercontent.com/u/600935</iconUrl>
         <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
-        <projectUrl>https://github.com/kanvuduc/mapbox-ios-binding</projectUrl>
-        <copyright>Copyright (c) 2019 NAXAM</copyright>
+        <projectUrl>https://github.com/tuyen-vuduc/mapbox-ios-binding</projectUrl>
+        <copyright>Copyright (c) 2022 tuyen-vuduc</copyright>
         <tags>Xamarin.iOS, Mapbox</tags>
         <dependencies>
         </dependencies>
@@ -22,7 +22,6 @@
     <!-- Optional 'files' node -->
     <files>
         <!--iOS-->
-        <file src="Naxam.Mapbox.iOS/bin/Release/Naxam.Mapbox.iOS.dll" target="lib/Xamarin.iOS10/Naxam.Mapbox.iOS.dll" />
-        <!--<file src="Naxam.Mapbox.iOS/bin/Release/Naxam.Mapbox.iOS.xml" target="lib/Xamarin.iOS10/Naxam.Mapbox.iOS.xml" />-->
+        <file src="libs/MapboxMaps.iOS/bin/Release/Naxam.Mapbox.iOS.dll" target="lib/Xamarin.iOS10/MapboxMaps.iOS.dll" />
     </files>
 </package>

@@ -1,0 +1,18 @@
+// This file is generated and will be overwritten automatically.
+
+#import "MBMStylePropertyValueKind.h"
+#import "MBMStyleObjectInfo.h"
+#import "MBMImage.h"
+#import "MBMImageStretches.h"
+#import "MBMImageContent.h"
+#import "MBMTransitionOptions.h"
+#import "MBMCanonicalTileID.h"
+#import "MBMTileOptions.h"
+#import "MBMCustomGeometrySourceOptions.h"
+#import "MBMStylePropertyValue.h"
+#import "MBMCustomLayerRenderParameters.h"
+#import "MBMStyleManager.h"
+#import "MBMElevationData.h"
+#import "MBMCustomLayerHost.h"
+#import "MBMFetchTileFunctionCallback.h"
+#import "MBMCancelTileFunctionCallback.h"

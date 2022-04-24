@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{682AEE9E-B4F4-4BED-8D14-23582E4992FE}</ProjectGuid>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MapboxMaps</RootNamespace>
+    <AssemblyName>MapboxMaps.iOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>Mapbox.iOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile></DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extras.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\frameworks\Mapbox.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+      <IsCxx>True</IsCxx>
+      <LinkerFlags>-ObjC</LinkerFlags>
+      <Frameworks>GLKit</Frameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Settings.bundle\ar.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\Base.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\bg.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\ca.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\cs.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\da.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\de.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\en.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\es.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\fi.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\fr.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\gl.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\he.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\hu.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\it.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\ko.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\lt.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\nl.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\pl.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\pt-BR.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\pt-PT.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\Root.plist" />
+    <BundleResource Include="Resources\Settings.bundle\ru.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\sv.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\uk.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\vi.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\zh-Hans.lproj\Root.strings" />
+    <BundleResource Include="Resources\Settings.bundle\zh-Hant.lproj\Root.strings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Settings.bundle\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+</Project>
