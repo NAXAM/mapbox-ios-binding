@@ -50,6 +50,7 @@
     <NativeReference Include="..\..\artifacts\Turf.xcframework\ios-arm64\Turf.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
+      <SmartLink>True</SmartLink>
     </NativeReference>
   </ItemGroup>
   <ItemGroup>
