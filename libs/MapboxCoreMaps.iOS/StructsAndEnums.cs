@@ -1,4 +1,4 @@
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using Foundation;
 using MapboxCoreMaps;
 using ObjCRuntime;
@@ -93,19 +93,6 @@ namespace MapboxCoreMaps
 		DoesNotExist,
 		DiskFull,
 		Other
-	}
-
-	static class CFunctions
-	{
-		// extern NSString * MBMStylePackErrorTypeToString (MBMStylePackErrorType style_pack_error_type);
-		[DllImport ("__Internal")]
-		[Verify (PlatformInvoke)]
-		static extern NSString MBMStylePackErrorTypeToString (MBMStylePackErrorType style_pack_error_type);
-
-		// extern NSString * MBMTileStoreUsageModeToString (MBMTileStoreUsageMode tile_store_usage_mode);
-		[DllImport ("__Internal")]
-		[Verify (PlatformInvoke)]
-		static extern NSString MBMTileStoreUsageModeToString (MBMTileStoreUsageMode tile_store_usage_mode);
 	}
 
 	[Native]

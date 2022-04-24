@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using CoreLocation;
 using Foundation;
 using MapboxMobileEvents;
@@ -7,16 +7,15 @@ using ObjCRuntime;
 namespace MapboxMobileEvents
 {
 	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
-		// extern double MapboxMobileEventsVersionNumber;
-		[Field ("MapboxMobileEventsVersionNumber", "__Internal")]
-		double MapboxMobileEventsVersionNumber { get; }
+		//// extern double MapboxMobileEventsVersionNumber;
+		//[Field ("MapboxMobileEventsVersionNumber", "__Internal")]
+		//double MapboxMobileEventsVersionNumber { get; }
 
-		// extern const unsigned char [] MapboxMobileEventsVersionString;
-		[Field ("MapboxMobileEventsVersionString", "__Internal")]
-		byte[] MapboxMobileEventsVersionString { get; }
+		//// extern const unsigned char [] MapboxMobileEventsVersionString;
+		//[Field ("MapboxMobileEventsVersionString", "__Internal")]
+		//byte[] MapboxMobileEventsVersionString { get; }
 
 		// extern NSString *const MMEAPIClientBaseEventsURL;
 		[Field ("MMEAPIClientBaseEventsURL", "__Internal")]
@@ -603,8 +602,6 @@ namespace MapboxMobileEvents
 		NSString MMEErrorDomain { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const MMEErrorEventAttributesKey;
@@ -745,15 +742,16 @@ namespace MapboxMobileEvents
 		[Export ("debugEventWithException:")]
 		MMEEvent DebugEventWithException (NSException except);
 
-		// +(instancetype _Nonnull)locationEventWithAttributes:(NSDictionary * _Nonnull)attributes instanceIdentifer:(NSString * _Nonnull)instanceIdentifer commonEventData:(MMECommonEventData * _Nonnull)commonEventData;
-		[Static]
-		[Export ("locationEventWithAttributes:instanceIdentifer:commonEventData:")]
-		MMEEvent LocationEventWithAttributes (NSDictionary attributes, string instanceIdentifer, MMECommonEventData commonEventData);
+		// TODO Missing MMECommonEventData
+		//// +(instancetype _Nonnull)locationEventWithAttributes:(NSDictionary * _Nonnull)attributes instanceIdentifer:(NSString * _Nonnull)instanceIdentifer commonEventData:(MMECommonEventData * _Nonnull)commonEventData;
+		//[Static]
+		//[Export ("locationEventWithAttributes:instanceIdentifer:commonEventData:")]
+		//MMEEvent LocationEventWithAttributes (NSDictionary attributes, string instanceIdentifer, MMECommonEventData commonEventData);
 
-		// +(instancetype _Nonnull)mapLoadEventWithDateString:(NSString * _Nonnull)dateString commonEventData:(MMECommonEventData * _Nonnull)commonEventData;
-		[Static]
-		[Export ("mapLoadEventWithDateString:commonEventData:")]
-		MMEEvent MapLoadEventWithDateString (string dateString, MMECommonEventData commonEventData);
+		//// +(instancetype _Nonnull)mapLoadEventWithDateString:(NSString * _Nonnull)dateString commonEventData:(MMECommonEventData * _Nonnull)commonEventData;
+		//[Static]
+		//[Export ("mapLoadEventWithDateString:commonEventData:")]
+		//MMEEvent MapLoadEventWithDateString (string dateString, MMECommonEventData commonEventData);
 
 		// +(instancetype _Nonnull)eventWithName:(NSString * _Nonnull)eventName attributes:(NSDictionary * _Nonnull)attributes;
 		[Static]
@@ -827,9 +825,10 @@ namespace MapboxMobileEvents
 		[Export ("skuId")]
 		string SkuId { get; set; }
 
-		// @property (nonatomic) id<MMEAPIClient> _Nonnull apiClient;
-		[Export ("apiClient", ArgumentSemantic.Assign)]
-		MMEAPIClient ApiClient { get; set; }
+		// TODO Missing MMEAPIClient
+		//// @property (nonatomic) id<MMEAPIClient> _Nonnull apiClient;
+		//[Export ("apiClient", ArgumentSemantic.Assign)]
+		//MMEAPIClient ApiClient { get; set; }
 
 		// +(instancetype _Nonnull)sharedManager;
 		[Static]
@@ -874,8 +873,7 @@ namespace MapboxMobileEvents
 
 		// -(void)postMetadata:(NSArray * _Nonnull)metadata filePaths:(NSArray * _Nonnull)filePaths completionHandler:(void (^ _Nullable)(NSError * _Nullable))completionHandler;
 		[Export ("postMetadata:filePaths:completionHandler:")]
-		[Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
-		void PostMetadata (NSObject[] metadata, NSObject[] filePaths, [NullAllowed] Action<NSError> completionHandler);
+		void PostMetadata (NSArray metadata, NSArray filePaths, [NullAllowed] Action<NSError> completionHandler);
 
 		// -(MMEEvent * _Nonnull)reportError:(NSError * _Nonnull)eventsError;
 		[Export ("reportError:")]
@@ -927,103 +925,144 @@ namespace MapboxMobileEvents
 		NSUserDefaults Mme_configuration ();
 
 		// @property (readonly, nonatomic) NSTimeInterval mme_startupDelay;
-		[Export ("mme_startupDelay")]
-		double Mme_startupDelay { get; }
+		[Static]
+		[Export("mme_startupDelay")]
+		double Mme_startupDelay();
 
 		// @property (readonly, nonatomic) NSUInteger mme_eventFlushCount;
-		[Export ("mme_eventFlushCount")]
-		nuint Mme_eventFlushCount { get; }
+		[Static]
+		[Export("mme_eventFlushCount")]
+		nuint Mme_eventFlushCount();
 
 		// @property (readonly, nonatomic) NSTimeInterval mme_eventFlushInterval;
-		[Export ("mme_eventFlushInterval")]
-		double Mme_eventFlushInterval { get; }
+		[Static]
+		[Export("mme_eventFlushInterval")]
+		double Mme_eventFlushInterval();
 
 		// @property (readonly, nonatomic) NSTimeInterval mme_identifierRotationInterval;
-		[Export ("mme_identifierRotationInterval")]
-		double Mme_identifierRotationInterval { get; }
+		[Static]
+		[Export("mme_identifierRotationInterval")]
+		double Mme_identifierRotationInterval();
 
 		// @property (readonly, nonatomic) NSTimeInterval mme_configUpdateInterval;
-		[Export ("mme_configUpdateInterval")]
-		double Mme_configUpdateInterval { get; }
+		[Static]
+		[Export("mme_configUpdateInterval")]
+		double Mme_configUpdateInterval();
 
 		// @property (readonly, nonatomic) NSString * _Nonnull mme_eventTag;
-		[Export ("mme_eventTag")]
-		string Mme_eventTag { get; }
+		[Static]
+		[Export("mme_eventTag")]
+		string Mme_eventTag();
 
 		// @property (copy, nonatomic, setter = mme_setAccessToken:) NSString * _Nonnull mme_accessToken;
-		[Export ("mme_accessToken")]
-		string Mme_accessToken { get; [Bind ("mme_setAccessToken:")] set; }
+		[Static]
+		[Export("mme_accessToken")]
+		string Mme_accessToken();
+		[Static]
+		[Export("mme_setAccessToken:")]
+		void mme_SetAccessToken(string value);
 
 		// @property (copy, nonatomic, setter = mme_setLegacyUserAgentBase:) NSString * _Nonnull mme_legacyUserAgentBase;
+		[Static]
 		[Export ("mme_legacyUserAgentBase")]
 		string Mme_legacyUserAgentBase { get; [Bind ("mme_setLegacyUserAgentBase:")] set; }
+		[Static]
+		[Export("mme_setLegacyUserAgentBase:")]
+		void Mme_setLegacyUserAgentBase(string value);
 
 		// @property (copy, nonatomic, setter = mme_setLegacyHostSDKVersion:) NSString * _Nonnull mme_legacyHostSDKVersion;
-		[Export ("mme_legacyHostSDKVersion")]
-		string Mme_legacyHostSDKVersion { get; [Bind ("mme_setLegacyHostSDKVersion:")] set; }
+		[Static]
+		[Export("mme_legacyHostSDKVersion")]
+		string Mme_legacyHostSDKVersion();
+		[Static]
+		[Export("mme_setLegacyHostSDKVersion:")]
+		void Mme_SetLegacyHostSDKVersion(string value);
 
 		// @property (assign, nonatomic, setter = mme_setIsCNRegion:) BOOL mme_isCNRegion;
-		[Export ("mme_isCNRegion")]
-		bool Mme_isCNRegion { get; [Bind ("mme_setIsCNRegion:")] set; }
+		[Static]
+		[Export("mme_isCNRegion")]
+		bool Mme_isCNRegion();
+		[Static]
+		[Export("mme_setIsCNRegion:")]
+		void mme_setIsCNRegion(bool value);
 
-		// @property (readonly, nonatomic) NSURL * _Nonnull mme_APIServiceURL;
-		[Export ("mme_APIServiceURL")]
-		NSURL Mme_APIServiceURL { get; }
+		// @property (readonly, nonatomic) NSUrl * _Nonnull mme_APIServiceURL;
+		[Static]
+		[Export("mme_APIServiceURL")]
+		NSUrl Mme_APIServiceURL();
 
-		// @property (readonly, nonatomic) NSURL * _Nonnull mme_eventsServiceURL;
-		[Export ("mme_eventsServiceURL")]
-		NSURL Mme_eventsServiceURL { get; }
+		// @property (readonly, nonatomic) NSUrl * _Nonnull mme_eventsServiceURL;
+		[Static]
+		[Export("mme_eventsServiceURL")]
+		NSUrl Mme_eventsServiceURL();
 
-		// @property (readonly, nonatomic) NSURL * _Nonnull mme_configServiceURL;
-		[Export ("mme_configServiceURL")]
-		NSURL Mme_configServiceURL { get; }
+		// @property (readonly, nonatomic) NSUrl * _Nonnull mme_configServiceURL;
+		[Static]
+		[Export("mme_configServiceURL")]
+		NSUrl Mme_configServiceURL();
 
 		// @property (readonly, nonatomic) NSString * _Nonnull mme_userAgentString;
-		[Export ("mme_userAgentString")]
-		string Mme_userAgentString { get; }
+		[Static]
+		[Export("mme_userAgentString")]
+		string Mme_userAgentString();
 
 		// @property (readonly, nonatomic) NSString * _Nonnull mme_legacyUserAgentString;
-		[Export ("mme_legacyUserAgentString")]
-		string Mme_legacyUserAgentString { get; }
+		[Static]
+		[Export("mme_legacyUserAgentString")]
+		string Mme_legacyUserAgentString();
 
-		// @property (nonatomic, setter = mme_setConfigUpdateDate:) MMEDate * _Nullable mme_configUpdateDate;
-		[NullAllowed, Export ("mme_configUpdateDate", ArgumentSemantic.Assign)]
-		MMEDate Mme_configUpdateDate { get; [Bind ("mme_setConfigUpdateDate:")] set; }
+		// TODO Missing MMEDate
+		//// @property (nonatomic, setter = mme_setConfigUpdateDate:) MMEDate * _Nullable mme_configUpdateDate;
+		//[Static]
+		//[NullAllowed, Export ("mme_configUpdateDate", ArgumentSemantic.Assign)]
+		//MMEDate Mme_configUpdateDate { get; [Bind ("mme_setConfigUpdateDate:")] set; }
 
 		// @property (nonatomic, setter = mme_setIsCollectionEnabled:) BOOL mme_isCollectionEnabled;
-		[Export ("mme_isCollectionEnabled")]
-		bool Mme_isCollectionEnabled { get; [Bind ("mme_setIsCollectionEnabled:")] set; }
+		[Static]
+		[Export("mme_isCollectionEnabled")]
+		bool Mme_isCollectionEnabled();
+		[Static]
+		[Export("mme_setIsCollectionEnabled:")]
+		void mme_SetIsCollectionEnabled(bool value);
 
 		// @property (readonly, nonatomic) BOOL mme_isCollectionEnabledInSimulator;
-		[Export ("mme_isCollectionEnabledInSimulator")]
-		bool Mme_isCollectionEnabledInSimulator { get; }
+		[Static]
+		[Export("mme_isCollectionEnabledInSimulator")]
+		bool Mme_isCollectionEnabledInSimulator();
 
 		// @property (readonly, nonatomic) BOOL mme_isCollectionEnabledInLowPowerMode;
-		[Export ("mme_isCollectionEnabledInLowPowerMode")]
-		bool Mme_isCollectionEnabledInLowPowerMode { get; }
+		[Static]
+		[Export("mme_isCollectionEnabledInLowPowerMode")]
+		bool Mme_isCollectionEnabledInLowPowerMode();
 
 		// @property (readonly, nonatomic) BOOL mme_isCollectionEnabledInBackground;
-		[Export ("mme_isCollectionEnabledInBackground")]
-		bool Mme_isCollectionEnabledInBackground { get; }
+		[Static]
+		[Export("mme_isCollectionEnabledInBackground")]
+		bool Mme_isCollectionEnabledInBackground();
 
 		// @property (readonly, nonatomic) NSTimeInterval mme_backgroundStartupDelay;
-		[Export ("mme_backgroundStartupDelay")]
-		double Mme_backgroundStartupDelay { get; }
+		[Static]
+		[Export("mme_backgroundStartupDelay")]
+		double Mme_backgroundStartupDelay();
 
 		// @property (readonly, nonatomic) CLLocationDistance mme_backgroundGeofence;
+		[Static]
 		[Export ("mme_backgroundGeofence")]
-		double Mme_backgroundGeofence { get; }
+		double Mme_backgroundGeofence();
 
 		// @property (readonly, nonatomic) CLLocationAccuracy mme_horizontalAccuracy;
+		[Static]
 		[Export ("mme_horizontalAccuracy")]
-		double Mme_horizontalAccuracy { get; }
+		double Mme_horizontalAccuracy();
 
 		// @property (readonly, nonatomic) NSArray<NSString *> * _Nonnull mme_certificateRevocationList;
+		[Static]
 		[Export ("mme_certificateRevocationList")]
-		string[] Mme_certificateRevocationList { get; }
+		string[] Mme_certificateRevocationList();
 
 		// @property (readonly, nonatomic) NSDictionary * _Nonnull mme_certificatePinningConfig;
-		[Export ("mme_certificatePinningConfig")]
-		NSDictionary Mme_certificatePinningConfig { get; }
+		[Static]
+		[Export("mme_certificatePinningConfig")]
+		NSDictionary Mme_certificatePinningConfig();
 	}
 }

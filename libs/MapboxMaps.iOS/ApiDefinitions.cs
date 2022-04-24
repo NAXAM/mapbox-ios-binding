@@ -1,75 +1,57 @@
-using System;
+﻿using System;
 using CoreLocation;
 using Foundation;
 using MapboxMaps;
 using ObjCRuntime;
+using UIKit;
 
 namespace MapboxMaps
 {
-	// @interface AppleLocationProvider : NSObject
-	[BaseType (typeof(NSObject), Name = "_TtC10MapboxMaps21AppleLocationProvider")]
-	interface AppleLocationProvider
-	{
-	}
+    // @interface AppleLocationProvider : NSObject
+    [BaseType(typeof(NSObject), Name = "_TtC10MapboxMaps21AppleLocationProvider")]
+    interface AppleLocationProvider : ICLLocationManagerDelegate
+    {
+        // -(void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+        [Export("locationManager:didUpdateLocations:")]
+        void LocationManager(CLLocationManager manager, CLLocation[] locations);
 
-	// @interface MapboxMaps_Swift_224 (AppleLocationProvider) <CLLocationManagerDelegate>
-	[Category]
-	[BaseType (typeof(AppleLocationProvider))]
-	interface AppleLocationProvider_MapboxMaps_Swift_224 : ICLLocationManagerDelegate
-	{
-		// -(void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
-		[Export ("locationManager:didUpdateLocations:")]
-		void LocationManager (CLLocationManager manager, CLLocation[] locations);
+        // -(void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateHeading:(CLHeading * _Nonnull)heading;
+        [Export("locationManager:didUpdateHeading:")]
+        void LocationManager(CLLocationManager manager, CLHeading heading);
 
-		// -(void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateHeading:(CLHeading * _Nonnull)heading;
-		[Export ("locationManager:didUpdateHeading:")]
-		void LocationManager (CLLocationManager manager, CLHeading heading);
+        // -(void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+        [Export("locationManager:didFailWithError:")]
+        void LocationManager(CLLocationManager manager, NSError error);
 
-		// -(void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
-		[Export ("locationManager:didFailWithError:")]
-		void LocationManager (CLLocationManager manager, NSError error);
+        // -(void)locationManagerDidChangeAuthorization:(CLLocationManager * _Nonnull)manager __attribute__((availability(ios, introduced=14.0)));
+        [iOS(14, 0)]
+        [Export("locationManagerDidChangeAuthorization:")]
+        void LocationManagerDidChangeAuthorization(CLLocationManager manager);
+    }
 
-		// -(void)locationManagerDidChangeAuthorization:(CLLocationManager * _Nonnull)manager __attribute__((availability(ios, introduced=14.0)));
-		[iOS (14,0)]
-		[Export ("locationManagerDidChangeAuthorization:")]
-		void LocationManagerDidChangeAuthorization (CLLocationManager manager);
-	}
+    // @interface BasicCameraAnimator : NSObject
+    [BaseType(typeof(NSObject), Name = "_TtC10MapboxMaps19BasicCameraAnimator")]
+    [DisableDefaultCtor]
+    interface BasicCameraAnimator
+    {
+    }
 
-	// @interface BasicCameraAnimator : NSObject
-	[BaseType (typeof(NSObject), Name = "_TtC10MapboxMaps19BasicCameraAnimator")]
-	[DisableDefaultCtor]
-	interface BasicCameraAnimator
-	{
-	}
+    // @interface FlyToCameraAnimator : NSObject
+    [BaseType(typeof(NSObject), Name = "_TtC10MapboxMaps19FlyToCameraAnimator")]
+    [DisableDefaultCtor]
+    interface FlyToCameraAnimator
+    {
+    }
 
-	// @interface FlyToCameraAnimator : NSObject
-	[BaseType (typeof(NSObject), Name = "_TtC10MapboxMaps19FlyToCameraAnimator")]
-	[DisableDefaultCtor]
-	interface FlyToCameraAnimator
-	{
-	}
+    // @interface Location : NSObject
+    [BaseType(typeof(NSObject), Name = "_TtC10MapboxMaps8Location")]
+    [DisableDefaultCtor]
+    interface Location
+    {
+    }
 
-	// @interface MapboxMaps_Swift_267
-	interface MapboxMaps_Swift_267
-	{
-		// -(BOOL)isEqual:(id _Nullable)object __attribute__((warn_unused_result("")));
-		[Export ("isEqual:")]
-		bool IsEqual ([NullAllowed] NSObject @object);
-
-		// @property (readonly, nonatomic) NSUInteger hash;
-		[Export ("hash")]
-		nuint Hash { }
-	}
-
-	// @interface Location : NSObject
-	[BaseType (typeof(NSObject), Name = "_TtC10MapboxMaps8Location")]
-	[DisableDefaultCtor]
-	interface Location
-	{
-	}
-
-	// @protocol LocationConsumer
-	/*
+    // @protocol LocationConsumer
+    /*
   Check whether adding [Model] to this declaration is appropriate.
   [Model] is used to generate a C# class that implements this protocol,
   and might be useful for protocols that consumers are supposed to implement,
@@ -77,51 +59,52 @@ namespace MapboxMaps
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP10MapboxMaps16LocationConsumer_")]
-	interface LocationConsumer
-	{
-		// @required -(void)locationUpdateWithNewLocation:(Location * _Nonnull)newLocation;
-		[Abstract]
-		[Export ("locationUpdateWithNewLocation:")]
-		void LocationUpdateWithNewLocation (Location newLocation);
-	}
+*/
+    [Protocol(Name = "_TtP10MapboxMaps16LocationConsumer_")]
+    interface LocationConsumer
+    {
+        // @required -(void)locationUpdateWithNewLocation:(Location * _Nonnull)newLocation;
+        [Abstract]
+        [Export("locationUpdateWithNewLocation:")]
+        void LocationUpdateWithNewLocation(Location newLocation);
+    }
 
-	// @interface LocationManager : NSObject
-	[BaseType (typeof(NSObject), Name = "_TtC10MapboxMaps15LocationManager")]
-	[DisableDefaultCtor]
-	interface LocationManager
-	{
-	}
+    // @interface LocationManager : NSObject
+    [BaseType(typeof(NSObject), Name = "_TtC10MapboxMaps15LocationManager")]
+    [DisableDefaultCtor]
+    interface LocationManager
+    {
+    }
 
-	// @protocol LocationPermissionsDelegate
-	[Protocol (Name = "_TtP10MapboxMaps27LocationPermissionsDelegate_"), Model (AutoGeneratedName = true)]
-	interface LocationPermissionsDelegate
-	{
-		// @optional -(void)locationManager:(LocationManager * _Nonnull)locationManager didFailToLocateUserWithError:(NSError * _Nonnull)error;
-		[Export ("locationManager:didFailToLocateUserWithError:")]
-		void DidFailToLocateUserWithError (LocationManager locationManager, NSError error);
+    // @protocol LocationPermissionsDelegate
+    [Protocol(Name = "_TtP10MapboxMaps27LocationPermissionsDelegate_"), Model(AutoGeneratedName = true)]
+    interface LocationPermissionsDelegate
+    {
+        // @optional -(void)locationManager:(LocationManager * _Nonnull)locationManager didFailToLocateUserWithError:(NSError * _Nonnull)error;
+        [Export("locationManager:didFailToLocateUserWithError:")]
+        void DidFailToLocateUserWithError(LocationManager locationManager, NSError error);
 
-		// @optional -(void)locationManager:(LocationManager * _Nonnull)locationManager didChangeAccuracyAuthorization:(CLAccuracyAuthorization)accuracyAuthorization;
-		[Export ("locationManager:didChangeAccuracyAuthorization:")]
-		void DidChangeAccuracyAuthorization (LocationManager locationManager, CLAccuracyAuthorization accuracyAuthorization);
-	}
+        // @optional -(void)locationManager:(LocationManager * _Nonnull)locationManager didChangeAccuracyAuthorization:(CLAccuracyAuthorization)accuracyAuthorization;
+        [Export("locationManager:didChangeAccuracyAuthorization:")]
+        void DidChangeAccuracyAuthorization(LocationManager locationManager, CLAccuracyAuthorization accuracyAuthorization);
+    }
 
-	// @interface MapInitOptions : NSObject
-	[BaseType (typeof(NSObject), Name = "_TtC10MapboxMaps14MapInitOptions")]
-	[DisableDefaultCtor]
-	interface MapInitOptions
-	{
-		// -(BOOL)isEqual:(id _Nullable)object __attribute__((warn_unused_result("")));
-		[Export ("isEqual:")]
-		bool IsEqual ([NullAllowed] NSObject @object);
+    // @interface MapInitOptions : NSObject
+    [BaseType(typeof(NSObject), Name = "_TtC10MapboxMaps14MapInitOptions")]
+    [DisableDefaultCtor]
+    interface MapInitOptions
+    {
+        // -(BOOL)isEqual:(id _Nullable)object __attribute__((warn_unused_result("")));
+        [Export("isEqual:")]
+        bool IsEqual([NullAllowed] NSObject @object);
 
-		// @property (readonly, nonatomic) NSUInteger hash;
-		[Export ("hash")]
-		nuint Hash { get; }
-	}
+        // @property (readonly, nonatomic) NSUInteger hash;
+        [Export("hash")]
+        nuint Hash { get; }
+    }
 
-	// @protocol MapInitOptionsProvider
-	/*
+    // @protocol MapInitOptionsProvider
+    /*
   Check whether adding [Model] to this declaration is appropriate.
   [Model] is used to generate a C# class that implements this protocol,
   and might be useful for protocols that consumers are supposed to implement,
@@ -129,57 +112,44 @@ namespace MapboxMaps
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP10MapboxMaps22MapInitOptionsProvider_")]
-	interface MapInitOptionsProvider
-	{
-		// @required -(MapInitOptions * _Nonnull)mapInitOptions __attribute__((warn_unused_result("")));
-		[Abstract]
-		[Export ("mapInitOptions")]
-		[Verify (MethodToProperty)]
-		MapInitOptions MapInitOptions { get; }
-	}
+*/
+    [Protocol(Name = "_TtP10MapboxMaps22MapInitOptionsProvider_"), Model]
+    [BaseType(typeof(NSObject))]
+    interface MapInitOptionsProvider
+    {
+        // @required -(MapInitOptions * _Nonnull)mapInitOptions __attribute__((warn_unused_result("")));
+        [Abstract]
+        [Export("mapInitOptions")]
+        MapInitOptions MapInitOptions();
+    }
 
-	// @interface MapboxMaps_Swift_345
-	interface MapboxMaps_Swift_345
-	{
-		// -(BOOL)isEqual:(id _Nullable)object __attribute__((warn_unused_result("")));
-		[Export ("isEqual:")]
-		bool IsEqual ([NullAllowed] NSObject @object);
+    // @interface MapView : UIView
+    [BaseType(typeof(UIView), Name = "_TtC10MapboxMaps7MapView")]
+    interface MapView
+    {
+        // // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)coder __attribute__((objc_designated_initializer));
+        // [Export("initWithCoder:")]
+        // [DesignatedInitializer]
+        // IntPtr Constructor(NSCoder coder);
 
-		// @property (readonly, nonatomic) NSUInteger hash;
-		[Export ("hash")]
-		nuint Hash { }
-	}
+        // -(void)awakeFromNib __attribute__((objc_requires_super));
+        [Export("awakeFromNib")]
+        [RequiresSuper]
+        void AwakeFromNib();
 
-	// @interface MapView : UIView
-	[Unavailable (PlatformName.iOSAppExtension)]
-	[BaseType (typeof(UIView), Name = "_TtC10MapboxMaps7MapView")]
-	interface MapView
-	{
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)coder __attribute__((objc_designated_initializer));
-		[Export ("initWithCoder:")]
-		[DesignatedInitializer]
-		IntPtr Constructor (NSCoder coder);
+        // -(void)layoutSubviews;
+        [Export("layoutSubviews")]
+        void LayoutSubviews();
 
-		// -(void)awakeFromNib __attribute__((objc_requires_super));
-		[Export ("awakeFromNib")]
-		[RequiresSuper]
-		void AwakeFromNib ();
+        // -(void)didMoveToWindow;
+        [Export("didMoveToWindow")]
+        void DidMoveToWindow();
+    }
 
-		// -(void)layoutSubviews;
-		[Export ("layoutSubviews")]
-		void LayoutSubviews ();
-
-		// -(void)didMoveToWindow;
-		[Export ("didMoveToWindow")]
-		void DidMoveToWindow ();
-	}
-
-	// @interface OrnamentsManager : NSObject
-	[Unavailable (PlatformName.iOSAppExtension)]
-	[BaseType (typeof(NSObject), Name = "_TtC10MapboxMaps16OrnamentsManager")]
-	[DisableDefaultCtor]
-	interface OrnamentsManager
-	{
-	}
+    // @interface OrnamentsManager : NSObject
+    [BaseType(typeof(NSObject), Name = "_TtC10MapboxMaps16OrnamentsManager")]
+    [DisableDefaultCtor]
+    interface OrnamentsManager
+    {
+    }
 }

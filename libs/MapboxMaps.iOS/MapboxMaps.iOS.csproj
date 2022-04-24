@@ -81,16 +81,16 @@
     <Folder Include="Resources\Settings.bundle\" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\artifacts\MapboxMaps.xcframework">
-      <Kind>Static</Kind>
-      <SmartLink>False</SmartLink>
-    </NativeReference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\MapboxCoreMaps.iOS\MapboxCoreMaps.iOS.csproj">
       <Project>{E1105607-4EE9-4E78-AEF5-53EC6D02F081}</Project>
       <Name>MapboxCoreMaps.iOS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\artifacts\MapboxMaps.xcframework\ios-arm64\MapboxMaps.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
