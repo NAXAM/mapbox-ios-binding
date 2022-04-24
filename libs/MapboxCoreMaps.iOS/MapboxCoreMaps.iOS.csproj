@@ -52,5 +52,11 @@
   <ItemGroup>
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MapboxCommon.iOS\MapboxCommon.iOS.csproj">
+      <Project>{3788F231-896A-49C7-A28C-CE655F7B2A8E}</Project>
+      <Name>MapboxCommon.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

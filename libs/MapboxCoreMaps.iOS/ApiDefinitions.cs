@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using CoreGraphics;
 using CoreLocation;
 using Foundation;
+using MapboxCommon;
 using MapboxCoreMaps;
 using ObjCRuntime;
 using UIKit;
