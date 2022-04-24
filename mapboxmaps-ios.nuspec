@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- Required elements-->
-        <id>Naxam.Mapbox.iOS</id>
+        <id>MapboxMaps.iOS</id>
         <version>10.4.3</version>
-        <authors>NAXAM</authors>
-        <owners>NAXAM CO.,LTD</owners>
+        <authors>tuyen-vuduc</authors>
+        <owners>tuyen-vuduc</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <title>Naxam - MapboxMaps iOS</title>
+        <title>MapboxMaps iOS</title>
         <summary>Xamarin.iOS binding library for MapboxMaps</summary>
         <description>Xamarin.iOS binding library for MapboxMaps</description>
         <releaseNotes>Mapbox iOS v10.4.3</releaseNotes>
@@ -22,6 +22,6 @@
     <!-- Optional 'files' node -->
     <files>
         <!--iOS-->
-        <file src="libs/MapboxMaps.iOS/bin/Release/Naxam.Mapbox.iOS.dll" target="lib/Xamarin.iOS10/MapboxMaps.iOS.dll" />
+        <file src="libs/MapboxMaps.iOS/bin/Release/MapboxMaps.iOS.dll" target="lib/Xamarin.iOS10/MapboxMaps.iOS.dll" />
     </files>
 </package>

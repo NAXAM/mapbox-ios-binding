@@ -5,7 +5,7 @@
 //
 using Foundation;
 
-namespace Naxam.Mapbox.iOSQs
+namespace Mapbox.iOSQs
 {
 	[Register("ViewController")]
 	partial class ViewController

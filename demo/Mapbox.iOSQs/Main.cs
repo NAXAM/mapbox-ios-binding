@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Naxam.Mapbox.iOSQs
+namespace Mapbox.iOSQs
 {
 	public class Application
 	{

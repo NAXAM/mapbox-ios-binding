@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Naxam.Mapbox.Common
+namespace Mapbox.Shared
 {
     public class RemoteLayer
     {

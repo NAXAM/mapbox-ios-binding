@@ -3,7 +3,7 @@ using UIKit;
 using Mapbox;
 using CoreGraphics;
 
-namespace Naxam.Mapbox.iOSQs
+namespace Mapbox.iOSQs
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
@@ -22,7 +22,6 @@ namespace Naxam.Mapbox.iOSQs
 		{
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
-            MGLAccountManager.AccessToken = "pk.eyJ1IjoibmF4YW10ZXN0IiwiYSI6ImNqNWtpaG1oYTJqZmQyd28yM2tsdDhucmEifQ.Zr35ENq9tziBBDAbdeU2dw";
 			//Window = new UIWindow(new CGRect(0,0,UIScreen.MainScreen.Bounds.Width,UIScreen.MainScreen.Bounds.Height));
 			//Window.MakeKeyAndVisible();
 			//Window.RootViewController = new UINavigationController(new LayersListViewController());
@@ -38,8 +37,7 @@ namespace Naxam.Mapbox.iOSQs
 		}
 
 		public override void DidEnterBackground(UIApplication application)
-		{
-			// Use this method to release shared resources, save user data, invalidate timers and store the application state.
+		{			// Use this method to release shared resources, save user data, invalidate timers and store the application state.
 			// If your application supports background exection this method is called instead of WillTerminate when the user quits.
 		}
 

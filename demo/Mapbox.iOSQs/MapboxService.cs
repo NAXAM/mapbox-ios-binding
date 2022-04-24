@@ -2,9 +2,10 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using ModernHttpClient;
+using Mapbox.Shared;
 using Newtonsoft.Json;
 
-namespace Naxam.Mapbox.Shared
+namespace Mapbox.Shared
 {
     public interface IMapboxService {
         Task<RemoteLayer[]> GetLayers(string owner, string styleId, string accessToken);

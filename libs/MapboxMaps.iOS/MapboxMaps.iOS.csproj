@@ -85,6 +85,10 @@
       <Project>{E1105607-4EE9-4E78-AEF5-53EC6D02F081}</Project>
       <Name>MapboxCoreMaps.iOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MapboxTurf.iOS\MapboxTurf.iOS.csproj">
+      <Project>{F6367818-1DD9-425C-9D60-B0434617FBFF}</Project>
+      <Name>MapboxTurf.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <NativeReference Include="..\..\artifacts\MapboxMaps.xcframework\ios-arm64\MapboxMaps.framework">
