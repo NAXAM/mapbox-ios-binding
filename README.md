@@ -13,8 +13,8 @@ Install-Package MapboxMapObjC.iOS
 
 ## Usage
 
-- 1) How to use: Please follow the official guide [here](https://www.mapbox.com/ios-sdk/).
-- 2) Atm, Xamarin.iOS not officially support XCFramework for a binding library yet: please download and include xcframeworks to your iOS project as below example
+- 1/ How to use: Please follow the official guide [here](https://www.mapbox.com/ios-sdk/).
+- 2/ Atm, Xamarin.iOS not officially support XCFramework for a binding library yet: please download and include xcframeworks to your iOS project as below example
 ```
   <ItemGroup>
     <NativeReference Include="..\..\artifacts\MapboxCommon.xcframework">
@@ -50,14 +50,14 @@ It takes time to do the binding library and/or upgrade it. Microsoft intends to 
 
 Here are steps if you want to make changes and/or upgrade to the libraries
 
-- 1) Download latest artifacts from Mapbox as per its installation guide
-- 2) Run `chmod +x ./gen.sh`
-- 3) Run `./gen.sh`
-- 4) Compile and correct any errors shown up
-- 5) Update `AssemblyInfo.cs` files with the right version number
-- 6) Update `*.nuspec` files to have the right version number
-- 7) Run `sh build.sh` to create nuget packages
-- 8) Commit and create a PR
+- 1/ Download latest artifacts from Mapbox as per its installation guide
+- 2/ Run `chmod +x ./gen.sh`
+- 3/ Run `./gen.sh`
+- 4/ Compile and correct any errors shown up
+- 5/ Update `AssemblyInfo.cs` files with the right version number
+- 6/ Update `*.nuspec` files to have the right version number
+- 7/ Run `sh build.sh` to create nuget packages
+- 8/ Commit and create a PR
 
 ## License
 
