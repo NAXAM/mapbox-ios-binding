@@ -10,11 +10,11 @@
                              receivedBytes:(uint64_t)receivedBytes
                           transferredBytes:(uint64_t)transferredBytes
                            downloadOptions:(nonnull MBXDownloadOptions *)downloadOptions
-                                httpResult:(nullable MBXExpected *)httpResult NS_REFINED_FOR_SWIFT;
+                                httpResult:(nullable MBXExpected<MBXHttpResponseData *, MBXHttpRequestError *> *)httpResult NS_REFINED_FOR_SWIFT;
 - (nonnull instancetype)initWithError:(nullable MBXDownloadError *)error
                            totalBytes:(nullable NSNumber *)totalBytes
                       downloadOptions:(nonnull MBXDownloadOptions *)downloadOptions
-                           httpResult:(nullable MBXExpected *)httpResult NS_REFINED_FOR_SWIFT;
+                           httpResult:(nullable MBXExpected<MBXHttpResponseData *, MBXHttpRequestError *> *)httpResult NS_REFINED_FOR_SWIFT;
 
-@property (nonatomic, readwrite, nullable) MBXExpected *httpResult NS_REFINED_FOR_SWIFT;
+@property (nonatomic, readwrite, nullable) MBXExpected<MBXHttpResponseData *, MBXHttpRequestError *> *httpResult NS_REFINED_FOR_SWIFT;
 @end

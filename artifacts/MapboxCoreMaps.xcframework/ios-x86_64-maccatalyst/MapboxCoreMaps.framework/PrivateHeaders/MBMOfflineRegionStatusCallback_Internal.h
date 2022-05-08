@@ -1,10 +1,9 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-@class MBXExpected;
+@class MBXExpected<__covariant Value, __covariant Error>;
 
 @class MBMOfflineRegionStatus;
 
 NS_SWIFT_NAME(OfflineRegionStatusCallback)
-__attribute__((deprecated))
-typedef void (^MBMOfflineRegionStatusCallback)(MBXExpected * _Nonnull result); // NOLINT(modernize-use-using)
+typedef void (^MBMOfflineRegionStatusCallback)(MBXExpected<MBMOfflineRegionStatus *, NSString *> * _Nonnull result); // NOLINT(modernize-use-using)

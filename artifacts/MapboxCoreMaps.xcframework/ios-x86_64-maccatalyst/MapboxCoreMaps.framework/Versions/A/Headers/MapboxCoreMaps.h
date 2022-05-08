@@ -2,7 +2,7 @@
 #import "CoordinateBounds.h"
 #import "FreeCameraOptions.h"
 #import "GlyphsRasterization.h"
-#import <MapboxCoreMaps/MBMImage+Additions.h>
+#import "MBMImage+Additions.h"
 #import "Map.h"
 #import "MapConstants.h"
 #import "Observable.h"

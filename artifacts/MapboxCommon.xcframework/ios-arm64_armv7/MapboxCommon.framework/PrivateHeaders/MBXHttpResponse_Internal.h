@@ -4,6 +4,6 @@
 
 @interface MBXHttpResponse ()
 - (nonnull instancetype)initWithRequest:(nonnull MBXHttpRequest *)request
-                                 result:(nonnull MBXExpected *)result NS_REFINED_FOR_SWIFT;
-@property (nonatomic, readonly, nonnull) MBXExpected *result NS_REFINED_FOR_SWIFT;
+                                 result:(nonnull MBXExpected<MBXHttpResponseData *, MBXHttpRequestError *> *)result NS_REFINED_FOR_SWIFT;
+@property (nonatomic, readonly, nonnull) MBXExpected<MBXHttpResponseData *, MBXHttpRequestError *> *result NS_REFINED_FOR_SWIFT;
 @end

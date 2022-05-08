@@ -5,6 +5,8 @@
 #import "MBXTileRegionLoadProgressCallback.h"
 
 @class MBXCancelable;
+@class MBXResourceDescription;
+@class MBXResourceLoadOptions;
 @class MBXTileRegionLoadOptions;
 @class MBXTilesetDescriptor;
 @protocol MBXTileStoreObserver;

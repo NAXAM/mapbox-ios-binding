@@ -40,10 +40,10 @@
 + (void)clearDataForResourceOptions:(nonnull MBMResourceOptions *)resourceOptions
                            callback:(nonnull MBMAsyncOperationResultCallback)callback;
 - (void)setViewAnnotationPositionsUpdateListenerForListener:(nullable id<MBMViewAnnotationPositionsUpdateListener>)listener;
-- (nonnull MBXExpected *)addViewAnnotationForIdentifier:(nonnull NSString *)identifier
-                                                options:(nonnull MBMViewAnnotationOptions *)options __attribute((ns_returns_retained));
-- (nonnull MBXExpected *)updateViewAnnotationForIdentifier:(nonnull NSString *)identifier
-                                                   options:(nonnull MBMViewAnnotationOptions *)options __attribute((ns_returns_retained));
-- (nonnull MBXExpected *)removeViewAnnotationForIdentifier:(nonnull NSString *)identifier __attribute((ns_returns_retained));
-- (nonnull MBXExpected *)getViewAnnotationOptionsForIdentifier:(nonnull NSString *)identifier __attribute((ns_returns_retained));
+- (nonnull MBXExpected<NSNull *, NSString *> *)addViewAnnotationForIdentifier:(nonnull NSString *)identifier
+                                                                      options:(nonnull MBMViewAnnotationOptions *)options __attribute((ns_returns_retained));
+- (nonnull MBXExpected<NSNull *, NSString *> *)updateViewAnnotationForIdentifier:(nonnull NSString *)identifier
+                                                                         options:(nonnull MBMViewAnnotationOptions *)options __attribute((ns_returns_retained));
+- (nonnull MBXExpected<NSNull *, NSString *> *)removeViewAnnotationForIdentifier:(nonnull NSString *)identifier __attribute((ns_returns_retained));
+- (nonnull MBXExpected<MBMViewAnnotationOptions *, NSString *> *)getViewAnnotationOptionsForIdentifier:(nonnull NSString *)identifier __attribute((ns_returns_retained));
 @end

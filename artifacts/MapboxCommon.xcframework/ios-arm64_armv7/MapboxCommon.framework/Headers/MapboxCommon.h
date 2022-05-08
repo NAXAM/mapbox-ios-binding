@@ -4,6 +4,7 @@
 #import "MapboxCancelable.h"
 #import "MapboxHttp.h"
 #import "MapboxOfflineSwitch.h"
+#import "MapboxSettingsService.h"
 #import "MapboxTileStore.h"
 #import "MapboxTileStoreUtilities.h"
 #import "MapboxValue.h"

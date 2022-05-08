@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MBXDownloadState.h"
-@class MBXExpected;
+@class MBXExpected<__covariant Value, __covariant Error>;
 
 @class MBXDownloadError;
 @class MBXDownloadOptions;

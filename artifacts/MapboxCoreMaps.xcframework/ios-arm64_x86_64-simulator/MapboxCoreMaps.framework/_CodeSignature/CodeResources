@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/MBMCameraManager.h</key>
 		<data>
-		mvce0My8Y0dgyDcGSZaEGOXu3Ao=
+		xwqpgx49NZdbetf9kYof8M9UQhk=
 		</data>
 		<key>Headers/MBMCameraOptions.h</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>Headers/MBMMap.h</key>
 		<data>
-		bEzq/nV92xJQWlgRh+XfLjuBoqU=
+		lKssxjaD8UF+CfvSmWTA7d3CJSE=
 		</data>
 		<key>Headers/MBMMapConstants.h</key>
 		<data>
@@ -138,7 +138,7 @@
 		</data>
 		<key>Headers/MBMMapDebugOptions.h</key>
 		<data>
-		siv9dAoosVRDuHnOMqSxs+Fx038=
+		TesBYazK4EpDDufO2zOIuZM4+7I=
 		</data>
 		<key>Headers/MBMMapEvents.h</key>
 		<data>
@@ -146,7 +146,7 @@
 		</data>
 		<key>Headers/MBMMapMemoryBudget.h</key>
 		<data>
-		RWYmC2kK+QaFF4AuWFIO9y8cHMc=
+		omvHwlFmYlIvzOp72w0BqtwVw4o=
 		</data>
 		<key>Headers/MBMMapMemoryBudgetInMegabytes.h</key>
 		<data>
@@ -238,7 +238,7 @@
 		</data>
 		<key>Headers/MBMRenderedQueryGeometry.h</key>
 		<data>
-		XTelrl8rF17h9RYbos6RaFzEB8E=
+		tqRb3ZOov0hh1x4+A0gnMzWZitI=
 		</data>
 		<key>Headers/MBMRenderedQueryOptions.h</key>
 		<data>
@@ -278,7 +278,7 @@
 		</data>
 		<key>Headers/MBMStyleManager.h</key>
 		<data>
-		CVa5A1OB1396S0o/yvBVakU7VoU=
+		w8Id9SAVpT1UD6mw9/lyR7rw/z0=
 		</data>
 		<key>Headers/MBMStyleObjectInfo.h</key>
 		<data>
@@ -430,11 +430,11 @@
 		</data>
 		<key>PrivateHeaders/MBMAsyncOperationResultCallback_Internal.h</key>
 		<data>
-		pcGFcrZU5TvLSDBWcM0smwTvTRc=
+		juv5sNBMDn4B2AUPocsADkTeMZw=
 		</data>
 		<key>PrivateHeaders/MBMCameraManager_Internal.h</key>
 		<data>
-		LmxRiHYNmFJwUm1aY3sRl7+pipc=
+		0VdgflY6eO6xzVzED3h4E+7i8/k=
 		</data>
 		<key>PrivateHeaders/MBMMapClient_Internal.h</key>
 		<data>
@@ -446,15 +446,15 @@
 		</data>
 		<key>PrivateHeaders/MBMMap_Internal.h</key>
 		<data>
-		SuXg6Vl0rgBjgBVaSheaZa23HXc=
+		Co0y1pV2p5Q7utGe/Js7/zdaH1w=
 		</data>
 		<key>PrivateHeaders/MBMMetalViewProvider.h</key>
 		<data>
-		HTvSsVmC+oKTJoUobAWJSGz73HQ=
+		qpJNBuYdHW2y4LsG+Val/fTo2bM=
 		</data>
 		<key>PrivateHeaders/MBMOfflineDatabaseMergeCallback_Internal.h</key>
 		<data>
-		BZDdVrfiueu9e6wDFYDKTNgYmCc=
+		xjjwjVFk1YQ3toCR7NUVt4KPtHA=
 		</data>
 		<key>PrivateHeaders/MBMOfflineManager_Internal.h</key>
 		<data>
@@ -462,11 +462,11 @@
 		</data>
 		<key>PrivateHeaders/MBMOfflineRegionCallback_Internal.h</key>
 		<data>
-		xfeWfZvZSFAXNPZjFXt+0WVUKEY=
+		AfFFVWMfowO16XGzadzjo/iwdko=
 		</data>
 		<key>PrivateHeaders/MBMOfflineRegionCreateCallback_Internal.h</key>
 		<data>
-		ouMnlvYLD2POahJ0fYyvcOXDBRM=
+		XRrLcHJYR71Cc8ZmmAujm7kHPFU=
 		</data>
 		<key>PrivateHeaders/MBMOfflineRegionManager_Internal.h</key>
 		<data>
@@ -474,7 +474,7 @@
 		</data>
 		<key>PrivateHeaders/MBMOfflineRegionStatusCallback_Internal.h</key>
 		<data>
-		5L4Av+SIGZ+ZAEEHavCAHajF+nY=
+		BY1RJ5ncaqmiIqGMaEREhpEccPM=
 		</data>
 		<key>PrivateHeaders/MBMOfflineRegion_Internal.h</key>
 		<data>
@@ -482,35 +482,35 @@
 		</data>
 		<key>PrivateHeaders/MBMQueryFeatureExtensionCallback_Internal.h</key>
 		<data>
-		pXuHRfZy/RIvGp5V4QpcPrGm/8k=
+		PFsMVyUIF/biQtlmEUnOzzl4mMY=
 		</data>
 		<key>PrivateHeaders/MBMQueryFeatureStateCallback_Internal.h</key>
 		<data>
-		ry3s1PQJWIX4FfzfXY6zdoViotU=
+		YtrzWknrswIkeS0+sjO8hym9A5o=
 		</data>
 		<key>PrivateHeaders/MBMQueryFeaturesCallback_Internal.h</key>
 		<data>
-		RfPIUJ0VbP2fxwWFrquoa3ub21s=
+		pQ2py8ktA0SPlpEU3394b8UbptQ=
 		</data>
 		<key>PrivateHeaders/MBMSnapshotCompleteCallback_Internal.h</key>
 		<data>
-		qvXgDu0qMvpAgU7W7urcZk+c6VA=
+		NED2XbdQkn0dlxA7o7culkQYuqw=
 		</data>
 		<key>PrivateHeaders/MBMStyleManager_Internal.h</key>
 		<data>
-		7AgTt51jmr+o0zAhqnNB+eoTzVo=
+		X/3MXTHm31usHkXEWWLaAELD7xU=
 		</data>
 		<key>PrivateHeaders/MBMStylePackCallback_Internal.h</key>
 		<data>
-		k0mQI3QBKam9njFSaa5XjKkF6vk=
+		igY1LgXI5pQCTGlKnsxeu+lr+fQ=
 		</data>
 		<key>PrivateHeaders/MBMStylePackMetadataCallback_Internal.h</key>
 		<data>
-		k5j1dbezswQmnpRZ48uhUlc9pcg=
+		1fFsGZyNHajpVnwQJRubR6NHuYE=
 		</data>
 		<key>PrivateHeaders/MBMStylePacksCallback_Internal.h</key>
 		<data>
-		gxZZ+3ljQIIxmARGliM2KmhgjMU=
+		fsmLWDYmzSWNLU56FECNXf+0O8k=
 		</data>
 		<key>PrivateHeaders/MBMTask_Internal.h</key>
 		<data>
@@ -597,7 +597,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0EQiRLnOZyuSUYnvjVhFsudaVkXXKeC0esccEKmSpPM=
+			Rm47+nUjfSCwoiCqN+1pnHeiZR0dzIabLPK+IXzW0dk=
 			</data>
 		</dict>
 		<key>Headers/MBMCameraOptions.h</key>
@@ -772,7 +772,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xqYIZk7d7O+3Euw+Wfpw3i0r6iTIvAhkfyqQh1Ypi70=
+			4p2erVrse9eYt+eSF1rFhha7lyq4axRuaxhgOhIufkI=
 			</data>
 		</dict>
 		<key>Headers/MBMMapConstants.h</key>
@@ -786,7 +786,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bS9/kwkZyOjvlDnTIORaRbXFbmSYleo2TFHoDbHMLh4=
+			E30dCJuPdCN4KIjVs2N9aMlU/O0p1UK1dfHGjobuUu4=
 			</data>
 		</dict>
 		<key>Headers/MBMMapEvents.h</key>
@@ -800,7 +800,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PnEWw/bkiailNrQiqgOjUQRrbz31U2qHbtDkV7ePDUw=
+			b7XBHXo6bvHPTM3OgDUx9QRYf5ExaQQhMiuMkUm14Uc=
 			</data>
 		</dict>
 		<key>Headers/MBMMapMemoryBudgetInMegabytes.h</key>
@@ -961,7 +961,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			71+BB6HXLnoQiXptPus8bnHd4CQJZY8vE/pOf5nmW2M=
+			SPVwTZwUj0p7Ob3Z8kl7vIfdDKfbxZeB4UP753NnMkQ=
 			</data>
 		</dict>
 		<key>Headers/MBMRenderedQueryOptions.h</key>
@@ -1031,7 +1031,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BXryrup7/JAFopZKzhcqPJJdfV0eD4tof1TEvjZp4UM=
+			fN2Y2cavxZhiiWxDHDAg0Mo6OcWrUR8AZPuYLf0u1S4=
 			</data>
 		</dict>
 		<key>Headers/MBMStyleObjectInfo.h</key>
@@ -1290,14 +1290,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5qqkHlTEuDUKkhOHNkdzFk1gxi3CTA11auoeXKF0R7w=
+			k7pnQwNE9o1+geQI8q278kgq/gflP4vx5PV/y/Etjeo=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMCameraManager_Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g7xfjc4dh7tqa5Oe65PabUkFpqNGFJ5xZwwnedfy83c=
+			xan6hVyfbvvcpNV9j22g52LMtWg3ASay+fFMC8EVhV8=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMMapClient_Internal.h</key>
@@ -1318,21 +1318,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cCKq+M1DZgAZJ+qxknRSu72Ony01LlMMN9ImWWAWWFs=
+			5ah9OlHG97YVeWa7E3x0Cp0FOR6Q7KKdpvB77zADzbc=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMMetalViewProvider.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LaTy/okbKC6gFCebfKd9J5vJjZYFHgYWYIkAU2FKizY=
+			ABHQmj0GYAuJfSELDsAoRist7ucLCVkhCxevKR0eKwk=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMOfflineDatabaseMergeCallback_Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fJ0KHCKKzS8zdyNec6HLex/R50+y72EH9PNObwS/7MI=
+			0yQnMP+CiFUpgh40JrXpMD4ZpUENaF1RiFrV6IDA8HU=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMOfflineManager_Internal.h</key>
@@ -1346,14 +1346,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VeLvYv9bF7/P/MdNZFrsoGwqAPzJYY+TZA2ixWVilMs=
+			YIRLpkkUhUCEV9MmKxCJmHMCQLyBwOhBvMaiaSy/nEw=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMOfflineRegionCreateCallback_Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xmoZMzykjiXS9wKibp5+LiOB9+oDq51ZK7SAB0Bdt9Q=
+			l+kzZGkMYIQ3fRskemhXAQEPkJupY3/g3tdW4tzzBAU=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMOfflineRegionManager_Internal.h</key>
@@ -1367,7 +1367,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cctjqhvipHSR2f1ZFaGZtB2BYDAtk3nrK0op4QlOjp4=
+			FsBfo1upevYsmUAdC+pxbz2VYfZPWozJSDUM2lMrOuE=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMOfflineRegion_Internal.h</key>
@@ -1381,56 +1381,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C6GHExLAUHJ495h94JQ1HsJ5T/Gq44u1c79uLGgYt3k=
+			TsFw/lPTT+daefYbhw+aA1m5DwdBAUQ/NYpm8j4dkJo=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMQueryFeatureStateCallback_Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lHxqX9PQl2Ep9aYXkTk1fEOj/K+yKZ1VF+c/0UOSDN8=
+			IKU9Vm24IuBxezJWEdclS4UNzaVCqg69i6ka+9WMtBU=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMQueryFeaturesCallback_Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h1z47VhYP1pBeTk/v6TII2LkZIaZzuYw+F3v2eWczKs=
+			q5cijTmRVuUia37px1pPZ9SxMdWa+iTjcpkDctfgE4k=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMSnapshotCompleteCallback_Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h+BJL7x0Zh5DproPL3gGDWxdkWfbILyBlUWzGCu2hf4=
+			IciyCGTRnuJGVWvMagi9wZm0wudW1yYfRM98a1Nq/nU=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMStyleManager_Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QKn3T0YAK6fzLAG8MOsy38VQL/gZKiFP2TwFBvkh8IM=
+			hYwVNPvlcBtwKloVTlUCAC2nx3M54pZwFDUXOM1G+Pg=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMStylePackCallback_Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GOCUnyX3rWUsfwuhzxj2N58lK2cbJ+zkEqP14RHtiIQ=
+			YtVDHpqm1ere7QdkI+U6TZM59CQ/Aud9EO2D+U5QH4U=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMStylePackMetadataCallback_Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8g5d9V7sSVNI+81dPiTIP+LCUvWRqNDgXj7eMO0GulA=
+			hIO3PskMrTr6mYrHb/cHlYDe1ED/Z1hXtG0cM4eiQWU=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMStylePacksCallback_Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iOgHh3jJ+tPJ5y6qpD6w/CJuG2seL2b+vF/2TclO7FI=
+			xSFd7bNhvP651/zjjbF67tLyPRlewtvlQKftSri2M+E=
 			</data>
 		</dict>
 		<key>PrivateHeaders/MBMTask_Internal.h</key>

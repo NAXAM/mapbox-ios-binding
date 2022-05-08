@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-@class MBXExpected;
+@class MBXExpected<__covariant Value, __covariant Error>;
 @class MBXGeometry;
 #import "MBMStyleManager.h"
 
@@ -232,13 +232,5 @@ __attribute__((visibility ("default")))
                                                        toPoint:(nonnull MBMScreenCoordinate *)toPoint __attribute((ns_returns_retained));
 /** Ends the ongoing drag gesture. This function should be called always after the user has ended a drag gesture initiated by `dragStart`. */
 - (void)dragEnd;
-/**
- * Returns the currently active map projection and its properties as key-value pairs.
- * Common properties shared by all map projections are:
- * - "name" with possible values "mercator" or "globe".
- *
- * @return An object describing properties of the currently active map projection.
- */
-- (nonnull id)getMapProjection __attribute((ns_returns_retained));
 
 @end

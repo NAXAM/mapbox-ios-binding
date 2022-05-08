@@ -34,5 +34,9 @@ typedef NS_ENUM(NSInteger, MBMMapDebugOptions)
      * are rendered with green, tiles waiting for an update with yellow and tiles not in the cache
      * with red.
      */
-    MBMMapDebugOptionsRenderCache
+    MBMMapDebugOptionsRenderCache,
+    /** Show 3D model bounding boxes. */
+    MBMMapDebugOptionsModelBounds,
+    /** Show a wireframe for terrain. */
+    MBMMapDebugOptionsTerrainWireframe
 } NS_SWIFT_NAME(MapDebugOptions);

@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-@class MBXExpected;
+@class MBXExpected<__covariant Value, __covariant Error>;
 @class MBXFeature;
 #import "MBMObservable.h"
 
@@ -160,6 +160,13 @@ __attribute__((visibility ("default")))
  * @return The style terrain property value.
  */
 - (nonnull MBMStylePropertyValue *)getStyleTerrainPropertyForProperty:(nonnull NSString *)property __attribute((ns_returns_retained));
+/**
+ * Gets the value of a style projection property.
+ *
+ * @param property The style projection property name.
+ * @return The style projection property value.
+ */
+- (nonnull MBMStylePropertyValue *)getStyleProjectionPropertyForProperty:(nonnull NSString *)property __attribute((ns_returns_retained));
 /**
  * Get an `image` from the style.
  *

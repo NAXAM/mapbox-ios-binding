@@ -1,6 +1,8 @@
 // This file is generated and will be overwritten automatically.
 
 #import "MBXTileStore.h"
+#import "MBXResourceLoadProgressCallback_Internal.h"
+#import "MBXResourceLoadResultCallback_Internal.h"
 #import "MBXTileRegionBooleanCallback_Internal.h"
 #import "MBXTileRegionCallback_Internal.h"
 #import "MBXTileRegionGeometryCallback_Internal.h"
@@ -17,6 +19,10 @@
 - (nonnull MBXCancelable *)loadTileRegionForId:(nonnull NSString *)id
                                    loadOptions:(nonnull MBXTileRegionLoadOptions *)loadOptions
                                     onFinished:(nonnull MBXTileRegionCallback)onFinished __attribute((ns_returns_retained)) NS_REFINED_FOR_SWIFT;
+- (nonnull MBXCancelable *)loadResourceForDescription:(nonnull MBXResourceDescription *)description
+                                              options:(nonnull MBXResourceLoadOptions *)options
+                                     progressCallback:(nonnull MBXResourceLoadProgressCallback)progressCallback
+                                       resultCallback:(nonnull MBXResourceLoadResultCallback)resultCallback __attribute((ns_returns_retained));
 - (void)tileRegionContainsDescriptorsForId:(nonnull NSString *)id
                                descriptors:(nonnull NSArray<MBXTilesetDescriptor *> *)descriptors
                                   callback:(nonnull MBXTileRegionBooleanCallback)callback NS_REFINED_FOR_SWIFT;

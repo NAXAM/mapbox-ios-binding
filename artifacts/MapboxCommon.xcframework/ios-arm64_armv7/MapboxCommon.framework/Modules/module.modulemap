@@ -4,3 +4,8 @@ framework module MapboxCommon {
   export *
   module * { export * }
 }
+
+module MapboxCommon.Swift {
+    header "MapboxCommon-Swift.h"
+    requires objc
+}

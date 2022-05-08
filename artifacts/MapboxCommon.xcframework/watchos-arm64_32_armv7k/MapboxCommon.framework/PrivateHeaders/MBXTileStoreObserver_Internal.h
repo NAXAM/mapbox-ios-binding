@@ -1,7 +1,7 @@
 // This file is generated and will be overwritten automatically.
 
 #import <Foundation/Foundation.h>
-@class MBXExpected;
+@class MBXExpected<__covariant Value, __covariant Error>;
 @class MBXGeometry;
 
 @class MBXTileRegion;
@@ -14,7 +14,7 @@ NS_SWIFT_NAME(TileStoreObserver)
 - (void)onRegionLoadProgressForId:(nonnull NSString *)id
                          progress:(nonnull MBXTileRegionLoadProgress *)progress;
 - (void)onRegionLoadFinishedForId:(nonnull NSString *)id
-                           region:(nonnull MBXExpected *)region;
+                           region:(nonnull MBXExpected<MBXTileRegion *, MBXTileRegionError *> *)region;
 /** Called when a TileRegion was removed. */
 - (void)onRegionRemovedForId:(nonnull NSString *)id;
 /** Called when the geometry of a TileRegion was modified. */

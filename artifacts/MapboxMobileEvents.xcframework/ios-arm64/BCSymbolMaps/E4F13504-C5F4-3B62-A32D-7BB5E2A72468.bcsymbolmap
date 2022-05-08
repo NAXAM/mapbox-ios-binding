@@ -1,0 +1,1521 @@
+BCSymbolMap Version: 2.0
+Apple clang version 13.0.0 (clang-1300.0.29.3)
+/Applications/Xcode-13.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk
+iPhoneOS15.0.sdk
+/Users/distiller/Library/Developer/Xcode/DerivedData/MapboxMobileEvents-azqcrbtzjovtsjczpnewqtlfzcfd/Build/Intermediates.noindex/ArchiveIntermediates/MapboxMobileEvents/IntermediateBuildFilesPath/MapboxMobileEvents.build/Release-iphoneos/MapboxMobileEvents.build/DerivedSources/MapboxMobileEvents_vers.c
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo
+-[MMEUniqueIdentifier initWithTimeInterval:]
+-[MMEUniqueIdentifier rollingInstanceIdentifer]
+-[MMEUniqueIdentifier timeInterval]
+-[MMEUniqueIdentifier setTimeInterval:]
+-[MMEUniqueIdentifier lock]
+-[MMEUniqueIdentifier instanceIDRotationDate]
+-[MMEUniqueIdentifier setInstanceIDRotationDate:]
+-[MMEUniqueIdentifier instanceID]
+-[MMEUniqueIdentifier setInstanceID:]
+-[MMEUniqueIdentifier .cxx_destruct]
+_OBJC_SELECTOR_REFERENCES_
+_OBJC_CLASSLIST_REFERENCES_$_
+_OBJC_SELECTOR_REFERENCES_.2
+_OBJC_SELECTOR_REFERENCES_.4
+_OBJC_CLASSLIST_REFERENCES_$_.5
+_OBJC_SELECTOR_REFERENCES_.7
+_OBJC_SELECTOR_REFERENCES_.9
+_OBJC_CLASSLIST_REFERENCES_$_.10
+_OBJC_SELECTOR_REFERENCES_.12
+_OBJC_SELECTOR_REFERENCES_.14
+_OBJC_SELECTOR_REFERENCES_.16
+_OBJC_SELECTOR_REFERENCES_.18
+_OBJC_SELECTOR_REFERENCES_.20
+_OBJC_SELECTOR_REFERENCES_.22
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_NSObject
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSObject
+__OBJC_$_PROP_LIST_NSObject
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSObject
+__OBJC_PROTOCOL_$_NSObject
+__OBJC_LABEL_PROTOCOL_$_NSObject
+__OBJC_$_PROTOCOL_REFS_MMEUniqueIdentifer
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_MMEUniqueIdentifer
+__OBJC_$_PROP_LIST_MMEUniqueIdentifer
+__OBJC_$_PROTOCOL_METHOD_TYPES_MMEUniqueIdentifer
+__OBJC_PROTOCOL_$_MMEUniqueIdentifer
+__OBJC_LABEL_PROTOCOL_$_MMEUniqueIdentifer
+__OBJC_CLASS_PROTOCOLS_$_MMEUniqueIdentifier
+__OBJC_METACLASS_RO_$_MMEUniqueIdentifier
+__OBJC_$_INSTANCE_METHODS_MMEUniqueIdentifier
+_OBJC_IVAR_$_MMEUniqueIdentifier._timeInterval
+_OBJC_IVAR_$_MMEUniqueIdentifier._lock
+_OBJC_IVAR_$_MMEUniqueIdentifier._instanceIDRotationDate
+_OBJC_IVAR_$_MMEUniqueIdentifier._instanceID
+__OBJC_$_INSTANCE_VARIABLES_MMEUniqueIdentifier
+__OBJC_$_PROP_LIST_MMEUniqueIdentifier
+__OBJC_CLASS_RO_$_MMEUniqueIdentifier
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEUniqueIdentifier.m
+Sources/MapboxMobileEvents/MMEUniqueIdentifier.m
+Sources/MapboxMobileEvents/MMEUniqueIdentifier.h
+-[NSString(MMEVersions) mme_stringByRemovingNonUserAgentTokenCharacters]
++[NSString(MMEVersions) mme_semverExpression]
+___45+[NSString(MMEVersions) mme_semverExpression]_block_invoke
+-[NSString(MMEVersions) mme_isSemverString]
+-[NSString(MMEVersions) mme_semverCoreComponent]
+-[NSString(MMEVersions) mme_semverMajorVersion]
+-[NSString(MMEVersions) mme_semverMinorVersion]
+-[NSString(MMEVersions) mme_semverPatchVersion]
+_OBJC_SELECTOR_REFERENCES_.8
+_mme_semverExpression.semverExpression
+_mme_semverExpression.onceToken
+___block_descriptor_32_e5_v8?0l
+___block_literal_global
+_OBJC_CLASSLIST_REFERENCES_$_.15
+_OBJC_SELECTOR_REFERENCES_.17
+_OBJC_SELECTOR_REFERENCES_.19
+_OBJC_SELECTOR_REFERENCES_.21
+_OBJC_SELECTOR_REFERENCES_.23
+_OBJC_SELECTOR_REFERENCES_.25
+_OBJC_SELECTOR_REFERENCES_.27
+_OBJC_SELECTOR_REFERENCES_.29
+_OBJC_CLASSLIST_REFERENCES_$_.30
+_OBJC_SELECTOR_REFERENCES_.32
+_OBJC_SELECTOR_REFERENCES_.36
+__OBJC_$_CATEGORY_INSTANCE_METHODS_NSString_$_MMEVersions
+__OBJC_$_CATEGORY_CLASS_METHODS_NSString_$_MMEVersions
+__OBJC_$_CATEGORY_NSString_$_MMEVersions
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/NSString+MMEVersions.m
+Sources/MapboxMobileEvents/NSString+MMEVersions.m
+NSMakeRange
+/Applications/Xcode-13.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
+__45+[NSString(MMEVersions) mme_semverExpression]_block_invoke
+/Applications/Xcode-13.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/usr/include/dispatch/once.h
+-[MMECertPin init]
+-[MMECertPin handleChallenge:completionHandler:]
+___Block_byref_object_copy_
+___Block_byref_object_dispose_
+___48-[MMECertPin handleChallenge:completionHandler:]_block_invoke
+___copy_helper_block_e8_32s40r
+___destroy_helper_block_e8_32s40r
+___48-[MMECertPin handleChallenge:completionHandler:]_block_invoke.27
+___copy_helper_block_e8_32b
+___destroy_helper_block_e8_32s
+___48-[MMECertPin handleChallenge:completionHandler:]_block_invoke.39
+___copy_helper_block_e8_32b40s
+___destroy_helper_block_e8_32s40s
+___48-[MMECertPin handleChallenge:completionHandler:]_block_invoke.43
+___48-[MMECertPin handleChallenge:completionHandler:]_block_invoke_2
+___48-[MMECertPin handleChallenge:completionHandler:]_block_invoke_3
+___48-[MMECertPin handleChallenge:completionHandler:]_block_invoke_4
++[MMECertPin trustEvaluate:]
++[MMECertPin trustCopyKey:]
+-[MMECertPin hashSubjectPublicKeyInfoFromCertificate:]
+___54-[MMECertPin hashSubjectPublicKeyInfoFromCertificate:]_block_invoke
+___copy_helper_block_e8_32s40r48w
+___destroy_helper_block_e8_32s40r48w
+___54-[MMECertPin hashSubjectPublicKeyInfoFromCertificate:]_block_invoke.61
+___copy_helper_block_e8_32s40s48w
+___destroy_helper_block_e8_32s40s48w
+-[MMECertPin getPublicKeyDataFromCertificate:]
+-[MMECertPin getPublicKeyDataFromCertificate_legacy_ios:]
+___57-[MMECertPin getPublicKeyDataFromCertificate_legacy_ios:]_block_invoke
+___copy_helper_block_e8_32s40s48r56r64r
+___destroy_helper_block_e8_32s40s48r56r64r
+-[MMECertPin getPublicKeyDataFromCertificate_unified:]
+-[MMECertPin publicKeyInfoHashesCache]
+-[MMECertPin setPublicKeyInfoHashesCache:]
+-[MMECertPin lockQueue]
+-[MMECertPin setLockQueue:]
+-[MMECertPin .cxx_destruct]
+___clang_at_available_requires_core_foundation_framework
+_OBJC_SELECTOR_REFERENCES_.6
+_OBJC_SELECTOR_REFERENCES_.10
+_OBJC_CLASSLIST_REFERENCES_$_.11
+_OBJC_SELECTOR_REFERENCES_.13
+_OBJC_SELECTOR_REFERENCES_.15
+_OBJC_CLASSLIST_REFERENCES_$_.18
+___block_descriptor_48_e8_32s40r_e25_v32?0"NSString"8Q16^B24l
+_OBJC_SELECTOR_REFERENCES_.26
+___block_descriptor_40_e8_32bs_e5_v8?0l
+_OBJC_SELECTOR_REFERENCES_.30
+_OBJC_SELECTOR_REFERENCES_.34
+_OBJC_SELECTOR_REFERENCES_.38
+_OBJC_CLASSLIST_REFERENCES_$_.40
+_OBJC_SELECTOR_REFERENCES_.42
+___block_descriptor_48_e8_32bs40s_e5_v8?0l
+_OBJC_SELECTOR_REFERENCES_.45
+___block_descriptor_56_e8_32s40r48w_e5_v8?0l
+_OBJC_SELECTOR_REFERENCES_.47
+_OBJC_SELECTOR_REFERENCES_.49
+_OBJC_SELECTOR_REFERENCES_.51
+_OBJC_SELECTOR_REFERENCES_.53
+_rsa2048Asn1Header
+_rsa4096Asn1Header
+_OBJC_CLASSLIST_REFERENCES_$_.54
+_OBJC_SELECTOR_REFERENCES_.56
+_OBJC_SELECTOR_REFERENCES_.58
+_OBJC_SELECTOR_REFERENCES_.60
+_OBJC_SELECTOR_REFERENCES_.63
+___block_descriptor_56_e8_32s40s48w_e5_v8?0l
+_OBJC_CLASSLIST_REFERENCES_$_.66
+_OBJC_SELECTOR_REFERENCES_.68
+_OBJC_SELECTOR_REFERENCES_.70
+_OBJC_SELECTOR_REFERENCES_.72
+_OBJC_SELECTOR_REFERENCES_.74
+_OBJC_SELECTOR_REFERENCES_.76
+_OBJC_CLASSLIST_REFERENCES_$_.77
+_OBJC_SELECTOR_REFERENCES_.79
+___block_descriptor_72_e8_32s40s48r56r64r_e5_v8?0l
+__OBJC_$_CLASS_METHODS_MMECertPin
+__OBJC_METACLASS_RO_$_MMECertPin
+__OBJC_$_INSTANCE_METHODS_MMECertPin
+_OBJC_IVAR_$_MMECertPin._publicKeyInfoHashesCache
+_OBJC_IVAR_$_MMECertPin._lockQueue
+__OBJC_$_INSTANCE_VARIABLES_MMECertPin
+__OBJC_$_PROP_LIST_MMECertPin
+__OBJC_CLASS_RO_$_MMECertPin
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMECertPin.m
+Sources/MapboxMobileEvents/MMECertPin.m
+__destroy_helper_block_e8_32s40s48r56r64r
+__copy_helper_block_e8_32s40s48r56r64r
+__57-[MMECertPin getPublicKeyDataFromCertificate_legacy_ios:]_block_invoke
+__destroy_helper_block_e8_32s40s48w
+__copy_helper_block_e8_32s40s48w
+__54-[MMECertPin hashSubjectPublicKeyInfoFromCertificate:]_block_invoke.61
+__destroy_helper_block_e8_32s40r48w
+__copy_helper_block_e8_32s40r48w
+__54-[MMECertPin hashSubjectPublicKeyInfoFromCertificate:]_block_invoke
+__48-[MMECertPin handleChallenge:completionHandler:]_block_invoke_4
+__48-[MMECertPin handleChallenge:completionHandler:]_block_invoke_3
+__48-[MMECertPin handleChallenge:completionHandler:]_block_invoke_2
+__48-[MMECertPin handleChallenge:completionHandler:]_block_invoke.43
+__destroy_helper_block_e8_32s40s
+__copy_helper_block_e8_32b40s
+__48-[MMECertPin handleChallenge:completionHandler:]_block_invoke.39
+__destroy_helper_block_e8_32s
+__copy_helper_block_e8_32b
+__48-[MMECertPin handleChallenge:completionHandler:]_block_invoke.27
+__destroy_helper_block_e8_32s40r
+__copy_helper_block_e8_32s40r
+__48-[MMECertPin handleChallenge:completionHandler:]_block_invoke
+__Block_byref_object_dispose_
+__Block_byref_object_copy_
++[MMECategoryLoader loadCategories]
+__OBJC_$_CLASS_METHODS_MMECategoryLoader
+__OBJC_METACLASS_RO_$_MMECategoryLoader
+__OBJC_CLASS_RO_$_MMECategoryLoader
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMECategoryLoader.m
+Sources/MapboxMobileEvents/MMECategoryLoader.m
++[MMEDependencyManager sharedManager]
+___37+[MMEDependencyManager sharedManager]_block_invoke
+-[MMEDependencyManager locationManagerInstance]
+_sharedManager.onceToken
+__sharedInstance
+_OBJC_CLASSLIST_REFERENCES_$_.1
+__OBJC_$_CLASS_METHODS_MMEDependencyManager
+__OBJC_METACLASS_RO_$_MMEDependencyManager
+__OBJC_$_INSTANCE_METHODS_MMEDependencyManager
+__OBJC_CLASS_RO_$_MMEDependencyManager
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEDependencyManager.m
+Sources/MapboxMobileEvents/MMEDependencyManager.m
+__37+[MMEDependencyManager sharedManager]_block_invoke
++[MMEReachability reachabilityWithHostName:]
++[MMEReachability reachabilityWithHostname:]
++[MMEReachability reachabilityWithAddress:]
++[MMEReachability reachabilityForInternetConnection]
++[MMEReachability reachabilityForLocalWiFi]
+-[MMEReachability initWithReachabilityRef:]
+-[MMEReachability dealloc]
+-[MMEReachability startNotifier]
+_TMReachabilityCallback
+-[MMEReachability stopNotifier]
+-[MMEReachability isReachableWithFlags:]
+-[MMEReachability isReachable]
+-[MMEReachability isReachableViaWWAN]
+-[MMEReachability isReachableViaWiFi]
+-[MMEReachability isConnectionRequired]
+-[MMEReachability connectionRequired]
+-[MMEReachability isConnectionOnDemand]
+-[MMEReachability isInterventionRequired]
+-[MMEReachability currentReachabilityStatus]
+-[MMEReachability reachabilityFlags]
+-[MMEReachability currentReachabilityString]
+-[MMEReachability currentReachabilityFlags]
+-[MMEReachability reachabilityChanged:]
+___39-[MMEReachability reachabilityChanged:]_block_invoke
+___copy_helper_block_e8_32s
+-[MMEReachability description]
+-[MMEReachability reachableBlock]
+-[MMEReachability setReachableBlock:]
+-[MMEReachability unreachableBlock]
+-[MMEReachability setUnreachableBlock:]
+-[MMEReachability reachableOnWWAN]
+-[MMEReachability setReachableOnWWAN:]
+-[MMEReachability reachabilityRef]
+-[MMEReachability setReachabilityRef:]
+-[MMEReachability reachabilitySerialQueue]
+-[MMEReachability setReachabilitySerialQueue:]
+-[MMEReachability reachabilityObject]
+-[MMEReachability setReachabilityObject:]
+-[MMEReachability .cxx_destruct]
+_OBJC_SELECTOR_REFERENCES_.11
+_OBJC_SELECTOR_REFERENCES_.31
+_OBJC_SELECTOR_REFERENCES_.33
+_OBJC_CLASSLIST_REFERENCES_$_.34
+_OBJC_SELECTOR_REFERENCES_.48
+_OBJC_SELECTOR_REFERENCES_.50
+_OBJC_SELECTOR_REFERENCES_.52
+_OBJC_CLASSLIST_REFERENCES_$_.53
+_OBJC_SELECTOR_REFERENCES_.55
+_OBJC_SELECTOR_REFERENCES_.57
+___block_descriptor_40_e8_32s_e5_v8?0l
+_OBJC_CLASSLIST_REFERENCES_$_.59
+_OBJC_SELECTOR_REFERENCES_.65
+_OBJC_SELECTOR_REFERENCES_.67
+__OBJC_$_CLASS_METHODS_MMEReachability
+__OBJC_METACLASS_RO_$_MMEReachability
+__OBJC_$_INSTANCE_METHODS_MMEReachability
+_OBJC_IVAR_$_MMEReachability._reachableOnWWAN
+_OBJC_IVAR_$_MMEReachability._reachableBlock
+_OBJC_IVAR_$_MMEReachability._unreachableBlock
+_OBJC_IVAR_$_MMEReachability._reachabilityRef
+_OBJC_IVAR_$_MMEReachability._reachabilitySerialQueue
+_OBJC_IVAR_$_MMEReachability._reachabilityObject
+__OBJC_$_INSTANCE_VARIABLES_MMEReachability
+__OBJC_$_PROP_LIST_MMEReachability
+__OBJC_CLASS_RO_$_MMEReachability
+_OBJC_SELECTOR_REFERENCES_.123
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEReachability.m
+Sources/MapboxMobileEvents/MMEReachability.m
+Sources/MapboxMobileEvents/MMEReachability.h
+__copy_helper_block_e8_32s
+__39-[MMEReachability reachabilityChanged:]_block_invoke
+reachabilityFlags
+TMReachabilityCallback
++[MMEDate recordTimeOffsetFromServer:]
++[MMEDate recordedTimeOffsetFromServer]
++[MMEDate iso8601DateFormatter]
+___31+[MMEDate iso8601DateFormatter]_block_invoke
++[MMEDate iso8601DateOnlyFormatter]
+___35+[MMEDate iso8601DateOnlyFormatter]_block_invoke
++[MMEDate HTTPDateFormatter]
+___28+[MMEDate HTTPDateFormatter]_block_invoke
++[MMEDate dateWithRecordedOffset]
++[MMEDate dateWithOffset:]
++[MMEDate dateWithDate:]
++[MMEDate date]
++[MMEDate supportsSecureCoding]
+-[MMEDate initWithTimeIntervalSinceReferenceDate:offset:]
+-[MMEDate initWithOffset:]
+-[MMEDate init]
+-[MMEDate initWithTimeIntervalSinceReferenceDate:]
+-[MMEDate timeIntervalSinceReferenceDate]
+-[MMEDate description]
+-[MMEDate isEqual:]
+-[MMEDate copyWithZone:]
+-[MMEDate classForCoder]
+-[MMEDate initWithCoder:]
+-[MMEDate encodeWithCoder:]
+-[MMEDate offsetToServer]
+-[MMEDate offsetFromServer]
+-[MMEDate sinceReferenceDate]
+-[MMEDate setSinceReferenceDate:]
+-[NSDate(MMEDate) mme_startOfTomorrow]
+__timeOffsetFromServer
+_iso8601DateFormatter.onceToken
+_iso8601DateFormatter._iso8601DateFormatter
+_OBJC_CLASSLIST_REFERENCES_$_.3
+_OBJC_CLASSLIST_REFERENCES_$_.13
+_iso8601DateOnlyFormatter.onceToken
+_iso8601DateOnlyFormatter._iso8601ShortDateFormatter
+___block_literal_global.20
+_HTTPDateFormatter.onceToken
+_HTTPDateFormatter._httpDateFormatter
+___block_literal_global.23
+_OBJC_CLASSLIST_REFERENCES_$_.28
+_OBJC_SELECTOR_REFERENCES_.40
+_OBJC_IVAR_$_MMEDate._sinceReferenceDate
+_OBJC_IVAR_$_MMEDate._offsetFromServer
+_OBJC_CLASSLIST_REFERENCES_$_.41
+_OBJC_CLASSLIST_REFERENCES_$_.42
+_OBJC_SELECTOR_REFERENCES_.46
+_OBJC_SELECTOR_REFERENCES_.54
+_OBJC_SELECTOR_REFERENCES_.62
+_OBJC_SELECTOR_REFERENCES_.64
+__OBJC_$_CLASS_METHODS_MMEDate
+__OBJC_METACLASS_RO_$_MMEDate
+__OBJC_$_INSTANCE_METHODS_MMEDate
+__OBJC_$_INSTANCE_VARIABLES_MMEDate
+__OBJC_$_PROP_LIST_MMEDate
+__OBJC_CLASS_RO_$_MMEDate
+_OBJC_CLASSLIST_REFERENCES_$_.107
+_OBJC_SELECTOR_REFERENCES_.109
+_OBJC_CLASSLIST_REFERENCES_$_.110
+_OBJC_SELECTOR_REFERENCES_.112
+_OBJC_SELECTOR_REFERENCES_.114
+_OBJC_SELECTOR_REFERENCES_.116
+__OBJC_$_CATEGORY_INSTANCE_METHODS_NSDate_$_MMEDate
+__OBJC_$_CATEGORY_NSDate_$_MMEDate
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEDate.m
+Sources/MapboxMobileEvents/MMEDate.m
+Sources/MapboxMobileEvents/MMEDate.h
+__28+[MMEDate HTTPDateFormatter]_block_invoke
+__35+[MMEDate iso8601DateOnlyFormatter]_block_invoke
+__31+[MMEDate iso8601DateFormatter]_block_invoke
+-[MMEDispatchManager scheduleBlock:afterDelay:]
+__OBJC_METACLASS_RO_$_MMEDispatchManager
+__OBJC_$_INSTANCE_METHODS_MMEDispatchManager
+__OBJC_CLASS_RO_$_MMEDispatchManager
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEDispatchManager.m
+Sources/MapboxMobileEvents/MMEDispatchManager.m
+-[UIDevice(MMEMobileEvents) mme_deviceOrientation]
+-[UIApplication(MMEMobileEvents) mme_contentSizeScale]
++[NSExtensionContext(MMEMobileEvents) mme_contentSizeScale]
+__OBJC_$_CATEGORY_NSObject_$_MMEMobileEvents
+__OBJC_$_CATEGORY_INSTANCE_METHODS_UIDevice_$_MMEMobileEvents
+__OBJC_$_CATEGORY_UIDevice_$_MMEMobileEvents
+__OBJC_$_CATEGORY_INSTANCE_METHODS_UIApplication_$_MMEMobileEvents
+__OBJC_$_CATEGORY_UIApplication_$_MMEMobileEvents
+__OBJC_$_CATEGORY_CLASS_METHODS_NSExtensionContext_$_MMEMobileEvents
+__OBJC_$_CATEGORY_NSExtensionContext_$_MMEMobileEvents
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/UIKit+MMEMobileEvents.m
+Sources/MapboxMobileEvents/UIKit+MMEMobileEvents.m
+mme_linkUIKitCategories
+-[MMEMetrics init]
+-[MMEMetrics totalBytesSent]
+-[MMEMetrics totalBytesReceived]
+-[MMEMetrics requests]
+-[MMEMetrics setRequests:]
+-[MMEMetrics cellBytesSent]
+-[MMEMetrics setCellBytesSent:]
+-[MMEMetrics wifiBytesSent]
+-[MMEMetrics setWifiBytesSent:]
+-[MMEMetrics cellBytesReceived]
+-[MMEMetrics setCellBytesReceived:]
+-[MMEMetrics wifiBytesReceived]
+-[MMEMetrics setWifiBytesReceived:]
+-[MMEMetrics appWakeups]
+-[MMEMetrics setAppWakeups:]
+-[MMEMetrics eventCountFailed]
+-[MMEMetrics setEventCountFailed:]
+-[MMEMetrics eventCountTotal]
+-[MMEMetrics setEventCountTotal:]
+-[MMEMetrics eventCountMax]
+-[MMEMetrics setEventCountMax:]
+-[MMEMetrics deviceLat]
+-[MMEMetrics setDeviceLat:]
+-[MMEMetrics deviceLon]
+-[MMEMetrics setDeviceLon:]
+-[MMEMetrics recordingStarted]
+-[MMEMetrics setRecordingStarted:]
+-[MMEMetrics dateUTCString]
+-[MMEMetrics setDateUTCString:]
+-[MMEMetrics configResponseDict]
+-[MMEMetrics setConfigResponseDict:]
+-[MMEMetrics eventCountPerType]
+-[MMEMetrics setEventCountPerType:]
+-[MMEMetrics failedRequestsDict]
+-[MMEMetrics setFailedRequestsDict:]
+-[MMEMetrics locationsInForeground]
+-[MMEMetrics setLocationsInForeground:]
+-[MMEMetrics locationsInBackground]
+-[MMEMetrics setLocationsInBackground:]
+-[MMEMetrics locationsWithApproximateValues]
+-[MMEMetrics setLocationsWithApproximateValues:]
+-[MMEMetrics locationsDroppedBecauseOfHAF]
+-[MMEMetrics setLocationsDroppedBecauseOfHAF:]
+-[MMEMetrics locationsDroppedDueTimeout]
+-[MMEMetrics setLocationsDroppedDueTimeout:]
+-[MMEMetrics locationsConvertedIntoEvents]
+-[MMEMetrics setLocationsConvertedIntoEvents:]
+-[MMEMetrics .cxx_destruct]
+_OBJC_SELECTOR_REFERENCES_.3
+__OBJC_METACLASS_RO_$_MMEMetrics
+__OBJC_$_INSTANCE_METHODS_MMEMetrics
+_OBJC_IVAR_$_MMEMetrics._requests
+_OBJC_IVAR_$_MMEMetrics._cellBytesSent
+_OBJC_IVAR_$_MMEMetrics._wifiBytesSent
+_OBJC_IVAR_$_MMEMetrics._cellBytesReceived
+_OBJC_IVAR_$_MMEMetrics._wifiBytesReceived
+_OBJC_IVAR_$_MMEMetrics._appWakeups
+_OBJC_IVAR_$_MMEMetrics._eventCountFailed
+_OBJC_IVAR_$_MMEMetrics._eventCountTotal
+_OBJC_IVAR_$_MMEMetrics._eventCountMax
+_OBJC_IVAR_$_MMEMetrics._deviceLat
+_OBJC_IVAR_$_MMEMetrics._deviceLon
+_OBJC_IVAR_$_MMEMetrics._recordingStarted
+_OBJC_IVAR_$_MMEMetrics._dateUTCString
+_OBJC_IVAR_$_MMEMetrics._configResponseDict
+_OBJC_IVAR_$_MMEMetrics._eventCountPerType
+_OBJC_IVAR_$_MMEMetrics._failedRequestsDict
+_OBJC_IVAR_$_MMEMetrics._locationsInForeground
+_OBJC_IVAR_$_MMEMetrics._locationsInBackground
+_OBJC_IVAR_$_MMEMetrics._locationsWithApproximateValues
+_OBJC_IVAR_$_MMEMetrics._locationsDroppedBecauseOfHAF
+_OBJC_IVAR_$_MMEMetrics._locationsDroppedDueTimeout
+_OBJC_IVAR_$_MMEMetrics._locationsConvertedIntoEvents
+__OBJC_$_INSTANCE_VARIABLES_MMEMetrics
+__OBJC_$_PROP_LIST_MMEMetrics
+__OBJC_CLASS_RO_$_MMEMetrics
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEMetrics.m
+Sources/MapboxMobileEvents/MMEMetrics.m
+Sources/MapboxMobileEvents/MMEMetrics.h
++[NSUserDefaults(MME) mme_configuration]
+___40+[NSUserDefaults(MME) mme_configuration]_block_invoke
++[NSUserDefaults(MME) mme_resetConfiguration]
+-[NSUserDefaults(MME) mme_registerDefaults]
+-[NSUserDefaults(MME) mme_volatileDomain]
+-[NSUserDefaults(MME) mme_setObject:forVolatileKey:]
+-[NSUserDefaults(MME) mme_objectForVolatileKey:]
+-[NSUserDefaults(MME) mme_deleteObjectForVolatileKey:]
+-[NSUserDefaults(MME) mme_persistentDomain]
+-[NSUserDefaults(MME) mme_setObject:forPersistentKey:]
+-[NSUserDefaults(MME) mme_deleteObjectForPersistentKey:]
+-[NSUserDefaults(MME) mme_startupDelay]
+-[NSUserDefaults(MME) mme_eventFlushCount]
+-[NSUserDefaults(MME) mme_eventFlushInterval]
+-[NSUserDefaults(MME) mme_identifierRotationInterval]
+-[NSUserDefaults(MME) mme_configUpdateInterval]
+-[NSUserDefaults(MME) mme_eventTag]
+-[NSUserDefaults(MME) mme_accessToken]
+-[NSUserDefaults(MME) mme_setAccessToken:]
+-[NSUserDefaults(MME) mme_legacyUserAgentBase]
+-[NSUserDefaults(MME) mme_setLegacyUserAgentBase:]
+-[NSUserDefaults(MME) mme_legacyHostSDKVersion]
+-[NSUserDefaults(MME) mme_setLegacyHostSDKVersion:]
+-[NSUserDefaults(MME) mme_clientId]
+-[NSUserDefaults(MME) mme_configDigestValue]
+-[NSUserDefaults(MME) mme_setConfigDigestValue:]
+-[NSUserDefaults(MME) mme_isCNRegion]
+-[NSUserDefaults(MME) mme_setIsCNRegion:]
+-[NSUserDefaults(MME) mme_APIServiceURL]
+-[NSUserDefaults(MME) mme_eventsServiceURL]
+-[NSUserDefaults(MME) mme_configServiceURL]
+-[NSUserDefaults(MME) mme_userAgentString]
+___42-[NSUserDefaults(MME) mme_userAgentString]_block_invoke
+-[NSUserDefaults(MME) mme_legacyUserAgentString]
+-[NSUserDefaults(MME) mme_configUpdateDate]
+-[NSUserDefaults(MME) mme_setConfigUpdateDate:]
+-[NSUserDefaults(MME) mme_isCollectionEnabled]
+-[NSUserDefaults(MME) mme_setIsCollectionEnabled:]
+-[NSUserDefaults(MME) mme_isCollectionEnabledInSimulator]
+-[NSUserDefaults(MME) mme_isCollectionEnabledInLowPowerMode]
+-[NSUserDefaults(MME) mme_isCollectionEnabledInBackground]
+-[NSUserDefaults(MME) mme_backgroundStartupDelay]
+-[NSUserDefaults(MME) mme_backgroundGeofence]
+-[NSUserDefaults(MME) mme_horizontalAccuracy]
+-[NSUserDefaults(MME) mme_certificateRevocationList]
+-[NSUserDefaults(MME) mme_certificatePinningConfig]
+-[NSUserDefaults(MME) mme_updateFromConfigServiceData:]
+-[NSUserDefaults(MME) mme_updateFromAccountType:]
+-[NSUserDefaults(MME) mme_updateFromConfigServiceObject:updateError:]
++[NSBundle(MME) mme_mainBundle]
+___31+[NSBundle(MME) mme_mainBundle]_block_invoke
+___copy_helper_block_e8_
+___destroy_helper_block_e8_
++[NSBundle(MME) mme_setMainBundle:]
+-[NSBundle(MME) mme_bundleVersionString]
+_mme_configuration.eventsConfiguration
+_mme_configuration.onceToken
+_OBJC_SELECTOR_REFERENCES_.103
+_OBJC_SELECTOR_REFERENCES_.105
+_OBJC_SELECTOR_REFERENCES_.107
+_OBJC_SELECTOR_REFERENCES_.111
+_OBJC_SELECTOR_REFERENCES_.113
+_OBJC_CLASSLIST_REFERENCES_$_.114
+_OBJC_SELECTOR_REFERENCES_.118
+_OBJC_SELECTOR_REFERENCES_.120
+_OBJC_CLASSLIST_REFERENCES_$_.121
+_OBJC_SELECTOR_REFERENCES_.125
+_OBJC_SELECTOR_REFERENCES_.127
+_OBJC_SELECTOR_REFERENCES_.135
+_OBJC_SELECTOR_REFERENCES_.137
+_OBJC_CLASSLIST_REFERENCES_$_.140
+_OBJC_SELECTOR_REFERENCES_.142
+_OBJC_SELECTOR_REFERENCES_.146
+_OBJC_SELECTOR_REFERENCES_.148
+_OBJC_SELECTOR_REFERENCES_.150
+_OBJC_SELECTOR_REFERENCES_.152
+_OBJC_SELECTOR_REFERENCES_.154
+_OBJC_CLASSLIST_REFERENCES_$_.155
+_OBJC_SELECTOR_REFERENCES_.157
+_OBJC_SELECTOR_REFERENCES_.159
+_OBJC_SELECTOR_REFERENCES_.161
+_OBJC_SELECTOR_REFERENCES_.163
+_OBJC_CLASSLIST_REFERENCES_$_.164
+_OBJC_SELECTOR_REFERENCES_.166
+_OBJC_SELECTOR_REFERENCES_.168
+_OBJC_SELECTOR_REFERENCES_.170
+_OBJC_SELECTOR_REFERENCES_.172
+_OBJC_SELECTOR_REFERENCES_.174
+_OBJC_SELECTOR_REFERENCES_.176
+_OBJC_SELECTOR_REFERENCES_.178
+_OBJC_SELECTOR_REFERENCES_.180
+_OBJC_SELECTOR_REFERENCES_.182
+_OBJC_SELECTOR_REFERENCES_.184
+_OBJC_SELECTOR_REFERENCES_.186
+_OBJC_SELECTOR_REFERENCES_.188
+_OBJC_SELECTOR_REFERENCES_.190
+_OBJC_SELECTOR_REFERENCES_.192
+_OBJC_SELECTOR_REFERENCES_.194
+_OBJC_SELECTOR_REFERENCES_.196
+_OBJC_SELECTOR_REFERENCES_.198
+_OBJC_SELECTOR_REFERENCES_.200
+_OBJC_SELECTOR_REFERENCES_.202
+_OBJC_CLASSLIST_REFERENCES_$_.205
+_OBJC_SELECTOR_REFERENCES_.207
+_OBJC_SELECTOR_REFERENCES_.209
+_OBJC_SELECTOR_REFERENCES_.211
+_OBJC_CLASSLIST_REFERENCES_$_.212
+_OBJC_SELECTOR_REFERENCES_.214
+_OBJC_SELECTOR_REFERENCES_.216
+_mme_userAgentString.userAgent
+_mme_userAgentString.onceToken
+___block_literal_global.217
+_OBJC_SELECTOR_REFERENCES_.221
+_OBJC_SELECTOR_REFERENCES_.223
+_OBJC_SELECTOR_REFERENCES_.225
+_OBJC_SELECTOR_REFERENCES_.227
+_OBJC_SELECTOR_REFERENCES_.229
+_OBJC_SELECTOR_REFERENCES_.231
+_OBJC_CLASSLIST_REFERENCES_$_.232
+_OBJC_SELECTOR_REFERENCES_.234
+_OBJC_SELECTOR_REFERENCES_.236
+_OBJC_SELECTOR_REFERENCES_.238
+_OBJC_CLASSLIST_REFERENCES_$_.239
+_OBJC_SELECTOR_REFERENCES_.241
+_OBJC_SELECTOR_REFERENCES_.243
+_OBJC_SELECTOR_REFERENCES_.245
+_OBJC_SELECTOR_REFERENCES_.247
+_OBJC_SELECTOR_REFERENCES_.249
+_OBJC_SELECTOR_REFERENCES_.253
+_OBJC_CLASSLIST_REFERENCES_$_.254
+_OBJC_SELECTOR_REFERENCES_.256
+_OBJC_CLASSLIST_REFERENCES_$_.257
+_OBJC_SELECTOR_REFERENCES_.259
+_OBJC_SELECTOR_REFERENCES_.261
+_OBJC_SELECTOR_REFERENCES_.263
+_OBJC_SELECTOR_REFERENCES_.265
+_OBJC_SELECTOR_REFERENCES_.269
+_OBJC_SELECTOR_REFERENCES_.273
+_OBJC_SELECTOR_REFERENCES_.275
+_OBJC_SELECTOR_REFERENCES_.277
+_OBJC_CLASSLIST_REFERENCES_$_.278
+_OBJC_SELECTOR_REFERENCES_.280
+_OBJC_SELECTOR_REFERENCES_.282
+_OBJC_CLASSLIST_REFERENCES_$_.283
+_OBJC_SELECTOR_REFERENCES_.285
+_OBJC_SELECTOR_REFERENCES_.287
+_OBJC_CLASSLIST_REFERENCES_$_.288
+_OBJC_SELECTOR_REFERENCES_.290
+_OBJC_SELECTOR_REFERENCES_.292
+_OBJC_SELECTOR_REFERENCES_.296
+_OBJC_SELECTOR_REFERENCES_.298
+_OBJC_SELECTOR_REFERENCES_.300
+_OBJC_SELECTOR_REFERENCES_.302
+_OBJC_SELECTOR_REFERENCES_.304
+_OBJC_SELECTOR_REFERENCES_.306
+_OBJC_SELECTOR_REFERENCES_.308
+_OBJC_SELECTOR_REFERENCES_.542
+_OBJC_SELECTOR_REFERENCES_.544
+_OBJC_CLASSLIST_REFERENCES_$_.545
+_OBJC_SELECTOR_REFERENCES_.547
+_OBJC_SELECTOR_REFERENCES_.549
+_OBJC_SELECTOR_REFERENCES_.551
+_OBJC_SELECTOR_REFERENCES_.553
+_OBJC_CLASSLIST_REFERENCES_$_.554
+_OBJC_SELECTOR_REFERENCES_.558
+_OBJC_CLASSLIST_REFERENCES_$_.559
+_OBJC_SELECTOR_REFERENCES_.561
+_OBJC_SELECTOR_REFERENCES_.563
+__OBJC_$_CATEGORY_INSTANCE_METHODS_NSUserDefaults_$_MME
+__OBJC_$_CATEGORY_CLASS_METHODS_NSUserDefaults_$_MME
+__OBJC_$_CATEGORY_NSUserDefaults_$_MME
+_MMEMainBundle
+_mme_mainBundle.onceToken
+_OBJC_SELECTOR_REFERENCES_.606
+___block_descriptor_40_e8__e5_v8?0l
+_OBJC_SELECTOR_REFERENCES_.611
+__OBJC_$_CATEGORY_INSTANCE_METHODS_NSBundle_$_MME
+__OBJC_$_CATEGORY_CLASS_METHODS_NSBundle_$_MME
+__OBJC_$_CATEGORY_NSBundle_$_MME
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/NSUserDefaults+MMEConfiguration.m
+Sources/MapboxMobileEvents/NSUserDefaults+MMEConfiguration.m
+__destroy_helper_block_e8_
+__copy_helper_block_e8_
+__31+[NSBundle(MME) mme_mainBundle]_block_invoke
+__42-[NSUserDefaults(MME) mme_userAgentString]_block_invoke
+__40+[NSUserDefaults(MME) mme_configuration]_block_invoke
++[NSProcessInfo(SystemInfo) mme_operatingSystemVersion]
++[NSProcessInfo(SystemInfo) mme_stringForProcessorType:subtype:]
++[NSProcessInfo(SystemInfo) mme_processorTypeDescription]
+_OBJC_SELECTOR_REFERENCES_.5
+_OBJC_CLASSLIST_REFERENCES_$_.8
+_OBJC_SELECTOR_REFERENCES_.44
+__OBJC_$_CATEGORY_CLASS_METHODS_NSProcessInfo_$_SystemInfo
+__OBJC_$_CATEGORY_NSProcessInfo_$_SystemInfo
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/NSProcessInfo+SystemInfo.m
+Sources/MapboxMobileEvents/NSProcessInfo+SystemInfo.m
+-[MMENSURLSessionWrapper init]
+-[MMENSURLSessionWrapper invalidate]
+-[MMENSURLSessionWrapper processRequest:completionHandler:]
+___59-[MMENSURLSessionWrapper processRequest:completionHandler:]_block_invoke
+___59-[MMENSURLSessionWrapper processRequest:completionHandler:]_block_invoke.20
+___59-[MMENSURLSessionWrapper processRequest:completionHandler:]_block_invoke_2
+___copy_helper_block_e8_32b40s48s56s
+___destroy_helper_block_e8_32s40s48s56s
+___copy_helper_block_e8_32b40r
+___copy_helper_block_e8_32s40s48b
+___destroy_helper_block_e8_32s40s48s
+-[MMENSURLSessionWrapper URLSession:didReceiveChallenge:completionHandler:]
+___75-[MMENSURLSessionWrapper URLSession:didReceiveChallenge:completionHandler:]_block_invoke
+___copy_helper_block_e8_32s40b48w
+-[MMENSURLSessionWrapper URLSession:didBecomeInvalidWithError:]
+-[MMENSURLSessionWrapper serialQueue]
+-[MMENSURLSessionWrapper setSerialQueue:]
+-[MMENSURLSessionWrapper certPin]
+-[MMENSURLSessionWrapper setCertPin:]
+-[MMENSURLSessionWrapper session]
+-[MMENSURLSessionWrapper setSession:]
+-[MMENSURLSessionWrapper .cxx_destruct]
+_OBJC_CLASSLIST_REFERENCES_$_.6
+___block_descriptor_64_e8_32bs40s48s56s_e5_v8?0l
+___block_descriptor_48_e8_32bs40r_e46_v32?0"NSData"8"NSURLResponse"16"NSError"24l
+_OBJC_SELECTOR_REFERENCES_.24
+___block_descriptor_56_e8_32s40s48bs_e5_v8?0l
+_OBJC_SELECTOR_REFERENCES_.28
+___block_descriptor_56_e8_32s40bs48w_e5_v8?0l
+_OBJC_CLASSLIST_REFERENCES_$_.33
+_OBJC_SELECTOR_REFERENCES_.35
+_OBJC_CLASSLIST_REFERENCES_$_.36
+__OBJC_$_PROTOCOL_REFS_MMENSURLSessionWrapper
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_MMENSURLSessionWrapper
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_MMENSURLSessionWrapper
+__OBJC_$_PROTOCOL_METHOD_TYPES_MMENSURLSessionWrapper
+__OBJC_PROTOCOL_$_MMENSURLSessionWrapper
+__OBJC_LABEL_PROTOCOL_$_MMENSURLSessionWrapper
+__OBJC_$_PROTOCOL_REFS_NSURLSessionDelegate
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSURLSessionDelegate
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSURLSessionDelegate
+__OBJC_PROTOCOL_$_NSURLSessionDelegate
+__OBJC_LABEL_PROTOCOL_$_NSURLSessionDelegate
+__OBJC_CLASS_PROTOCOLS_$_MMENSURLSessionWrapper
+__OBJC_METACLASS_RO_$_MMENSURLSessionWrapper
+__OBJC_$_INSTANCE_METHODS_MMENSURLSessionWrapper
+_OBJC_IVAR_$_MMENSURLSessionWrapper._serialQueue
+_OBJC_IVAR_$_MMENSURLSessionWrapper._certPin
+_OBJC_IVAR_$_MMENSURLSessionWrapper._session
+__OBJC_$_INSTANCE_VARIABLES_MMENSURLSessionWrapper
+__OBJC_$_PROP_LIST_MMENSURLSessionWrapper
+__OBJC_CLASS_RO_$_MMENSURLSessionWrapper
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMENSURLSessionWrapper.m
+Sources/MapboxMobileEvents/MMENSURLSessionWrapper.m
+__copy_helper_block_e8_32s40b48w
+__75-[MMENSURLSessionWrapper URLSession:didReceiveChallenge:completionHandler:]_block_invoke
+__destroy_helper_block_e8_32s40s48s
+__copy_helper_block_e8_32s40s48b
+__copy_helper_block_e8_32b40r
+__destroy_helper_block_e8_32s40s48s56s
+__copy_helper_block_e8_32b40s48s56s
+__59-[MMENSURLSessionWrapper processRequest:completionHandler:]_block_invoke_2
+__59-[MMENSURLSessionWrapper processRequest:completionHandler:]_block_invoke.20
+__59-[MMENSURLSessionWrapper processRequest:completionHandler:]_block_invoke
++[MMEMetricsManager sharedManager]
+___34+[MMEMetricsManager sharedManager]_block_invoke
++[MMEMetricsManager pendingMetricsEventPath]
+___44+[MMEMetricsManager pendingMetricsEventPath]_block_invoke
++[MMEMetricsManager deletePendingMetricsEventFile]
++[MMEMetricsManager createFrameworkMetricsEventDir]
+-[MMEMetricsManager init]
+-[MMEMetricsManager updateMetricsFromEventQueue:]
+-[MMEMetricsManager updateMetricsFromEventCount:request:error:]
+-[MMEMetricsManager updateEventsFailedCount:]
+-[MMEMetricsManager updateSentBytes:]
+-[MMEMetricsManager updateReceivedBytes:]
+-[MMEMetricsManager incrementAppWakeUpCount]
+-[MMEMetricsManager updateConfigurationJSON:]
+-[MMEMetricsManager updateCoordinate:]
+-[MMEMetricsManager resetMetrics]
+-[MMEMetricsManager incrementLocationsInForeground]
+-[MMEMetricsManager incrementLocationsInBackground]
+-[MMEMetricsManager incrementLocationsWithApproximateValues]
+-[MMEMetricsManager incrementLocationsDroppedBecauseOfHAF]
+-[MMEMetricsManager incrementLocationsDroppedDueTimeout]
+-[MMEMetricsManager incrementLocationsConvertedIntoEvents]
+-[MMEMetricsManager attributes]
+-[MMEMetricsManager loadPendingTelemetryMetricsEvent]
+-[MMEMetricsManager generateTelemetryMetricsEvent]
+-[MMEMetricsManager jsonStringfromDict:]
+-[MMEMetricsManager metrics]
+-[MMEMetricsManager setMetrics:]
+-[MMEMetricsManager lock]
+-[MMEMetricsManager .cxx_destruct]
+_sharedManager._sharedManager
+_pendingMetricsEventPath.pendingMetricFile
+_pendingMetricsEventPath.onceToken
+_OBJC_CLASSLIST_REFERENCES_$_.20
+_OBJC_CLASSLIST_REFERENCES_$_.23
+_OBJC_CLASSLIST_REFERENCES_$_.37
+_OBJC_SELECTOR_REFERENCES_.39
+_OBJC_SELECTOR_REFERENCES_.41
+_OBJC_SELECTOR_REFERENCES_.43
+_OBJC_CLASSLIST_REFERENCES_$_.44
+_OBJC_SELECTOR_REFERENCES_.66
+_OBJC_SELECTOR_REFERENCES_.78
+_OBJC_SELECTOR_REFERENCES_.80
+_OBJC_SELECTOR_REFERENCES_.82
+_OBJC_SELECTOR_REFERENCES_.84
+_OBJC_SELECTOR_REFERENCES_.86
+_OBJC_SELECTOR_REFERENCES_.88
+_OBJC_SELECTOR_REFERENCES_.90
+_OBJC_SELECTOR_REFERENCES_.92
+_OBJC_SELECTOR_REFERENCES_.94
+_OBJC_CLASSLIST_REFERENCES_$_.95
+_OBJC_SELECTOR_REFERENCES_.97
+_OBJC_SELECTOR_REFERENCES_.99
+_OBJC_SELECTOR_REFERENCES_.101
+_OBJC_CLASSLIST_REFERENCES_$_.102
+_OBJC_SELECTOR_REFERENCES_.104
+_OBJC_SELECTOR_REFERENCES_.106
+_OBJC_SELECTOR_REFERENCES_.108
+_OBJC_SELECTOR_REFERENCES_.110
+_OBJC_SELECTOR_REFERENCES_.122
+_OBJC_SELECTOR_REFERENCES_.124
+_OBJC_SELECTOR_REFERENCES_.126
+_OBJC_SELECTOR_REFERENCES_.128
+_OBJC_SELECTOR_REFERENCES_.130
+_OBJC_SELECTOR_REFERENCES_.132
+_OBJC_SELECTOR_REFERENCES_.134
+_OBJC_SELECTOR_REFERENCES_.136
+_OBJC_CLASSLIST_REFERENCES_$_.137
+_OBJC_SELECTOR_REFERENCES_.139
+_OBJC_SELECTOR_REFERENCES_.141
+_OBJC_SELECTOR_REFERENCES_.143
+_OBJC_SELECTOR_REFERENCES_.145
+_OBJC_SELECTOR_REFERENCES_.147
+_OBJC_SELECTOR_REFERENCES_.149
+_OBJC_SELECTOR_REFERENCES_.151
+_OBJC_SELECTOR_REFERENCES_.153
+_OBJC_SELECTOR_REFERENCES_.155
+_OBJC_SELECTOR_REFERENCES_.165
+_OBJC_SELECTOR_REFERENCES_.167
+_OBJC_CLASSLIST_REFERENCES_$_.168
+_OBJC_CLASSLIST_REFERENCES_$_.191
+_OBJC_SELECTOR_REFERENCES_.193
+_OBJC_SELECTOR_REFERENCES_.195
+_OBJC_SELECTOR_REFERENCES_.197
+_OBJC_SELECTOR_REFERENCES_.199
+_OBJC_SELECTOR_REFERENCES_.201
+_OBJC_SELECTOR_REFERENCES_.203
+_OBJC_CLASSLIST_REFERENCES_$_.204
+_OBJC_SELECTOR_REFERENCES_.206
+_OBJC_SELECTOR_REFERENCES_.208
+_OBJC_SELECTOR_REFERENCES_.210
+_OBJC_SELECTOR_REFERENCES_.212
+_OBJC_CLASSLIST_REFERENCES_$_.213
+_OBJC_SELECTOR_REFERENCES_.215
+_OBJC_CLASSLIST_REFERENCES_$_.216
+_OBJC_SELECTOR_REFERENCES_.218
+_OBJC_SELECTOR_REFERENCES_.220
+_OBJC_SELECTOR_REFERENCES_.222
+_OBJC_SELECTOR_REFERENCES_.224
+_OBJC_SELECTOR_REFERENCES_.226
+_OBJC_SELECTOR_REFERENCES_.228
+_OBJC_SELECTOR_REFERENCES_.230
+_OBJC_SELECTOR_REFERENCES_.232
+_OBJC_CLASSLIST_REFERENCES_$_.233
+_OBJC_SELECTOR_REFERENCES_.235
+_OBJC_SELECTOR_REFERENCES_.237
+_OBJC_SELECTOR_REFERENCES_.239
+_OBJC_CLASSLIST_REFERENCES_$_.244
+_OBJC_SELECTOR_REFERENCES_.246
+_OBJC_SELECTOR_REFERENCES_.248
+_OBJC_SELECTOR_REFERENCES_.250
+_OBJC_CLASSLIST_REFERENCES_$_.251
+__OBJC_$_CLASS_METHODS_MMEMetricsManager
+__OBJC_METACLASS_RO_$_MMEMetricsManager
+__OBJC_$_INSTANCE_METHODS_MMEMetricsManager
+_OBJC_IVAR_$_MMEMetricsManager._metrics
+_OBJC_IVAR_$_MMEMetricsManager._lock
+__OBJC_$_INSTANCE_VARIABLES_MMEMetricsManager
+__OBJC_$_PROP_LIST_MMEMetricsManager
+__OBJC_CLASS_RO_$_MMEMetricsManager
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEMetricsManager.m
+Sources/MapboxMobileEvents/MMEMetricsManager.m
+Sources/MapboxMobileEvents/MMEMetricsManager.h
+__44+[MMEMetricsManager pendingMetricsEventPath]_block_invoke
+__34+[MMEMetricsManager sharedManager]_block_invoke
+-[MMEAPIClient initWithAccessToken:userAgentBase:hostSDKVersion:]
+-[MMEAPIClient dealloc]
+-[MMEAPIClient batchFromEvents:]
+-[MMEAPIClient postEvents:completionHandler:]
+___45-[MMEAPIClient postEvents:completionHandler:]_block_invoke
+___copy_helper_block_e8_32s40s48s56b
+-[MMEAPIClient postEvent:completionHandler:]
+-[MMEAPIClient postMetadata:filePaths:completionHandler:]
+___57-[MMEAPIClient postMetadata:filePaths:completionHandler:]_block_invoke
+___copy_helper_block_e8_32s40s48b56s
+-[MMEAPIClient startGettingConfigUpdates]
+___41-[MMEAPIClient startGettingConfigUpdates]_block_invoke
+___41-[MMEAPIClient startGettingConfigUpdates]_block_invoke_2
+___41-[MMEAPIClient startGettingConfigUpdates]_block_invoke_3
+___copy_helper_block_e8_32s40s
++[MMEAPIClient parseDigestHeader:]
+-[MMEAPIClient processRequest:]
+___31-[MMEAPIClient processRequest:]_block_invoke
+-[MMEAPIClient stopGettingConfigUpdates]
+-[MMEAPIClient isGettingConfigUpdates]
+-[MMEAPIClient statusErrorFromRequest:andHTTPResponse:]
+-[MMEAPIClient unexpectedResponseError:fromRequest:andResponse:]
+-[MMEAPIClient requestForConfiguration]
+-[MMEAPIClient requestForBinary:boundary:]
+-[MMEAPIClient requestForEvents:]
+___33-[MMEAPIClient requestForEvents:]_block_invoke
+-[MMEAPIClient mimeTypeForPath:]
+-[MMEAPIClient createBodyWithBoundary:metadata:filePaths:]
+-[MMEAPIClient configurationUpdateTimer]
+-[MMEAPIClient setConfigurationUpdateTimer:]
+-[MMEAPIClient sessionWrapper]
+-[MMEAPIClient setSessionWrapper:]
+-[MMEAPIClient applicationBundle]
+-[MMEAPIClient setApplicationBundle:]
+-[MMEAPIClient .cxx_destruct]
+_OBJC_CLASSLIST_REFERENCES_$_.111
+_OBJC_SELECTOR_REFERENCES_.115
+_OBJC_SELECTOR_REFERENCES_.117
+_OBJC_SELECTOR_REFERENCES_.119
+_OBJC_SELECTOR_REFERENCES_.121
+_OBJC_CLASSLIST_REFERENCES_$_.122
+_OBJC_CLASSLIST_REFERENCES_$_.129
+_OBJC_SELECTOR_REFERENCES_.131
+_OBJC_SELECTOR_REFERENCES_.133
+_OBJC_CLASSLIST_REFERENCES_$_.144
+___block_descriptor_64_e8_32s40s48s56bs_e46_v32?0"NSData"8"NSURLResponse"16"NSError"24l
+_OBJC_CLASSLIST_REFERENCES_$_.160
+_OBJC_SELECTOR_REFERENCES_.162
+_OBJC_SELECTOR_REFERENCES_.164
+_OBJC_CLASSLIST_REFERENCES_$_.165
+_OBJC_SELECTOR_REFERENCES_.169
+_OBJC_SELECTOR_REFERENCES_.171
+_OBJC_SELECTOR_REFERENCES_.173
+___block_descriptor_64_e8_32s40s48bs56s_e46_v32?0"NSData"8"NSURLResponse"16"NSError"24l
+_OBJC_CLASSLIST_REFERENCES_$_.174
+_OBJC_CLASSLIST_REFERENCES_$_.179
+_OBJC_SELECTOR_REFERENCES_.181
+_OBJC_SELECTOR_REFERENCES_.183
+_OBJC_SELECTOR_REFERENCES_.185
+___block_descriptor_48_e8_32s40s_e5_v8?0l
+___block_descriptor_40_e8_32s_e17_v16?0"NSTimer"8l
+_OBJC_SELECTOR_REFERENCES_.189
+_OBJC_SELECTOR_REFERENCES_.191
+_OBJC_SELECTOR_REFERENCES_.205
+_OBJC_CLASSLIST_REFERENCES_$_.223
+_OBJC_SELECTOR_REFERENCES_.233
+___block_descriptor_48_e8_32s40s_e46_v32?0"NSData"8"NSURLResponse"16"NSError"24l
+_OBJC_CLASSLIST_REFERENCES_$_.248
+_OBJC_CLASSLIST_REFERENCES_$_.249
+_OBJC_SELECTOR_REFERENCES_.251
+_OBJC_CLASSLIST_REFERENCES_$_.270
+_OBJC_SELECTOR_REFERENCES_.272
+_OBJC_SELECTOR_REFERENCES_.274
+_OBJC_CLASSLIST_REFERENCES_$_.275
+_OBJC_SELECTOR_REFERENCES_.279
+_OBJC_SELECTOR_REFERENCES_.281
+_OBJC_SELECTOR_REFERENCES_.283
+_OBJC_CLASSLIST_REFERENCES_$_.286
+_OBJC_SELECTOR_REFERENCES_.288
+_OBJC_CLASSLIST_REFERENCES_$_.289
+_OBJC_SELECTOR_REFERENCES_.291
+_OBJC_SELECTOR_REFERENCES_.293
+_OBJC_SELECTOR_REFERENCES_.295
+_OBJC_SELECTOR_REFERENCES_.299
+_OBJC_SELECTOR_REFERENCES_.301
+_OBJC_SELECTOR_REFERENCES_.303
+___block_descriptor_40_e8_32s_e25_v32?0"MMEEvent"8Q16^B24l
+_OBJC_CLASSLIST_REFERENCES_$_.311
+_OBJC_SELECTOR_REFERENCES_.313
+_OBJC_CLASSLIST_REFERENCES_$_.314
+_OBJC_SELECTOR_REFERENCES_.316
+_OBJC_SELECTOR_REFERENCES_.318
+_OBJC_SELECTOR_REFERENCES_.320
+_OBJC_SELECTOR_REFERENCES_.322
+_OBJC_CLASSLIST_REFERENCES_$_.323
+_OBJC_SELECTOR_REFERENCES_.325
+_OBJC_SELECTOR_REFERENCES_.329
+_OBJC_SELECTOR_REFERENCES_.331
+_OBJC_SELECTOR_REFERENCES_.339
+_OBJC_CLASSLIST_REFERENCES_$_.340
+_OBJC_SELECTOR_REFERENCES_.342
+_OBJC_SELECTOR_REFERENCES_.344
+__OBJC_$_CLASS_METHODS_MMEAPIClient
+__OBJC_METACLASS_RO_$_MMEAPIClient
+__OBJC_$_INSTANCE_METHODS_MMEAPIClient
+_OBJC_IVAR_$_MMEAPIClient._configurationUpdateTimer
+_OBJC_IVAR_$_MMEAPIClient._sessionWrapper
+_OBJC_IVAR_$_MMEAPIClient._applicationBundle
+__OBJC_$_INSTANCE_VARIABLES_MMEAPIClient
+__OBJC_$_PROP_LIST_MMEAPIClient
+__OBJC_CLASS_RO_$_MMEAPIClient
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEAPIClient.m
+Sources/MapboxMobileEvents/MMEAPIClient.m
+__33-[MMEAPIClient requestForEvents:]_block_invoke
+__31-[MMEAPIClient processRequest:]_block_invoke
+__copy_helper_block_e8_32s40s
+__41-[MMEAPIClient startGettingConfigUpdates]_block_invoke_3
+__41-[MMEAPIClient startGettingConfigUpdates]_block_invoke_2
+__41-[MMEAPIClient startGettingConfigUpdates]_block_invoke
+MMEDispatchMainIfNeeded
+__copy_helper_block_e8_32s40s48b56s
+__57-[MMEAPIClient postMetadata:filePaths:completionHandler:]_block_invoke
+__copy_helper_block_e8_32s40s48s56b
+__45-[MMEAPIClient postEvents:completionHandler:]_block_invoke
+-[MMELocationManager dealloc]
+-[MMELocationManager locationManager]
+-[MMELocationManager init]
+-[MMELocationManager startUpdatingLocation]
+-[MMELocationManager stopUpdatingLocation]
+-[MMELocationManager locationAuthorizationString]
+-[MMELocationManager locationAuthorization]
+-[MMELocationManager isReducedAccuracy]
+-[MMELocationManager accuracyAuthorizationString]
+-[MMELocationManager setLocationManager:]
+-[MMELocationManager stopMonitoringRegions]
+-[MMELocationManager setMetricsEnabledForInUsePermissions:]
+-[MMELocationManager configurePassiveLocationManager]
+-[MMELocationManager startLocationServices]
+-[MMELocationManager timeoutAllowedCheck]
+-[MMELocationManager startBackgroundTimeoutTimer]
+-[MMELocationManager establishRegionMonitoringForLocation:]
+-[MMELocationManager locationManager:didChangeAuthorizationStatus:]
+-[MMELocationManager locationManager:didUpdateLocations:]
+-[MMELocationManager locationManager:didExitRegion:]
+-[MMELocationManager locationManager:didVisit:]
+-[MMELocationManager locationManagerDidPauseLocationUpdates:]
+-[MMELocationManager delegate]
+-[MMELocationManager setDelegate:]
+-[MMELocationManager isUpdatingLocation]
+-[MMELocationManager setUpdatingLocation:]
+-[MMELocationManager isMetricsEnabledForInUsePermissions]
+-[MMELocationManager application]
+-[MMELocationManager setApplication:]
+-[MMELocationManager backgroundLocationServiceTimeoutAllowedDate]
+-[MMELocationManager setBackgroundLocationServiceTimeoutAllowedDate:]
+-[MMELocationManager backgroundLocationServiceTimeoutTimer]
+-[MMELocationManager setBackgroundLocationServiceTimeoutTimer:]
+-[MMELocationManager hostAppHasBackgroundCapability]
+-[MMELocationManager setHostAppHasBackgroundCapability:]
+-[MMELocationManager .cxx_destruct]
+_OBJC_CLASSLIST_REFERENCES_$_.9
+_OBJC_CLASSLIST_REFERENCES_$_.21
+_OBJC_SELECTOR_REFERENCES_.37
+_OBJC_SELECTOR_REFERENCES_.59
+_OBJC_SELECTOR_REFERENCES_.61
+_OBJC_SELECTOR_REFERENCES_.69
+_OBJC_SELECTOR_REFERENCES_.71
+_OBJC_SELECTOR_REFERENCES_.73
+_OBJC_SELECTOR_REFERENCES_.75
+_OBJC_SELECTOR_REFERENCES_.77
+_OBJC_SELECTOR_REFERENCES_.81
+_OBJC_SELECTOR_REFERENCES_.83
+_OBJC_SELECTOR_REFERENCES_.85
+_OBJC_SELECTOR_REFERENCES_.87
+_OBJC_SELECTOR_REFERENCES_.89
+_OBJC_SELECTOR_REFERENCES_.91
+_OBJC_CLASSLIST_REFERENCES_$_.92
+_OBJC_SELECTOR_REFERENCES_.96
+_OBJC_SELECTOR_REFERENCES_.98
+_OBJC_SELECTOR_REFERENCES_.100
+_OBJC_SELECTOR_REFERENCES_.102
+_OBJC_CLASSLIST_REFERENCES_$_.116
+_OBJC_CLASSLIST_REFERENCES_$_.119
+_OBJC_SELECTOR_REFERENCES_.129
+_OBJC_CLASSLIST_REFERENCES_$_.142
+_OBJC_SELECTOR_REFERENCES_.144
+_OBJC_CLASSLIST_REFERENCES_$_.147
+__OBJC_$_PROTOCOL_REFS_CLLocationManagerDelegate
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_CLLocationManagerDelegate
+__OBJC_$_PROTOCOL_METHOD_TYPES_CLLocationManagerDelegate
+__OBJC_PROTOCOL_$_CLLocationManagerDelegate
+__OBJC_LABEL_PROTOCOL_$_CLLocationManagerDelegate
+__OBJC_$_PROTOCOL_REFS_MMELocationManager
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_MMELocationManager
+__OBJC_$_PROP_LIST_MMELocationManager
+__OBJC_$_PROTOCOL_METHOD_TYPES_MMELocationManager
+__OBJC_PROTOCOL_$_MMELocationManager
+__OBJC_LABEL_PROTOCOL_$_MMELocationManager
+__OBJC_CLASS_PROTOCOLS_$_MMELocationManager
+__OBJC_METACLASS_RO_$_MMELocationManager
+__OBJC_$_INSTANCE_METHODS_MMELocationManager
+_OBJC_IVAR_$_MMELocationManager._updatingLocation
+_OBJC_IVAR_$_MMELocationManager._metricsEnabledForInUsePermissions
+_OBJC_IVAR_$_MMELocationManager._hostAppHasBackgroundCapability
+_OBJC_IVAR_$_MMELocationManager._locationManager
+_OBJC_IVAR_$_MMELocationManager._delegate
+_OBJC_IVAR_$_MMELocationManager._application
+_OBJC_IVAR_$_MMELocationManager._backgroundLocationServiceTimeoutAllowedDate
+_OBJC_IVAR_$_MMELocationManager._backgroundLocationServiceTimeoutTimer
+__OBJC_$_INSTANCE_VARIABLES_MMELocationManager
+__OBJC_$_PROP_LIST_MMELocationManager.287
+__OBJC_CLASS_RO_$_MMELocationManager
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMELocationManager.m
+Sources/MapboxMobileEvents/MMELocationManager.m
+Sources/MapboxMobileEvents/MMELocationManager.h
+-[CLLocation(MMEMobileEvents) mme_roundedSpeed]
+-[CLLocation(MMEMobileEvents) mme_roundedCourse]
+-[CLLocation(MMEMobileEvents) mme_roundedAltitude]
+-[CLLocation(MMEMobileEvents) mme_roundedHorizontalAccuracy]
+-[CLLocation(MMEMobileEvents) mme_roundedVerticalAccuracy]
+-[CLLocation(MMEMobileEvents) mme_latitudeRoundedWithPrecision:]
+-[CLLocation(MMEMobileEvents) mme_longitudeRoundedWithPrecision:]
+-[CLLocation(MMEMobileEvents) mme_value:withPrecision:]
+__OBJC_$_CATEGORY_INSTANCE_METHODS_CLLocation_$_MMEMobileEvents
+__OBJC_$_CATEGORY_CLLocation_$_MMEMobileEvents
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/CLLocation+MMEMobileEvents.m
+Sources/MapboxMobileEvents/CLLocation+MMEMobileEvents.m
+mme_linkCLLocationCategory
+-[CLLocationManager(MMEMobileEvents) mme_authorizationStatus]
+-[CLLocationManager(MMEMobileEvents) mme_authorizationStatusString]
+-[CLLocationManager(MMEMobileEvents) mme_accuracyStatus]
+-[CLLocationManager(MMEMobileEvents) mme_accuracyAutorizationString]
+__OBJC_$_CATEGORY_INSTANCE_METHODS_CLLocationManager_$_MMEMobileEvents
+__OBJC_$_CATEGORY_CLLocationManager_$_MMEMobileEvents
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/CLLocationManager+MMEMobileEvents.m
+Sources/MapboxMobileEvents/CLLocationManager+MMEMobileEvents.m
+mme_linkCLLocationManagerCategory
++[MMEEventLogger sharedLogger]
+___30+[MMEEventLogger sharedLogger]_block_invoke
+-[MMEEventLogger setHandler:]
+-[MMEEventLogger logEvent:]
+-[MMEEventLogger logPriority:withType:andMessage:]
+-[MMEEventLogger pushDebugEventWithAttributes:]
+-[MMEEventLogger defaultBlockHandler]
+___37-[MMEEventLogger defaultBlockHandler]_block_invoke
+-[MMEEventLogger isEnabled]
+-[MMEEventLogger setEnabled:]
+-[MMEEventLogger handler]
+-[MMEEventLogger .cxx_destruct]
+_sharedLogger._sharedLogger
+_sharedLogger.onceToken
+_OBJC_CLASSLIST_REFERENCES_$_.17
+_OBJC_CLASSLIST_REFERENCES_$_.32
+___block_descriptor_32_e34_v32?0Q8"NSString"16"NSString"24l
+___block_literal_global.40
+__OBJC_$_CLASS_METHODS_MMEEventLogger
+__OBJC_METACLASS_RO_$_MMEEventLogger
+__OBJC_$_INSTANCE_METHODS_MMEEventLogger
+_OBJC_IVAR_$_MMEEventLogger._enabled
+_OBJC_IVAR_$_MMEEventLogger._handler
+__OBJC_$_INSTANCE_VARIABLES_MMEEventLogger
+__OBJC_$_PROP_LIST_MMEEventLogger
+__OBJC_CLASS_RO_$_MMEEventLogger
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEEventLogger.m
+Sources/MapboxMobileEvents/MMEEventLogger.m
+Sources/MapboxMobileEvents/MMEEventLogger.h
+__37-[MMEEventLogger defaultBlockHandler]_block_invoke
+__30+[MMEEventLogger sharedLogger]_block_invoke
+-[NSData(GZIP) mme_gzippedDataWithCompressionLevel:]
+-[NSData(GZIP) mme_gzippedData]
+-[NSData(GZIP) mme_gunzippedData]
+-[NSData(GZIP) mme_isGzippedData]
+__OBJC_$_CATEGORY_INSTANCE_METHODS_NSData_$_GZIP
+__OBJC_$_CATEGORY_NSData_$_GZIP
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/NSData+MMEGZIP.m
+Sources/MapboxMobileEvents/NSData+MMEGZIP.m
+mme_linkNSDataCategory
++[MMECommonEventData sysInfoByName:]
++[MMECommonEventData commonCrashEventData]
+-[MMECommonEventData init]
++[MMECommonEventData applicationState]
++[MMECommonEventData platformInfo]
+-[MMECommonEventData vendorId]
+-[MMECommonEventData setVendorId:]
+-[MMECommonEventData model]
+-[MMECommonEventData setModel:]
+-[MMECommonEventData osVersion]
+-[MMECommonEventData setOsVersion:]
+-[MMECommonEventData platform]
+-[MMECommonEventData setPlatform:]
+-[MMECommonEventData device]
+-[MMECommonEventData setDevice:]
+-[MMECommonEventData scale]
+-[MMECommonEventData setScale:]
+-[MMECommonEventData .cxx_destruct]
+_OBJC_CLASSLIST_REFERENCES_$_.12
+_OBJC_CLASSLIST_REFERENCES_$_.43
+_OBJC_CLASSLIST_REFERENCES_$_.52
+_OBJC_CLASSLIST_REFERENCES_$_.55
+__OBJC_$_CLASS_METHODS_MMECommonEventData
+__OBJC_METACLASS_RO_$_MMECommonEventData
+__OBJC_$_INSTANCE_METHODS_MMECommonEventData
+_OBJC_IVAR_$_MMECommonEventData._vendorId
+_OBJC_IVAR_$_MMECommonEventData._model
+_OBJC_IVAR_$_MMECommonEventData._osVersion
+_OBJC_IVAR_$_MMECommonEventData._platform
+_OBJC_IVAR_$_MMECommonEventData._device
+_OBJC_IVAR_$_MMECommonEventData._scale
+__OBJC_$_INSTANCE_VARIABLES_MMECommonEventData
+__OBJC_$_PROP_LIST_MMECommonEventData
+__OBJC_CLASS_RO_$_MMECommonEventData
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMECommonEventData.m
+Sources/MapboxMobileEvents/MMECommonEventData.m
+Sources/MapboxMobileEvents/MMECommonEventData.h
+-[MMETimerManager initWithTimeInterval:target:selector:]
+-[MMETimerManager start]
+-[MMETimerManager cancel]
+-[MMETimerManager timeInterval]
+-[MMETimerManager target]
+-[MMETimerManager selector]
+-[MMETimerManager timer]
+-[MMETimerManager setTimer:]
+-[MMETimerManager .cxx_destruct]
+__OBJC_METACLASS_RO_$_MMETimerManager
+__OBJC_$_INSTANCE_METHODS_MMETimerManager
+_OBJC_IVAR_$_MMETimerManager._timeInterval
+_OBJC_IVAR_$_MMETimerManager._target
+_OBJC_IVAR_$_MMETimerManager._selector
+_OBJC_IVAR_$_MMETimerManager._timer
+__OBJC_$_INSTANCE_VARIABLES_MMETimerManager
+__OBJC_$_PROP_LIST_MMETimerManager
+__OBJC_CLASS_RO_$_MMETimerManager
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMETimerManager.m
+Sources/MapboxMobileEvents/MMETimerManager.m
+Sources/MapboxMobileEvents/MMETimerManager.h
+-[MMEUIApplicationExtensionWrapper mme_contentSizeScale]
+-[MMEUIApplicationExtensionWrapper applicationState]
+-[MMEUIApplicationExtensionWrapper beginBackgroundTaskWithExpirationHandler:]
+-[MMEUIApplicationExtensionWrapper endBackgroundTask:]
+-[MMEUIApplicationWrapper init]
+-[MMEUIApplicationWrapper initWithApplication:]
+-[MMEUIApplicationWrapper mme_contentSizeScale]
+-[MMEUIApplicationWrapper applicationState]
+-[MMEUIApplicationWrapper beginBackgroundTaskWithExpirationHandler:]
+-[MMEUIApplicationWrapper endBackgroundTask:]
+-[MMEUIApplicationWrapper application]
+-[MMEUIApplicationWrapper setApplication:]
+-[MMEUIApplicationWrapper .cxx_destruct]
+__OBJC_$_PROTOCOL_REFS_MMEUIApplicationWrapper
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_MMEUIApplicationWrapper
+__OBJC_$_PROP_LIST_MMEUIApplicationWrapper
+__OBJC_$_PROTOCOL_METHOD_TYPES_MMEUIApplicationWrapper
+__OBJC_PROTOCOL_$_MMEUIApplicationWrapper
+__OBJC_LABEL_PROTOCOL_$_MMEUIApplicationWrapper
+__OBJC_CLASS_PROTOCOLS_$_MMEUIApplicationExtensionWrapper
+__OBJC_METACLASS_RO_$_MMEUIApplicationExtensionWrapper
+__OBJC_$_INSTANCE_METHODS_MMEUIApplicationExtensionWrapper
+__OBJC_$_PROP_LIST_MMEUIApplicationExtensionWrapper
+__OBJC_CLASS_RO_$_MMEUIApplicationExtensionWrapper
+_OBJC_CLASSLIST_REFERENCES_$_.60
+__OBJC_CLASS_PROTOCOLS_$_MMEUIApplicationWrapper
+__OBJC_METACLASS_RO_$_MMEUIApplicationWrapper
+__OBJC_$_INSTANCE_METHODS_MMEUIApplicationWrapper
+_OBJC_IVAR_$_MMEUIApplicationWrapper._application
+__OBJC_$_INSTANCE_VARIABLES_MMEUIApplicationWrapper
+__OBJC_$_PROP_LIST_MMEUIApplicationWrapper.84
+__OBJC_CLASS_RO_$_MMEUIApplicationWrapper
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEUIApplicationWrapper.m
+Sources/MapboxMobileEvents/MMEUIApplicationWrapper.m
++[MMEEvent nilAttributes]
+___25+[MMEEvent nilAttributes]_block_invoke
++[MMEEvent redactedStackFrame:]
++[MMEEvent eventWithAttributes:]
++[MMEEvent eventWithAttributes:error:]
++[MMEEvent turnstileEventWithAttributes:]
++[MMEEvent visitEventWithAttributes:]
++[MMEEvent crashEventReporting:error:]
++[MMEEvent debugEventWithAttributes:]
++[MMEEvent debugEventWithError:]
++[MMEEvent debugEventWithException:]
++[MMEEvent eventWithDate:name:attributes:]
++[MMEEvent eventWithName:attributes:]
++[MMEEvent telemetryMetricsEventWithDateString:attributes:]
++[MMEEvent locationEventWithAttributes:instanceIdentifer:commonEventData:]
++[MMEEvent mapLoadEventWithDateString:commonEventData:]
++[MMEEvent mapTapEventWithDateString:attributes:]
++[MMEEvent mapDragEndEventWithDateString:attributes:]
++[MMEEvent mapOfflineDownloadStartEventWithDateString:attributes:]
++[MMEEvent mapOfflineDownloadEndEventWithDateString:attributes:]
++[MMEEvent navigationEventWithName:attributes:]
++[MMEEvent visionEventWithName:attributes:]
++[MMEEvent searchEventWithName:attributes:]
++[MMEEvent carplayEventWithName:attributes:]
++[MMEEvent eventWithDateString:name:attributes:]
++[MMEEvent supportsSecureCoding]
+-[MMEEvent init]
+-[MMEEvent initWithAttributes:error:]
+-[MMEEvent date]
+-[MMEEvent name]
+-[MMEEvent attributes]
+-[MMEEvent isEqualToEvent:]
+-[MMEEvent isEqual:]
+-[MMEEvent hash]
+-[MMEEvent description]
+-[MMEEvent copyWithZone:]
+-[MMEEvent initWithCoder:]
+-[MMEEvent encodeWithCoder:]
+-[MMEEvent dateStorage]
+-[MMEEvent setDateStorage:]
+-[MMEEvent attributesStorage]
+-[MMEEvent setAttributesStorage:]
+-[MMEEvent .cxx_destruct]
+_nilAttributes.onceToken
+_nilAttributes.nilAttributes
+_redactedStackFrame:.allowedSymbols
+_OBJC_CLASSLIST_REFERENCES_$_.14
+_OBJC_CLASSLIST_REFERENCES_$_.27
+_OBJC_CLASSLIST_REFERENCES_$_.47
+_OBJC_CLASSLIST_REFERENCES_$_.70
+_OBJC_CLASSLIST_REFERENCES_$_.81
+_OBJC_CLASSLIST_REFERENCES_$_.90
+_OBJC_CLASSLIST_REFERENCES_$_.123
+_OBJC_CLASSLIST_REFERENCES_$_.126
+_OBJC_CLASSLIST_REFERENCES_$_.162
+_OBJC_CLASSLIST_REFERENCES_$_.170
+_OBJC_CLASSLIST_REFERENCES_$_.183
+_OBJC_CLASSLIST_REFERENCES_$_.186
+_OBJC_CLASSLIST_REFERENCES_$_.189
+_OBJC_CLASSLIST_REFERENCES_$_.192
+_OBJC_SELECTOR_REFERENCES_.204
+_OBJC_SELECTOR_REFERENCES_.244
+_OBJC_CLASSLIST_REFERENCES_$_.245
+_OBJC_SELECTOR_REFERENCES_.255
+__OBJC_$_CLASS_METHODS_MMEEvent
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_NSCopying
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSCopying
+__OBJC_PROTOCOL_$_NSCopying
+__OBJC_LABEL_PROTOCOL_$_NSCopying
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_NSCoding
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSCoding
+__OBJC_PROTOCOL_$_NSCoding
+__OBJC_LABEL_PROTOCOL_$_NSCoding
+__OBJC_$_PROTOCOL_REFS_NSSecureCoding
+__OBJC_$_PROTOCOL_CLASS_METHODS_NSSecureCoding
+__OBJC_$_PROTOCOL_METHOD_TYPES_NSSecureCoding
+__OBJC_$_CLASS_PROP_LIST_NSSecureCoding
+__OBJC_PROTOCOL_$_NSSecureCoding
+__OBJC_LABEL_PROTOCOL_$_NSSecureCoding
+__OBJC_CLASS_PROTOCOLS_$_MMEEvent
+__OBJC_$_CLASS_PROP_LIST_MMEEvent
+__OBJC_METACLASS_RO_$_MMEEvent
+__OBJC_$_INSTANCE_METHODS_MMEEvent
+_OBJC_IVAR_$_MMEEvent._dateStorage
+_OBJC_IVAR_$_MMEEvent._attributesStorage
+__OBJC_$_INSTANCE_VARIABLES_MMEEvent
+__OBJC_$_PROP_LIST_MMEEvent
+__OBJC_CLASS_RO_$_MMEEvent
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEEvent.m
+Sources/MapboxMobileEvents/MMEEvent.m
+__25+[MMEEvent nilAttributes]_block_invoke
++[NSBundle(MMEMobileEvents) mme_isExtension]
+__OBJC_$_CATEGORY_CLASS_METHODS_NSBundle_$_MMEMobileEvents
+__OBJC_$_CATEGORY_NSBundle_$_MMEMobileEvents
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/NSBundle+MMEMobileEvents.m
+Sources/MapboxMobileEvents/NSBundle+MMEMobileEvents.m
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEConstants.m
++[MMEEventsManager sharedManager]
+___33+[MMEEventsManager sharedManager]_block_invoke
+-[MMEEventsManager init]
+-[MMEEventsManager initShared]
+-[MMEEventsManager dealloc]
+-[MMEEventsManager initializeWithAccessToken:userAgentBase:hostSDKVersion:]
+___75-[MMEEventsManager initializeWithAccessToken:userAgentBase:hostSDKVersion:]_block_invoke
+___copy_helper_block_e8_32w
+___destroy_helper_block_e8_32w
+-[MMEEventsManager disableLocationMetrics]
+-[MMEEventsManager powerStateDidChange:]
+___40-[MMEEventsManager powerStateDidChange:]_block_invoke
+-[MMEEventsManager pauseOrResumeMetricsCollectionIfRequired]
+___60-[MMEEventsManager pauseOrResumeMetricsCollectionIfRequired]_block_invoke
+-[MMEEventsManager processAuthorizationStatus:andApplicationState:]
+-[MMEEventsManager flush]
+-[MMEEventsManager resetEventQueuing]
+-[MMEEventsManager postEvents:]
+___31-[MMEEventsManager postEvents:]_block_invoke
+___copy_helper_block_e8_32s40w
+___destroy_helper_block_e8_32s40w
+-[MMEEventsManager sendTurnstileEvent]
+___38-[MMEEventsManager sendTurnstileEvent]_block_invoke
+___38-[MMEEventsManager sendTurnstileEvent]_block_invoke_2
+-[MMEEventsManager sendPendingMetricsEvent]
+___43-[MMEEventsManager sendPendingMetricsEvent]_block_invoke
+___43-[MMEEventsManager sendPendingMetricsEvent]_block_invoke_2
+-[MMEEventsManager sendTelemetryMetricsEvent]
+___45-[MMEEventsManager sendTelemetryMetricsEvent]_block_invoke
+___45-[MMEEventsManager sendTelemetryMetricsEvent]_block_invoke_2
+-[MMEEventsManager enqueueEventWithName:]
+-[MMEEventsManager enqueueEventWithName:attributes:]
+-[MMEEventsManager createAndPushEventBasedOnName:attributes:]
+-[MMEEventsManager postMetadata:filePaths:completionHandler:]
+___61-[MMEEventsManager postMetadata:filePaths:completionHandler:]_block_invoke
+-[MMEEventsManager setDebugLoggingEnabled:]
+-[MMEEventsManager isDebugLoggingEnabled]
+-[MMEEventsManager setDebugHandler:]
+-[MMEEventsManager reportError:]
+-[MMEEventsManager reportException:]
+-[MMEEventsManager pauseMetricsCollection]
+-[MMEEventsManager resumeMetricsCollection]
+-[MMEEventsManager updateNextTurnstileSendDate]
+-[MMEEventsManager pushEvent:]
+-[MMEEventsManager locationManager]
+___35-[MMEEventsManager locationManager]_block_invoke
+-[MMEEventsManager locationManager:didUpdateLocations:]
+-[MMEEventsManager locationManagerDidStartLocationUpdates:]
+-[MMEEventsManager locationManagerBackgroundLocationUpdatesDidTimeout:]
+-[MMEEventsManager locationManagerBackgroundLocationUpdatesDidAutomaticallyPause:]
+-[MMEEventsManager locationManagerDidStopLocationUpdates:]
+-[MMEEventsManager locationManager:didVisit:]
+-[MMEEventsManager delegate]
+-[MMEEventsManager setDelegate:]
+-[MMEEventsManager skuId]
+-[MMEEventsManager setSkuId:]
+-[MMEEventsManager apiClient]
+-[MMEEventsManager setApiClient:]
+-[MMEEventsManager setLocationManager:]
+-[MMEEventsManager eventQueue]
+-[MMEEventsManager setEventQueue:]
+-[MMEEventsManager uniqueIdentifer]
+-[MMEEventsManager setUniqueIdentifer:]
+-[MMEEventsManager commonEventData]
+-[MMEEventsManager setCommonEventData:]
+-[MMEEventsManager nextTurnstileSendDate]
+-[MMEEventsManager setNextTurnstileSendDate:]
+-[MMEEventsManager timerManager]
+-[MMEEventsManager setTimerManager:]
+-[MMEEventsManager dispatchManager]
+-[MMEEventsManager setDispatchManager:]
+-[MMEEventsManager isPaused]
+-[MMEEventsManager setPaused:]
+-[MMEEventsManager application]
+-[MMEEventsManager setApplication:]
+-[MMEEventsManager backgroundTaskIdentifier]
+-[MMEEventsManager setBackgroundTaskIdentifier:]
+-[MMEEventsManager eventsDispatchQueue]
+-[MMEEventsManager setEventsDispatchQueue:]
+-[MMEEventsManager .cxx_destruct]
+_OBJC_CLASSLIST_REFERENCES_$_.115
+_OBJC_CLASSLIST_REFERENCES_$_.124
+_OBJC_SELECTOR_REFERENCES_.138
+_OBJC_CLASSLIST_REFERENCES_$_.139
+___block_descriptor_40_e8_32w_e5_v8?0l
+_OBJC_CLASSLIST_REFERENCES_$_.231
+_OBJC_CLASSLIST_REFERENCES_$_.234
+___block_descriptor_48_e8_32s40w_e17_v16?0"NSError"8l
+_OBJC_SELECTOR_REFERENCES_.252
+_OBJC_SELECTOR_REFERENCES_.254
+_OBJC_SELECTOR_REFERENCES_.258
+_OBJC_SELECTOR_REFERENCES_.260
+_OBJC_CLASSLIST_REFERENCES_$_.261
+_OBJC_CLASSLIST_REFERENCES_$_.264
+_OBJC_SELECTOR_REFERENCES_.266
+_OBJC_SELECTOR_REFERENCES_.268
+_OBJC_CLASSLIST_REFERENCES_$_.269
+_OBJC_SELECTOR_REFERENCES_.271
+_OBJC_CLASSLIST_REFERENCES_$_.272
+_OBJC_SELECTOR_REFERENCES_.276
+_OBJC_SELECTOR_REFERENCES_.278
+_OBJC_CLASSLIST_REFERENCES_$_.279
+_OBJC_SELECTOR_REFERENCES_.289
+_OBJC_CLASSLIST_REFERENCES_$_.290
+___block_descriptor_32_e17_v16?0"NSError"8l
+___block_literal_global.293
+___block_literal_global.296
+_OBJC_SELECTOR_REFERENCES_.310
+_OBJC_SELECTOR_REFERENCES_.312
+_OBJC_SELECTOR_REFERENCES_.314
+_OBJC_SELECTOR_REFERENCES_.324
+___block_descriptor_40_e8_32bs_e17_v16?0"NSError"8l
+_OBJC_SELECTOR_REFERENCES_.326
+_OBJC_SELECTOR_REFERENCES_.328
+_OBJC_SELECTOR_REFERENCES_.330
+_OBJC_SELECTOR_REFERENCES_.332
+_OBJC_SELECTOR_REFERENCES_.334
+_OBJC_SELECTOR_REFERENCES_.336
+_OBJC_CLASSLIST_REFERENCES_$_.337
+_OBJC_SELECTOR_REFERENCES_.346
+_OBJC_SELECTOR_REFERENCES_.348
+_OBJC_SELECTOR_REFERENCES_.350
+_OBJC_SELECTOR_REFERENCES_.352
+_OBJC_SELECTOR_REFERENCES_.354
+_OBJC_SELECTOR_REFERENCES_.356
+_OBJC_SELECTOR_REFERENCES_.358
+_OBJC_SELECTOR_REFERENCES_.360
+_locationManager.onceToken
+_OBJC_CLASSLIST_REFERENCES_$_.361
+_OBJC_SELECTOR_REFERENCES_.363
+_OBJC_SELECTOR_REFERENCES_.365
+_OBJC_SELECTOR_REFERENCES_.367
+_OBJC_SELECTOR_REFERENCES_.369
+_OBJC_SELECTOR_REFERENCES_.371
+_OBJC_SELECTOR_REFERENCES_.373
+_OBJC_SELECTOR_REFERENCES_.375
+_OBJC_SELECTOR_REFERENCES_.377
+_OBJC_SELECTOR_REFERENCES_.379
+_OBJC_SELECTOR_REFERENCES_.381
+_OBJC_SELECTOR_REFERENCES_.383
+_OBJC_SELECTOR_REFERENCES_.385
+_OBJC_SELECTOR_REFERENCES_.387
+_OBJC_SELECTOR_REFERENCES_.389
+_OBJC_SELECTOR_REFERENCES_.391
+_OBJC_SELECTOR_REFERENCES_.393
+_OBJC_SELECTOR_REFERENCES_.395
+_OBJC_SELECTOR_REFERENCES_.397
+_OBJC_SELECTOR_REFERENCES_.399
+_OBJC_SELECTOR_REFERENCES_.401
+_OBJC_SELECTOR_REFERENCES_.403
+_OBJC_SELECTOR_REFERENCES_.405
+_OBJC_SELECTOR_REFERENCES_.407
+_OBJC_SELECTOR_REFERENCES_.409
+_OBJC_SELECTOR_REFERENCES_.411
+_OBJC_SELECTOR_REFERENCES_.413
+_OBJC_SELECTOR_REFERENCES_.415
+_OBJC_SELECTOR_REFERENCES_.417
+_OBJC_SELECTOR_REFERENCES_.419
+_OBJC_SELECTOR_REFERENCES_.421
+_OBJC_CLASSLIST_REFERENCES_$_.422
+_OBJC_SELECTOR_REFERENCES_.424
+_OBJC_SELECTOR_REFERENCES_.426
+_OBJC_SELECTOR_REFERENCES_.428
+_OBJC_SELECTOR_REFERENCES_.430
+_OBJC_SELECTOR_REFERENCES_.432
+_OBJC_SELECTOR_REFERENCES_.434
+__OBJC_$_CLASS_METHODS_MMEEventsManager
+__OBJC_$_PROTOCOL_REFS_MMELocationManagerDelegate
+__OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_MMELocationManagerDelegate
+__OBJC_$_PROTOCOL_METHOD_TYPES_MMELocationManagerDelegate
+__OBJC_PROTOCOL_$_MMELocationManagerDelegate
+__OBJC_LABEL_PROTOCOL_$_MMELocationManagerDelegate
+__OBJC_CLASS_PROTOCOLS_$_MMEEventsManager
+__OBJC_METACLASS_RO_$_MMEEventsManager
+__OBJC_$_INSTANCE_METHODS_MMEEventsManager
+_OBJC_IVAR_$_MMEEventsManager._paused
+_OBJC_IVAR_$_MMEEventsManager._delegate
+_OBJC_IVAR_$_MMEEventsManager._skuId
+_OBJC_IVAR_$_MMEEventsManager._apiClient
+_OBJC_IVAR_$_MMEEventsManager._locationManager
+_OBJC_IVAR_$_MMEEventsManager._eventQueue
+_OBJC_IVAR_$_MMEEventsManager._uniqueIdentifer
+_OBJC_IVAR_$_MMEEventsManager._commonEventData
+_OBJC_IVAR_$_MMEEventsManager._nextTurnstileSendDate
+_OBJC_IVAR_$_MMEEventsManager._timerManager
+_OBJC_IVAR_$_MMEEventsManager._dispatchManager
+_OBJC_IVAR_$_MMEEventsManager._application
+_OBJC_IVAR_$_MMEEventsManager._backgroundTaskIdentifier
+_OBJC_IVAR_$_MMEEventsManager._eventsDispatchQueue
+__OBJC_$_INSTANCE_VARIABLES_MMEEventsManager
+__OBJC_$_PROP_LIST_MMEEventsManager
+__OBJC_CLASS_RO_$_MMEEventsManager
+/Users/distiller/project/scripts/release/packager/artifacts/.build/repo/Sources/MapboxMobileEvents/MMEEventsManager.m
+Sources/MapboxMobileEvents/MMEEventsManager.m
+Sources/MapboxMobileEvents/include/MMEEventsManager.h
+__35-[MMEEventsManager locationManager]_block_invoke
+__61-[MMEEventsManager postMetadata:filePaths:completionHandler:]_block_invoke
+__45-[MMEEventsManager sendTelemetryMetricsEvent]_block_invoke_2
+__45-[MMEEventsManager sendTelemetryMetricsEvent]_block_invoke
+__43-[MMEEventsManager sendPendingMetricsEvent]_block_invoke_2
+__43-[MMEEventsManager sendPendingMetricsEvent]_block_invoke
+__38-[MMEEventsManager sendTurnstileEvent]_block_invoke_2
+__38-[MMEEventsManager sendTurnstileEvent]_block_invoke
+__destroy_helper_block_e8_32s40w
+__copy_helper_block_e8_32s40w
+__31-[MMEEventsManager postEvents:]_block_invoke
+__60-[MMEEventsManager pauseOrResumeMetricsCollectionIfRequired]_block_invoke
+__40-[MMEEventsManager powerStateDidChange:]_block_invoke
+__destroy_helper_block_e8_32w
+__copy_helper_block_e8_32w
+__75-[MMEEventsManager initializeWithAccessToken:userAgentBase:hostSDKVersion:]_block_invoke
+__33+[MMEEventsManager sharedManager]_block_invoke

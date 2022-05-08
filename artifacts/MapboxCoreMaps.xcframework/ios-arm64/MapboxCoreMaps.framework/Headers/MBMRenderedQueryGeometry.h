@@ -27,9 +27,9 @@ __attribute__((visibility ("default")))
 - (BOOL)isScreenCoordinate;
 - (BOOL)isNSArray;
 
-- (nonnull MBMScreenBox *)getScreenBox;
-- (nonnull MBMScreenCoordinate *)getScreenCoordinate;
-- (nonnull NSArray<MBMScreenCoordinate *> *)getNSArray;
+- (nonnull MBMScreenBox *)getScreenBox __attribute((ns_returns_retained));
+- (nonnull MBMScreenCoordinate *)getScreenCoordinate __attribute((ns_returns_retained));
+- (nonnull NSArray<MBMScreenCoordinate *> *)getNSArray __attribute((ns_returns_retained));
 
 @property (nonatomic, nonnull) id value;
 

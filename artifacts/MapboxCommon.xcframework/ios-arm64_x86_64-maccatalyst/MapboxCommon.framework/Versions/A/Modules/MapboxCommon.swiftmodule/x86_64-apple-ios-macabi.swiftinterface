@@ -1,0 +1,51 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MapboxCommon
+import Foundation
+@_exported import MapboxCommon
+import Swift
+extension DownloadError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension DownloadStatus {
+  public convenience init(downloadId: Swift.UInt64, state: MapboxCommon.DownloadState, error: MapboxCommon.DownloadError?, totalBytes: Swift.UInt64?, receivedBytes: Swift.UInt64, transferredBytes: Swift.UInt64, downloadOptions: MapboxCommon.DownloadOptions, httpResult: Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>?)
+  public convenience init(error: MapboxCommon.DownloadError?, totalBytes: Swift.UInt64?, downloadOptions: MapboxCommon.DownloadOptions, httpResult: Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>?)
+  public var httpResult: Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>? {
+    get
+  }
+  public var totalBytes: Swift.UInt64? {
+    get
+  }
+}
+extension HttpRequestError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension HttpResponse {
+  public convenience init(request: MapboxCommon.HttpRequest, result: Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>)
+  public var result: Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError> {
+    get
+  }
+}
+public struct SettingsServiceError : Swift.Equatable, Swift.Error {
+  public init(description: Swift.String)
+  public static func == (a: MapboxCommon.SettingsServiceError, b: MapboxCommon.SettingsServiceError) -> Swift.Bool
+}
+extension SettingsServiceError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public protocol SettingsServiceInterface {
+  func set<T>(key: Swift.String, value: T) -> Swift.Result<Swift.Void, MapboxCommon.SettingsServiceError>
+  func get<T>(key: Swift.String, type: T.Type) -> Swift.Result<T, MapboxCommon.SettingsServiceError>
+  func get<T>(key: Swift.String, type: T.Type, defaultValue: T) -> Swift.Result<T, MapboxCommon.SettingsServiceError>
+  func erase(key: Swift.String) -> Swift.Result<Swift.Void, MapboxCommon.SettingsServiceError>
+  func has(key: Swift.String) -> Swift.Result<Swift.Bool, MapboxCommon.SettingsServiceError>
+}
+extension SettingsServiceFactory {
+  public static func getInstance(storageType: MapboxCommon.SettingsServiceStorageType) -> MapboxCommon.SettingsServiceInterface
+}

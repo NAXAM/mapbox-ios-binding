@@ -23,8 +23,8 @@ __attribute__((visibility ("default")))
 - (BOOL)isMapMemoryBudgetInMegabytes;
 - (BOOL)isMapMemoryBudgetInTiles;
 
-- (nonnull MBMMapMemoryBudgetInMegabytes *)getMapMemoryBudgetInMegabytes;
-- (nonnull MBMMapMemoryBudgetInTiles *)getMapMemoryBudgetInTiles;
+- (nonnull MBMMapMemoryBudgetInMegabytes *)getMapMemoryBudgetInMegabytes __attribute((ns_returns_retained));
+- (nonnull MBMMapMemoryBudgetInTiles *)getMapMemoryBudgetInTiles __attribute((ns_returns_retained));
 
 @property (nonatomic, nonnull) id value;
 

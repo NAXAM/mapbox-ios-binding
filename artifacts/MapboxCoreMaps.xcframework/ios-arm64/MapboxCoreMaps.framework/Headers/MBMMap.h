@@ -6,7 +6,7 @@
 #import "MBMMapDebugOptions.h"
 #import "MBMNorthOrientation.h"
 #import "MBMViewportMode.h"
-@class MBXExpected;
+@class MBXExpected<__covariant Value, __covariant Error>;
 @class MBXFeature;
 #import "MBMCameraManager.h"
 
