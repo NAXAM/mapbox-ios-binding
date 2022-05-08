@@ -8,7 +8,7 @@ At the momment, I don't have free time to contribute to the project, but if ther
 ## Installation
 
 ```
-Install-Package MapboxMaps.iOS
+Install-Package MapboxMapObjC.iOS
 ```
 
 ## Usage
