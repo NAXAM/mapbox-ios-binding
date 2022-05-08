@@ -2,30 +2,26 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- Required elements-->
-        <id>MapboxMaps.iOS</id>
-        <version>10.5.0</version>
+        <id>MapboxMobileEvents.iOS</id>
+        <version>1.0.7</version>
         <authors>tuyen-vuduc</authors>
         <owners>tuyen-vuduc</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <title>MapboxMaps iOS</title>
-        <summary>Xamarin.iOS binding library for MapboxMaps</summary>
-        <description>Xamarin.iOS binding library for MapboxMaps</description>
-        <releaseNotes>Mapbox iOS v10.5.0</releaseNotes>
+        <title>MapboxMobileEvents iOS</title>
+        <summary>Xamarin.iOS binding library for MapboxMobileEvents</summary>
+        <description>Xamarin.iOS binding library for MapboxMobileEvents</description>
+        <releaseNotes>MapboxMobileEvents iOS v1.0.7</releaseNotes>
         <iconUrl>https://avatars0.githubusercontent.com/u/600935</iconUrl>
         <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>https://github.com/tuyen-vuduc/mapbox-ios-binding</projectUrl>
         <copyright>Copyright (c) 2022 tuyen-vuduc</copyright>
         <tags>Xamarin.iOS, Mapbox</tags>
         <dependencies>
-            <dependency id="MapboxCommon.iOS" version="21.3.0" />
-            <dependency id="MapboxCoreMaps.iOS" version="10.5.1" />
-            <dependency id="MapboxMobileEvents.iOS" version="1.0.7" />
-            <dependency id="MapboxTurf.iOS" version="2.4.0" />
         </dependencies>
     </metadata>
     <!-- Optional 'files' node -->
     <files>
         <!--iOS-->
-        <file src="libs/MapboxMaps.iOS/bin/Release/MapboxMaps.iOS.dll" target="lib/Xamarin.iOS10/MapboxMaps.iOS.dll" />
+        <file src="libs/MapboxMobileEvents.iOS/bin/Release/MapboxMobileEvents.iOS.dll" target="lib/Xamarin.iOS10/MapboxMobileEvents.iOS.dll" />
     </files>
 </package>
