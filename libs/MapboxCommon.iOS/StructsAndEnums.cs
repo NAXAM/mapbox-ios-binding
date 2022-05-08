@@ -65,6 +65,13 @@ namespace MapboxCommon
 	}
 
 	[Native]
+	public enum MBXSettingsServiceStorageType : long
+	{
+		Persistent,
+		NonPersistent
+	}
+
+	[Native]
 	public enum MBXTileDataDomain : long
 	{
 		Maps,

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using CoreLocation;
 using Foundation;
 using MapboxMobileEvents;
@@ -9,13 +9,13 @@ namespace MapboxMobileEvents
 	[Static]
 	partial interface Constants
 	{
-		//// extern double MapboxMobileEventsVersionNumber;
-		//[Field ("MapboxMobileEventsVersionNumber", "__Internal")]
-		//double MapboxMobileEventsVersionNumber { get; }
+		// // extern double MapboxMobileEventsVersionNumber;
+		// [Field ("MapboxMobileEventsVersionNumber", "__Internal")]
+		// double MapboxMobileEventsVersionNumber { get; }
 
-		//// extern const unsigned char [] MapboxMobileEventsVersionString;
-		//[Field ("MapboxMobileEventsVersionString", "__Internal")]
-		//byte[] MapboxMobileEventsVersionString { get; }
+		// // extern const unsigned char [] MapboxMobileEventsVersionString;
+		// [Field ("MapboxMobileEventsVersionString", "__Internal")]
+		// byte[] MapboxMobileEventsVersionString { get; }
 
 		// extern NSString *const MMEAPIClientBaseEventsURL;
 		[Field ("MMEAPIClientBaseEventsURL", "__Internal")]
@@ -743,15 +743,15 @@ namespace MapboxMobileEvents
 		MMEEvent DebugEventWithException (NSException except);
 
 		// TODO Missing MMECommonEventData
-		//// +(instancetype _Nonnull)locationEventWithAttributes:(NSDictionary * _Nonnull)attributes instanceIdentifer:(NSString * _Nonnull)instanceIdentifer commonEventData:(MMECommonEventData * _Nonnull)commonEventData;
-		//[Static]
-		//[Export ("locationEventWithAttributes:instanceIdentifer:commonEventData:")]
-		//MMEEvent LocationEventWithAttributes (NSDictionary attributes, string instanceIdentifer, MMECommonEventData commonEventData);
+		// // +(instancetype _Nonnull)locationEventWithAttributes:(NSDictionary * _Nonnull)attributes instanceIdentifer:(NSString * _Nonnull)instanceIdentifer commonEventData:(MMECommonEventData * _Nonnull)commonEventData;
+		// [Static]
+		// [Export ("locationEventWithAttributes:instanceIdentifer:commonEventData:")]
+		// MMEEvent LocationEventWithAttributes (NSDictionary attributes, string instanceIdentifer, MMECommonEventData commonEventData);
 
-		//// +(instancetype _Nonnull)mapLoadEventWithDateString:(NSString * _Nonnull)dateString commonEventData:(MMECommonEventData * _Nonnull)commonEventData;
-		//[Static]
-		//[Export ("mapLoadEventWithDateString:commonEventData:")]
-		//MMEEvent MapLoadEventWithDateString (string dateString, MMECommonEventData commonEventData);
+		// // +(instancetype _Nonnull)mapLoadEventWithDateString:(NSString * _Nonnull)dateString commonEventData:(MMECommonEventData * _Nonnull)commonEventData;
+		// [Static]
+		// [Export ("mapLoadEventWithDateString:commonEventData:")]
+		// MMEEvent MapLoadEventWithDateString (string dateString, MMECommonEventData commonEventData);
 
 		// +(instancetype _Nonnull)eventWithName:(NSString * _Nonnull)eventName attributes:(NSDictionary * _Nonnull)attributes;
 		[Static]
@@ -826,9 +826,9 @@ namespace MapboxMobileEvents
 		string SkuId { get; set; }
 
 		// TODO Missing MMEAPIClient
-		//// @property (nonatomic) id<MMEAPIClient> _Nonnull apiClient;
-		//[Export ("apiClient", ArgumentSemantic.Assign)]
-		//MMEAPIClient ApiClient { get; set; }
+		// // @property (nonatomic) id<MMEAPIClient> _Nonnull apiClient;
+		// [Export ("apiClient", ArgumentSemantic.Assign)]
+		// MMEAPIClient ApiClient { get; set; }
 
 		// +(instancetype _Nonnull)sharedManager;
 		[Static]
@@ -961,7 +961,6 @@ namespace MapboxMobileEvents
 		[Static]
 		[Export("mme_setAccessToken:")]
 		void mme_SetAccessToken(string value);
-
 		// @property (copy, nonatomic, setter = mme_setLegacyUserAgentBase:) NSString * _Nonnull mme_legacyUserAgentBase;
 		[Static]
 		[Export ("mme_legacyUserAgentBase")]
@@ -986,17 +985,17 @@ namespace MapboxMobileEvents
 		[Export("mme_setIsCNRegion:")]
 		void mme_setIsCNRegion(bool value);
 
-		// @property (readonly, nonatomic) NSUrl * _Nonnull mme_APIServiceURL;
+		// @property (readonly, nonatomic) NSURL * _Nonnull mme_APIServiceURL;
 		[Static]
 		[Export("mme_APIServiceURL")]
 		NSUrl Mme_APIServiceURL();
 
-		// @property (readonly, nonatomic) NSUrl * _Nonnull mme_eventsServiceURL;
+		// @property (readonly, nonatomic) NSURL * _Nonnull mme_eventsServiceURL;
 		[Static]
 		[Export("mme_eventsServiceURL")]
 		NSUrl Mme_eventsServiceURL();
 
-		// @property (readonly, nonatomic) NSUrl * _Nonnull mme_configServiceURL;
+		// @property (readonly, nonatomic) NSURL * _Nonnull mme_configServiceURL;
 		[Static]
 		[Export("mme_configServiceURL")]
 		NSUrl Mme_configServiceURL();
@@ -1010,12 +1009,10 @@ namespace MapboxMobileEvents
 		[Static]
 		[Export("mme_legacyUserAgentString")]
 		string Mme_legacyUserAgentString();
-
 		// TODO Missing MMEDate
-		//// @property (nonatomic, setter = mme_setConfigUpdateDate:) MMEDate * _Nullable mme_configUpdateDate;
-		//[Static]
-		//[NullAllowed, Export ("mme_configUpdateDate", ArgumentSemantic.Assign)]
-		//MMEDate Mme_configUpdateDate { get; [Bind ("mme_setConfigUpdateDate:")] set; }
+		// // @property (nonatomic, setter = mme_setConfigUpdateDate:) MMEDate * _Nullable mme_configUpdateDate;
+		// [NullAllowed, Export ("mme_configUpdateDate", ArgumentSemantic.Assign)]
+		// MMEDate Mme_configUpdateDate { get; [Bind ("mme_setConfigUpdateDate:")] set; }
 
 		// @property (nonatomic, setter = mme_setIsCollectionEnabled:) BOOL mme_isCollectionEnabled;
 		[Static]

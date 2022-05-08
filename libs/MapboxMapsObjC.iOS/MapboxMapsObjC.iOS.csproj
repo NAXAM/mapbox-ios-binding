@@ -4,12 +4,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{3788F231-896A-49C7-A28C-CE655F7B2A8E}</ProjectGuid>
+    <ProjectGuid>{D2089059-3E47-47A2-AAC2-E46EFACFAD84}</ProjectGuid>
     <TemplateGuid>{b6f3ff35-79b2-4f25-a2fc-60a7cf61013b}</TemplateGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>MapboxCommon.iOS</RootNamespace>
+    <RootNamespace>MapboxMapsObjC.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>MapboxCommon.iOS</AssemblyName>
+    <AssemblyName>MapboxMapsObjC.iOS</AssemblyName>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -45,6 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MapboxMaps.iOS\MapboxMaps.iOS.csproj">
+      <Project>{682AEE9E-B4F4-4BED-8D14-23582E4992FE}</Project>
+      <Name>MapboxMaps.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MapboxCoreMaps.iOS\MapboxCoreMaps.iOS.csproj">
+      <Project>{E1105607-4EE9-4E78-AEF5-53EC6D02F081}</Project>
+      <Name>MapboxCoreMaps.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

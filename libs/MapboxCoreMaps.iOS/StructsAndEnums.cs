@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using Foundation;
 using MapboxCoreMaps;
 using ObjCRuntime;
@@ -54,7 +54,9 @@ namespace MapboxCoreMaps
 		Overdraw,
 		StencilClip,
 		DepthBuffer,
-		RenderCache
+		RenderCache,
+		ModelBounds,
+		TerrainWireframe
 	}
 
 	[Native]

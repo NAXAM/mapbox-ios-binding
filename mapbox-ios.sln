@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapboxMaps.iOS", "libs\Mapb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapboxCommon.iOS", "libs\MapboxCommon.iOS\MapboxCommon.iOS.csproj", "{3788F231-896A-49C7-A28C-CE655F7B2A8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapboxMapsObjC.iOS", "libs\MapboxMapsObjC.iOS\MapboxMapsObjC.iOS.csproj", "{D2089059-3E47-47A2-AAC2-E46EFACFAD84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,18 @@ Global
 		{3788F231-896A-49C7-A28C-CE655F7B2A8E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{3788F231-896A-49C7-A28C-CE655F7B2A8E}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{3788F231-896A-49C7-A28C-CE655F7B2A8E}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Release|iPhone.Build.0 = Release|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,5 +131,6 @@ Global
 		{F6367818-1DD9-425C-9D60-B0434617FBFF} = {E9AD48E2-739E-4E0D-97E4-A492512B1445}
 		{682AEE9E-B4F4-4BED-8D14-23582E4992FE} = {E9AD48E2-739E-4E0D-97E4-A492512B1445}
 		{3788F231-896A-49C7-A28C-CE655F7B2A8E} = {E9AD48E2-739E-4E0D-97E4-A492512B1445}
+		{D2089059-3E47-47A2-AAC2-E46EFACFAD84} = {E9AD48E2-739E-4E0D-97E4-A492512B1445}
 	EndGlobalSection
 EndGlobal

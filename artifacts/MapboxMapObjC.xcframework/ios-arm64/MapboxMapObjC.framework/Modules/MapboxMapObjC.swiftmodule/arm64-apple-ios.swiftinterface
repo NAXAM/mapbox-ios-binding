@@ -1,31 +1,22 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
-// swift-module-flags: -target arm64-apple-ios15.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MapboxMapObjC
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MapboxMapObjC
 import Foundation
 @_exported import MapboxMapObjC
 import MapboxMaps
 import Swift
 import _Concurrency
-extension MapboxMaps.MapInitOptions {
-  @objc convenience dynamic public init(resourceOptions: MapboxCoreMaps.ResourceOptions? = nil, mapOptions: MapboxCoreMaps.MapOptions? = nil, cameraOptions: MapboxCoreMaps.CameraOptions? = nil, stylePath: Swift.String?)
-  @objc convenience dynamic public init(resourceOptions: MapboxCoreMaps.ResourceOptions? = nil, mapOptions: MapboxCoreMaps.MapOptions? = nil, cameraOptions: MapboxCoreMaps.CameraOptions? = nil, styleURI: Foundation.URL?)
+@_inheritsConvenienceInitializers @objc open class MapInitOptionsFactory : ObjectiveC.NSObject {
+  @objc public static func create(resourceOptions: MapboxCoreMaps.ResourceOptions? = nil, mapOptions: MapboxCoreMaps.MapOptions? = nil, cameraOptions: MapboxCoreMaps.CameraOptions? = nil, stylePath: Swift.String?) -> MapboxMaps.MapInitOptions
+  @objc public static func create(resourceOptions: MapboxCoreMaps.ResourceOptions? = nil, mapOptions: MapboxCoreMaps.MapOptions? = nil, cameraOptions: MapboxCoreMaps.CameraOptions? = nil, styleURI: Foundation.URL?) -> MapboxMaps.MapInitOptions
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc open class MapViewFactory : ObjectiveC.NSObject {
+  @objc public static func create(frame: CoreGraphics.CGRect, options: MapboxMaps.MapInitOptions) -> MapboxMaps.MapView
+  @objc override dynamic public init()
+  @objc deinit
 }
 extension MapboxMaps.ResourceOptions {
   public init(_ objcValue: MapboxCoreMaps.ResourceOptions)
-}
-extension MapboxMaps.MapView {
-  @objc @_Concurrency.MainActor(unsafe) convenience dynamic public init(frame: CoreGraphics.CGRect, options: MapboxMaps.MapInitOptions)
-}
-@objc @objcMembers open class StyleURIObjc : ObjectiveC.NSObject {
-  public typealias RawValue = Swift.String
-  @objc final public let rawValue: Swift.String
-  @objc public init?(rawValue: Swift.String)
-  @objc convenience public init?(url: Foundation.URL)
-  @objc public static let streets: MapboxMapObjC.StyleURIObjc
-  @objc public static let outdoors: MapboxMapObjC.StyleURIObjc
-  @objc public static let light: MapboxMapObjC.StyleURIObjc
-  @objc public static let dark: MapboxMapObjC.StyleURIObjc
-  @objc public static let satellite: MapboxMapObjC.StyleURIObjc
-  @objc public static let satelliteStreets: MapboxMapObjC.StyleURIObjc
-  @objc deinit
 }

@@ -161,6 +161,36 @@
       <Project>{3788F231-896A-49C7-A28C-CE655F7B2A8E}</Project>
       <Name>MapboxCommon.iOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\libs\MapboxMapsObjC.iOS\MapboxMapsObjC.iOS.csproj">
+      <Project>{D2089059-3E47-47A2-AAC2-E46EFACFAD84}</Project>
+      <Name>MapboxMapsObjC.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\artifacts\MapboxCommon.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\..\artifacts\MapboxCoreMaps.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\..\artifacts\MapboxMaps.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\..\artifacts\MapboxMobileEvents.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\..\artifacts\Turf.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\..\artifacts\MapboxMapObjC.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

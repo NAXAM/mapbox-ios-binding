@@ -12,12 +12,12 @@ using Foundation;
 // Information about this assembly is defined by the following attributes.
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle("MapboxCommon.iOS")]
-[assembly: AssemblyDescription("Xamarin.iOS binding library for MapboxCommon")]
+[assembly: AssemblyTitle("MapboxMapsObjC.iOS")]
+[assembly: AssemblyDescription("Xamarin.iOS binding library for MapboxMapsObjC")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Copyright @ 2022 tuyen-vuduc")]
+[assembly: AssemblyProduct("MapboxMapsObjC.iOS")]
+[assembly: AssemblyCopyright("Copyright © 2022 tuyen-vuduc")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -25,8 +25,7 @@ using Foundation;
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 
-[assembly: AssemblyVersion("21.3.0")]
-[assembly: AssemblyInformationalVersion("21.3.0")]
+[assembly: AssemblyVersion("10.5.0")]
 
 // The following attributes are used to specify the signing key for the assembly,
 // if desired. See the Mono documentation for more information about signing.

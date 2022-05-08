@@ -94,11 +94,5 @@
       <Name>MapboxMobileEvents.iOS</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <NativeReference Include="..\..\artifacts\MapboxMaps.xcframework\ios-arm64\MapboxMaps.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-    </NativeReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

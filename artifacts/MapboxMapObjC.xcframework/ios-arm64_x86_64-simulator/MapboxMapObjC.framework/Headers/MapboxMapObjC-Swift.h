@@ -198,7 +198,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreGraphics;
-@import MapboxMaps;
 @import ObjectiveC;
 #endif
 
@@ -223,59 +222,24 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class MBMMapOptions;
 @class MBMCameraOptions;
 @class NSString;
+@class MapInitOptions;
 @class NSURL;
 
-@interface MapInitOptions (SWIFT_EXTENSION(MapboxMapObjC))
-- (nonnull instancetype)initWithResourceOptions:(MBMResourceOptions * _Nullable)resourceOptions mapOptions:(MBMMapOptions * _Nullable)mapOptions cameraOptions:(MBMCameraOptions * _Nullable)cameraOptions stylePath:(NSString * _Nullable)stylePath;
-- (nonnull instancetype)initWithResourceOptions:(MBMResourceOptions * _Nullable)resourceOptions mapOptions:(MBMMapOptions * _Nullable)mapOptions cameraOptions:(MBMCameraOptions * _Nullable)cameraOptions styleURI:(NSURL * _Nullable)styleURI;
+SWIFT_CLASS("_TtC13MapboxMapObjC21MapInitOptionsFactory")
+@interface MapInitOptionsFactory : NSObject
++ (MapInitOptions * _Nonnull)createWithResourceOptions:(MBMResourceOptions * _Nullable)resourceOptions mapOptions:(MBMMapOptions * _Nullable)mapOptions cameraOptions:(MBMCameraOptions * _Nullable)cameraOptions stylePath:(NSString * _Nullable)stylePath SWIFT_WARN_UNUSED_RESULT;
++ (MapInitOptions * _Nonnull)createWithResourceOptions:(MBMResourceOptions * _Nullable)resourceOptions mapOptions:(MBMMapOptions * _Nullable)mapOptions cameraOptions:(MBMCameraOptions * _Nullable)cameraOptions styleURI:(NSURL * _Nullable)styleURI SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class MapView;
 
-@interface MapView (SWIFT_EXTENSION(MapboxMapObjC))
-- (nonnull instancetype)initWithFrame:(CGRect)frame options:(MapInitOptions * _Nonnull)options;
+SWIFT_CLASS("_TtC13MapboxMapObjC14MapViewFactory")
+@interface MapViewFactory : NSObject
++ (MapView * _Nonnull)createWithFrame:(CGRect)frame options:(MapInitOptions * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
-SWIFT_CLASS("_TtC13MapboxMapObjC12StyleURIObjc")
-@interface StyleURIObjc : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull rawValue;
-/// Create a custom StyleURI from a String. The String may be a full HTTP or HTTPS URI, a Mapbox style URI
-/// (mapbox://styles/{user}/{style}), or a path to a local file relative to the application’s
-/// resource path.
-/// Returns nil if the String is invalid.
-/// \param rawValue String representation of the URI for the style
-///
-- (nullable instancetype)initWithRawValue:(NSString * _Nonnull)rawValue OBJC_DESIGNATED_INITIALIZER;
-/// Create a custom StyleURI from a URL. The URL may be a full HTTP or HTTPS URI, a Mapbox style URI
-/// (mapbox://styles/{user}/{style}), or a path to a local file relative to the application’s
-/// resource path.
-/// Returns nil if the URL is invalid.
-/// \param url URL for the style
-///
-- (nullable instancetype)initWithUrl:(NSURL * _Nonnull)url;
-/// Mapbox Streets is a general-purpose style with detailed road and transit networks.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull streets;)
-+ (StyleURIObjc * _Nonnull)streets SWIFT_WARN_UNUSED_RESULT;
-/// Mapbox Outdoors is a general-purpose style tailored to outdoor activities.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull outdoors;)
-+ (StyleURIObjc * _Nonnull)outdoors SWIFT_WARN_UNUSED_RESULT;
-/// Mapbox Light is a subtle, light-colored backdrop for data visualizations.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull light;)
-+ (StyleURIObjc * _Nonnull)light SWIFT_WARN_UNUSED_RESULT;
-/// Mapbox Dark is a subtle, dark-colored backdrop for data visualizations.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull dark;)
-+ (StyleURIObjc * _Nonnull)dark SWIFT_WARN_UNUSED_RESULT;
-/// The Mapbox Satellite style is a base-map of high-resolution satellite and aerial imagery.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull satellite;)
-+ (StyleURIObjc * _Nonnull)satellite SWIFT_WARN_UNUSED_RESULT;
-/// The Mapbox Satellite Streets style combines the high-resolution satellite and aerial imagery
-/// of Mapbox Satellite with unobtrusive labels and translucent roads from Mapbox Streets.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull satelliteStreets;)
-+ (StyleURIObjc * _Nonnull)satelliteStreets SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
@@ -482,7 +446,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreGraphics;
-@import MapboxMaps;
 @import ObjectiveC;
 #endif
 
@@ -507,59 +470,24 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class MBMMapOptions;
 @class MBMCameraOptions;
 @class NSString;
+@class MapInitOptions;
 @class NSURL;
 
-@interface MapInitOptions (SWIFT_EXTENSION(MapboxMapObjC))
-- (nonnull instancetype)initWithResourceOptions:(MBMResourceOptions * _Nullable)resourceOptions mapOptions:(MBMMapOptions * _Nullable)mapOptions cameraOptions:(MBMCameraOptions * _Nullable)cameraOptions stylePath:(NSString * _Nullable)stylePath;
-- (nonnull instancetype)initWithResourceOptions:(MBMResourceOptions * _Nullable)resourceOptions mapOptions:(MBMMapOptions * _Nullable)mapOptions cameraOptions:(MBMCameraOptions * _Nullable)cameraOptions styleURI:(NSURL * _Nullable)styleURI;
+SWIFT_CLASS("_TtC13MapboxMapObjC21MapInitOptionsFactory")
+@interface MapInitOptionsFactory : NSObject
++ (MapInitOptions * _Nonnull)createWithResourceOptions:(MBMResourceOptions * _Nullable)resourceOptions mapOptions:(MBMMapOptions * _Nullable)mapOptions cameraOptions:(MBMCameraOptions * _Nullable)cameraOptions stylePath:(NSString * _Nullable)stylePath SWIFT_WARN_UNUSED_RESULT;
++ (MapInitOptions * _Nonnull)createWithResourceOptions:(MBMResourceOptions * _Nullable)resourceOptions mapOptions:(MBMMapOptions * _Nullable)mapOptions cameraOptions:(MBMCameraOptions * _Nullable)cameraOptions styleURI:(NSURL * _Nullable)styleURI SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class MapView;
 
-@interface MapView (SWIFT_EXTENSION(MapboxMapObjC))
-- (nonnull instancetype)initWithFrame:(CGRect)frame options:(MapInitOptions * _Nonnull)options;
+SWIFT_CLASS("_TtC13MapboxMapObjC14MapViewFactory")
+@interface MapViewFactory : NSObject
++ (MapView * _Nonnull)createWithFrame:(CGRect)frame options:(MapInitOptions * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
-SWIFT_CLASS("_TtC13MapboxMapObjC12StyleURIObjc")
-@interface StyleURIObjc : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull rawValue;
-/// Create a custom StyleURI from a String. The String may be a full HTTP or HTTPS URI, a Mapbox style URI
-/// (mapbox://styles/{user}/{style}), or a path to a local file relative to the application’s
-/// resource path.
-/// Returns nil if the String is invalid.
-/// \param rawValue String representation of the URI for the style
-///
-- (nullable instancetype)initWithRawValue:(NSString * _Nonnull)rawValue OBJC_DESIGNATED_INITIALIZER;
-/// Create a custom StyleURI from a URL. The URL may be a full HTTP or HTTPS URI, a Mapbox style URI
-/// (mapbox://styles/{user}/{style}), or a path to a local file relative to the application’s
-/// resource path.
-/// Returns nil if the URL is invalid.
-/// \param url URL for the style
-///
-- (nullable instancetype)initWithUrl:(NSURL * _Nonnull)url;
-/// Mapbox Streets is a general-purpose style with detailed road and transit networks.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull streets;)
-+ (StyleURIObjc * _Nonnull)streets SWIFT_WARN_UNUSED_RESULT;
-/// Mapbox Outdoors is a general-purpose style tailored to outdoor activities.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull outdoors;)
-+ (StyleURIObjc * _Nonnull)outdoors SWIFT_WARN_UNUSED_RESULT;
-/// Mapbox Light is a subtle, light-colored backdrop for data visualizations.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull light;)
-+ (StyleURIObjc * _Nonnull)light SWIFT_WARN_UNUSED_RESULT;
-/// Mapbox Dark is a subtle, dark-colored backdrop for data visualizations.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull dark;)
-+ (StyleURIObjc * _Nonnull)dark SWIFT_WARN_UNUSED_RESULT;
-/// The Mapbox Satellite style is a base-map of high-resolution satellite and aerial imagery.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull satellite;)
-+ (StyleURIObjc * _Nonnull)satellite SWIFT_WARN_UNUSED_RESULT;
-/// The Mapbox Satellite Streets style combines the high-resolution satellite and aerial imagery
-/// of Mapbox Satellite with unobtrusive labels and translucent roads from Mapbox Streets.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) StyleURIObjc * _Nonnull satelliteStreets;)
-+ (StyleURIObjc * _Nonnull)satelliteStreets SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

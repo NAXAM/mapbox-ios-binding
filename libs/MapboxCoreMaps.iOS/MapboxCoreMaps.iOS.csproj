@@ -52,11 +52,5 @@
       <Name>MapboxCommon.iOS</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <NativeReference Include="..\..\artifacts\MapboxCoreMaps.xcframework\ios-arm64\MapboxCoreMaps.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-    </NativeReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

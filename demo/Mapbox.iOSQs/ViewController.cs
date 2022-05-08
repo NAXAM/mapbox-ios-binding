@@ -5,6 +5,7 @@ using Foundation;
 using MapboxCoreMaps;
 using MapboxMaps;
 using UIKit;
+using MapboxMapsObjC;
 
 namespace Mapbox.iOSQs
 {
@@ -54,10 +55,11 @@ namespace Mapbox.iOSQs
         {
             base.ViewDidLoad();
 
-            var myResourceOptions = new MBMResourceOptions("pk.eyJ1IjoibmF4YW10ZXN0IiwiYSI6ImNqNWtpaG1oYTJqZmQyd28yM2tsdDhucmEifQ.Zr35ENq9tziBBDAbdeU2dw", null, null, null, null);
-            var myMapInitOptions = new MapInitOptions(myResourceOptions);
+            var myResourceOptions = new MBMResourceOptions(
+                "pk.eyJ1IjoibmF4YW10ZXN0IiwiYSI6ImNqNWtpaG1oYTJqZmQyd28yM2tsdDhucmEifQ.Zr35ENq9tziBBDAbdeU2dw", null, null, null, null);
+            var myMapInitOptions = MapInitOptionsFactory.CreateWithResourceOptions(myResourceOptions, null, null, (string)null);
             // Perform any additional setup after loading the view, typically from a nib.
-            var mapView = new MapView(
+            var mapView = MapViewFactory.CreateWithFrame(
                 View.Bounds,
                 myMapInitOptions
             );
