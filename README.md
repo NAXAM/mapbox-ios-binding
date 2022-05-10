@@ -43,6 +43,12 @@ Install-Package MapboxMapObjC.iOS
     </NativeReference>
   </ItemGroup>
 ```
+- 3/ Replace [your Mapbox access token](https://account.mapbox.com/) in `ViewController.cs`
+```
+var myResourceOptions = new MBMResourceOptions(
+                "your access token", // TODO Put your token here
+                null, null, null, null);
+```
 
 
 ## Upgrade

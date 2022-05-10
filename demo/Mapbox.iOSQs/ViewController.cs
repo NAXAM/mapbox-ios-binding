@@ -56,7 +56,8 @@ namespace Mapbox.iOSQs
             base.ViewDidLoad();
 
             var myResourceOptions = new MBMResourceOptions(
-                "your access token", null, null, null, null);
+                "pk.eyJ1IjoidHV5ZW52IiwiYSI6ImNsMnRqMjRzMzAzeHIzY285Ym5qMjkzcHQifQ.M_4KPJLYTVHpEKe07WP-Fg", // TODO Put your token here
+                null, null, null, null);
             var myMapInitOptions = MapInitOptionsFactory.CreateWithResourceOptions(myResourceOptions, null, null, (string)null);
             // Perform any additional setup after loading the view, typically from a nib.
             var mapView = MapViewFactory.CreateWithFrame(
